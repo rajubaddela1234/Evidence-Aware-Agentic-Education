@@ -1,0 +1,10 @@
+{"prompt_id":"FQ01","domain":"Computer Science / AI","reasoning_type":"conceptual","question":"How does retrieval-augmented generation improve LLM answers, and what can go wrong?"}
+{"prompt_id":"FQ02","domain":"Biology / Health Science","reasoning_type":"mechanism","question":"How do vaccines train the immune system, and why can booster doses be needed?"}
+{"prompt_id":"FQ03","domain":"Energy / Engineering","reasoning_type":"mechanism-and-factors","question":"How do solar photovoltaic panels convert sunlight into electricity, and what affects their output?"}
+{"prompt_id":"FQ04","domain":"Business / Economics","reasoning_type":"cause-effect-and-tradeoffs","question":"Why do central banks raise interest rates to reduce inflation, and what trade-offs can result?"}
+{"prompt_id":"FQ05","domain":"Earth Science / General Knowledge","reasoning_type":"causal","question":"How do tsunamis form, and why can they become more destructive near coastlines?"}
+{"prompt_id":"FQ06","domain":"Statistics / Research Methods","reasoning_type":"causal-inference-and-limitations","question":"Why can a correlation between two variables be misleading, and how can researchers assess causation?"}
+{"prompt_id":"FQ07","domain":"Microbiology / Public Health","reasoning_type":"mechanism-and-prevention","question":"How does antibiotic resistance develop and spread, and what can slow it down?"}
+{"prompt_id":"FQ08","domain":"Computer Networks / Cybersecurity","reasoning_type":"mechanism-and-threat-model","question":"How does HTTPS use TLS to secure web connections, and what threats does it not prevent?"}
+{"prompt_id":"FQ09","domain":"Physics / Astronomy","reasoning_type":"mechanism-and-factors","question":"How do stars produce energy through nuclear fusion, and what determines how long a star lives?"}
+{"prompt_id":"FQ10","domain":"Materials Science / Chemistry","reasoning_type":"chemical-mechanism-and-prevention","question":"How does iron rust, and what methods can prevent corrosion?"}

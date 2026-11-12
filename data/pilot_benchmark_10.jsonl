@@ -1,0 +1,10 @@
+{"prompt_id":"Q01","domain":"Computer Science / AI","reasoning_type":"mechanism-and-limitations","question":"How does self-attention help transformer models process language, and what limitations does it have?"}
+{"prompt_id":"Q02","domain":"Electrical / Energy","reasoning_type":"mechanism","question":"How does a lithium-ion battery store and release energy?"}
+{"prompt_id":"Q03","domain":"Environmental Science","reasoning_type":"cause-effect","question":"Why does climate change increase the risk of extreme weather?"}
+{"prompt_id":"Q04","domain":"Business / Economics","reasoning_type":"applied","question":"How does inflation affect ordinary people and businesses?"}
+{"prompt_id":"Q05","domain":"General Knowledge","reasoning_type":"causal","question":"Why do earthquakes happen, and why are some more destructive than others?"}
+{"prompt_id":"Q06","domain":"Cognitive Science / Education","reasoning_type":"learning-mechanism-and-conditions","question":"Why do spaced repetition and retrieval practice improve learning, and when might they be less effective?"}
+{"prompt_id":"Q07","domain":"Marine Chemistry / Environmental Science","reasoning_type":"chemical-mechanism-and-impacts","question":"How does ocean acidification happen, and why does it affect shell-building marine organisms?"}
+{"prompt_id":"Q08","domain":"Biochemistry / Molecular Biology","reasoning_type":"mechanism-and-conditions","question":"How do enzymes speed up chemical reactions, and how do temperature and pH affect their activity?"}
+{"prompt_id":"Q09","domain":"Neuroscience / Psychology","reasoning_type":"mechanism-and-consequences","question":"How does sleep help the brain consolidate memories, and what happens when sleep is cut short?"}
+{"prompt_id":"Q10","domain":"Aerospace / Physics","reasoning_type":"mechanism-and-limits","question":"How do airplane wings generate lift, and what causes a stall?"}
