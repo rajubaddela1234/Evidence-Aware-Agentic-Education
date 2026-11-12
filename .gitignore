@@ -17,10 +17,8 @@ data/arxiv_text_cache/
 Thumbs.db
 .pytest_tmp/
 
-outputs_final_10q/
 data/reference_pools_final_10q/
 
-outputs_final_10q/
 data/reference_pools_final_10q/
 outputs_pilot_10q/
 data/reference_pools_pilot_10q/
