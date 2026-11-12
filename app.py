@@ -78,7 +78,7 @@ def _video_output_path(*, system_id: str, script: str) -> Path:
 
 
 def _render_video_section(*, result, run_system_id: str, settings) -> None:
-    st.subheader("Optional video generation")
+    st.subheader("Video generation")
     st.caption(
         "Video rendering is manual. It starts only when you press the Generate video button; "
         "running the educational system does not create a video automatically."
