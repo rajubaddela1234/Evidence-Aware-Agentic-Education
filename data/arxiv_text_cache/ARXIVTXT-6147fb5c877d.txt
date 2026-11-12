@@ -1,0 +1,609 @@
+[Page 1]
+Does Gravity Care About Electric Charge?
+A Minimalist Model and Experimental Test
+Renato Vieira dos Santos
+UFLA – Universidade Federal de Lavras
+ICTIN – Instituto de Ciência, Tecnologia e Inovação
+CEP: 37950-000, São Sebastião do Paraíso, Minas Gerais, Brazil.
+renato.santos@ufla.br
+January 26, 2026
+Abstract
+Does gravity care about electric charge? Precision tests of the weak equivalence principle achieve remarkable sensitivity
+but deliberately minimize electric charge on test masses, leaving this fundamental question experimentally open. We
+present a minimalist framework coupling electromagnetism to linearized gravity through conservation of a complex
+charge-mass current, predicting charge-dependent violations ∆a/g = κ(q/m). Remarkably, this prediction occupies
+unexplored experimental territory precisely because precision gravity tests avoid charge variation. We identify this as
+a significant gap and propose a modified torsion balance experiment where q/m is treated as a controlled variable.
+Such an experiment could test whether gravitational acceleration depends on electric charge, probing physics in
+genuinely new parameter space. This work exemplifies how theoretical minimalism can reveal overlooked opportunities
+in fundamental physics.
+1
+Introduction
+Does gravity distinguish between charged and neutral
+matter? Intuitively, we expect the gravitational accel-
+eration of a body to depend only on its mass, not on
+its electric charge. This expectation is embodied in the
+weak equivalence principle (WEP), a cornerstone of gen-
+eral relativity and a benchmark for theories beyond the
+Standard Model. Remarkably, however, this intuition
+has never been directly tested for charged matter.
+Modern tests of the WEP achieve extraordinary precision,
+constraining differential acceleration between different
+materials to |∆a/g| < 10−15 [1, 2]. These impressive
+results share a critical methodological feature: they de-
+liberately minimize electric charge on test masses to
+suppress electrostatic backgrounds. In essence, preci-
+sion gravity experiments operate in the limit q/m →0.
+While this approach has enabled unprecedented tests for
+neutral matter, it leaves open a fundamental question:
+does the equivalence principle hold for charged bodies?
+In this work, we address this overlooked frontier with
+a deliberately minimalist approach. Rather than con-
+structing another elaborate unification scheme, we ask:
+what is the simplest theoretical structure that could
+couple electromagnetism to linearized gravity? Our an-
+swer begins with a single principle, the conservation of
+a complex charge-mass current, from which emerges a
+one-parameter theory predicting ∆a/g = κ(q/m). The
+dimensionless parameter κ quantifies EM-gravity mixing,
+with κ = 0 corresponding to standard physics where
+gravity is blind to charge.
+The prediction ∆a/g = κ(q/m) is clean, testable, and lies
+in experimentally uncharted territory precisely because
+high-precision experiments avoid charge variation. This
+reveals a significant gap in our experimental knowledge
+of gravity, a gap we propose to fill with a modified tor-
+sion balance experiment that treats q/m as a controlled
+variable rather than a background to be eliminated.
+Our work serves two purposes. First, it presents a min-
+imalist phenomenological model that makes sharp pre-
+dictions while introducing minimal additional structure.
+Second, it identifies and proposes to test an unexplored
+regime of experimental gravity. Beyond its specific predic-
+tions, the framework illustrates how theoretical minimal-
+ism can reveal overlooked opportunities in fundamental
+physics.
+Scope and limitations. We work exclusively with clas-
+sical Maxwell electrodynamics and linearized gravity in
+the weak-field approximation (gravitoelectromagnetism
+[3]), in flat spacetime.
+This is not a full unification
+with general relativity, nor does it address quantum as-
+pects; rather, it is an effective description that isolates
+the core conceptual issues of EM-gravity coupling while
+preserving mathematical transparency and testability.
+The restriction to linearized gravity is not only math-
+ematically convenient but also physically justified: the
+experiments we propose (torsion balances, free-fall tests,
+atom interferometry) operate in the weak-field regime
+1
+arXiv:2601.16325v1  [gr-qc]  22 Jan 2026
+
+[Page 2]
+where |Φ|/c2 ≪1 and gravitational waves are negligible.
+In this regime, linearized gravity provides an excellent
+approximation to full general relativity, while keeping
+the formalism transparent and directly testable.
+2
+The Complex Conservation Prin-
+ciple
+2.1
+Motivation: From Two Conservation Laws
+to One
+Both electromagnetism and gravity possess local conser-
+vation laws. For electromagnetism, charge conservation
+reads ∂tρe + ∇· Je = 0 [4]. For mass-energy in the
+non-relativistic limit, one has ∂tρm + ∇· Jm = 0. The
+mathematical similarity of these two laws suggests a
+deeper connection.
+We propose a single complex conserved quantity whose
+real and imaginary parts correspond to electromagnetic
+and gravitational charge, respectively. This approach
+draws inspiration from the Riemann–Silberstein vector
+F = E + icB [5], which unifies the electric and magnetic
+fields into a single complex object.
+2.2
+Complex Charge and Current
+For any particle or distribution, we define a complex
+charge:
+Q = q + iλm,
+(1)
+where q is the electric charge, m is the gravitational mass
+(which coincides with inertial mass in the κ →0 limit),
+and λ = √4πϵ0G ensures dimensional consistency.
+The introduction of the imaginary unit i serves a deeper
+purpose. In standard physics, like electric charges repel
+while masses attract. This sign difference finds a natural
+representation through complexification, with i2 = −1
+generating the relative sign.
+The corresponding complex four-current density is:
+J µ = (ρV + iρW , JV + iJW ) = Jµ
+V + iJµ
+W ,
+(2)
+where ρV and ρW are the charge and mass densities,
+respectively.
+2.3
+The Fundamental Postulate
+The single foundational postulate of our theory is local
+conservation:
+∂µJ µ = 0.
+(3)
+Separating real and imaginary parts recovers the indi-
+vidual conservation laws for charge and mass.
+This complex conservation represents the minimal depar-
+ture from standard physics: it replaces two separate con-
+servation equations with one complex equation, adding
+no new fields, dimensions, or symmetries. Our minimal-
+ist model can therefore be viewed as an effective field
+theory for low-energy EM-gravity coupling.
+This approach finds further motivation in the work of
+Heras [6], who demonstrated that Maxwell’s equations
+can be derived from the continuity equation. Here we
+extend that logic by postulating a single complex con-
+tinuity equation for the combined charge-mass current,
+from which the coupled field equations naturally follow.
+3
+Field Structure from Minimal
+Assumptions
+The conservation of the complex current ∂µJ µ = 0
+naturally calls for a field that mediates the interaction
+between sources. In electromagnetism, the conservation
+of charge leads to the introduction of a four-potential
+from which the field strength is derived. By analogy, we
+now introduce a complex four-potential whose derivatives
+yield the unified field tensor.
+3.1
+Complex Potential and Field Tensor
+Guided by the analogy with electromagnetism, we intro-
+duce a complex four-potential
+Aµ = (ϕV + iϕW , V + iW) = V µ + iW µ,
+(4)
+whose real part V µ corresponds to the usual electromag-
+netic potential and whose imaginary part W µ encodes the
+gravitational (gravitoelectromagnetic) potential. This
+single object unifies the two sectors while keeping their
+respective physical interpretations transparent.
+From this potential, the field-strength tensor follows as
+the antisymmetric derivative
+Fµν = ∂µAν −∂νAµ,
+(5)
+which generalizes the Maxwell tensor to the complex
+domain. The tensor Fµν inherits gauge invariance under
+Aµ →Aµ + ∂µχ and automatically satisfies the Bianchi
+identity.
+In three-vector notation, the complex electric and mag-
+netic fields are obtained as
+E = −∇(ϕV + iϕW ) −∂t(V + iW),
+B = ∇× (V + iW),
+(6)
+which reduce to the standard electromagnetic and gravi-
+toelectromagnetic expressions when κ = 0. The structure
+is thus a direct complex extension of the familiar Maxwell
+and linear-gravity formulations.
+3.2
+Constitutive Relations
+Since the complex fields E and B are mathematical
+constructs, the physically observable fields must be real.
+We therefore posit that the physical electric field EV
+and gravitational field EW are real linear combinations
+of the real and imaginary parts of the complex fields:
+EV
+EW
+
+= M
+Re(E)
+Im(E)
+
+,
+BV
+BW
+
+= M
+Re(B)
+Im(B)
+
+, (7)
+where M is a real 2 × 2 mixing matrix to be determined.
+The form of M is constrained by three physical require-
+ments: (i) the observable fields must be real; (ii) the elec-
+tromagnetic and gravitational sectors should be treated
+2
+
+[Page 3]
+symmetrically; (iii) standard physics must be recovered
+when κ = 0. Imposing these conditions yields a unique
+solution:
+M =
+1
+κ
+κ
+−1
+
+.
+(8)
+The structure of M is revealing. The off-diagonal el-
+ements κ quantify the cross-coupling: electric charge
+contributes to the gravitational field and mass to the
+electric field, with the same strength. The negative sign
+in the lower-right entry emerges directly from the imagi-
+nary unit in the complex charge Q = q + iλm. Because
+i2 = −1, this sign distinguishes the attractive nature
+of gravity from the repulsive character of like electric
+charges, a fundamental distinction encoded here in the
+simplest possible linear way.
+Thus, the single parameter κ measures the minimal mix-
+ing between electromagnetism and linearized gravity. In
+the limit κ →0 the matrix becomes diagonal and the
+two sectors decouple completely, restoring the standard
+description.
+4
+Unified Field Equations
+4.1
+Constitutive Relations in Explicit Form
+With the mixing matrix M given by Eq. (8), the complex
+fields E and B can be expressed in terms of the physical
+electric and gravitational fields as:
+E = (EV + κEW ) + i(κEV −EW ),
+B = (BV + κBW ) + i(κBV −BW ).
+(9)
+These relations show how the complex formalism encap-
+sulates both sectors: the real parts combine the famil-
+iar electric and gravitational fields with a cross-term
+proportional to κ, while the imaginary parts carry the
+complementary mix with a relative sign change. This
+structure ensures that the observable fields, obtained by
+taking real projections, are influenced by both charge
+and mass when κ̸ = 0.
+4.2
+Covariant Formulation
+The field equations follow naturally from the complex
+potential Aµ and the field tensor Fµν = ∂µAν −∂νAµ.
+The inhomogeneous equation
+∂νFµν = µ0J µ,
+(10)
+together with the homogeneous Bianchi identity
+∂αFβγ + ∂βFγα + ∂γFαβ = 0,
+(11)
+form a complete set of complex Maxwell-like equations.
+Both equations are manifestly gauge invariant under
+Aµ →Aµ + ∂µχ and Lorentz invariant, preserving the
+spacetime symmetry of the underlying framework.
+4.3
+3+1 Vector Form and Physical Interpreta-
+tion
+Separating the real and imaginary parts of the covariant
+equations yields a coupled set of vector equations for the
+electric (V ) and gravitational (W) sectors:
+∇· (EV + κEW ) = ρV
+ϵ0
+,
+(12)
+∇· (κEV −EW ) = ρW
+ϵg
+,
+(13)
+∇× (BV + κBW ) −1
+c2 ∂t(EV + κEW ) = µ0JV ,
+(14)
+∇× (κBV −BW ) −1
+c2 ∂t(κEV −EW ) = µgJW , (15)
+where ϵg = 1/(4πG) and µg = 4πG/c2 are the gravita-
+tional permittivity and permeability, respectively.
+Equation (12) is the modified Gauss law for electricity:
+the divergence of the mixed field EV + κEW is sourced
+by the electric charge density ρV . Similarly, (13) is the
+gravitational Gauss law, but now the gravitational field
+EW is partly sourced by electric charge through the term
+κEV . This cross-coupling is the hallmark of the model:
+electric charge contributes to the gravitational field, and
+mass contributes to the electric field, both with the same
+strength parameter κ.
+The Ampère–Maxwell laws, Eqs. (14) and (15), show how
+time-varying mixed fields generate curled magnetic and
+gravitomagnetic components. The coupling is symmetric:
+κ appears with the same magnitude in all equations,
+reflecting the minimal and democratic mixing between
+the two sectors.
+The homogeneous equations retain their standard form,
+but now involve the mixed fields, ensuring that the prop-
+agation of disturbances respects causality and remains
+consistent with linearized gravity and electromagnetism.
+Thus, the unified equations provide a consistent classi-
+cal framework in which electromagnetism and gravity
+interact at the level of field sources, without introducing
+new dynamical degrees of freedom or breaking gauge
+invariance. The parameter κ quantifies the strength of
+this interaction, which vanishes in the limit of standard
+physics but opens a new phenomenological window if
+non-zero.
+5
+Physical Consequences and Pre-
+dictions
+5.1
+Static Point Charge and the Emergence of
+Cross-Coupling
+The physical content of the model becomes clear when we
+examine the fields produced by a simple source: a point
+particle at rest with electric charge q and gravitational
+mass m. Solving the unified field equations yields:
+EV (r) =
+1
+4πϵ0(1 + κ2)
+ q
+r2 + κ m
+λr2
+
+ˆr,
+(16)
+EW (r) =
+1
+4πϵg(1 + κ2)
+
+κ q
+λr2 −m
+r2
+
+ˆr.
+(17)
+These solutions reveal the essential feature of the theory:
+cross-sector coupling. The electric field EV receives
+3
+
+[Page 4]
+a contribution proportional to κm, meaning that mass
+sources an electric field. Conversely, the gravitational
+field EW contains a term proportional to κq, so that
+electric charge sources gravity.
+This is the minimal
+realization of the idea that charge and mass are two
+aspects of a unified complex charge.
+The factor (1+κ2)−1 appears as a global renormalization
+of both Coulomb and Newtonian forces, slightly weaken-
+ing them relative to their standard forms. In the limit
+κ →0, we recover the familiar Coulomb and Newtonian
+fields separately. For small κ, the cross-terms represent
+a tiny but potentially detectable violation of the usual
+separation between electromagnetic and gravitational
+phenomena.
+5.2
+Force Law and the Violation of the Weak
+Equivalence Principle
+The equation of motion for a test particle follows from
+the Lorentz-force analogue in the complex formulation.
+For a particle with complex charge Qt = qt + iλmt, the
+force is:
+F = Re [Qt(E + v × B)] .
+(18)
+Consider now the motion in a purely gravitational field,
+where EW = g and EV = 0 (or negligible). The acceler-
+ation becomes:
+a = −g + κ qt
+mt
+g.
+(19)
+The first term is the standard gravitational acceleration,
+independent of the test particle’s composition. The sec-
+ond term, proportional to κ, depends explicitly on the
+charge-to-mass ratio qt/mt of the test body. This con-
+stitutes a direct violation of the weak equivalence
+principle: bodies with different q/m ratios fall with
+different accelerations in the same gravitational field.
+For two test masses with charge-to-mass ratios (q/m)1
+and (q/m)2, the differential acceleration normalized by
+g is:
+∆a
+g
+= κ
+h q
+m
+
+1 −
+ q
+m
+
+2
+i
+.
+(20)
+Equation (20) is the central testable prediction of the
+model. It is linear in κ and linear in the difference of q/m
+ratios. Crucially, for neutral matter (q = 0), the violation
+vanishes, explaining why existing high-precision WEP
+tests, which deliberately use neutral or nearly neutral
+test masses, are blind to this effect.
+The prediction
+occupies virgin experimental territory precisely because
+it targets a regime (q/m varied and non-zero) that has
+been systematically avoided to suppress electrostatic
+backgrounds.
+Phenomenological stance and limitations
+This model is presented as a minimal phenomenological
+parameterization that captures a possible charge-induced
+violation of the weak equivalence principle. We have de-
+liberately chosen a linear formulation in the complex
+current to maintain transparency and direct testability,
+leaving more complete theoretical extensions (variational
+actions, embedding in non-linear general relativity) for
+future work, should experimental evidence warrant it.
+Our primary aim is to highlight an experimental regime
+that, to the best of our knowledge, has not been system-
+atically investigated in high-precision WEP tests—since
+such experiments deliberately suppress electrostatic back-
+grounds by minimizing charge-to-mass ratios—and to
+provide a clean, one-parameter target for a controlled
+laboratory test where q/m is varied intentionally.
+5.3
+Contrast with Other Approaches to EM–
+Gravity Coupling
+The minimalism of our proposal stands out when con-
+trasted with other routes to coupling electromagnetism
+and gravity. In theories with extra dimensions or dy-
+namical scalar fields [7, 8], the coupling is typically
+environment-dependent or mediated by new light par-
+ticles, leading to composition-dependent but not neces-
+sarily charge-linear effects. Axion-like couplings [9], for
+instance, produce optical birefringence and CP-violating
+effects rather than a straightforward q/m-dependent vi-
+olation of the equivalence principle. Non-minimal cou-
+plings in curved spacetime (such as RFµνF µν) generally
+introduce energy or curvature dependence [10], not a
+clean linear dependence on charge-to-mass ratio. Pro-
+posals from supersymmetry or string-inspired scenarios
+often predict forces that depend on baryon number or
+spin, but not directly on q/m in the simple linear form
+derived here [11, 12].
+What distinguishes the present framework is its parsi-
+mony: a single dimensionless constant κ, no new dynam-
+ical fields, no extra dimensions, and a prediction that
+is both sharp and immediately testable with existing
+laboratory technology. The signature ∆a/g ∝q/m is
+unique to this minimal complex-conservation approach,
+offering a clear target for experimental exploration.
+6
+Experimental Pathway and Theo-
+retical Implications
+The linear prediction ∆a/g = κ(q/m) points to a clear
+experimental signature: a differential acceleration be-
+tween test bodies with different charge-to-mass ratios.
+In contrast to traditional equivalence-principle tests that
+minimize q/m to avoid electrostatic backgrounds [1, 2],
+the proposed approach intentionally varies q/m as an
+independent variable. Torsion balances, with their excep-
+tional torque sensitivity and well-understood techniques
+for controlling electromagnetic disturbances [2, 13], of-
+fer a natural platform for such a measurement. The
+key innovation is methodological: instead of suppress-
+ing charge, one controls and modulates it, turning a
+traditional nuisance into the central observable.
+Other experimental platforms could complement torsion-
+balance tests. Free-fall experiments in vacuum towers
+[14], space-based microgravity missions [1], and atom
+4
+
+[Page 5]
+interferometry with charged particles [15] each offer dif-
+ferent systematics and sensitivity profiles. What unites
+them is the focus on the previously avoided regime where
+q/m is non-negligible and systematically varied.
+The theoretical implications are equally sharp. A non-
+zero κ would indicate that electric charge and gravita-
+tional mass are not independent attributes but different
+components of a unified complex charge, with conserva-
+tion laws intertwined. This would represent a minimal
+violation of the traditional separation between electro-
+magnetism and gravity, one that could be embedded
+in an effective field theory framework without introduc-
+ing new dynamical fields or extra dimensions [8, 16].
+Conversely, a null result would place a new empirical
+constraint on linear charge-mass mixing and lend support
+to a deeper symmetry protecting the distinctness of the
+two interactions [17].
+Thus, the proposal bridges a long-overlooked gap in
+experimental gravity and provides a clear phenomeno-
+logical target. Its minimalism ensures that any outcome,
+whether a discovery or a new constraint, will inform the
+broader quest to understand how gravity couples to the
+other fundamental interactions.
+7
+Conclusion
+A simple, yet fundamental question, Does gravity care
+about electric charge?, has led to a model of remarkable
+economy and an untested experimental frontier. By uni-
+fying charge and mass conservation into a single complex
+current, we have derived the minimal coupling between
+electromagnetism and linearized gravity, encapsulated in
+a single dimensionless parameter κ and the prediction
+∆a/g = κ(q/m).
+What is most revealing is not merely the theoretical
+result, but the methodological blind spot it exposes:
+precision tests of the equivalence principle, despite their
+extraordinary sensitivity, have operated in the limit of
+vanishing charge-to-mass ratio. In avoiding electrostatic
+backgrounds, they have left a fundamental aspect of
+gravity unexplored. Our proposal inverts that logic: treat
+q/m as a controlled variable, not a nuisance, and use a
+modified torsion balance, or other precision platforms, to
+directly probe whether gravitational acceleration depends
+on electric charge.
+Whatever the experimental outcome, the implications
+are profound. A non-zero κ would mean that electric
+charge and gravitational mass are different faces of a
+unified quantity, with conservation laws intertwined. A
+null result would instead reinforce a deep symmetry that
+protects their independence. Either way, we learn some-
+thing essential about how nature separates, or connects,
+its fundamental interactions.
+This work underscores the power of theoretical mini-
+malism. In a landscape often dominated by elaborate
+unification schemes, returning to elementary questions
+and the simplest possible structures can uncover over-
+looked opportunities. The question we started with is
+both simple and consequential, and it is now ripe for an
+experimental answer.
+The way forward is clear: test whether gravity distin-
+guishes between charged and neutral matter. Whatever
+the answer, it will shed new light on one of the oldest
+puzzles in physics: how gravity fits into the fabric of the
+other forces.
+References
+[1] P. Touboul et al., MICROSCOPE Mission: First
+Results of a Space Test of the Equivalence Principle,
+Phys. Rev. Lett. 119, 231101 (2017).
+[2] T. A. Wagner, S. Schlamminger, J. H. Gundlach,
+and E. G. Adelberger, Torsion-balance tests of the
+weak equivalence principle, Class. Quantum Grav.
+29, 184002 (2012).
+[3] B. Mashhoon, Gravitoelectromagnetism: A Brief
+Review, arXiv:gr-qc/0311030 (2003).
+[4] J. D. Jackson, Classical Electrodynamics, 3rd ed.
+(Wiley, 1999).
+[5] I. Bialynicki-Birula and Z. Bialynicka-Birula, The
+Riemann-Silberstein vector in the description of clas-
+sical electromagnetic fields, J. Phys. A: Math. Theor.
+46, 053001 (2013).
+[6] J. A. Heras, Can Maxwell’s equations be obtained
+from the continuity equation?, Am. J. Phys. 75,
+652–657 (2007).
+[7] J. M. Overduin and P. S. Wesson, Kaluza-Klein
+gravity, Phys. Rep. 283, 303-378 (1997).
+[8] C. P. Burgess, Quantum gravity in everyday life:
+General relativity as an effective field theory, Living
+Rev. Relativ. 7, 5 (2004).
+[9] F. Wilczek, Two applications of axion electrodynam-
+ics, Phys. Rev. Lett. 58, 1799-1802 (1987).
+[10] I. L. Buchbinder and I. Shapiro, Introduction to
+Quantum Field Theory with Applications to Quan-
+tum Gravity (Oxford University Press, 2022) [Ch.
+10 on non-minimal couplings].
+[11] S. Dimopoulos and G. F. Giudice, Macroscopic
+forces from supersymmetry, Phys. Lett. B 379, 105-
+114 (1996).
+[12] J. Polchinski, String Theory (Cambridge University
+Press, 1998).
+[13] S. K. Lamoreaux, Demonstration of the Casimir
+force in the 0.6 to 6 µm range, Phys. Rev. Lett. 78,
+5-8 (1997).
+[14] A. M. Nobili and D. M. Lucchesi, The principle of
+equivalence and the free-fall experiment in a satellite,
+Int. J. Mod. Phys. D 21, 1241005 (2012).
+5
+
+[Page 6]
+[15] P. Hamilton et al., Atom interferometry in an optical
+cavity, Phys. Rev. Lett. 114, 100405 (2015).
+[16] J. F. Donoghue, General relativity as an effective
+field theory: The leading quantum corrections, Phys.
+Rev. D 50, 3874-3888 (1994).
+[17] C. M. Will, The Confrontation between General
+Relativity and Experiment, Living Rev. Relativ. 17,
+4 (2014).
+[18] T. J. Quinn et al., Improved determination of G
+using two methods, Phys. Rev. Lett. 113, 039901
+(2014).
+[19] E. G. Adelberger, B. R. Heckel, and A. E. Nel-
+son, Tests of the gravitational inverse-square law,
+arXiv:hep-ph/0307284 (2003).
+[20] C. W. Misner, K. S. Thorne, and J. A. Wheeler,
+Gravitation (Freeman, 1973).
+6

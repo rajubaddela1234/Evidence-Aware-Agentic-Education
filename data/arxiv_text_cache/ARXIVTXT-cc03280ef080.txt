@@ -1,0 +1,2182 @@
+[Page 1]
+Distinguishing correlation from causation using
+genome-wide association studies
+Luke J. O’Connor
+Department of Epidemiology
+Harvard T.H. Chan School of Public Health
+Boston, MA 02115
+loocnnor@g.harvard.edu
+Alkes L. Price
+Department of Epidemiology
+Harvard T.H. Chan School of Public Health
+Boston, MA 02115
+aprice@hsph.harvard.edu
+Abstract
+Genome-wide association studies (GWAS) have emerged as a rich source of genetic
+clues into disease biology, and they have revealed strong genetic correlations
+among many diseases and traits. Some of these genetic correlations may reﬂect
+causal relationships. We developed a method to quantify causal relationships
+between genetically correlated traits using GWAS summary association statistics.
+In particular, our method quantiﬁes what part of the genetic component of trait 1 is
+also causal for trait 2 using mixed fourth moments E(α2
+1α1α2) and E(α2
+2α1α2)
+of the bivariate effect size distribution. If trait 1 is causal for trait 2, then SNPs
+affecting trait 1 (large α2
+1) will have correlated effects on trait 2 (large α1α2), but
+not vice versa. We validated this approach in extensive simulations. Across 52 traits
+(average N = 331k), we identiﬁed 30 putative genetically causal relationships,
+many novel, including an effect of LDL cholesterol on decreased bone mineral
+density. More broadly, we demonstrate that it is possible to distinguish between
+genetic correlation and causation using genetic association data.
+This manuscript is an abridged version of O’Connor and Price 2018 Nature Genetics1.
+Genome-wide association studies (GWAS) have identiﬁed thousands of common genetic variants
+(SNPs) affecting disease risk and other complex traits.2–6 The same SNPs often affect multiple traits,
+resulting in a genetic correlation: genetic effect sizes are correlated across the genome, and so are the
+traits themselves.7–10 Some genetic correlations may result from causal relationships. For example,
+SNPs that cause higher triglyceride levels reliably confer increased risk of coronary artery disease.11
+This causal inference approach, using genetic variants as instrumental variables,12,13 is known as
+Mendelian Randomization (MR).14–16 However, genetic variants often have shared, or “pleiotropic”,
+effects on multiple traits even in the absence of a causal relationship, and pleiotropy is a challenge
+for MR, especially when it leads to a strong genetic correlation.8–10,14,16 Statistical methods have
+been used to account for certain kinds of pleiotropy;9,10,17–20 however, these approaches too are
+easily confounded by genetic correlations due to pleiotropy. Here, we develop a robust method to
+distinguish whether a genetic correlation results from pleiotropy or from causality.
+1
+Latent causal variable model
+The latent causal variable (LCV) model features a latent variable L that mediates the genetic correla-
+tion between the two traits (Figure 1a). More abstractly, L represents the shared genetic component
+of both traits. Trait 1 is fully genetically causal for trait 2 if it is perfectly genetically correlated with
+L; “fully” means that the entire genetic component of trait 1 is causal for trait 2 (Figure 1b). More
+generally, trait 1 is partially genetically causal for trait 2 if the latent variable has a stronger genetic
+correlation with trait 1 than with trait 2; “partially” means that part of the genetic component of trait 1
+Machine Learning for Health (ML4H) Workshop at NeurIPS 2018.
+arXiv:1811.08803v1  [stat.ME]  21 Nov 2018
+
+[Page 2]
+Genotype
+Value of trait k
+Effect of      on
+Effect of      on
+Effect of      on
+not mediated by
+Latent causal variable
+(b)
+(a)
+Figure 1: Illustration of the latent causal variable model. We display the relationship between
+genotypes X, latent causal variable L and trait values Y1 and Y2. (a) General case of the model. (b)
+Special case of full genetic causality: when q1 = 1, the genetic component of Y1 is equal to L.
+is causal for trait 2. In equations, Y1 and Y2 are modeled as linear functions of the genotype vector,
+X, and uncorrelated noise, ϵ (a linear model is appropriate, due to the small effect sizes of individual
+variants):
+Y1 = q1Xπ + Xγ1 + ϵ1,
+Y2 = q2Xπ + Xγ2 + ϵ2.
+(1)
+where qk is a scalar representing the effect of L on trait k, Xπ represents the shared genetic component
+L, and γkX represents the trait-speciﬁc genetic component of trait k (see Figure 1). In order to
+quantify partial causality, we deﬁne the genetic causality proportion (gcp) of trait 1 on trait 2. The
+gcp is deﬁned as the number x such that:
+q2
+2/q2
+1 = (ρ2)x,
+(2)
+where ρ = q1q2 is the genetic correlation.8 The gcp ranges from −1 to 1. When it is positive, q1 is
+greater than q2, and trait 1 is partially genetically causal for trait 2. When it is equal to 1, q1 is equal
+to one, Y1 is fully genetically correlated with L, and trait 1 is fully genetically causal. When it is 0,
+there is no partial causality; L explains the same proportion of heritability for both traits. A high value
+of gcp implies that interventions targeting trait 1 are likely to affect trait 2, and an intermediate value
+implies that some interventions targeting trait 1 may affect trait 2, depending on their mechanism of
+action. However, we caution that an intervention may fail to mimic genetic perturbations, e.g. due to
+its timing relative to disease progression.
+The LCV model makes one fundamental assumption, that the bivariate effect size distribution (α1, α2)
+is a sum of two independent distributions: (1) a shared genetic component (q1π, q2π), whose values
+are proportional for both traits; and (2) a trait-speciﬁc distribution (γ1, γ2) whose density is mirror
+symmetric across both axes (i.e., (γ1, γ2) ∼(−γ1, γ2) ∼(γ1, −γ2)). This assumption is much
+weaker than the “exclusion restriction" assumption of MR;16 in particular, the LCV model permits
+both correlated pleiotropic effects (mediated by L) and uncorrelated pleiotropic effects (not mediated
+by L), while the exclusion restriction assumption permits neither. Linkage disequilibrium (LD) is not
+central to the model, but this assumption pertains to the marginal effect size distribution (inclusive of
+LD). This model and the ways it could be violated are discussed in greater detail in the Appendix.
+2
+Inference using fourth moments
+In order to test for partial genetic causality and to estimate the gcp, we compare the mixed fourth
+moments E(α2
+1α1α2) and E(α2
+2α1α2) of the marginal SNP-effect-size distribution. The rationale for
+utilizing these mixed fourth moments is that if trait 1 is causal for trait 2, then SNPs with large effects
+on trait 1 (i.e. large α2
+1) will have proportional effects on trait 2 (large α1α2), so that E(α2
+1α1α2)
+will be large; conversely, SNPs with large effects on trait 2 (large α2
+2) will generally not affect trait 1
+(small α1α2), so that E(α2
+2α1α2) will not be as large. Thus, estimates of the mixed fourth moments
+can be used to test for partial genetic causality and to estimate the gcp.
+2
+
+[Page 3]
+In particular, we utilize the following relationship between the mixed fourth moments and the
+parameters q1 and q2 (Figure 1; see Appendix for derivation):
+E(α3
+1α2) = κπq3
+1q2 + 3ρ,
+(3)
+where π is the effect of a SNP on L and κπ = E(π4) −3 is the excess kurtosis of π. This equation
+implies that if E(α3
+1α2)2 ≥E(α1α3
+2)2, then q2
+1 ≥q2
+2. We note that when κπ = 0, and in particular
+when π follows a normal distribution, this equation is not useful for inference and the model is
+unidentiﬁable.
+We calculate statistics S(x) for each possible value of gcp = x, based on equation (3). These
+statistics utilize estimates of the heritability and the genetic correlation,8,21 in addition to the mixed
+fourth moments. We estimate the variance of these statistics using a block jackknife and obtain an
+approximate likelihood function for the gcp. We compute a posterior mean estimate of gcp (and
+a posterior standard deviation) using a uniform prior on [−1, 1]. We test the null hypothesis (that
+gcp = 0) using the statistic S(0). Further details of the method are provided in the Appendix.
+Open source implementations of the LCV method in Matlab and R are available at github.com/
+lukejoconnor/LCV.
+Pos rate ( =0.05)
+(a) Uncorrelated
+pleiotropic effects
+(b) nonzero
+genetic correlation
+(c) Unequal
+polygenicity
+(d) Unequal
+power
+MR
+MR-egger
+Bi-MR
+LCV
+Figure 2: Null simulations with no LD to assess calibration. We report the false positive rate
+(α = 0.05) for a causal (or partially causal) effect. (a) Pleiotropic SNPs have uncorrelated effects
+on the two traits (ρ = 0). (b) Pleiotropic SNPs have correlated effects on the two traits, resulting
+in a genetic correlation (ρ = 0.2). (c) Trait-speciﬁc SNPs have unequal polygenicity (4× different)
+between the two traits (ρ = 0.2). (d) The two traits have unequal sample size (5× different; ρ = 0.2).
+0
+0.5
+1
+Pos rate ( =0.001)
+(a) Default parameters
+0
+0.5
+1
+(b) High/low N1
+0
+0.5
+1
+(c) High/low N2
+MR
+MR-Egger
+Bi-MR
+LCV
+Figure 3: Causal simulations with no LD to assess power. We report true the positive rate (α = 0.001)
+for a (partially) causal effect. (a) Causal simulations with default parameters. (b) Higher (unﬁlled) or
+lower (ﬁlled) sample size for trait 1. (c) Higher (unﬁlled) or lower (ﬁlled) sample size for trait 2.
+3
+Simulations
+To compare LCV with existing causal inference methods, we performed simulations involving
+simulated GWAS summary statistics with no LD. We compared four main methods: LCV, random-
+effect two-sample MR22 (denoted MR), MR-Egger,17 and Bidirectional MR.9 We applied each
+method to simulated GWAS summary statistics for two traits, testing for causality.
+We compared the false positive rate of LCV and MR in null simulations (gcp = 0) with pleiotropy.
+There were N = 100k samples, M = 50k SNPs, and heritability h2 = 0.3. First, we performed
+simulations with uncorrelated pleiotropic effects (via γ1, γ2; see Figure 1a) and zero genetic cor-
+relation. All four methods produced well-calibrated or conservative p-values (Figure 2a). Second,
+3
+
+[Page 4]
+we performed null simulations with a nonzero genetic correlation (ρ = 0.2). MR and MR-Egger
+both exhibited severely inﬂated false positive rates; in contrast, Bidirectional MR and LCV produced
+well-calibrated p-values (Figure 2b). Third, we performed null simulations with a nonzero genetic
+correlation and differential polygenicity in the non-shared genetic architecture between the two traits.
+Because causal SNPs affecting trait 1 only had larger effect sizes than SNPs affecting trait 2 only, they
+were more likely to be genome-wide signiﬁcant, and as a result, Bidirectional MR (and other MR
+methods) exhibited inﬂated false positive rates. In contrast, LCV produced well-calibrated p-values
+(Figure 2c). Fourth, we performed null simulations with a nonzero genetic correlation and unequal
+sample size for the two traits, reducing the sample size from 100k to 20k for trait 2. The MR methods,
+including bidirectional MR, exhibited inﬂated false positive rates, unlike LCV (Figure 2d).
+We sought to compare the power of LCV and MR to detect a causal effect in simulations with
+full genetic causality (gcp = 1). First, we performed causal simulations with reduced sample size
+(N = 25k), and a causal effect size of q2 = 0.2. LCV and MR were well-powered to detect a causal
+effect, while Bidirectional MR and MR-Egger had lower power. Second, we reduced the sample
+size for trait 1 (Figure 9.3b), ﬁnding that LCV had high power while the MR methods had very low
+power, owing to the small number of genome-wide signiﬁcant SNPs. Third, we reduced the sample
+size for trait 2 (Figure 9.3c). LCV and MR had high power, while Bidirectional MR and MR-Egger
+had lower power.
+Simulations involving LCV model violations and LD are described in the Appendix. We conclude
+that MR methods, including methods that purportedly account for pleiotropy, are easily confounded.
+In contrast, LCV is well-calibrated and well-powered across diverse genetic architectures.
+4
+Results on 52 diseases and complex traits
+We applied LCV and the MR methods to GWAS summary statistics for 52 diseases and complex
+traits, including 37 from UK Biobank23–25 (average N = 337k; see Table 1 in Appendix). 429 trait
+pairs (32%) had a nominally signiﬁcant genetic correlation (p < 0.05). We applied LCV to these
+trait pairs and detected signiﬁcant evidence of full or partial genetic causality for 59 trait pairs (FDR
+< 1%), including 30 trait pairs with ˆ
+gcp > 0.6 (Table 2 in Appendix).
+Myocardial infarction (MI) had a nominally signiﬁcant genetic correlation with 31 other traits, of
+which six had signiﬁcant evidence for a fully or partially genetically causal effect on MI (Table 2 in
+Appendix). Consistent with previous studies, these traits included LDL and high cholesterol,15,26
+triglycerides11 and BMI,27 but not HDL.15 We also detected evidence for a fully or partially genetically
+causal effect of hypothyroidism; such an effect is mechanistically plausible.28,29
+We detected evidence for a negative genetically causal effect of LDL on bone mineral density
+(BMD; Table 2). This result is consistent with preliminary clinical evidence,30 and familial defective
+apolipoprotein B leads to high LDL cholesterol and low bone mineral density.31 Larger clinical trials
+of LDL lowering for individuals at risk of osteoporosis may be warranted, although we caution that
+the effect size is not expected to be large.
+In order to evaluate whether the limitations of MR observed in simulations are also observed in
+analyses of real traits, we applied MR to all 429 genetically correlated trait pairs. MR reported
+signiﬁcant causal relationships (1% FDR) for 271/429 trait pairs, including 155 pairs of traits for
+which each trait was reported to be causal for the other. This implausible result conﬁrms that MR
+frequently produces false positives due to genetic correlations, consistent with simulations (Figure 2).
+Our method represents an advance for two main reasons. First, LCV reliably distinguishes between
+genetic correlation and causation. Unlike existing methods, LCV produces well-calibrated false
+positive rates in null simulations and plausible results on real data. Second, we deﬁne and estimate
+the genetic causality proportion (gcp) to quantify the degree of causality non-dichotomously. We
+found that 29/59 signiﬁcant trait pairs had gcp estimates below 0.6; these trait pairs, while potentially
+interesting, probably do not reﬂect fully causal relationships. However, an important limitation of
+this study is that it models only two traits and only one latent variable; it cannot be used to perform
+conditional analyses with multiple traits, and it may miss causal effects when additional shared
+pathways also contribute to the genetic correlation. Nonetheless, we anticipate that LCV will be
+widely used as genetic association data becomes available for increasing numbers of diseases and
+potentially causal traits.
+4
+
+[Page 5]
+References
+[1] O’Connor, Luke J. and Alkes L. Price. “Distinguishing genetic correlation from causation across
+52 diseases and complex traits." Nature genetics (2018).
+[2] Altshuler, David, Peter Donnelly, and International HapMap Consortium. “A haplotype map of
+the human genome." Nature 437.7063 (2005): 1299.
+[3] International Schizophrenia Consortium. “Common polygenic variation contributes to risk of
+schizophrenia and bipolar disorder." Nature 460.7256 (2009): 748.
+[4] Okada, Yukinori, et al. “Genetics of rheumatoid arthritis contributes to biology and drug discov-
+ery." Nature 506.7488 (2014): 376.
+[5] Wood, Andrew R., et al. “Deﬁning the role of common variation in the genomic and biological
+architecture of adult human height." Nature genetics 46.11 (2014): 1173.
+[6] Visscher, Peter M., et al. “10 years of GWAS discovery: biology, function, and translation." The
+American Journal of Human Genetics 101.1 (2017): 5-22.
+[7] Cross-Disorder Group of the Psychiatric Genomics Consortium. “Identiﬁcation of risk loci with
+shared effects on ﬁve major psychiatric disorders: a genome-wide analysis." The Lancet 381.9875
+(2013): 1371-1379.
+[8] Bulik-Sullivan, Brendan, et al. “An atlas of genetic correlations across human diseases and traits."
+Nature genetics 47.11 (2015): 1236-1241.
+[9] Pickrell, Joseph K., et al. “Detection and interpretation of shared genetic inﬂuences on 42 human
+traits." Nature genetics 48.7 (2016): 709.
+[10] Verbanck, Marie, et al. “Detection of widespread horizontal pleiotropy in causal relationships
+inferred from Mendelian randomization between complex traits and diseases." Nature genetics
+50.5 (2018): 693.
+[11] Do, Ron, et al. “Common variants associated with plasma triglycerides and risk for coronary
+artery disease." Nature genetics 45.11 (2013): 1345.
+[12] Pearl, Judea. Causality: Models, Reasoning, and Inference. New York: Cambridge University
+Press, 2000.
+[13] Angrist, Joshua D., and Alan B. Krueger. "Instrumental variables and the search for identiﬁcation:
+From supply and demand to natural experiments." Journal of Economic perspectives 15.4 (2001):
+69-85.
+[14] Davey Smith, George, and Shah Ebrahim. “Mendelian randomization: can genetic epidemiology
+contribute to understanding environmental determinants of disease?" International journal of
+epidemiology 32.1 (2003): 1-22.
+[15] Voight, Benjamin F., et al. “Plasma HDL cholesterol and risk of myocardial infarction: a
+mendelian randomisation study." The Lancet 380.9841 (2012): 572-580.
+[16] Davey Smith, George, and Gibran Hemani. “Mendelian randomization: genetic anchors for
+causal inference in epidemiological studies." Human molecular genetics 23.R1 (2014): R89-R98.
+[17] Bowden, Jack, George Davey Smith, and Stephen Burgess. “Mendelian randomization with
+invalid instruments: effect estimation and bias detection through Egger regression." International
+journal of epidemiology 44.2 (2015): 512-525.
+[18] Kang, Hyunseung, et al. “Instrumental variables estimation with some invalid instruments and
+its application to Mendelian randomization." Journal of the American Statistical Association
+111.513 (2016): 132-144.
+[19] Bowden, Jack, et al. “Consistent estimation in Mendelian randomization with some invalid
+instruments using a weighted median estimator." Genetic epidemiology 40.4 (2016): 304-314.
+[20] Hartwig, Fernando Pires, George Davey Smith, and Jack Bowden. “Robust inference in summary
+data Mendelian randomization via the zero modal pleiotropy assumption." International journal
+of epidemiology 46.6 (2017): 1985-1998.
+[21] Bulik-Sullivan, Brendan K., et al. “LD Score regression distinguishes confounding from poly-
+genicity in genome-wide association studies." Nature genetics 47.3 (2015): 291-295.
+5
+
+[Page 6]
+[22] Burgess, Stephen, Adam Butterworth, and Simon G. Thompson. “Mendelian randomization
+analysis with multiple genetic variants using summarized data." Genetic epidemiology 37.7
+(2013): 658-635.
+[23] Sudlow, Cathie, et al. “UK biobank: an open access resource for identifying the causes of a
+wide range of complex diseases of middle and old age." PLoS medicine 12.3 (2015): e1001779.
+[24] Bycroft, Clare, et al. “Genome-wide genetic data on 500,000 UK Biobank participants."
+bioRxiv (2017): 163298.
+[25] Loh, Po-Ru, et al. “Mixed model association for biobank-scale data sets." bioRxiv (2017):
+194944.
+[26] Cohen JC, Boerwinkle E, Mosley TH Jr, Hobbs HH. “Sequence variations in PCSK9, low LDL,
+and protection against coronary heart disease." New England Journal of Medicine 354 (2006):
+1264-72.
+[27] Holmes, Michael V., et al. “Causal effects of body mass index on cardiometabolic traits and
+events: a Mendelian randomization analysis." The American Journal of Human Genetics 94.2
+(2014): 198-208.
+[28] Klein, Irwin, and Kaie Ojamaa. “Thyroid hormone and the cardiovascular system." New England
+Journal of Medicine 344.7 (2001): 501-509.
+[29] Grais, Ira Martin, and James R. Sowers. “Thyroid and the heart." The American journal of
+medicine 127.8 (2014): 691-698.
+[30] Wang, Zongze, et al. “Effects of Statins on Bone Mineral Density and Fracture Risk: A
+PRISMA-compliant Systematic Review and Meta-Analysis." Medicine 95.22 (2016): e3042.
+[31] Yerges, Laura M., et al. “Decreased bone mineral density in subjects carrying familial defective
+apolipoprotein B-100." The Journal of Clinical Endocrinology & Metabolism 98.12 (2013):
+E1999-E2005.
+[32] Conneely, Karen N., and Michael Boehnke. “So many correlated tests, so little time! Rapid
+adjustment of P values for multiple correlated tests." The American Journal of Human Genetics
+81.6 (2007): 1158-1168.
+[33] Nordestgaard, Borge G., et al. “The effect of elevated body mass index on ischemic heart
+disease risk: causal estimates from a Mendelian randomisation approach." PLoS Med 9.5 (2012):
+e1001212.
+[34] Lyall, Donald M., et al. “Association of body mass index with cardiometabolic disease in the
+UK Biobank: a Mendelian randomization study." JAMA cardiology 2.8 (2017): 882-889.
+[35] Skaaby, Tea, et al. “Estimating the causal effect of body mass index on hay fever, asthma, and
+lung function using Mendelian randomization." Allergy (2017).
+[36] Tyrrell, Jessica, et al. “Height, body mass index, and socioeconomic status: mendelian random-
+ization study in UK Biobank." BMJ 352 (2016): i582.
+[37] Child, Dennis. “The essentials of factor analysis." A&C Black (2006).
+[38] Comon, Pierre. “Independent component analysis, a new concept?" Signal processing 36.3
+(1994): 287-314.
+[39] UK10K Consortium. “The UK10K project identiﬁes rare variants in health and disease." Nature
+526.7571 (2015): 82.
+[40] Sanjak, Jaleal S., et al. “Evidence of directional and stabilizing selection in contemporary
+humans." Proceedings of the National Academy of Sciences (2017): 201707227.
+[41] Ellis, Justine A., Margaret Stebbing, and Stephen B. Harrap. “Polymorphism of the androgen
+receptor gene is associated with male pattern baldness." Journal of investigative dermatology
+116.3 (2001): 452-455.
+[42] Price, George R. “Selection and covariance." Nature 227 (1970): 520-521.
+6
+
+[Page 7]
+Appendix
+5
+Tables
+7
+
+[Page 8]
+Phenotype
+Reference
+N (thousands)
+Zh
+Anorexia
+Boraska et al., 2014 Mol Psych
+32
+17.8
+Autism Spectrum
+PGC Cross-Disorder Group, 2013 Lancet
+10
+12.1
+Bipolar Disorder
+BIP Working Group of the PGC, 2011 Nat Genet
+17
+11.8
+Breast Cancer
+Amos et al., 2016 Cancer Epidemiol. Biomarkers Prev.
+∼447*
+16
+Celiac Disease
+Dubois et al., 2010 Nat Genet
+15
+10.4
+Crohns Disease
+Jostins et al., 2012 Nature
+21
+12.1
+Depressive symptoms
+Okbay et al., 2016 Nat Genet
+161
+13.1
+HDL
+Teslovich et al., 2010 Nature
+98
+8.2
+HbA1c
+Soranzo et al., 2010 Diabetes
+46
+8.8
+LDL
+Teslovich et al., 2010 Nature
+93
+8.1
+Lupus
+Bentham et al., 2015 Nat Genet
+14
+10.2
+Prostate Cancer
+Amos et al., 2016 Cancer Epidemiol. Biomarkers Prev.
+∼447*
+7.5
+Schizophrenia
+SCZ Working Group of the PGC, 2014 Nature
+70
+17.4
+Triglycerides
+Teslovich et al., 2010 Nature
+94
+9.5
+Ulcerative Colitis
+Jostins et al., 2012 Nature
+27
+8.8
+Eosinophil count
+UK Biobank 23–25
+∼460**
+20.8
+Reticulocyte count
+UK Biobank 23–25
+∼460
+19.9
+Lymphocyte count
+UK Biobank 23–25
+∼460
+22.7
+Mean corpuscular hemoglobin
+UK Biobank 23–25
+∼460
+14.3
+Mean platelet volume
+UK Biobank 23–25
+∼460
+15.7
+Monocyte count
+UK Biobank 23–25
+∼460
+15.1
+Platelet count
+UK Biobank 23–25
+∼460
+20.2
+Platelet distribution width
+UK Biobank 23–25
+∼460
+17.1
+RBC distribution width
+UK Biobank 23–25
+∼460
+19.7
+RBC count
+UK Biobank 23–25
+∼460
+17.5
+White cell count
+UK Biobank 23–25
+∼460
+20.7
+Bone mineral density - heel
+UK Biobank 23–25
+∼460
+29
+Balding - male***
+UK Biobank 23–25
+∼230
+16.1
+BMI
+UK Biobank 23–25
+∼460
+27.5
+Height
+UK Biobank 23–25
+∼460
+24.7
+BP - diastolic
+UK Biobank 23–25
+∼460
+32.3
+BP - systolic
+UK Biobank 23–25
+∼460
+28.3
+College
+UK Biobank 23–25
+∼460
+19.1
+Smoking status
+UK Biobank 23–25
+∼460
+24.9
+Eczema
+UK Biobank 23–25
+∼460
+21.8
+Asthma
+UK Biobank 23–25
+∼460
+16.8
+Dermatology
+UK Biobank 23–25
+∼460
+9.1
+Myocardial infarction
+UK Biobank 23–25
+∼460
+18.6
+High cholesterol
+UK Biobank 23–25
+∼460
+15.6
+Hypertension
+UK Biobank 23–25
+∼460
+36.2
+Hypothyroidism
+UK Biobank 23–25
+∼460
+20.1
+Type 2 Diabetes
+UK Biobank 23–25
+∼460
+19.5
+Basal metabolic rate
+UK Biobank 23–25
+∼460
+23.4
+FEV1/FVC
+UK Biobank 23–25
+∼460
+17.7
+FVC
+UK Biobank 23–25
+∼460
+18.8
+Neuroticism
+UK Biobank 23–25
+∼460
+28.7
+Morning person
+UK Biobank 23–25
+∼460
+21.1
+Age at menarche
+UK Biobank 23–25
+∼230
+24
+Age at menopause
+UK Biobank 23–25
+∼230
+19.1
+Number children - female
+UK Biobank 23–25
+∼230
+14.4
+Number children - male
+UK Biobank 23–25
+∼230
+15.1
+8
+
+[Page 9]
+Table 1: 52 GWAS datasets included in the analysis. Most UK Biobank summary
+statistics are publicly available.25 All datasets have heritability Z-score Zh > 7
+and estimated genetic correlation ˆρg < 0.9 with other traits. Summary statistics
+for ∼1, 000, 000 HapMap3 SNPs were used, excluding the MHC region. *Total
+number of samples genotyped by OncoArray; actual sample size is slightly less
+than 447k. These numbers are excluded from average reported sample size for
+non-UK Biobank traits. **Actual sample size for UK Biobank analyses is slightly
+less than 460k (respectively 230k for sex-speciﬁc traits), owing to incomplete
+phenotype data. For most case control traits, effective sample size is substantially
+less than 460k due to the low fraction of cases. ***The balding phenotype was the
+“balding 4" UK Biobank category, corresponding to nearly-complete baldness.
+Trait 1
+Trait 2
+pLCV
+ˆρg (std err)
+ˆ
+gcp(std err)
+paux
+MR ref
+Triglycerides
+Hypertension
+5 × 10−39
+0.25 (0.04)
+0.95 (0.04)
+0.04
+BMI
+Myocardial infarction
+3 × 10−9
+0.34 (0.09)
+0.94 (0.11)
+0.22
+33,34
+Triglycerides
+Myocardial infarction
+8 × 10−32
+0.30 (0.06)
+0.90 (0.08)
+0.04
+11
+Triglycerides
+BP - systolic
+6 × 10−41
+0.13 (0.03)
+0.89 (0.08)
+8 × 10−4
+HDL
+Hypertension
+6 × 10−22
+-0.29 (0.06)
+0.87 (0.09)
+0.15
+LDL
+High cholesterol
+8 × 10−7
+0.77 (0.07)
+0.86 (0.11)
+0.08
+Triglycerides
+Mean cell volume
+10 × 10−19
+-0.20 (0.04)
+0.86 (0.11)
+2 × 10−4
+Triglycerides
+BP - diastolic
+5 × 10−39
+0.11 (0.04)
+0.86 (0.10)
+0.004
+Platelet volume
+Platelet count
+6 × 10−10
+-0.66 (0.03)
+0.84 (0.10)
+0.18
+BMI
+Hypertension
+2 × 10−16
+0.38 (0.03)
+0.83 (0.11)
+0.06
+9,34
+Triglycerides
+Platelet dist width
+5 × 10−17
+0.19 (0.04)
+0.81 (0.13)
+7 × 10−5
+LDL
+BMD
+4 × 10−34
+-0.12 (0.05)
+0.80 (0.12)
+0.02
+BMI
+FVC
+4 × 10−13
+-0.22 (0.03)
+0.79 (0.17)
+0.001
+35
+Triglycerides
+Reticulocyte count
+2 × 10−10
+0.33 (0.05)
+0.79 (0.14)
+0.02
+Triglycerides
+Eosinophil count
+3 × 10−17
+0.14 (0.05)
+0.75 (0.16)
+0.001
+Balding - male
+Num children - male
+2 × 10−30
+-0.16 (0.05)
+0.75 (0.13)
+2 × 10−4
+HDL
+Platelet dist width
+8 × 10−17
+-0.14 (0.04)
+0.75 (0.16)
+0.004
+RBC dist width
+Type 2 Diabetes
+3 × 10−4
+0.11 (0.03)
+0.73 (0.19)
+0.21
+LDL
+Myocardial infarction
+2 × 10−31
+0.17 (0.08)
+0.73 (0.13)
+6 × 10−4
+15,26
+Platelet dist width
+Platelet count
+1 × 10−7
+-0.47 (0.04)
+0.73 (0.15)
+0.04
+Hypothyroidism
+Type 2 Diabetes
+2 × 10−4
+0.22 (0.05)
+0.73 (0.29)
+0.2
+HDL
+Type 2 Diabetes
+2 × 10−7
+-0.40 (0.06)
+0.72 (0.17)
+0.35
+Hypothyroidism
+Myocardial infarction
+6 × 10−12
+0.26 (0.05)
+0.72 (0.16)
+0.08
+High cholesterol
+Myocardial infarction
+2 × 10−4
+0.52 (0.12)
+0.71 (0.19)
+0.32
+HDL
+BP - diastolic
+4 × 10−17
+-0.12 (0.06)
+0.70 (0.18)
+0.005
+Platelet dist width
+Reticulocyte count
+1 × 10−7
+0.13 (0.04)
+0.69 (0.20)
+0.005
+LDL
+College
+1 × 10−10
+-0.13 (0.05)
+0.68 (0.30)
+0.35
+Triglycerides
+Monocyte count
+1 × 10−4
+0.14 (0.04)
+0.67 (0.21)
+0.09
+Type 2 Diabetes
+Ulcerative Colitis
+2 × 10−5
+-0.14 (0.07)
+0.65 (0.23)
+0.41
+BMI
+Reticulocyte count
+4 × 10−5
+0.39 (0.03)
+0.64 (0.25)
+10 × 10−4
+HDL
+FEV1/FVC
+1 × 10−13
+-0.09 (0.04)
+0.56 (0.08)
+0.19
+High cholesterol
+Neuroticism
+2 × 10−14
+0.09 (0.03)
+0.55 (0.19)
+0.32
+Triglycerides
+Basal metab rate
+2 × 10−8
+0.08 (0.04)
+0.55 (0.13)
+0.25
+Height
+BMD
+3 × 10−14
+-0.09 (0.04)
+0.50 (0.14)
+2 × 10−8
+Triglycerides
+Height
+3 × 10−14
+-0.10 (0.03)
+0.45 (0.09)
+0.15
+HbA1C
+High cholesterol
+5 × 10−22
+0.25 (0.06)
+0.44 (0.16)
+0.49
+Age at menarche
+Height
+7 × 10−11
+0.16 (0.04)
+0.43 (0.10)
+2 × 10−5
+9
+High cholesterol
+Smoking status
+5 × 10−19
+0.13 (0.03)
+0.42 (0.02)
+0.52
+Reticulocyte count
+Hypertension
+2 × 10−4
+0.27 (0.04)
+0.41 (0.13)
+0.75
+BMI
+Asthma
+4 × 10−14
+0.21 (0.03)
+0.40 (0.27)
+0.05
+35
+High cholesterol
+Monocyte count
+4 × 10−4
+0.09 (0.03)
+0.40 (0.15)
+0.2
+Height
+Basal metab rate
+10 × 10−9
+0.57 (0.03)
+0.39 (0.07)
+0.006
+Eczema
+FEV1/FVC
+2 × 10−15
+-0.08 (0.03)
+0.36 (0.10)
+2 × 10−5
+Height
+College
+3 × 10−6
+0.17 (0.03)
+0.33 (0.10)
+0.06
+36
+Prostrate cancer
+Hypothyroidism
+10 × 10−5
+-0.12 (0.05)
+0.30 (0.38)
+0.19
+Crohns Disease
+LDL
+4 × 10−13
+-0.12 (0.06)
+0.29 (0.15)
+0.82
+9
+
+[Page 10]
+High cholesterol
+Type 2 Diabetes
+4 × 10−6
+0.42 (0.05)
+0.24 (0.30)
+0.62
+RBC count
+Monocyte count
+8 × 10−7
+0.14 (0.05)
+0.24 (0.46)
+0.31
+HbA1C
+BMI
+7 × 10−17
+0.25 (0.05)
+0.23 (0.35)
+0.77
+Basal metab rate
+Hypothyroidism
+6 × 10−21
+0.11 (0.04)
+0.21 (0.04)
+0.04
+Platelet dist width
+Corpuscular hemoglobin
+5 × 10−14
+-0.06 (0.02)
+0.15 (0.14)
+0.08
+Depressive syndrome
+Asthma
+4 × 10−4
+0.21 (0.05)
+0.14 (0.08)
+0.37
+BMI
+High cholesterol
+2 × 10−6
+0.33 (0.06)
+0.13 (0.12)
+0.25
+Age at menopause
+Depressive syndrome
+2 × 10−7
+-0.27 (0.06)
+0.12 (0.32)
+0.41
+White cell count
+BMI
+7 × 10−5
+0.24 (0.03)
+0.09 (0.16)
+1
+Asthma
+Lymphocyte count
+2 × 10−4
+0.09 (0.04)
+0.08 (0.19)
+0.57
+Num children - male
+Hypothyroidism
+9 × 10−11
+0.18 (0.05)
+0.03 (0.26)
+0.87
+College
+High cholesterol
+2 × 10−8
+-0.23 (0.03)
+0.01 (0.08)
+0.34
+RBC dist width
+High cholesterol
+4 × 10−4
+0.11 (0.04)
+0.00 (0.17)
+0.35
+Table 2: Pairs of traits with evidence of partial genetic causality. We restricted
+to pairs of traits having a nominally signiﬁcant genetic correlation (two-tailed
+p < 0.05; 429 trait pairs) and reported all traits with strong evidence of partial
+causality (1% FDR). Trait pairs are ordered so that trait 1 is genetically causal or
+partially genetically causal for trait 2. We have provided references for each trait
+pair with existing support in the MR literature that we are aware of. For some
+trait pairs, there was strong evidence for partial causality but low and noisy gcp
+estimates. This phenomenon may occur due to multiple intermediaries, which
+can cause the estimated mixed fourth moments to have opposite signs. When this
+occurs, the approximate likelihood function is sometimes bimodal, with no support
+for any speciﬁc value of gcp (because there is no value of gcp that produces mixed
+fourth moments of opposite signs). While this phenomenon appears to occur
+for several traits with gcp estimates close to zero, there were no trait pairs with
+statistically signiﬁcant evidence that their mixed fourth moments had opposite
+signs.
+10
+
+[Page 11]
+6
+LCV model
+The LCV random effects model assumes that the distribution of marginal effect sizes for the two
+traits can be written as the sum of two independent bivariate distributions (visualized in Figure
+1c-e in orange and blue respectively): (1) a shared genetic component (q1π, q2π) whose values are
+proportional for both traits; and (2) an even genetic component (γ1, γ2) whose density is mirror
+symmetric across both axes. Distribution (1) resembles a line through the origin, and we interpret
+its effects as being mediated by a latent causal variable (L) (Figure 1a); distribution (2) does not
+contribute to the genetic correlation, and we interpret its effects as direct effects. Informally, the
+LCV model assumes that any asymmetry in the shared genetic architecture arises from a genetic
+component that is fully shared between the two traits.
+In detail, the LCV model assumes that there exist scalars q1, q2, and a distribution (π, γ1, γ2) such
+that
+(α1, α2) = (q1π + q2π) + (γ1, γ2), where π ⊥(γ1, γ2) and (γ1, γ2)∼(−γ1, γ2)∼(γ1, −γ2). (4)
+Here αk is the random marginal effect (i.e. the correlation) of a SNP of trait k, π interpreted as the
+marginal effect of a SNP on L, and γk is interpreted as the non-mediated effect of a SNP on trait k.
+α and π (but not γ) are normalized to have unit variance, and all random variables have zero mean.
+(The symbol “∼” means “has the same distribution as.”) q1, q2 are the model parameters of primary
+interest, and we can relate them to the mixed fourth moments, which are observable (equation (3)). In
+particular, this implies that the model is identiﬁable (except when the excess kurtosis κπ = 0). Note
+that we have avoided assuming a particular parametric distribution.
+The LCV model assumptions are strictly weaker than the assumptions made by MR. Like LCV,
+a formulation of the MR assumptions is that the bivariate distribution of SNP effect sizes can be
+expressed in terms of two distributions. In particular, it assumes that the effect size distribution is a
+mixture of (1’) a distribution whose values are proportional for both traits (representing all SNPs that
+affect the exposure Y1) and (2’) a distribution with zero values for the exposure Y1 (representing
+SNPs that only affect the outcome Y2). These two distributions can be compared with distributions
+(1) and (2) above. Because (1’) is identical to (1) and (2’) is a special case of (2), the LCV model
+assumptions are strictly weaker than the MR assumptions (indeed, much weaker). We also note that
+the MR model is commonly illustrated with a non-genetic confounder affecting both traits. Our latent
+variable L is a genetic variable, and it is not analogous to the non-genetic confounder. Similar to
+MR, LCV is unaffected by nongenetic confounders (such a confounder may result in a phenotypic
+correlation that is unequal to the genetic correlation).
+The genetic causality proportion (gcp) is deﬁned as:
+gcp := log |q2| −log |q1|
+log |q2| + log |q1|,
+(5)
+which satisﬁes
+q2
+2
+q2
+1
+= (ρ2
+g)gcp,
+(6)
+where the genetic correlation ρg is equal to q1q2. gcp is positive when trait 1 is partially genetically
+causal for trait 2. When gcp = 1, trait 1 is fully genetically causal for trait 2: q1 = 1 and the causal
+effect size is q2 = ρg (Figure 1b,e). The LCV model is broadly related to dimension reduction
+techniques such as Factor Analysis37 and Independent Components Analysis,38 although it differs in
+its modeling assumptions as well as its goal (causal inference); our inference strategy (mixed fourth
+moments) also differs.
+Under the LCV model assumptions, we derive equation (3) as follows:
+E(α3
+1α2) =E((γ1 + q1π)3(γ2 + q2π))
+=q3
+1q2E(π4) + 3q1q2E(π2γ2
+1)
+=q3
+1q2E(π4) + 3q1q2E(π2)E(γ2
+1)
+=q3
+1q2E(π4) + 3q1q2(1)(1 −q2
+1)
+=q3
+1q2(E(π4) −3) + 3q1q2.
+(7)
+11
+
+[Page 12]
+In the second line, we used the independence assumption to discard cross-terms of the form γpπ3
+and γ3
+1π, and we used the symmetry assumption to discard terms of the form γ1γ3
+2. In the third and
+fourth lines, we used the independence assumption, which implies that E(γ2
+1π2) = E(γ2
+1)E(π2) =
+E(γ2
+1) = 1 −q2
+1. The factor E(π4) −3 is the excess kurtosis of π, which is zero when π follows a
+Gaussian distribution; in order for equation (3) to be useful for inference, E(π4)−3 must be nonzero,
+and in order for the model to be identiﬁable, π must be non-Gaussian.
+7
+Estimation under the LCV model
+In order to estimate the gcp and to test for partial causality, we utilize six steps. First, we use LD
+score regression21 to estimate the heritability of each trait; these estimates are used to normalize
+the summary statistics. Second, we apply cross-trait LD score regression8 to estimate the genetic
+correlation; the intercept in this regression is also used to correct for possible sample overlap when
+estimating the mixed fourth moments. Third, we estimate the mixed fourth moments E(α1α3
+2) and
+E(α3
+1α2) of the bivariate effect size distribution. Fourth, we compute test statistics for each possible
+value of the gcp, based on the estimated genetic correlation and on the estimated mixed fourth
+moments. Fifth, we jackknife on these test statistics to estimate their standard errors, similar to ref.
+21, obtaining a likelihood function for the gcp. Sixth, we obtain posterior means and standard errors
+for the gcp using this likelihood function and a uniform prior distribution. These steps are detailed
+below.
+First, we apply LD score regression to normalize the test statistics. Under the LCV model, the
+marginal effect sizes for each trait, α1 and α2, have unit variance. We use a slightly modiﬁed version
+of LD score regression,21 with LD scores computed from UK10K data.39 In particular, we run LD
+score regression using a slightly different weighting scheme, matching the weighting scheme in our
+mixed fourth moment estimators; the weight of SNP i was:
+wi := max(1, 1/ℓHapMap
+i
+),
+(8)
+where ℓHapMap
+i
+was the estimated LD score between SNP i and other HapMap3 SNPs (this is approxi-
+mately the set of SNPs that were used in the regression). This weighting scheme is motivated by the
+fact that SNPs with high LD to other regression SNPs will be over-counted in the regression (see
+ref. 21). Similar to ref. 8, we improve power by excluding large-effect variants when computing
+the LD score intercept; for this study, we chose to exclude variants with χ2 statistic 30× the mean
+(but these variants are not excluded when computing ¯χ2). Then, we divide the summary statistics by
+s =
+q
+¯χ2 −ˆσ2ϵ, where ¯χ2 is the weighted mean χ2 statistic and ˆσ2
+ϵ is the LD score intercept. (We
+also divide the LD score intercept by s2.) We assess the signiﬁcance of the heritability by performing
+a block jackknife on s, deﬁning the signiﬁcance Zh as s divided by its estimated standard error.
+Second, to estimate the genetic correlation, we apply cross-trait LD score regression.8 Similar to
+above, we use a slightly modiﬁed weighting scheme (equation (8)), and we exclude large-effect
+variants when computing the cross-trait LD score intercept. We assess the signiﬁcance of the genetic
+correlation using a block jackknife.
+Third, we estimate the mixed fourth moments E(α1α3
+2) using the following estimation equation:
+E(a1a3
+2|α1, α2) =α1α3
+2 + E(ϵ1ϵ3
+2) + 3E(α1α2ϵ2
+2) + E(α2
+2ϵ1ϵ2)
+=α1α3
+2 + 3E(ϵ1ϵ2)E(ϵ2
+2) + 3α1α2E(ϵ2
+2) + α2
+2E(ϵ1ϵ2)
+=α1α3
+2 + 3ˆσϵ1ϵ2 ˆσ2
+ϵ2 + 3α1α2ˆσ2
+ϵ2 + α2
+2ˆσϵ1ϵ2,
+(9)
+where E(ϵ2
+k) is the LD score regression intercept for trait k and ˆσϵ1ϵ2 is the cross-trait LD score
+regression intercept. For simulations with no LD, we use E(ϵ2
+k) = 1/sNk and E(ϵ1ϵ2) = 0 instead
+of estimating these values.
+Fourth, we deﬁne a collection of statistics S(x) for x ∈X = {−1, −.01, −.02, ..., 1} (corresponding
+to possible values of gcp):
+S(x) :=
+A(x) −B(x)
+max(1/|ˆρg|,
+p
+A(x)2 + B(x)2)
+A(X) = |ρg|−xˆk1,
+B(x) = |ρg|xˆk2,
+(10)
+12
+
+[Page 13]
+The motivation for utilizing the normalization by
+p
+A(x)2 + B(x)2 is that the magnitude of A(x) and
+B(x) tend to be highly correlated, leading to increased standard errors if we only use the numerator of
+S. However, the denominator tends to zero when the genetic correlation is zero, leading to instability
+in the test statistic and false positives. The use of the threshold leads to conservative, rather than
+inﬂated, standard errors when the genetic correlation is zero or nearly zero. We recommend only
+analyzing trait pairs with a signiﬁcant genetic correlation, and this threshold usually has no effect on
+the results. It is also inadvisable to analyze trait pairs whose genetic correlation is non-signiﬁcant
+because for positive LCV results, the genetic correlation provides critical information about the causal
+effect size and direction.
+Fifth, we estimate the variance of S(x) using a block jackknife with k = 100 blocks of contiguous
+SNPs, resulting in minimal non-independence between blocks. Blocks are chosen to include the same
+number of SNPs, and the jackknife standard error is
+ˆσS(x) =
+v
+u
+u
+t101
+100
+X
+j=1
+(Sj(x) −¯S(x))2
+(11)
+where Sj(x) is the test statistic computed on blocks 1, ..., j −1, j + 1, ...100 and ¯S(x) is the mean of
+the jackknife estimates. We compute an approximate likelihood, L(S|gcp = x), by assuming (1) that
+L(S|gcp = x) = L(S(x)|gcp = x) and (2) that if gcp = x then S(x)/ˆσS(x) follows a T distribution
+with 98 degrees of freedom.
+Sixth, we impose a uniform prior on gcp, enabling us to obtain a posterior mean estimate of the gcp:
+ˆ
+gcp :=
+1
+|X|
+X
+x∈X
+xL(x)
+(12)
+The estimated standard error is:
+ˆse :=
+s
+1
+|X|
+X
+x∈X
+(x −ˆ
+gcp)2L(x).
+(13)
+In order to compute p-values, we apply a T-test to the statistic S(0).
+8
+LCV model violations
+In this section, we deﬁne partial genetic causality without making LCV (or other) model assumptions
+and characterize the type of LCV model violation that causes LCV to produce false positives and
+bias. There are two classes of LCV model violations: independence violations and proportionality
+violations. Roughly, independence violations involve a violation of the independence assumption
+between mediated effects (π) and direct effects (γ) while still satisfying a key proportionality
+condition related to the mixed fourth moments; as a result, independence violations are not expected
+to cause LCV to produce false positives. Proportionality violations, on the other hand, violate this
+proportionality condition and are potentially more problematic. In order to make this characterization,
+it is necessary to deﬁne partial genetic causality in a more general setting, without assuming the
+LCV model. Partial genetic causality is deﬁned in terms of the correlated genetic component of
+the bivariate SNP effect size distribution, which generalizes the shared genetic component modeled
+by LCV; unlike the shared genetic component, the correlated genetic component does not have
+proportional effects on both traits (but merely correlated effects).
+8.1
+Deﬁnition of partial genetic causality without LCV model assumptions
+Let A = (α1, α2) be the bivariate distribution of marginal effect sizes, normalized to have zero mean
+and unit variance. First, we deﬁne an even genetic component of A as a distribution T = (t1, t2) that
+is independent of its complement A −T and that satisﬁes a mirror symmetry condition:
+(t1, t2) ∼(−t1, t2) ∼(t1, −t2).
+(14)
+Equivalently, the density function of T is an even function of both variables. Note that an even
+genetic component does not contribute to the genetic correlation. In order to deﬁne the “correlated
+13
+
+[Page 14]
+genetic component,” we would like to deﬁne a maximal even component, i.e. an even component that
+explains the largest possible amount of heritability for both traits. However, if A follows a Gaussian
+distribution, then there is no maximal even component: instead, the even genetic component that
+maximizes the proportion of trait 1 heritability explained fails to maximize the proportion of trait 2
+heritability explained. This fact is related to the observation that the LCV model is non-identiﬁable
+when the effect size distribution for L follows a Gaussian distribution, and only when it follows a
+Gaussian distribution.1 Generalizing this result, we conjecture that there exists an even component
+that is maximal up to a Gaussian term. More precisely, there exists a maximal even component
+T ∗= (t∗
+1, t∗
+2) such that for any even component T = (t1, t2), there exists a (possibly degenerate)
+Gaussian random variable Z = (z∗
+1, z∗
+2) independent of T ∗such that T ∗+ Z is an even component
+and E((t∗
+1 + z1)2) ≥E(t2
+1) and E((t∗
+2 + z2)2) ≥E(t2
+2).
+We deﬁne the correlated genetic component S = (s1, s2) as the complement of the maximal even
+component and the Gaussian term. Trait 1 is deﬁned as partially genetically causal for trait 2 if
+E(s2
+1) > E(s2
+2), and vice versa. We may also deﬁne the genetic causality proportion using main text
+equation (1), substituting E(s2
+k) for q2
+k. However, the interpretation of the gcp is not as clear in this
+more general setting. Note that the correlated genetic component may be identically 0, for example if
+A is bivariate Gaussian or if A itself is an even component; in both cases, there is no partial causality,
+and the genetic causality proportion is undeﬁned. In practice, if the correlated genetic component is 0
+or nearly 0, LCV will produce null p-values and low, noisy gcp estimates.
+8.2
+Independence violations and proportionality violations
+The LCV model assumption is equivalent to the statement that the correlated genetic component
+is equal to a shared genetic component: S = (q1π, q2π), for some random variable π and ﬁxed
+parameters q1, q2 such that ρg = q1q2. This assumption enables an inference approach based on
+mixed fourth moments because it implies that the mixed fourth moments of the correlated component
+are proportional to the respective variances:
+E(s1s2s2
+k) ∝E(s2
+k),
+(15)
+where under the LCV model, the proportionality constant is q1q2E(π4). One form of LCV model
+violation arises when S is not a shared genetic component, but (15) still holds. Intuitively, this type
+of violation arises as a result of non-independence between mediated effects (π) and direct effects
+(γ), causing “noise” from the direct effects to be incorporated into the correlated component, and we
+call such violations independence violations; genetic architectures that violate the proportionality
+condition we call proportionality violations. In the presence of an independence violation, we obtain
+the following moment condition, generalizing main text equation (2):
+E(α1α2α2
+k) = cE(s2
+k) + 3ρg
+(16)
+where c is a proportionality constant. In particular, if E(s2
+1) = E(s2
+2) (no partial causality), then
+E(α1α3
+2) = E(α2α3
+1), and LCV is expected to produce well-calibrated p-values. Conversely, under
+a proportionality violation, LCV is expected to produce inﬂated p-values under the null.
+However, the interpretation of the gcp is not as clear in this more general setting; in particular, a gcp
+of 1 implies that every SNP affecting trait 1 also affects trait 2, but not proportionally. Note that
+the correlated genetic component may be identically 0, for example if A is bivariate Gaussian or if
+A itself is an even genetic component; in both cases, there is no partial causality, and the genetic
+causality proportion is undeﬁned. In practice, if the correlated genetic component is 0 or nearly 0,
+LCV will produce null p-values and low, noisy gcp estimates.
+9
+Extended Simulations
+9.1
+Existing Mendelian Randomization methods
+Two-sample MR. As described in ref. 22, we ascertained signiﬁcant SNPs (p < 5 × 10−8, χ2
+test) for the exposure and performed an unweighted regression, with intercept ﬁxed at zero, of the
+estimated effect sizes on the outcome with the estimated effect sizes on the exposure (in practice,
+a MAF-weighted and LD-adjusted regression is often used; in our simulations, all SNPs had equal
+MAF, and there was no LD). To assess the signiﬁcance of the regression coefﬁcient, we estimated
+14
+
+[Page 15]
+the standard error as se =
+r
+1
+K
+PK
+k=1 ¯β2
+k2
+PK
+k=1 ˆβ2
+k1 , where ¯βk2 is the kth residual, N2 is the sample size in the
+outcome cohort, and K is the number of signiﬁcant SNPs. This estimate of the standard error allows
+the residuals to be overdispersed compared with the error that is expected from the GWAS sample
+size. To obtain p values, we applied a two-tailed t-test to the regression coefﬁcient divided by its
+standard error, with K −1 degrees of freedom.
+MR-Egger. As described in ref. 17, we ascertained signiﬁcant SNPs for the exposure and coded
+them so that the alternative allele had a positive estimated effect on the exposure. We performed
+an unweighted regression with a ﬁtted intercept of the estimated effect sizes on the outcome on the
+estimated effect sizes on the exposure. We assessed the signiﬁcance of the regression using the same
+procedure as for two-sample MR, except that the t-test used K −2 rather than K −1 degrees of
+freedom.
+Bidirectional MR. We implemented bidirectional mendelian randomization in a manner similar to
+ref. 9. Signiﬁcant SNPs were ascertained for each trait. If the same SNP was signiﬁcant for both
+traits, then it was assigned only to the trait where it ranked higher (if a SNP ranked equally high for
+both traits, it was excluded from both SNP sets). The Spearman correlations r1, r2 between the z
+scores for each trait was computed on each set of SNPs, and we applied a χ2
+1 test to
+χ2 =
+1
+1
+K1−3 +
+1
+K2−3
+(atanh(r1) −atanh(r2))2,
+(17)
+where Kj is the number of signiﬁcant SNPs for trait j. In ref. 9, the statistics atanh(rj) were also
+used, but a relative likelihood comparing several different models was reported instead of a p-value.
+We chose to report p-values for Bidirectional MR in order to allow a direct comparison with other
+methods.
+Application of MR to real data. For our applications of MR and related methods to real data,
+we selected genetic instruments using a greedy pruning procedure. We ranked all genome-wide
+signiﬁcant SNPs for the exposure (p < 5 × 10−8) by χ2 statistic. Iteratively, we removed all SNPs
+within 1cM of the ﬁrst SNP in the list, obtaining a set of independent lead SNPs separated by at least
+1cM. We conﬁrmed using an LD reference panel that our 1cM window was sufﬁcient to minimize
+LD among the set of retained SNPs. We applied each MR method as described above; in particular,
+we performed unweighted regressions for MR and MR-Egger.
+9.2
+Simulations involving LCV model violations
+In order to investigate potential limitations of our approach, we performed null and causal simulations
+under genetic architectures that violate LCV model assumptions. There are two classes of LCV
+model violations: independence violations and proportionality violations (see LCV model violations).
+Roughly, independence violations involve a violation of the independence assumption between (1)
+mediated effects (π) and (2) direct effects (γ) while still satisfying a key proportionality condition
+related to the mixed fourth moments; as a result, independence violations are not expected to
+cause LCV to produce false positives. Proportionality violations, on the other hand, violate this
+proportionality condition and are potentially more problematic. A representative example of an
+independence violation is a bivariate Gaussian mixture model where one of the mixture components
+generates imperfectly correlated effect sizes on the two traits. These SNPs underlying this mixture
+component can be viewed as having both an effect on L and also a residual effect on the two traits
+directly, in violation of the independence assumption. First, we performed null simulations under a
+Gaussian mixture model with a nonzero genetic correlation. These simulations were similar to the
+simulations reported in Figure 2b, except that the correlated SNP effect sizes (1% of SNPs) were
+drawn from a bivariate normal distribution with correlation 0.5 (explaining 20% of heritability for
+each trait; in Figure 2b, these effects were perfectly correlated). Similar to Figure 2b, LCV and
+bidirectional MR produced p-values that were well-calibrated, while MR and MR-Egger produced
+inﬂated p-values (Figure 4a). Second, similar to Figure 2c, we included differential polygenicity
+between the two traits, ﬁnding that differential polygenicity caused all existing methods including
+bidirectional MR, but not LCV, to produce false positives (Figure 4b). Third, similar to Figure 2d, we
+included differential power between the two traits, again ﬁnding that LCV produced well-calibrated
+p-values while existing methods produced false positives (Figure 4c).
+15
+
+[Page 16]
+Effect on trait 1
+Effect on trait 2
+(a) Null: Gaussian mixture,
+nonzero genetic correlation
+0
+0.5
+1
+Pos rate ( =0.05)
+Effect on trait 1
+(b) Null: Gaussian mixture,
+unequal polygenicity
+0
+0.5
+1
+Effect on trait 1
+(c) Null: Gaussian mixture,
+unequal power
+0
+0.5
+1
+Effect on trait 1
+(f) Causal:
+Gaussian mixture
+0
+0.5
+1
+Pos rate ( =0.001)
+MR
+MR-egger
+Bi-MR
+LCV
+Effect on trait 1
+Effect on trait 2
+(d) Null: two
+intermediaries with
+equal polygenicity
+0
+0.5
+1
+Pos rate ( =0.05)
+Effect on trait 1
+(e) Null: two
+intermediaries with
+unequal polygenicity
+0
+0.5
+1
+Effect on trait 1
+Effect on trait 2
+(g) Causal:
+two intermediaries
+0
+0.5
+1
+Figure 4: Null and causal simulations with no LD and LCV model violations. We report the positive
+rate (α = 0.05 for null simulations, α = 0.001 for causal simulations) for two-sample MR, MR-
+Egger, Bidirectional MR and LCV. Panels (a)-(c) correspond to Gaussian mixture model extensions
+of the models in Figure 2b-d. Panels (f) and (g) correspond to causal analogues of the models in
+panels (a) and (d), respectively. We also display scatterplots illustrating the bivariate distribution of
+true SNP effect sizes on the two traits. (a) Null simulation with nonzero SNP effects drawn from a
+mixture of Gaussian distributions; one mixture component has correlated effects on each trait. (b)
+Null simulation with SNP effects drawn from a mixture of Gaussian distributions, and differential
+polygenicity between the two traits. (c) Null simulation with SNP effects drawn from a mixture
+of Gaussian distributions, and unequal power between the two traits. (d) Null simulation with two
+intermediaries having different effects on each trait. (e) Null simulation with two intermediaries
+having different effects on each trait and unequal polygenicity for the two intermediaries. (f) Causal
+simulation with SNP effects drawn from a mixture of Gaussian distributions; all SNPs affecting trait 1
+also affect trait 2, but the relative effect sizes were noisy. (g) Causal simulation with an additional
+genetic confounder (i.e. a second intermediary) mediating part of the genetic correlation. Results for
+each panel are based on 1000 simulations.
+A representative example of a proportionality violation is a model in which two intermediaries L1 and
+L2 have different effect sizes on the two traits, and L1 and L2 also have unequal polygenicity. First,
+for comparison purposes, we considered a model with two intermediaries with equal polygenicity;
+2% of SNPs were causal for each intermediary, and 4% of SNPs were causal for each trait exclusively.
+Because this model implies only an independence violation, we expected that LCV would not produce
+false positives. Indeed, LCV produced well-calibrated p-values (Figure 4d). Similar to Figure 2b
+and Figure 4a, Bidirectional MR also produced well-calibrated p-values, while MR and MR-Egger
+produced false positives. Second, we shifted the polygenicity of the two intermediaries in opposite
+directions: 1% of SNPs were causal for L1 and 8% of SNPs were causal for L2, resulting in a
+proportionality violation. We expected that LCV would produce false positives, as the intermediary
+16
+
+[Page 17]
+1
+2
+8
+32
+128
+Difference in polygenicity
+-0.2
+0
+0.2
+0.4
+0.6
+0.8
+1
+Mean gcp estimate
+Null: 2 intermediaries
+Low heterogeneity
+Medium heterogeneity
+High heterogeneity
+1/16
+1/4
+1
+4
+16
+Difference in polygenicity
+-0.2
+0
+0.2
+0.4
+0.6
+0.8
+1
+Mean gcp estimate
+Causal: 2 intermediaries
+Weak confounding
+Moderate confounding
+Strong confounding
+Figure 5: Mean gcp estimates in simulations with LCV model violations (error bars show standard
+deviations; based on 1000 simulations). (a) Null simulation with two intermediaries having possibly
+unequal polygenicity. The two intermediaries had either a slightly, moderately, or highly heterogenous
+effect on the two traits; that is, when heterogeneity was high, intermediary 1 had a much larger effect
+on trait 1 while intermediary 2 had a much larger effect on trait 2. Then, we speciﬁed a certain
+difference in polygenicity between the two traits (measured by the proportion of causal SNPs). (b)
+Casual simulation with an additional latent confounder. The latent confounder explained either a low,
+medium or high proportion of the genetic correlation. We varied the polygenicity of the confounder
+and of the causal trait, such that a 16x difference in polygenicity indicates that 16x more SNPs were
+causal for the causal trait than for the genetic confounder.
+with lower polygenicity would disproportionately affect the mixed fourth moments. Indeed, LCV (as
+well as other methods) produced false positives, indicating that proportionality violations cause LCV
+to produce false positives (Figure 4e). We investigated the gcp estimates produced by LCV in these
+simulations, ﬁnding that LCV produced low gcp estimates ( ˆ
+gcp ≈0.5; Figure 5a). We varied the
+difference in polygenicity as well as the difference in the relative effect sizes of the two intermediaries,
+ﬁnding that extreme parameter settings (e.g., a 32× difference in polygenicity in conjunction with a
+25× difference in the relative effect sizes of L1 and L2) were required to cause LCV to produce high
+gcp estimates (gcp > 0.6; Figure 5a). Thus, proportionality violations of LCV model assumptions
+can cause LCV (and other methods) to produce false positives, but genetic causality remains the most
+parsimonious explanation for high gcp estimates.
+Finally, we performed (fully) causal simulations under LCV model violations. First, we simulated an
+independence violation by specifying a Gaussian mixture model where every SNP affecting trait 1
+also affected trait 2, but the relative effect sizes were noisy (Figure 4f). Sample size and polygenicity
+were similar to Figure 3a (4× lower sample size than Figure 4a). As expected, LCV had lower power
+to detect a causal effect than in Figure 3a, although it still had moderately high power. Second, we
+simulated a proportionality violation by specifying both a causal effect (corresponding to L1) and an
+additional genetic confounder (corresponding to L2) (Figure 4g). LCV had lower power to detect a
+causal effect than in Figure a, although it still had high power.
+In summary, we determined in null simulations that independence violations do not cause LCV to
+produce false positives; in addition, these simulations recapitulated the limitations of existing methods
+that we observed in simulations under the LCV model. Proportionality violations caused LCV (as
+well as existing methods) to produce false positives; however, extreme values of the simulation
+parameters were required in order for LCV to produce high gcp estimates. In causal simulations, we
+determined that both independence and proportionality violations lead to reduced power for LCV
+(and other methods), as well as downwardly biased gcp estimates for LCV.
+ρ
+p < .05
+p < .001
+Mean χ2
+Mean ˆ
+gcp
+ˆ
+gcp std dev
+RMS ˆσ
+Zh
+a
+Zero genetic correlation
+0
+0
+0
+0.32
+-0.00
+0.11
+0.55
+8
+b
+Low genetic correlation
+0.1
+0.009
+0
+0.58
+0.00
+0.14
+0.29
+8.5
+c
+Default parameter values
+0.2
+0.058
+0.003
+1.09
+-0.00
+0.07
+0.08
+8.6
+d
+High genetic correlation
+0.4
+0.067
+0.004
+1.2
+-0.00
+0.1
+0.11
+8
+e
+Very high genetic correlation
+0.8
+0.058
+0.002
+1.13
+-0.00
+0.21
+0.24
+5.8
+17
+
+[Page 18]
+f
+Uncorrelated pleiotropic effects
+0.2
+0.054
+0.001
+1.06
+-0.00
+0.08
+0.09
+8.7
+g
+Differential polygenicity
+0.2
+0.062
+0.002
+1.1
+-0.01
+0.08
+0.08
+10
+h
+Very different polygenicity
+0.2
+0.067
+0.004
+1.19
+-0.01
+0.1
+0.1
+11.2
+i
+Low N1
+0.2
+0.063
+0.004
+1.14
+0.01
+0.12
+0.13
+5
+j
+Very low N1
+0.2
+0.228
+0.132
+11.2
+0.11
+0.35
+0.33
+1.4
+k
+Different heritability
+0.2
+0.061
+0.005
+1.7
+0.00
+0.09
+0.1
+6.5
+l
+High phenotypic correlation
+0.2
+0.057
+0.002
+1.12
+0.00
+0.07
+0.08
+8.7
+m
+Zero phenotypic correlation
+0.2
+0.057
+0.005
+1.1
+0.00
+0.07
+0.08
+8.6
+n
+Uncorrelated pleiotropic effects
+0
+0.001
+0
+0.3
+0.00
+0.14
+0.52
+8
+o
+Differential polygenicity
+0
+0
+0
+0.31
+-0.02
+0.12
+0.55
+9.8
+p
+Very different polygenicity
+0
+0.001
+0
+0.31
+-0.05
+0.14
+0.52
+11.4
+q
+Low N1
+0
+0.001
+0.001
+0.31
+0.00
+0.14
+0.52
+5
+r
+Very low N1
+0
+0.272
+0.216
+46.4
+0.27
+0.32
+0.39
+1.4
+s
+Different heritability
+0
+0
+0
+0.28
+-0.00
+0.11
+0.55
+6.3
+t
+Causal
+0.2
+0.965
+0.94
+258
+0.76
+0.12
+0.16
+8.6
+u
+Partially causal
+0.2
+0.706
+0.347
+12.9
+0.56
+0.15
+0.24
+10
+v
+Low N1
+0.2
+0.852
+0.768
+66
+0.65
+0.17
+0.2
+5.1
+w
+Very low N1
+0.2
+0.452
+0.378
+102
+0.39
+0.35
+0.35
+1.4
+x
+Low N2
+0.2
+0.843
+0.714
+40.8
+0.60
+0.18
+0.21
+8.7
+y
+Weak causal effect
+0.1
+0.422
+0.104
+6.36
+0.49
+0.18
+0.32
+8.7
+z
+Y1 less polygenic
+0.2
+0.997
+0.996
+7331
+0.90
+0.08
+0.07
+3.6
+aa
+Y1 more polygenic
+0.2
+0.155
+0.004
+2.39
+0.28
+0.2
+0.47
+13.3
+bb
+Y1 inﬁnitessimal
+0.2
+0.012
+0
+0.7
+0.07
+0.2
+0.5
+14.2
+Table 3: Null and non-null simulations with LD. Proportion of simulations (out
+of n = 5000) with LCV p-value for partial causality less than 0.05 and less than
+0.001; mean χ2 statistic; mean ˆ
+gcp (in each case, standard error is less than 0.01);
+empirical standard deviation of ˆ
+gcp; root mean squared estimated standard error;
+mean heritability Z-score for trait 1. Simulations a-s are null (gcp = 0), and
+simulations t-bb are non-null. (a-e) Different values of the genetic correlation
+(ρ). When the genetic correlation is zero or near-zero, we observe conservative
+p-values and overestimates of the ˆ
+gcp standard error. (f) Uncorrelated pleiotropic
+effects: 0.3% of SNPs affect both traits with independent effect sizes. (g-h)
+Differential or very different polygenicity: 0.2% and 0.8% of SNPs, or 0.1% and
+1.6% of SNPs respectively, have direct effects on each trait. (i-j) Low or very low
+sample size for trait 1: either N1 = 20k or N1 = 4k respectively, and N2 = 100k.
+(k) Different heritability: h2
+1 = 0.1 and h2
+2 = 0.5. (l) High phenotypic correlation
+of 0.4, compared with ρ = 0.2. (m) Zero phenotypic correlation. (n) Uncorrelated
+pleiotropic effects: 0.3% of SNPs affect both traits with independent effect sizes.
+(o-p) Differential or very different polygenicity: 0.2% and 0.8% of SNPs, or 0.1%
+and 1.6% of SNPs respectively, have direct effects on each trait. (q-r) Low or
+very low sample size for trait 1: either N1 = 20k or N1 = 4k respectively, and
+N2 = 100k. (s) Different heritability: h2
+1 = 0.1 and h2
+2 = 0.5. (t) Causal. (u)
+Partially causal (gcp = 0.5). (v-w) Causal, with low or very low sample size
+for the causal trait (N1 = 20k or N1 = 4k, and N2 = 100k). (x) Causal, with
+low sample size in the downstream trait (N2 = 20k, N1 = 100k). (y) Weak
+causal effect (0.1 rather than 0.25). (z-bb) Varying polygenicity for the causal
+trait: instead of 0.5% of SNPs causal, either 0.05%, 5%, or 100% of SNPs causal
+for z-bb respectively.
+9.3
+Simulations with LD
+We performed simulations with LD to assess the robustness of LCV; we note that LD can potentially
+affect the performance of our method, which uses a modiﬁed version of LD score regression8,21
+to normalize effect size estimates and to estimate genetic correlations. LD was computed using
+M = 596k common SNPs in N = 145k samples of European ancestry from the UK Biobank
+interim release.23 Unlike our simulations with no LD, these simulations also included sample overlap.
+Because existing methods exhibited major limitations in simulations with no LD (Figure 2), we
+restricted these simulations to the LCV method.
+First, we performed null simulations to assess calibration. We chose a set of default parameters similar
+to Figure 2b and varied each parameter in turn. In particular, similar to Figure 2, these simulations
+18
+
+[Page 19]
+ρ
+p < .05
+p < .001
+Mean χ2
+Mean ˆ
+gcp
+ˆ
+gcp std dev
+RMS ˆσ
+Zh
+a
+Default parameter values
+0.2
+0.034
+0
+0.9
+0.00
+0.05
+0.06
+16.7
+b
+Zero genetic correlation
+0
+0.001
+0
+0.31
+-0.00
+0.11
+0.55
+15.3
+c
+Very high genetic correlation
+0.8
+0.033
+0.002
+0.94
+-0.00
+0.11
+0.43
+10.9
+d
+Uncorrelated pleiotropic effects
+0.2
+0.032
+0.000
+0.87
+-0.00
+0.06
+0.09
+16.6
+e
+Differential polygenicity
+0.2
+0.034
+0.002
+0.86
+-0.00
+0.05
+0.07
+19.3
+f
+Low N1
+0.2
+0.042
+0.002
+0.9
+0.00
+0.1
+0.12
+8.7
+g
+Very low N1
+0.2
+0.254
+0.16
+19.96
+0.08
+0.35
+0.32
+2.2
+h
+Causal
+0.2
+0.968
+0.943
+257.17
+0.76
+0.11
+0.16
+16.5
+i
+Partially causal
+0.2
+0.765
+0.369
+12.54
+0.57
+0.15
+0.23
+19.2
+Table 4: Simulations with LD using constrained-intercept LD score regression to estimate the
+heritability. This heritability estimation method is less noisy than variable-intercept LD score
+regression but can produce biased estimates on real data due to population stratiﬁcation and cryptic
+relatedness.21 Proportion of simulations (out of n = 2000) with p-value for partial causality less
+than .05 and less than .001; mean χ2 statistic for partial causality; mean ˆ
+gcp; standard deviation
+of gcp estimates; root-mean squared estimated standard error. Simulations a-f are null (gcp = 0),
+and simulations g-h are non-null. (a) Realistic simulation parameters (see Methods). (b) Genetic
+correlation ρ = 0. (c) Genetic correlation ρ = 0.75. (d) Uncorrelated pleiotropic effects in addition
+to a genetic correlation: 50% of SNPs with direct (non-mediated) effects on each trait are shared
+between the two traits. (e) Differential polygenicity: 0.2% and 0.05% of SNPs have direct effects
+on each trait. (f) Different sample size: N1 = 1000k and N2 = 500k. (g) Different sample size:
+N1 = 20k and N2 = 500k. (h) Full genetic causality: gcp = 1, with causal effect equal to the genetic
+correlation (0.25). (i) Partial genetic causality: gcp = 0.5.
+−1
+−0.5
+0
+0.5
+1
+−1
+−0.5
+0
+0.5
+1
+Posterior mean gcp
+Mean actual gcp
+All simulations
+−1
+−0.5
+0
+0.5
+1
+−1
+−0.5
+0
+0.5
+1
+Posterior mean gcp
+Mean actual gcp
+Ascertained simulations
+Figure 6: Unbiasedness of posterior mean gcp estimates in simulations with LD and random true gcp
+values. Estimated values of gcp were binned and averaged, and mean true values of gcp are plotted
+for each bin, with standard errors. Points above the line indicate that gcp estimates were downwardly
+biased (toward -1). (a) Ascertained simulations (43%) with signiﬁcant genetic correlation (p < 0.05)
+and evidence for partial causality (p < 0.001). Only bins with count at least 10 are plotted. (b) All
+10k simulations.
+included uncorrelated pleiotropy, genetic correlations, differential polygenicity between the two
+traits, and differential power between the two traits (Table 3a-m). LCV produced approximately
+well-calibrated or conservative false positive rates. Slight inﬂation was observed due to noise in our
+heritability estimates (Table 3c-m); proper calibration was restored by using constrained-intercept LD
+score regression21 (resulting in more precise heritability estimates) (Table 4a-f). To avoid problems
+with noisy heritability estimates, we restrict our analyses of real traits to data sets with highly
+signiﬁcant heritability estimates (Z score for nonzero h2 = Zh > 7).
+Second, we performed causal simulations to assess power. We chose a set of default parameters
+similar to our null simulations, ﬁnding that LCV was well-powered (Table 3t), although its power
+was lower than in simulations with no LD (Figure a). We varied each parameter in turn, ﬁnding
+that power was reduced when we reduced the sample size, increased the polygenicity of the causal
+trait, reduced the causal effect size, or simulated a partially causal rather than fully causal genetic
+architecture (Table 3u-bb), similar to simulations with no LD (Figure b-f). These simulations indicate
+19
+
+[Page 20]
+that LCV is well-powered to detect a causal effect for large GWAS under most realistic parameter
+settings, although its power does depend on genetic parameters that are difﬁcult to predict.
+Third, to assess the unbiasedness of gcp posterior mean (and variance) estimates, we performed
+simulations in which the true value of gcp was drawn uniformly from [−1, 1] (corresponding to the
+prior that LCV uses to compute its posterior mean estimates). We expected posterior-mean estimates
+to be unbiased in the Bayesian sense that E(gcp| ˆ
+gcp) = ˆ
+gcp (which differs from the usual deﬁnition
+of unbiasedness, that E( ˆ
+gcp|gcp) = gcp).? Thus, we binned these simulations by ˆ
+gcp and plotted the
+mean value of gcp within each bin (Figure 6). We determined that mean gcp within each bin was
+concordant with ˆ
+gcp. In addition, the root mean squared error was 0.15, approximately consistent
+with the root mean posterior variance estimate of 0.13 (Table 5).
+In summary, we conﬁrmed using simulations with LD that LCV produces well-calibrated false
+positive rates under a wide range of realistic genetic architectures; some p-value inﬂation was
+observed when heritability estimates were noisy, but false positives can be avoided in analyses of
+real traits by restricting to traits with highly signiﬁcant heritability (Zh > 7). We also conﬁrmed that
+LCV is well-powered to detect a causal effect under a wide range of realistic genetic architectures,
+and produces unbiased posterior mean estimates of the gcp.
+Regression coefﬁcient (std err)
+RMSE
+RMPV
+Ascertained simulations (43%)
+0.97 (.004)
+0.15
+0.13
+All simulations
+1.00 (.005)
+0.24
+0.20
+Table 5: Unbiasedness of estimated gcp and standard error in simulations with random true parameter
+values, using real LD. We drew random values of gcp (and ρ) from a Unif(−1, 1) distribution and
+compared true and estimated values of gcp, either for all 10k simulations or for a subset (43%) of
+simulations in which the genetic correlation was nominally signiﬁcant p < 0.05 and the evidence for
+partial causality was strong (p < 0.001). We report the regression coefﬁcient of true on estimated
+gcp values with standard error, as well as the root mean squared error and the root mean posterior
+variance estimate.
+9.4
+Simulation details
+In order to simulate summary statistics with no LD, ﬁrst, we chose causal effect sizes for each SNP
+on each trait according to the LCV model. The causal effect size vector for trait k was
+βk = h2
+k
+M (qkπ + γk),
+(18)
+where in all simulations except for Figure 4, qk was a scalar, and π and γk were 1 × M vectors.
+In Figure 4, qk was a 1 × 2 vector and π was a 2 × M matrix. Entries of π were drawn from i.i.d.
+point-normal distribution with mean zero, variance 1, and expected proportion of causal SNPs equal
+to pπ. Entries of γk were drawn from i.i.d. point-normal distributions with expected proportion
+of causal SNPs equal to pγk; we modeled colocalization between non-mediated effects by ﬁxing
+some expected proportion of SNPs pγ1,2 < min(pγ1, pγ2) as having nonzero values of both γ1 and
+γ2. Then, we centered and re-scaled the nonzero entries of π and γk, so that they had mean 0 and
+variance 1 and 1 −q2
+k, respectively.
+For simulations in Figure 4, effect sizes were drawn from a mixture of Normal distributions: there
+was a point mass at (0,0); a component with σ2
+1 = 0, σ2
+2̸ = 0; a component with σ2
+1̸ = 0, σ2
+2 = 0; and
+a component with σ2
+1̸ = 0, σ2
+2̸ = 0, σ12 =
+p
+σ2
+1σ2
+2.
+Second, we simulated summary statistics as
+ˆβk∼N(βk, 1
+Nk
+I),
+(19)
+where βk is the vector of true causal effect sizes for trait k and Nk is the sample size for trait k. When
+we ran LCV on these summary statistics, we used constrained-intercept LD score regression rather
+than variable-intercept LD score regression both to normalize the effect estimates21 and to estimate
+the genetic correlation,8 with LD scores equal to one for every SNP.
+20
+
+[Page 21]
+In simulations with LD, we ﬁrst simulated causal effect sizes for each trait in the same manner as
+simulations with no LD. Then, we obtained summary statistics in one of two ways, either using real
+genotypes or using real LD only.
+For other simulations, we simulated summary statistics without ﬁrst simulating phenotypic values,
+using the fact that the sampling distribution of Z-scores is approximately:32
+Z∼N(
+√
+NRβ, R),
+(20)
+where R is the LD matrix and β is the vector of true effect sizes. We estimated R from the
+N = 145k UK Biobank cohort using plink with an LD window size of 2Mb (M = 596k), which
+we converted into a block diagonal matrix with 1001 blocks. The number 1001 was chosen instead
+of the number 1000 so that the boundaries of these blocks would not align with the boundaries of
+our 100 jackknife blocks; the use of blocks allowed us to avoid diagonalizing a matrix of size 596k,
+while not signiﬁcantly changing overall LD patterns (there are ∼50, 000 independent SNPs in the
+genome, and 1001 << 50, 000). Because the use of a 2Mb window causes the estimated LD matrix
+to be non-positive semideﬁnite (even after converting it into a block diagonal matrix), each block was
+converted into a positive semideﬁnite matrix by diagonalizing it and removing its negative eigenvalues:
+that is, we replaced each block A = V ΣV T with the matrix B, where B = V max(0, Σ)V T . Then,
+because the removal of negative eigenvalues causes B′ to have entries slightly different from one, we
+re-normalized each block: C = D−1/2BD−1/2, where D is the diagonal matrix corresponding to
+the diagonal of B. Even though the diagonal elements of B are close to 1 (mostly between 0.99 and
+1.01), this step is important to obtain reliable heritability estimates using LD score regression because
+otherwise the diagonal elements of the LD matrix will be strongly correlated with the LD scores
+(r2 ≈0.5) and the heritability estimates will be upwardly biased, especially at low sample sizes.
+We concatenated the blocks C1, ..., C1001 to obtain a positive semi-deﬁnite block-diagonal matrix
+R′. We also computed and concatenated the matrix square root of each block. In order to obtain
+samples from a Normal distribution with mean R′β and variance 1
+N R′, we multiplied a vector having
+independent standard normal entries by the matrix square root of R′ and added this noise vector to the
+vector of true marginal effect sizes, R′β. We computed LD scores directly from R. For simulations
+with sample overlap, the summary statistics were correlated between the two GWAS: the correlation
+between the noise term in the estimated effect of SNP i on trait 1 and the estimated effect of SNP j
+on trait 2 was R′
+ijρtotalNshared/√N1N2, which is the amount of correlation that would be expected if
+the total (genetic plus environmental) correlation between the traits is ρtotal.8
+10
+Discussion of additional trait pairs
+We brieﬂy discuss several other trait pairs with signiﬁcant evidence of partial genetic causality,
+including novel results and results that have previously been reported (Table 2).
+• We identiﬁed four traits with evidence for a fully or partially genetically causal effect on
+hypertension (Table 2), which is genetically correlated with MI (ˆρg = 0.49(0.10)). These
+included genetically causal effects of BMI, consistent with the published literature,9,34 as
+well as triglycerides and HDL. The genetically causal effect of HDL indicates that there
+exist major metabolic pathways affecting hypertension with little or no corresponding effect
+on MI. The positive partially genetically causal effect of reticulocyte count, which had a low
+gcp estimate ( ˆ
+gcp = 0.41(0.13)), is likely related to the substantial genetic correlation of
+reticulocyte count with triglycerides ( ˆρg = 0.33(0.05)) and BMI ( ˆρg = 0.39(0.03)).
+• We detected evidence for a fully or partially genetically causal effect of triglycerides on
+ﬁve cell blood traits: mean cell volume, platelet distribution width, reticulocyte count,
+eosinophil count and monocyte count (Table 1). These results highlight the pervasive effects
+of metabolic pathways, which can induce genetic correlations with cardiovascular pheno-
+types. For example, shared metabolic pathways may explain the high genetic correlation of
+reticulocyte count with MI (ˆρg = 0.31(0.06)) and hypertension (ˆρg = 0.27(0.04)).
+• There was evidence for a negative fully or partially genetically causal effect of balding on
+number of children in males. Two possible explanations are shared pathways involving
+androgens41 and sexual selection against early balding.
+• There was evidence for a positive fully or partially genetically causal effect of BMI on
+triglycerides, consistent with results using MR34 and bidirectional MR.9 There was also
+21
+
+[Page 22]
+evidence for a positive genetically causal effect of LDL on the self-reported high cholesterol
+phenotype, consistent with LDL cholesterol representing one component of this compound
+phenotype.
+• There was evidence for fully or partially genetically causal effects of several traits on various
+platelet phenotypes: large negative effects on platelet count for platelet distribution width
+and platelet volume, and effects of triglycerides and HDL on platelet distribution width.
+• It has been suggested that height has a causal effect on educational attainment.36 While our
+results support a partially genetically causal effect, the low gcp estimate ( ˆ
+gcp = 0.33(0.10))
+suggests shared developmental pathways rather than direct causality, highlighting the beneﬁt
+of our non dichotomous approach to causal inference. There was a similar result for age at
+menarche and height, which was previously reported using Bidirectional MR.9
+• A recent study reported genetic correlations between various complex traits and number
+of children in males and females.40 We identiﬁed only one trait (balding in males) with
+a fully or partially causal effect on number of children (negative effect on number of
+children in males). (Two possible explanations are shared pathways involving androgens41
+and sexual selection against early balding.) For college education, which has a strong
+negative genetic correlation with number of children ( ˆρg = −0.31(0.07) and −0.26(0.06)
+in males and females respectively), we obtained low gcp estimates with low standard errors
+( ˆ
+gcp = 0.00(0.09) and ˆ
+gcp = 0.04(0.21) respectively), providing evidence against causality.
+Thus, a genetic correlation with number of children does not imply a causal effect. This
+result does not contradict the conclusion of reference 40 that complex traits are under natural
+selection, as natural selection produces a change in the mean value of a trait even if the trait
+is non-causally correlated with ﬁtness.42
+22

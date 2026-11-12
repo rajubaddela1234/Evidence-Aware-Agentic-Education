@@ -1,0 +1,304 @@
+[Page 1]
+RustCompCert: A Verified and Verifying Compiler for
+a Sequential Subset of Rust
+Jinhua Wu∗, Yuting Wang∗, Liukun Yu∗, Linglong Meng§
+Shanghai Jiao Tong University, China∗
+University of Minnesota, USA§
+yuting.wang@sjtu.edu.cn
+1
+Introduction
+We aim to develop an end-to-end verified Rust compiler. It
+should provide two guarantees: one is semantics preserva-
+tion, i.e., the behaviors of source code includes the behav-
+iors of target code, with which the properties verified at
+the source can be preserved down to the target; the other is
+memory safety ensured by the verifying compilation [6]—the
+borrow checking pass [20], which can simplify the verifica-
+tion of Rust programs, e.g., by allowing the verification tools
+focus on the functional correctness [2–5, 10, 13].
+However, there are significant challenges in verifying the
+Rust compiler. Some Rust compilation and checking passes,
+such as Drop Elaboration [15] and Borrow Checking [20],
+involve complicated program analysis algorithms. It is non-
+trivial to formalize and verify these analyses within existing
+frameworks for verified compilers. Existing formalizations of
+Rust [7, 22] primarily focus on verifying its type soundness,
+rather than verifying the analysis algorithms themselves.
+Aeneas [4, 5] proposes a promising borrow checking algo-
+rithm based on a borrow-centric semantics, but we focus
+on another direction—verifying the algorithms used in the
+standard Rust compiler, namely NLL [1] or Polonius [19].
+Rust
+Rustlight
+Clight
+Asm
+Parser
+RustCompCert
+frontend
+CompCert
+backend
+Figure 1. Structure of RustCompCert (green: verified)
+We present our ongoing work on verifying a Rust compiler
+frontend in Rocq and connecting it with CompCert [11, 12]
+to build an end-to-end verified Rust compiler, which we call
+RustCompCert. Its overall structure is illustrated in Fig. 1,
+which consists of three components: (1) an unverified parser
+that translates source Rust code into Rustlight, a sequential
+subset of Rust formalized in Rocq; (2) a verified frontend that
+compiles Rustlight to Clight, including Rust-specific passes
+such as Drop Elaboration and Borrow Checking; and (3) a
+verified backend based on CompCert, an optimizing compiler
+that compiles Clight to assembly1.
+Verifying all features of Rust is not realistic. We therefore
+focus on a core subset of the language, which we formalize as
+Rustlight. Rustlight supports algebraic data types (i.e., struct
+and enum), automatic memory management for Box via
+1We use the framework of CompCertO [9, 24], an extension of CompCert,
+to support verified compositional compilation.
+RAII and ownership semantics, (im)mutable references with
+region (or lifetime) annotations, as well as the composition
+of safe and unsafe modules (e.g., safe Rust and C). The main
+unsupported features include concurrency, polymorphism,
+traits, and higher-order functions (e.g., closures).
+How we present it. We plan to present our work in 20–25
+minutes, with an additional 5–10 minutes reserved for Q&A.
+The presentation will broadly follow the structure of this
+paper. We will begin by introducing the compilation passes of
+RustCompCert and its main correctness theorems in §2. We
+will then focus on how we formalize and verify the borrow
+checking algorithm as described in §3. Due to time and space
+limits, we may not cover our approach to supporting unsafe
+code; interested readers can refer to this paper [23]. Our
+ongoing formalization is publicly available at https://github.
+com/SJTU-PLV/CompCert/tree/rust-verified-compiler.
+2
+Overview of RustCompCert
+The internal structure of the RustCompCert frontend is
+shown in Fig. 2. We follow the design of the standard Rust
+compiler (i.e., rustc) to structure our compilation pipeline.
+The syntax of Rustlight is close to that of surface Rust. We
+design an intermediate representation called RustIR, whose
+syntax is similar to MIR. The first pass lowers Rustlight to
+RustIR in preparation for subsequent analyses, correspond-
+ing to the MIR construction in rustc [16]. We then perform
+Drop Elaboration [15], which is a key pass in rustc that
+realizes the mechanism of automatic resource management.
+This pass determines which drop operations (i.e., destruc-
+tors) should be executed by analyzing the initialization status
+of variables. Consequently, the correctness of this pass cru-
+cially relies on the soundness of this program analysis.
+Rustlight
+RustIR
+RustIR
+Clight
+Lower
+Drop
+Elaboration
+Clight
+Generation
+Borrow Checking
+Figure 2. Structure of RustCompCert Frontend
+We then perform borrow checking on RustIR. The bor-
+row checker consists of two components: a move checking
+pass [17], which ensures that each variable is not used after
+being moved, and a borrow checking pass based on Polo-
+nius [19]. Compare to NLL [1], the stable borrow checker in
+rustc which interprets regions as “sets of program points
+arXiv:2602.07455v1  [cs.PL]  7 Feb 2026
+
+[Page 2]
+Jinhua Wu∗, Yuting Wang∗, Liukun Yu∗, Linglong Meng§
+that a loan may live”, Polonius can be seen as an alias anal-
+ysis, which is more suitable to implement in the program
+analysis framework provided by CompCert. Its interpreta-
+tion of regions as “sets of places that a reference may point
+to” aligns naturally with the values that may be stored in
+references in the program semantics. The Clight Generation
+pass serves as the code generation phase. For example, it
+translates enum types into tagged unions and generates drop
+glue functions for types that require destructors.
+Compiler Correctness. Like CompCert providing end-to-
+end semantics preservation for Clight programs, RustCom-
+pCert also provides this guarantee for Rustlight programs:
+∀(𝑀𝑠: Rustlight) (𝑀𝑡: Asm),
+RustCompCert(𝑀𝑠) = 𝑀𝑡⇒J𝑀𝑡K ⩽J𝑀𝑠K
+Here J𝑀𝑡K ⩽J𝑀𝑠K is defined as a standard backward sim-
+ulation, meaning that the behaviors of source program is
+included in the behaviors of target program.
+Soundness of Borrow Checking. The memory safety en-
+sured by the borrow checking has been utilized by many Rust
+verification tools [2–5, 10, 13] to simplify the verification at
+the source level, e.g., by focusing on its functional correct-
+ness. To provide such guarantee, we extract a functional
+specification called RustIRspec which abstracts the low-level
+CompCert memory of the RustIR semantics into a structured
+memory model. The soundness of borrow checking is then
+formalized as a refinement between RustIRspec and RustIR:
+∀(𝑀: RustIR), BorrowCheck(𝑀) ✓⇒
+J𝑀KRustIR ⩽J𝑀KRustIRspec ∧safe J𝑀KRustIRspec
+For programs passing the borrow checking, we can conclude
+that its specification is safe, i.e., it has no undefined behav-
+iors. 2 The predicate safe can be seen as a definition of par-
+tial correctness [23]. When the programs are open, it would
+specify pre- and post-conditions to support composition.
+End-to-end Verification. By combining the soundness of
+borrow checking and the compiler correctness, the properties
+verified in RustIRspec can be preserved to the assembly:
+∀(𝑀𝑠: RustIR) (𝑀𝑡: Asm),
+RustCompCert(𝑀𝑠) = 𝑀𝑡⇒safe J𝑀𝑠KRustIRspec ⇒safe J𝑀𝑡KAsm
+3
+Formalization and Verification of the
+Borrow Checking Algorithm
+Formalization of Polonius. One possible strategy is to
+re-implement the current Polonius in Rocq, for instance by
+porting its code from rustc. However, because it relies on
+2In fact, we cannot show that the borrow checker rules out all undefined
+behaviors. For example, division-by-zero is a typical UB that borrow check-
+ing cannot prevent. Therefore, the safety ensured by the borrow checker is
+partial safety: some UBs may still occur in the semantics. To obtain total
+safety (absence of all UBs), it remains the prover’s responsibility to rule out
+these UBs.
+complex graph construction and solving algorithms [18],
+this approach would be difficult to verify in Rocq in practice.
+We instead implement it within the Kildall framework [8]
+in CompCert by defining its abstract domain and transfer
+functions. The result of Polonius is then obtained as a fixpoint
+computed by the Kildall solver.
+Abstract Domain. The naive definition is a loans map from
+regions to set of loans (the terminology representing bor-
+rowed places). However, borrow checking relies on variance
+rules [21] to maintain equality relationships between regions.
+The analysis must therefore not only propagate loans across
+regions and program points, but also propagate the equal-
+ity relation between regions. If two regions are recorded as
+equal, they must contain the same set of loans. We achieve
+this by maintaining region equality in the abstract domain
+using a union–find structure. To access the loans associated
+with a region, we use its representative in the union–find to
+index the loans map instead of using the region itself. As a re-
+sult, the abstract domain is a pair of type (𝑀×𝑈) consisting
+of a mapping from regions to loans and a union–find struc-
+ture. To integrate this domain into the Kildall framework,
+we further prove that it forms a semi-lattice.
+Transfer Function. A transfer function 𝐹: N →(𝑀×𝑈) →
+(𝑀× 𝑈) describes how the abstract state of type (𝑀× 𝑈)
+evolves for an instruction at node 𝑛∈N. It mainly specifies
+how loans flow from one region (e.g., the assigner) to another
+(e.g., the assignee). Moreover, new equality relations between
+regions may be established (e.g., by variance rules [21]). Con-
+versely, some relations may need to be removed when one
+of the regions in the relation becomes dead (i.e., will no
+longer be used). We design the transfer function following
+the subtyping and reborrow rules in the NLL RFC [1] and
+their implementation in rustc.
+Verification of Polonius. Recall that we define the sound-
+ness of borrow checking as a refinement between RustIRspec
+and RustIR. To prove this refinement for any program that
+passes borrow checking, the key steps are: (1) to establish an
+approximation relation between the abstract state produced
+by the borrow-checking analysis and the concrete state (i.e.,
+the memory model) in the semantics, and (2) to show that
+under this relation every operation in the structured memory
+model of RustIRspec can correspond to a non-stuck opera-
+tion in the CompCert memory model of RustIR. In particular,
+this implies the absence of memory errors. The first step is
+the more challenging one. With Polonius viewed as a form
+of alias analysis, we can relate each region to the set of
+memory locations that may alias with the places containing
+this region, a property that is much easier to formalize [14].
+This abstraction relation also guides potential improvements
+to the Polonius algorithm in terms of precision and perfor-
+mance. For instance, we can relax the alias sets to reduce
+precision in exchange for better performance (e.g., by mak-
+ing Polonius field-insensitive), while still being able to prove
+soundness using the same proof technique.
+
+[Page 3]
+RustCompCert: A Verified and Verifying Compiler for a Sequential Subset of Rust
+References
+[1] Aaron Turon, Konrad Borowski, Hidehito Yabuuchi, and Dan Aloni.
+2017. Non-Lexical Lifetimes. https://rust-lang.github.io/rfcs/2094-
+nll.html Accessed Ocotober 12, 2025.
+[2] Vytautas Astrauskas, Peter Müller, Federico Poli, and Alexander J.
+Summers. 2019. Leveraging rust types for modular specification and
+verification. Proc. ACM Program. Lang. 3, OOPSLA, Article 147 (Oct.
+2019), 30 pages. doi:10.1145/3360573
+[3] Xavier Denis, Jacques-Henri Jourdan, and Claude Marché. 2022.
+Creusot: A Foundry for the Deductive Verification of Rust Programs.
+In Formal Methods and Software Engineering: 23rd International Con-
+ference on Formal Engineering Methods, ICFEM 2022, Madrid, Spain, Oc-
+tober 24–27, 2022, Proceedings (Madrid, Spain). Springer-Verlag, Berlin,
+Heidelberg, 90–105. doi:10.1007/978-3-031-17244-1_6
+[4] Son Ho, Aymeric Fromherz, and Jonathan Protzenko. 2024. Sound
+Borrow-Checking for Rust via Symbolic Semantics. Proc. ACM Pro-
+gram. Lang. 8, ICFP, Article 251 (Aug. 2024), 29 pages. doi:10.1145/
+3674640
+[5] Son Ho and Jonathan Protzenko. 2022. Aeneas: Rust verification by
+functional translation. Proc. ACM Program. Lang. 6, ICFP, Article 116
+(Aug. 2022), 31 pages. doi:10.1145/3547647
+[6] Tony Hoare. 2003. The verifying compiler: A grand challenge for
+computing research. J. ACM 50, 1 (Jan. 2003), 63–69. doi:10.1145/
+602382.602403
+[7] Ralf Jung, Jacques-Henri Jourdan, Robbert Krebbers, and Derek Dreyer.
+2017. RustBelt: securing the foundations of the Rust programming
+language. Proc. ACM Program. Lang. 2, POPL, Article 66 (Dec. 2017),
+34 pages. doi:10.1145/3158154
+[8] Gary A. Kildall. 1973. A unified approach to global program opti-
+mization. In Proceedings of the 1st Annual ACM SIGACT-SIGPLAN
+Symposium on Principles of Programming Languages (Boston, Mas-
+sachusetts) (POPL ’73). Association for Computing Machinery, New
+York, NY, USA, 194–206. doi:10.1145/512927.512945
+[9] Jérémie Koenig and Zhong Shao. 2021. CompCertO: Compiling Certi-
+fied Open C Components. In Proc. 2021 ACM Conference on Program-
+ming Language Design and Implementation (PLDI’21). ACM, New York,
+NY, USA, 1095–1109. doi:10.1145/3453483.3454097
+[10] Andrea Lattuada, Travis Hance, Chanhee Cho, Matthias Brun, Isitha
+Subasinghe, Yi Zhou, Jon Howell, Bryan Parno, and Chris Hawblitzel.
+2023. Verus: Verifying Rust Programs using Linear Ghost Types. Proc.
+ACM Program. Lang. 7, OPSLA1, Article 85 (April 2023), 30 pages.
+doi:10.1145/3586037
+[11] Xavier Leroy. 2009. Formal Verification of a Realistic Compiler. Com-
+mun. ACM 52, 7 (2009), 107–115. doi:10.1145/1538788.1538814
+[12] Xavier Leroy. 2009. A Formally Verified Compiler Back-end. Journal
+of Automated Reasoning 43, 4 (2009), 363–446. doi:10.1007/s10817-009-
+9155-4
+[13] Yusuke Matsushita, Takeshi Tsukada, and Naoki Kobayashi. 2021.
+RustHorn: CHC-based Verification for Rust Programs. ACM Trans.
+Program. Lang. Syst. 43, 4, Article 15 (Oct. 2021), 54 pages. doi:10.1145/
+3462205
+[14] Valentin Robert and Xavier Leroy. 2012. A Formally-Verified Alias
+Analysis. In Certified Programs and Proofs, Chris Hawblitzel and Dale
+Miller (Eds.). Springer Berlin Heidelberg, Berlin, Heidelberg, 11–26.
+[15] Rust Compiler Team. 2025. Drop elaboration.
+https://rustc-dev-
+guide.rust-lang.org/mir/drop-elaboration.html
+[16] Rust Compiler Team. 2025. MIR construction.
+https://rustc-dev-
+guide.rust-lang.org/mir/construction.html
+[17] Rust Compiler Team. 2025.
+Tracking moves and initializa-
+tion.
+https://rustc-dev-guide.rust-lang.org/borrow_check/moves_
+and_initialization.html
+[18] Rust contributors. 2026. Implementation of Polonius in Rust com-
+piler. https://github.com/rust-lang/rust/tree/main/compiler/rustc_
+borrowck/src/polonius Accessed February 2, 2026.
+[19] Rémy Rakic and Niko Matsakis on behalf of The Polonius Working
+Group. 2023. Polonius Update.
+https://blog.rust-lang.org/inside-
+rust/2023/10/06/polonius-update.html Accessed Ocotober 12, 2025.
+[20] The Rust Team. 2025. MIR borrow check. https://rustc-dev-guide.rust-
+lang.org/borrow_check.html
+[21] The Rust team. 2025. Subtyping and Variance.
+https://doc.rust-
+lang.org/nomicon/subtyping.html
+[22] Aaron Weiss, Olek Gierczak, Daniel Patterson, and Amal Ahmed. 2019.
+Oxide: The essence of rust. arXiv preprint arXiv:1903.00982 (2019).
+[23] Jinhua Wu, Yuting Wang, Liukun Yu, and Linglong Meng. 2025. End-
+to-end Compositional Verification of Program Safety through Verified
+and Verifying Compilation. arXiv:2510.10015 [cs.PL] https://arxiv.
+org/abs/2510.10015
+[24] Ling Zhang, Yuting Wang, Jinhua Wu, Jérémie Koenig, and Zhong
+Shao. 2024. Fully Composable and Adequate Verified Compilation
+with Direct Refinements between Open Modules. Proc. ACM Program.
+Lang. 8, POPL, Article 72 (Jan. 2024), 31 pages. doi:10.1145/3632914

@@ -1,0 +1,743 @@
+[Page 1]
+The Importance of Environmental Factors in
+Forecasting Australian Power Demand
+Ali Eshragh∗
+Benjamin Ganim†
+Terry Perkins‡
+Kasun Bandara§
+Abstract
+We develop a time series model to forecast weekly peak power demand for three
+main states of Australia for a yearly time-scale, and show the crucial role of envi-
+ronmental factors in improving the forecasts. More precisely, we construct a seasonal
+autoregressive integrated moving average (SARIMA) model and reinforce it by employ-
+ing the exogenous environmental variables including, maximum temperature, minimum
+temperature, and solar exposure. The estimated hybrid SARIMA-regression model ex-
+hibits an excellent mean absolute percentage error (MAPE) of 3.41%. Moreover, our
+analysis demonstrates the importance of the environmental factors by showing a re-
+markable improvement of 46.3% in MAPE for the hybrid model over the crude SARIMA
+model which merely includes the power demand variables. In order to illustrate the
+eﬃcacy of our model, we compare our outcome with the state-of-the-art machine learn-
+ing methods in forecasting. The results reveal that our model outperforms the latter
+approach.
+1
+Introduction
+Electrical energy is a vital resource to drive industries [26]. Thus, energy demand forecasting
+is essential to the economic and socioeconomic aspects of modern society. Accurate forecasts
+ensure that utilities can meet energy demand and avoid undesirable events in the network
+such as black-outs and load shedding. While underestimation is undesirable, overestimation
+leads to wasted resources.
+In spite of recent advances in storage technologies, demand
+forecasting models are still critical in power planning [9].
+In general, there are four main time-scales (or, forecast horizons) for power demand
+modeling [11]:
+∗School of Information and Physical Sciences, University of Newcastle, NSW, Australia, and International
+Computer Science Institute, Berkeley, CA, USA. Email: ali.eshragh@newcastle.edu.au
+†School of Information and Physical Sciences, University of Newcastle, NSW, Australia.
+Email:
+Benjamin.Ganim@uon.edu.au
+‡School of Information and Physical Sciences, University of Newcastle, NSW, Australia.
+Email:
+Terry.Perkins@uon.edu.au
+§School of Computing and Information Systems, Melbourne Centre for Data Science, University of Mel-
+bourne, VIC, Australia. Email: Kasun.Bandara@unimelb.edu.au
+1
+arXiv:1911.00817v3  [stat.AP]  30 Oct 2021
+
+[Page 2]
+(i) Long-term load forecasting (LTLF) is used for expansion planning of the network;
+(ii) Medium-term load forecasting (MTLF) is used for operational planning;
+(iii) Short-term load forecasting (STLF) is used for day to day planning and dispatch cost
+minimization;
+(iv) Very short-term load forecasting (VSTLF) on the scale of seconds to minutes allows the
+network to respond to the ﬂow of demand.
+Australia is a vast and environmentally diverse continent with climate zones ranging
+from equatorial to temperate.
+It is thus important to understand how the dynamics of
+power demand varies across diﬀerent regions.
+In this paper, we develop a seasonal autoregressive integrated moving average (SARIMA)
+model to forecast peak weekly demand in the medium-term (i.e., MTLF). The demand data
+are from three main Australian states consisting of: New South Wales (NSW), Victoria
+(VIC), and South Australia (SA). To investigate the impact of the environmental factors on
+the power demand, we hybridize the SARIMA model with a linear regression model by em-
+ploying the exogenous environmental variables including, maximum temperature, minimum
+temperature, and solar exposure. Our results reveal that the latter hybrid model improves
+the accuracy of forecasts by an average factor of 46.3% over the three states. Furthermore,
+to demonstrate the eﬃcacy of the hybrid model, its outputs are compared with the state-of-
+the-art machine learning methods in forecasting. The results reveal that the former hybrid
+model outperforms the latter methods.
+The structure of this paper is organized as follows: Section 2 provides a review of the
+literature and establishes the motivation for using a SARIMA-regression model. Section 3 dis-
+cusses the data resources and aggregation, and visualizes the obtained time series. Section
+4 explains the details of the statistical procedure to ﬁt a SARIMA model to the weekly peak
+power demand data. In Section 5, we employ secondary environmental time series to con-
+struct a hybrid SARIMA-regression model. Section 6 discusses the quality of 52-week forecasts
+and compare the outcome with the state-of-the-art machine learning methods in forecasting.
+Finally, Section 7 presents a ﬁnal discussion of our ﬁndings, and provides conclusions and
+directions for future research.
+2
+Literature Review and Motivation
+Energy demand is an amalgamation of millions of individual demand requirements from
+consumers, varying with time, weather, population growth, electricity price and many other
+economic factors (e.g., see [28] and [19]). The time dependency of the demand along with its
+inherent seasonality to weather patterns across a yearly time-scale would suggest time series
+methods to study the dynamics of the demand.
+Box and Jenkins [8] introduced their celebrated SARIMA model for analyzing those non-
+stationary time series displaying seasonal eﬀects in their behavior. Each SARIMA model is a
+linearly transformed time series constructed by diﬀerencing the original time series at proper
+lags. A hybrid SARIMA-regression approach could be eﬀective, if the time covariance of the
+series is well captured by the SARIMA component and the remaining mean value of trends is
+2
+
+[Page 3]
+captured by the exogenous independent variables (e.g., see [1,9]). Although it has been more
+than 40 years since such model were developed, due to their simplicity and vast practicality,
+they continue to be widely used in theory and practice, particularly eﬀectively in electricity
+demand forecasting.
+Crude SARIMA as well as hybrid SARIMA-regression models have formed the basis of many
+power forecasting models with a focus on STLF to MTLF time-scale (i.e., looking days to
+weeks ahead) in several countries, as Nigeria [21], Iraq [19], Malaysia [22], South Africa [9],
+and Thailand [18]. Focusing on a metric of peak demand ensures that demand can be met
+when the electricity network is under maximum duress. Ghalehkhondabi et al. [10] studied
+the peak monthly demand in Northern India by using two diﬀerent time series methods
+including “SARIMA” and “exponential smoothing” models.
+The authors showed that the
+SARIMA model outperformed the exponential smoothing model on their data. In Australia,
+Amaral et al. [2] developed a smooth transition periodic autoregressive model for the New
+South Wales power demand, and As’ad [3] predicted the peak demand for New South Wales
+at a daily resolution. For a more comprehensive overview of such techniques in power demand
+modeling and forecasting, see [10].
+In time series forecasting, global forecasting methods (GFM) that simultaneously learns
+from a collection of time series, are becoming a strong alternative to the state-of-the-art
+univariate statistical forecasting method such as SARIMA [6,25]. In GFMs, a uniﬁed model
+is built using a set of related time series that enables the model to exploit key structures,
+behaviors, and patterns common within a group of time series. In fact, more recently, deep
+learning based GFMs have shown promising results in forecasting competitions and real-
+world applications (e.g., see [6,13,14,23,25]).
+While artiﬁcial neural networks (ANN) are increasing in popularity, Kandananond [18]
+compared ANN, multiple linear regression (MLR) and SARIMA models for electricity demand
+forecasting in Thailand. Although, they did not ﬁnd a statistically signiﬁcant diﬀerence
+between the three methods, MLR and SARIMA were simpler to compute, and the coeﬃcients
+were more easily interpreted.
+In this paper, we develop a hybrid SARIMA-regression model to forecast the weekly peak
+power demand in Australia over an MTLF time-scale, that is one year horizon (52 weeks).
+The main contribution of this work is to demonstrate the crucial role of novel environmental
+variables in the dynamics of the demand. The quality of forecasts are compared with the
+state-of-the-art machine learning techniques.
+The results show that our model not only
+outperforms the others, but also can more easily be computed and interpreted.
+We conclude this section by noting that as electricity energy is still diﬃcult to store, it
+is critical that the system can meet peak demand [28]. To the best of our knowledge, this
+work is the ﬁrst attempt to investigate the impact of environmental factors on predicting
+the aggregated weekly peak demand in an MTLF time-scale study.
+3
+
+[Page 4]
+3
+Data: Resources, Aggregation and Visualizing
+The power demand data for three major states of Australia, consisting of New South Wales
+(NSW), Victoria (VIC), and South Australia (SA), are obtained from the Australian Energy
+Market Operator [4]. They are measured in megawatts (MW). The secondary environmental
+time series data are acquired from the Australian Bureau of Meteorology [5]. We use the
+data from those weather stations in close proximity to the primary population center for
+each state. These major population centers are Sydney, Melbourne, and Adelaide for NSW,
+VIC, and SA, respectively. Table 1 lists the details of those weather stations.
+Table 1: Australian Bureau of Meteorology weather stations
+State
+Site
+BoM Site Number
+NSW
+Sydney Airport
+066037
+VIC
+Melbourne Airport
+086282
+SA
+Brisbane Weather Station
+040913
+While the power demand data are given at 15-minute intervals, the environmental data
+are recorded weekly. So the former are aggregated by ﬁnding the peak demand for each day
+and then aggregating on a weekly basis. This aggregated value will be referred to as the
+weekly peak demand (WPD). The weekly data from the ﬁrst week of January 2011 to the
+last week of December 2016 (i.e., six years) are used as the training data for modeling and
+estimating the parameters. Following the MTLF time-scale, the data from the ﬁrst week of
+January 2017 to the last week of December 2017 (i.e., 52 weeks) are used as the test data to
+check the accuracy of forecasts generated by the model.
+The three secondary environmental time series used in this work are “maximum tem-
+perature”, “minimum temperature”, and “solar exposure”, denoted by Mint, Maxt and Solt,
+respectively. Solar exposure is deﬁned as the amount of solar energy falling on a ﬂat one
+meter square surface, parallel to the ground and exposed to direct sunlight.
+Figure 1 displays the time series of WPD from 2014 to 2016 (inclusive). Previous years
+show similar seasonal trends. Visual inspection of these graphs reveals that the seasonal
+trends may vary between the states.
+Remark 1. All data analysis and graphing are conducted in R using the packages
+“astsa”a, “forecast” b, and “tseries”c, .
+acran.r-project.org/web/packages/astsa/index.html
+bcran.r-project.org/web/packages/forecast/index.html
+ccran.r-project.org/web/packages/tseries/index.html
+4
+
+[Page 5]
+Figure 1: Time series of the aggregated WPD for NSW, VIC, and SA over all of the training
+data. For brevity and clarity other graphs in this report will only show the last three years
+of training data.
+4
+Crude SARIMA Model: WPD Time Series
+We start this section by introducing a formal deﬁnition of a SARIMA model.
+Deﬁnition 1 ( [24]). A time-series {xt; t = 0, 1, . . .} is
+SARIMA(p, d, q) × (P, D, Q)S, if
+ΦP
+BS
+φ(B)∇D
+S ∇dxt = δ + ΘQ
+BS
+θ(B)wt,
+where {wt; t = 0, 1, . . .} is a Gaussian white noise series, B is the backshift operator
+5
+
+[Page 6]
+(i.e., Bkxt = xt−k), and
+φ(B) = 1 −φ1B −φ2B2 −· · · −φpBp,
+ΦP
+BS
+= 1 −Φ1BS −Φ2B2S −· · · −ΦPBPS,
+θ(B) = 1 + θ1B + θ2B2 + · · · + θqBq,
+ΘQ
+BS
+= 1 + Θ1BS + Θ2B2S + · · · + ΘQBQS,
+∇d = (1 −B)d,
+∇D
+S = (1 −BS)D.
+The autoregressive order p, moving average order q, seasonal autoregressive order P, sea-
+sonal moving average order Q, diﬀerencing orders d and D, seasonal lag S, autoregressive
+coeﬃcients φi, moving average coeﬃcients θi, seasonal autoregressive coeﬃcients Φi, seasonal
+moving average coeﬃcients Θi, and the intercept δ are unknown parameters and should be
+estimated.
+Box and Jenkins [8] showed that if a time series was non-stationary due to a trend in
+the mean, it could be detrended and converted to a stationary time series by diﬀerencing
+at appropriate lag(s). Perhaps, this is the main contribution of the SARIMA model in theory
+and practice.
+Intuitively, “stationarity” means that the statistical properties of a time series do not vary
+over time. More precisely, a time series is stationary, if the mean function is constant (with
+respect to time), and the autocovariance function for two observations of the series depends
+only on the time diﬀerence, the so-called lag, between two observation points, not the actual
+times. A common statistical test to investigate such property for a given time series is the
+“Kwiatkowski-Phillips-Schmidt-Shin” (KPSS) test with the following hypotheses [20]:
+(
+H0 : The time series is stationary.
+HA : The time series is not stationary.
+After implementing the KPSS test on the aggregated WPD data for the three states
+NSW, VIC and SA, it is reveled that the p-values of all of them are less than 0.01, implying
+that the null hypothesis is rejected at a signiﬁcance level of 1%. Thus, all three WPD time
+series are not stationary. However, we estimate an appropriate diﬀerencing orders d and D
+and the seasonality lag S for each time series to convert them to a stationary time series.
+The outcomes of the KPSS test on before and after diﬀerenced time series are provided in
+Table 2.
+To assist in choosing the order parameters for the model, including p, q, P, and Q, the
+autocorrelation and partial autocorrelation plots are applied. They would come up with a
+few options for the orders. Ultimately, the best model (i.e., set of orders) is selected by
+ﬁnding the set achieving the minimum AICc (corrected Akaike information criterion) [17].
+AICc-based model choice enables us to balance the model complexity with the model ability
+to extract information from the training data [7]. Furthermore, we restrict the maximum
+sum of orders (i.e., p+q+P +Q) to ﬁve to balance the model accuracy with complexity. As a
+6
+
+[Page 7]
+Table 2: The KPSS test p-values for time series before and after diﬀerencing along with the
+estimated values of d, D, and S.
+State
+Before
+After
+NSW
+< 0.01
+0.10 (d = 1, D = 1 and S = 52)
+VIC
+< 0.01
+0.10 (d = 0, D = 1 and S = 52)
+SA
+< 0.01
+0.10 (d = 0, D = 1 and S = 52)
+ﬁnal check, all coeﬃcient p-values were assessed to be signiﬁcant. The ﬁnal ﬁtted models and
+the estimated parameters along with their corresponding p-values are presented in Tables 3
+and 4, respectively.
+Table 3: Estimated the SARIMA model orders
+State
+p
+d
+q
+P
+D
+Q
+NSW
+1
+1
+3
+1
+1
+1
+VIC
+2
+0
+0
+1
+1
+0
+SA
+1
+0
+0
+0
+1
+0
+Table 4: The estimates of SARIMA parameters for the crude model with their p-values in
+brackets underneath.
+State
+AR1
+AR2
+MA1
+MA2
+MA3
+SAR1
+SMA1
+NSW
+-0.81
+(0.00)
+0.24
+(0.02)
+-0.79
+(0.00)
+-0.26
+(0.00)
+-0.43
+(0.00)
+-0.32
+(0.00)
+VIC
+0.25
+(0.00)
+0.15
+(0.00)
+-0.54
+(0.00)
+SA
+0.24
+(0.00)
+5
+Hybrid SARIMA-Regression Model: Environmental In-
+ﬂuence
+In order to construct an appropriate hybrid SARIMA-regression model, we ﬁrst need to realize
+the relationship between the primary time series WPD and the three environmental time
+series, including maximum temperature (Maxt), minimum temperature (Mint), and solar
+exposure (Solt). Figure 1 demonstrates that all three WPD time series possess a strong
+seasonal component, appearing to vary with the location. Analogously, Figure 2 displays a
+7
+
+[Page 8]
+similar temporal and spatial variation for the secondary environmental time series (to save
+space, only the NSW environmental time series are displayed). This observation implies that
+there could potentially be a signiﬁcant relationship between the primary and secondary time
+series.
+Figure 2: Maximum temperature, minimum temperature and solar exposure time series for
+NSW from 2014 to 2016 (inclusive)
+Since the inference theory for the hybrid SARIMA-regression models with stationary re-
+gressor variables is completely diﬀerent form that with non-stationarity variables, we need
+to test the stationarity of the environmental time series data at the outset. Therefore, the
+KPSS test is implemented on them and the corresponding p-values are reported in Table
+5. This table indicates that all three environmental time series over the three states are
+stationary at a signiﬁcance level of 1%. Indeed, this outcome is visually supported by Figure
+2.
+To investigate possible relationships between these exogenous environmental time series
+and the primary WPD time series, scatter plots are utilized. Figure 3 displays the scatter
+plots for NSW. This ﬁgure suggests that while the maximum and minimum temperatures
+have a strong quadratic relationship with the WPD data, such relationship may not be as
+8
+
+[Page 9]
+Table 5: The KPSS test p-values for the environmental time series data.
+Environmental Variable
+NSW
+VIC
+SA
+Maxt
+0.12
+0.06
+0.05
+Mint
+0.05
+0.05
+0.04
+Solt
+0.08
+0.04
+0.04
+strong for the solar exposure.
+Figure 3: Scatter plot for the NSW data showing the presence of quadratic trends between
+WPD and the environmental variables
+These observations would suggest 27 combinations of the environmental variables (none,
+linear, and quadratic for each variable) for the “regression” component of the hybrid model.
+Once again, AICc is used to ﬁnd the best combination, taking into account the secondary
+time series data.
+9
+
+[Page 10]
+The signiﬁcance of each coeﬃcient of the AICc chosen model was assessed and the ﬁnal
+selected combinations are presented in Table 6. This table shows that, while NSW and
+VIC require the full group of regression variables, surprisingly, SA does not seem to obtain
+suﬃcient beneﬁt from the solar exposure time series. The estimates of model parameters
+with their corresponding p-values are presented in Tables 7 and 8.
+Table 6: Selected combination of environmental variables based on the minimum value of
+AICc for each state
+State
+Schematic structure of the regression component
+NSW
+Maxt + Max2
+t + Mint + Min2
+t + Solt + Sol2
+t
+VIC
+Maxt + Max2
+t + Mint + Min2
+t + Solt + Sol2
+t
+SA
+Maxt + Max2
+t + Mint + Min2
+t
+Table 7: The estimates of SARIMA parameters for the hybrid model with their p-values in
+brackets underneath.
+State
+AR1
+AR2
+MA1
+MA2
+SAR1
+SMA1
+NSW
+-0.90
+(0.00)
+0.16
+(0.07)
+-0.74
+(0.00)
+-0.54
+(0.00)
+VIC
+0.48
+(0.00)
+0.30
+(0.00)
+-0.46
+(0.00)
+SA
+0.39
+(0.00)
+0.13
+(0.03)
+Table 8: The estimates of regression parameters for the hybrid model with their p-values in
+brackets underneath (coeﬃcients are rounded to one decimal places for brevity).
+State
+Maxt
+Max2
+t
+Mint
+Min2
+t
+Solt
+Sol2
+t
+NSW
+-770.8
+(0.00)
+2.4
+(0.00)
+-497.3
+(0.00)
+2.6
+(0.00)
+-61.6
+(0.03)
+0.27
+(0.01)
+VIC
+-328.2
+(0.00)
+1.2
+(0.00)
+-167.7
+(0.00)
+1.2
+(0.00)
+-83.6
+(0.00)
+0.3
+(0.00)
+SA
+-156.3
+(0.00)
+0.5
+(0.00)
+-82.7
+(0.00)
+0.5
+(0.00)
+Model Validation.
+The estimated models are checked for statistical validity by analyzing
+the residuals. Figure 4 shows the autocorrelation function (ACF) as well as QQ-plot for the
+10
+
+[Page 11]
+residuals from the ﬁtted hybrid SARIMA-regression model to the NSW WPD data. Clearly,
+the residuals have no autocorrelation at any lag, and the vast majority of the QQ-plot lies
+well within the 95% signiﬁcance area (i.e., shaded gray). Similar results are observed for the
+other two states.
+Figure 4: ACF and QQ plots for the residuals from the ﬁtted hybrid SARIMA-regression model
+for NSW
+11
+
+[Page 12]
+6
+Medium-term Load Forecasting
+The two crude SARIMA and hybrid SARIMA-regression models constructed in Sections 4 and
+5 are used to predict the WPD for all three states over 52 weeks in 2017.
+The results
+are displayed in Figure 5. In this ﬁgure, the black, red, blue and green plots are actual
+demands, forecasts generated by the SARIMA model, forecasts generated by the SARIMA-
+regression model, and the 99% conﬁdence boundary for WPD, respectively.
+It is readily seen that the SARIMA-regression model performs signiﬁcantly better than the
+SARIMA model. A more solid comparison can be carried out by ﬁnding the following two
+popular measures to assess the eﬀectiveness of the forecasts.
+Deﬁnition 2 ( [27]). The mean absolute error (MAE) is deﬁned as:
+MAE =
+Ph
+t=1 | ft −xt |
+h
+,
+where ft, xt and h are the forecast values, actual values, and prediction horizon, respec-
+tively. Analogously, the mean absolute percentage error (MAPE) is given by
+MAPE =
+Ph
+t=1
+
+ ft−xt
+xt
+
+h
+× 100%.
+Tables 9 and 10 display MAE and MAPE for the two estimated models and show the
+percentage improvement by employing the exogenous environmental time series into the
+model. The MAE and MAPE suggest an average 46.6% and 46.3% improvement in the
+accuracy of forecasts when the environmental factors are included in the model, respectively.
+These observations highly support the importance of environmental factors in forecasting
+Australian peak power demand.
+Table 9: Comparison of MAE for the SARIMA and SARIMA-regression models
+State
+SARIMA
+SARIMA-regression
+Improvement (%)
+NSW
+3962
+1643
+58.5
+VIC
+2225
+1372
+38.3
+SA
+885
+504
+43.0
+Machine learning approach.
+In order to compare the performance of our proposed
+models with other methods, we apply the state-of-the-art machine learning approach to
+forecast WPD. More precisely, we use Recurrent Neural Networks (RNN) based GFM pro-
+posed by [12]. Table 12 summarises the optimal hyper-parameter values used in our exper-
+iments. According to [12], these optimal hyper-parameters are determined by a sequential
+12
+
+[Page 13]
+Figure 5: Comparison of the forecasts for the SARIMA and SARIMA-regression models to the
+actual WPD data for 2017
+model-based algorithm conﬁguration (SMAC), a variant of Bayesian Optimisation proposed
+by [15]. Furthermore, this framework uses COntinuous COin Betting (COCOB) optimisation
+algorithm proposed by [16] that does not require tuning of the network learning rate.
+13
+
+[Page 14]
+Table 10: Comparison of MAPE for the SARIMA and SARIMA-regression models
+State
+SARIMA
+SARIMA-regression
+Improvement (%)
+NSW
+5.98
+2.48
+58.6
+VIC
+5.49
+3.37
+38.6
+SA
+7.48
+4.38
+41.7
+Table 11: The hyper-parameter values used to train the GFM based RNN.
+Model Parameter
+Optimimal Parameter value
+RNN cell dimension
+24
+Mini-batch size
+1
+Epoch size
+3
+Maximum epochs
+38
+Hidden layers
+2
+Gaussian noise injection
+2 × 10−4
+Random-normal initialiser
+2 × 10−4
+L2-regularisation weight
+6 × 10−4
+The MAE and MAPE of forecasts generated by this method are reported in Table 12.
+We observe that the hybrid SARIMA-regression model thoroughly outperforms the GFM
+benchmark.
+Table 12: The MAE and MAPE for the RNN based GFM
+State
+MAE
+MAPE
+NSW
+3497
+5.07
+VIC
+2194
+5.30
+SA
+950
+7.81
+Remark 2. Note that while the SARIMA-regression model outperforms the RNN method,
+the former is simpler to compute and the coeﬃcients are more easily interpreted. In
+practical applications, easily compared model coeﬃcients and speciﬁcations are highly
+desirable. It is also noteworthy to mention that an unrolled RNN in time resembles to a
+nonlinear approximation of ARMA models, which can be expressed as a NARMA(p,q)
+model. Here, p denotes the order of lags in the autoregressive model and q denotes
+the order of error terms in the moving average model. For more detailed comparisons
+between RNN and ARIMA models, we refer to [6]
+14
+
+[Page 15]
+7
+Discussion and Conclusion
+To the best of our knowledge, this work is the ﬁrst attempt to investigate the crucial role of
+environmental factors in the dynamics of the Australian electricity power demand. More pre-
+cisely, we developed a SARIMA-regression model for the weekly power demand in three major
+states of Australia, and empirically demonstrated the signiﬁcant inﬂuence of environmental
+factors on predictions over a medium-term load forecasting time-scale (i.e., 52 weeks). The
+results revealed that while the SARIMA-regression model generated, on average, an MAPE of
+3.41% over all states, the environmental factors could improve the accuracy of forecasts by
+a factor of 46.3%. Such an excellent MAPE is comparable with the other methods listed in
+Section 2. However, a direct comparison might not be fair (in favor of our model) due to the
+lack of other MTLF studies in the literature of Australian weekly peak power demand. This
+highlights the potential explanatory inﬂuence and impact environmental variables may have
+on power demand. Furthermore, we compared our model with the state-of-the-art machine
+learning methods in forecasting and demonstrate the superiority of the former model.
+The weather regression variables used within this work are historical data and provided
+without forecasting. This was done to maximise the predictive value of the regressors to
+highlight their importance to predicting power demand. To move the model towards practical
+use future work could forecast the weather variables and use the predictions for the SARIMA
+regression.
+While this is expected to reduce the accuracy of the prediction, observation
+shows the weather variables are strongly seasonal and stationary and so should maintain the
+majority of their predictive power.
+An alternative to using environmental data derived from a single weather station would
+be to take the data from several sites across each state with diﬀerent characteristics, and then
+use a weighted average by population. This method may help decision makers to identify
+a trend in demand that could improve the modeling of WPD. A practical drawback of this
+method is that many weather stations do not report complete data. Hence, the regression
+system will have to adjust the missing values which may bring more errors into the model.
+Our model provides a scaﬀold for future work in improving the accuracy and utility of
+forecasts. Incorporating additional environmental explanatory factors such as humidity and
+wind direction/strength could further improve the model and, consequently, the accuracy of
+forecasts.
+References
+[1] Abolghasemi, M., Hurley, J., Eshragh, A., and Fahimnia, B., Demand forecasting in
+the presence of systematic events: Cases in capturing sales promotions, International
+Journal of Production Economics, 230:107892, 2020.
+[2] Amaral, L.F., Souza, R.C., and Stevenson, M., A smooth transition periodic autore-
+gressive (STPAR) model for short-term load forecasting, International Journal of Fore-
+casting, 24(4):603-615, 2008.
+15
+
+[Page 16]
+[3] As’ad, M., Finding the best ARIMA model to forecast daily peak electricity demand,
+Proceedings of the Fifth Annual ASEARC Conerence, University of Wollongong, 2012.
+[4] Australian
+Energy
+Market
+Operator,
+www.aemo.com.au/Electricity/
+National-Electricity-Market-NEM/Data-dashboard#aggregated-data.
+[5] Australian Bureau of Meteorology, www.bom.gov.au/climate/data.
+[6] Bandara, K., Bergmeir, C., and Smyl, S., Forecasting across time series databases using
+recurrent neural networks on groups of similar series: A clustering approach,Expert
+Systems with Applications, 140:112896, 2020.
+[7] Boroojeni, K. G., Amini, M. H., Bahrami, S., Iyengar, S. S., Sarwat, A. I., and Karaba-
+soglu, O., A novel multi-time-scale modeling for electric power demand forecasting:
+From short-term to medium-term horizon, Electric Power Systems Research, 142, 58-
+73, 2017.
+[8] Box, G.E.P., Jenkins, G.M., Reinsel, G.C., and Ljung, G.M., Time series analysis:
+Forecasting and control, Wiley, 2015.
+[9] Chikobvu, D., and Sigauke, C. Regression-SARIMA modelling of daily peak electricity
+demand in South Africa, Journal of Energy in South Africa, 23(3):23-30, 2012.
+[10] Ghalehkhondabi, I., Ardjmand, E., Weckman, G.R., and Young, W.A., An overview
+of energy demand forecasting methods published in 2005-2015, Energy Systems, 2017.
+[11] Hernandez, L., Baladron, C., Aguiar, J.M., Carro, B., Sanchez-Esguevillas, A.J.,
+Lloret, J., and Massana, J., A survey on electric power demand forecasting: Future
+trends in smart grids, microgrids and smart buildings, IEEE Communications Surveys
+and Tutorials, 16(3):1460-1495, 2014.
+[12] Hewamalage, H. , Bergmeir, C., and Bandara, K., Recurrent neural networks for time
+series forecasting: Current status and future directions, International Journal of Fore-
+casting, 2020.
+[13] Bandara, K., Bergmeir, C. and Hewamalage, H., LSTM-MSNet: Leveraging Forecasts
+on Sets of Related Time Series With Multiple Seasonal Patterns, IEEE Trans Neural
+Netw Learn Syst, Apr. 2020, doi: 10.1109/TNNLS.2020.2985720.
+[14] Bandara, K., Bergmeir, C., Campbell, S., Scott, D. and Lubman, D., Towards Accurate
+Predictions and Causal ‘What-if’ Analyses for Planning and Policy-making: A Case
+Study in Emergency Medical Services Demand, presented at the International Joint
+Conference on Neural Networks, Glasgow, 2020.
+[15] Hutter, F., Hoos, H.H., and Leyton-Brown, K., Sequential Model-based Optimization
+for General Algorithm Conﬁguration, in Proceedings of the 5th International Confer-
+ence on Learning and Intelligent Optimization, Rome, Italy, 2011, pp. 507-523.
+16
+
+[Page 17]
+[16] Orabona, F. and Tommasi, T., Training Deep Networks Without Learning Rates
+Through Coin Betting, in Proceedings of the 31st International Conference on Neural
+Information Processing Systems, Long Beach, California, USA, 2017, pp. 2157-2167
+[17] Hurvich, C. M., and Tsai, C.-L., Regression and time series model selection in small
+samples, Biometrika, 76(2):297, 1989.
+[18] Kandananond, K., Forecasting electricity demand in Thailand with an artiﬁcial neural
+network approach, Energies, 4:1246-1257, 2011.
+[19] Kareem, Y.H., and Majeed, A.R., Sulaimany Governorate Using SARIMA, Building,
+(April 2003):1-5, 2006.
+[20] Kwiatkowski, D., Phillips, P.C.B., Schmidt, P., and Shin, Y., Testing the null hypoth-
+esis of stationarity against the alternative of a unit root, Journal of Econometrics,
+54(1-3):159-178, 1992.
+[21] Mati, A.A., Gajoga, B.G., Jimoh, B., Adegobye, A., Dajab, D.D., Electricity demand
+forecasting in Nigeria using time series model, The Paciﬁc Journal of Science and
+Technology, 10(2):479-85, 2009.
+[22] Mohamed, N., Ahmad, M.H., and Ismail, Z., Double seasonal ARIMA model for fore-
+casting load demand, Matematika, 26:217-31, 2010.
+[23] Salinas, D., Flunkert, V., Gasthaus, J., and Januschowski, T., DeepAR: Probabilistic
+forecasting with autoregressive recurrent networks, International Journal of Forecast-
+ing, 2019.
+[24] Shumway R.H., and Stoﬀer, D.S., Time series analysis and its applications with R
+examples, Springer, New York, 2011.
+[25] Smyl, S., A hybrid method of exponential smoothing and recurrent neural networks
+for time series forecasting, International Journal of Forecasting, 36(1):75-85, 2020.
+[26] Soliman A., and Al-Kandari A., Electrical load forecasting, Elsevier publishing, 2010.
+[27] Willmott, C. J., and Matsuura, K., Advantages of the mean absolute error (MAE) over
+the root mean square error (RMSE) in assessing average model performance, Climate
+Research, 30(1):79-82, 2005.
+[28] Zhu, S., Wang, J., Zhao, W., and Wang, J., A seasonal hybrid procedure for electricity
+demand forecasting in China, Applied Energy, 88(11):3807-3815, 2011.
+17

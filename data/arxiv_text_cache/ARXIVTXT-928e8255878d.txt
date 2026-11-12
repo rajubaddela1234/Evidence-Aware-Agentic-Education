@@ -1,0 +1,523 @@
+[Page 1]
+Astronomy in Focus, Volume 1
+XXIXth IAU General Assembly, August 2015
+Piero Benvenuti, ed.
+© 2024 International Astronomical Union
+DOI: 00.0000/X000000000000000X
+SEP environment in the inner heliosphere
+from Solar Orbiter and Parker Solar Probe
+Robert F. Wimmer-Schweingruber1 and Javier Rodriguez-Pacheco2
+and George C. Ho3 and Christina M. Cohen4 and Glenn M. Mason5
+and
+the Solar Orbiter EPD and Parker Solar Probe ISIS teams
+1Institute of Experimental & Applied Physics
+Kiel University,
+24118 Kiel, Germany
+email: wimmer@physik.uni-kiel.de
+2Universidad de Alcal´a, Space Research Group, 28805 Alcal´a de Henares, Spain
+email: javier.pacheco@uah.es
+3Southwest Research Institute, San Antonio, TX, USA
+email: george.ho@swri.org
+4California Institute of Technology, Pasadena, CA, USA
+email: cohen@srl.caltech.edu
+5Applied Physics Laboratory, Johns Hopkins University, Laurel, MD 20723 USA
+email: glenn.mason@jhuapl.edu
+Abstract. The Sun drives a supersonic wind which inflates a giant plasma bubble in our very
+local interstellar neighborhood, the heliosphere. It is bathed in an extremely variable background
+of energetic ions and electrons which originate from a number of sources. Solar energetic particles
+(SEPs) are accelerated in the vicinity of the Sun, whereas shocks driven by solar disturbances
+are observed to accelerate energetic storm particles (ESPs). Moreover, a dilute population with a
+distinct composition forms the anomalous cosmic rays (ACRs) which are of a mixed interstellar-
+heliospheric origin. Particles are also accelerated at planetary bow shocks. We will present recent
+observations of energetic particles by Solar Orbiter and Parker Solar Probe, as well as other
+spacecraft that allow us to study the acceleration and transport of energetic particles at multiple
+locations in the inner heliosphere.
+Keywords. sun, heliosphere, energetic particles, Solar Orbiter, Parker Solar Probe
+1. Introduction
+The Integrated Science Investigation of the Sun (IS⊙IS,
+McComas et al. 2016) on
+Parker Solar Probe (PSP, Fox et al. 2016) and the Energetic Particle Detector (EPD,
+Rodr´ıguez-Pacheco et al. 2020) on Solar Orbiter (M¨uller et al. 2020) basically have the
+same science goals which are worded slightly differently and are summarized here for
+convenience. McComas et al. (2016) states IS⊙IS’ top level science goal as to determine
+the physical mechanisms that produce, accelerate, and transport energetic particles in the
+inner heliosphere. As usual, this is broken down into three lower-level science questions: a)
+What is the origin or seed population of solar energetic particles (SEPs)? b) How are these
+SEPs and other particle populations accelerated? c) What mechanisms are responsible for
+transporting the different particle populations into the heliosphere? On the other hand,
+EPD ’s top-level science question is (see Rodr´ıguez-Pacheco et al. 2020) to determine how
+solar eruptions produce energetic particle radiation that fills the heliosphere. This is also
+broken down into three more detailed science questions. a) How and where are energetic
+1
+arXiv:2408.02330v1  [astro-ph.SR]  5 Aug 2024
+
+[Page 2]
+2
+Wimmer-Schweingruber et al.
+particles injected at the sources and, in particular, what are the seed populations for
+energetic particles? b) How and where are energetic particles accelerated at the Sun and
+in the interplanetary medium? c) How are energetic particles released from their sources
+and distributed in space and time?
+Obviously there are three common science questions which can be broken down into
+three processes which are needed for energetic particles to be measured in the heliosphere:
+injection (sec. 2), acceleration (sec. 3), and transport (sec. 4). We have chosen to structure
+this paper according to these three processes and to provide examples for these processes
+that use data from Solar Orbiter, PSP, and other spacecraft that were recently reported.
+Because we have been tasked by the organizers of this workshop with providing an
+overview of results from PSP and Solar Orbiter, this paper does not report brand new
+results. Rather, it attempts to exemplify how the new instruments on these missions as
+well as the various constellations offered by them and other inner-heliosphere missions
+can elucidate these three important contributions to accelerating energetic particles that
+fill the heliosphere. As usual, we will provide a summary and discussion at the end of the
+paper.
+2. Injection
+In order to do their mischief in the heliosphere, energetic particles need to be injected
+into the acceleration process. If they are accelerated at a shock, their speed needs to
+exceed the thermal speed of the local particle population so that they can freely cross
+the acceleration region (e.g., a shock) multiple times. Just how they attain this elevated
+kinetic energy has been a highly debated topic in the past decades. Today we know that
+the solar wind does not serve as the sole or main reservoir for suprathermal particles but
+that there appears to be a population of such particles available for further acceleration.
+An important clue came from measurements of the composition of suprathermal particles.
+They are enriched in the rare 3He isotope throughout the solar activity cycle (but do show
+a dependence on it, Wiedendeck and Mason (2013)). Desai and Giacalone (2016) provide
+an excellent overview of the measurements and their consequences for interpretation.
+As is well known, the Sun is an active star with an activity cycle driven by the solar
+dynamo (Cliver et al. 2022). This is illustrated in the upper panel of Fig. 1 which shows
+sunspot number (Source: WDC-SILSO, Royal Observatory of Belgium, Brussels) which
+is a good indicator for solar activity as a function of time. The bottom panel shows
+oxygen differential flux spectra accumulated over the four Bartels rotations indicated by
+vertical lines in the upper panel and in the title of the Figure. The line styles in the
+lower panel correspond to those in the upper panel. Particle data were taken from three
+instruments on NASA’s Advanced Composition Explorer (ACE, Stone et al. (1998c)), the
+Ultra-Low-Energy Isotope Spectrometer (ULEIS, Mason et al. (1998)) the Solar Isotope
+Spectrometer (SIS, Stone et al. (1998b)), and the Cosmic-Ray Isotope Spectrometer
+(CRIS, Stone et al. (1998a)).
+Fig. 1 also shows the highest and lowest particle fluences observed during the course
+of the ACE mission and illustrates the enormous variability of particle fluxes which is
+bounded by the shaded area. It covers a dynamic range of about seven orders of magnitude
+even when averaged over entire Bartels rotations. Some further explanations are needed
+to interpret the figure. Fluxes at the highest energies covered by ULEIS during quiet
+times are affected by instrumental noise which is due to a malfunction of the second
+time-of-flight (ToF) measurement. The measured values (from the ACE Science Center)
+are plotted as a line plot with a “+” symbol. Because we know that the lower limits are
+not correct over the entire energy range, we have also plotted a logarithmic interpolation
+
+[Page 3]
+SEP environment in the inner heliosphere
+3
+2000
+2005
+2010
+2015
+2020
+0
+100
+200
+Sunspot number
+sunspot number
+10
+1
+100
+101
+102
+Energy/nucleon [MeV/amu]
+10
+9
+10
+7
+10
+5
+10
+3
+10
+1
+101
+dJ/dE [cm2 sr s MeV/amu]
+ULEIS
+SIS
+CRIS
+O spectra for Bartels rotations 2000.869, 2004.713, 2009.074, and 2011.663
+Figure 1. Upper panel: Sunspot numbers vs. time (from WDC-SILSO, Royal Observatory of
+Belgium, Brussels). Bottom panel: Oxygen differential flux spectra accumulated over the time
+periods indicated by vertical lines in the upper panel (decimal years 2000.869, 2004.787, 2009.074,
+and 2011.663). Line styles in the lower panel indicate the Bartels rotation of the observation as
+indicated in the upper panel. Colors indicate different instruments on the ACE spacecraft as
+discussed in the text. The shaded region shows the envelope of the variability of the Bartels-ro-
+tation-averaged O particle fluences from 1998 – 2024. See text for an explanation of the “x” and
+“+” symbols.
+between the lowest-energy SIS data point and the ULEIS data point with the highest
+energy which is not affected by this background (around 1 MeV/nuc). Moreover, the
+CRIS instrument on ACE was not designed to measure high fluxes during solar particle
+events but to provide accurate measurements of the quiet-time galactic cosmic rays. It
+saturates during high-flux time periods† which is seen by the measured data points which
+are also shown as a line plot with an “x” symbol marking. To establish a likely envelope,
+shown as the solid line bounding the shaded region, we have used a fluence of 0.8 times
+the highest-energy SIS data point and 0.8 times the square root of that value multiplied
+by the second-lowest CRIS fluence value. This is also the reason for the “missing” CRIS
+data in Fig. 1. Figure 1 and its discussion above are updated versions of a similar figure
+shown in Wimmer-Schweingruber et al. (2023b).
+Here we illustrate the injection stage with new measurments performed with the
+Suprathermal Ion Spectrograph (SIS Rodr´ıguez-Pacheco et al. 2020) on Solar Orbiter. SIS
+† Dr. R. Leske,
+Caltech,
+private
+communication,
+2022.
+See
+also
+the
+caveat
+at
+https://izw1.caltech.edu/ACE/ASC/level2/cris_l2desc.html
+which
+states
+that
+“Time
+periods during which solar activity is high are not covered by CRIS, since the instrument was
+not designed to operate during such conditions.”
+
+[Page 4]
+4
+Wimmer-Schweingruber et al.
+measures total energy of and performs multiple time-of-flight measurements on suprather-
+mal particles. This results in a very low background which allows measurements of the
+heliospheric quiet-time background of suprathermal particles (Mason et al. 2021, 2023).
+We will not consider those measurements here but rather investigate the origin of parti-
+cles injected into and accelerated during two impulsive solar particle events observed by
+Solar Orbiter on the 9th of November 2022 and on the 8th of April 2023, as reported by
+Mason et al. (2023). The first of these events was very unusual in that it contained several
+hundreds of ultraheavy ions (with masses > 78 amu). The second event occurred during
+very low ambient activity which allowed those authors to observe particle spectra with
+only minimal pre-event background from the suprathermal seed population. These ob-
+servations showed very low proton and 4He intensities together with intensities of other
+ions that are typical of 3He-rich events. Together these observations indicate that the
+enrichments in Fe/O, 3He/4He, etc. which have often been attributed to the injection
+process are more likely due to the acceleration process itself. In the model of Roth and
+Temerin (1997) and Temerin and Roth (1992) ions are accelerated by electromagnetic
+hydrogen cyclotron waves in a single-stage process. Ions are heated over a broad range
+of gyrofrequencies, but in the model presented by Mason et al. (2023) the spectrum of
+waves is strongly damped at the gyrofrequencies of the abundant H and 4He. Thus the
+“unusual” abundance features such as enhanced Fe/O is not due to an enrichment of Fe
+but rather to a depletion of O because it is fully stripped and thus in resonance with the
+waves damped by 4He. This process would also explain the enrichments of the neutron-
+rich isotopes of Ne, Mg, Si, etc. which have been reported in the past (Dwyer et al. 2001;
+Leske et al. 2001, 2007; Mason et al. 1994).
+3. Acceleration
+Acceleration of particles requires work to be done on them which in turn requires an
+electric field. Strong electric fields are difficult to maintain in a highly conductive plasma
+such as the corona or solar wind. Maxwell’s equations allow a way out of this dilemma
+by inducing electric fields with a rapidly changing magnetic field. Rapid temporal vari-
+ations can be achieved in solar flares as a consequence of reconnection. Rapid spatial
+variations such as shocks or other magnetic discontinuities translate to rapid tempo-
+ral changes as they are convected into a plasma. Finally waves traveling through the
+plasma can also heat particles which are in resonance. Yang et al. (2023) and Trotta
+et al. (2023) have investigated the acceleration of suprathermal ions using data from the
+SupraThermal Electron Proton (STEP) sensor which is part of EPD on Solar Orbiter
+and offers unusually high energy and time resolution (Rodr´ıguez-Pacheco et al. 2020;
+Wimmer-Schweingruber et al. 2021; Yang et al. 2023).
+Yang et al. (2023) reconstructed the pitch-angle distributions (PADs) of suprathermal
+ions in the solar wind frame of reference and studied its temporal evolution, as well as
+the flux profile and velocity distribution function of these particles in the vicinity of
+a shock observed on the 3rd of November 2021. They found that suprathermal proton
+fluxes peaked ∼12 to ∼24s before the shock in the upstream region, and that close to
+the shock they exhibited anisotropic PADs that pointed away from the shock and tended
+to isotropize farther upstream. Downstream of the shock, the PADs showed anisotropies
+towards a pitch angle of 90◦. Comparison of their measurements with theoretical models
+suggests that the acceleration of suprathermal protons at interplanetary shocks is highly
+dynamic on a timescale of ∼10s, i.e., few proton gyroperiods. Furthermore, they con-
+clude that shock-drift acceleration likely plays an important role in accelerating these
+suprathermal protons. They suggest that the strong variability of the suprathermal par-
+
+[Page 5]
+SEP environment in the inner heliosphere
+5
+ticle fluxes could be a result of time-varying acceleration efficiency at the shock or that
+it is a consequence of shock rippling (Johlander et al. 2016, 2018; Yang et al. 2018), i.e.,
+a rapidly varying magnetic connection to different parts of the shock that would have
+different local θBn and therefore different acceleration efficiencies.
+Trotta et al. (2023) combined results from hybrid kinetic simulations with STEP mea-
+surements of suprathermal ions in the vicinity of the 30 October 2021 shock to show
+that the inherent variability of the injection process in both time and space must be
+considered to solve the problem of how suprathermal particle injection occurs in astro-
+physical systems. In other words, their results strongly support the second explanation
+given by Yang et al. (2023). Similar to that work, they found highly variable particle
+enhancements but in this case they showed clear velocity dispersion in the vicinity of the
+shock on time scales of 10 to 20 s. In their view, the particles are accelerated at different
+locations of the shock which are magnetically connected to the spacecraft at different
+times. These authors also used 2.5-dimensional kinetic simulations to model details of
+the shock and particle heating and acceleration. They found that suprathermal particles
+are not distributed uniformly in the vicinity of the shock. Their flux varies strongly along
+the shock front which indicates irregular injection into the acceleration process.
+Together the results of Yang et al. (2023) and Trotta et al. (2023) underline the im-
+portance of detailed, high-resolution studies in the vicinity of interplanetary shocks to
+understand both the injection and acceleration of particles. They also drive home the
+point that injection (Sec. 2) and acceleration (Sec. 3) are not isolated processes but need
+to be considered together. We could just as well have presented these results in Sec. 2!
+4. Transport
+Particles can escape the injection/acceleration region after which we speak of “trans-
+port”. A simple thought experiment starting with a point-like source may serve to illus-
+trate this process. If we assume a point-like source then particles can propagate along
+the interplanetary magnetic field (IMF), they can experience drifts and diffusion perpen-
+dicular to the IMF, and further energy and momentum changes due to changes in the
+IMF at all temporal and spatial scales. Finally, flux tubes filled with energetic particles
+to different levels can be convected by an observer which results in interesting temporal
+behavior (see, e.g., Wimmer-Schweingruber et al. 2023a). To illustrate these effects we
+will discuss four publications by Trotta et al. (2024), Telloni et al. (2021), Kollhoff et al.
+(2021), and Mason et al. (2021).
+How can we decide whether an observed feature in a particle event is due to injec-
+tion/acceleration or due to transport? To answer that we need to know how the source,
+e.g., a shock evolves in the inner heliosphere where it accelerates particles. Trotta et al.
+(2024) observed a CME-driven interplanetary shock at 0.07 with Parker Solar Probe and
+at 0.7 with Solar Orbiter on the 5th of September 2022. This allowed them to study the
+shock properties at these two different heliocentric distances. Coincidentally, the 0.07 au
+or 15 R⊙are also the closest to the Sun that a shock has been observed to date. PSP (So-
+lar Orbiter) was located at Carrington longitude 232◦(252◦) and latitude -1.8◦(-3.6◦).
+While this is not a perfect alignment the measured shock properties were nevertheless
+very similar at the two locations: θBn was 53◦(51◦), shock magnetic compression ratio,
+rB, was 2.3 (1.9), and the gas compression ratios was 1.6 (2.0). Shock speed decreased
+from 1520 km/s at PSP to 942 km/s at Solar Orbiter, but the fast magnetosonic and
+Alfv´enic Mach numbers were very similar (Mfms = 3.8
+(3.2) and MA = 3.9
+(3.8)).
+Despite these similarities, the shock at PSP was seen as a sharp transition without
+any signs of an upstream foreshock, but much more complex at Solar Orbiter. There a
+
+[Page 6]
+6
+Wimmer-Schweingruber et al.
+wavelet spectrum of the magnetic field fluctuations shows enhanced power extending to
+small (∼1 Hz) scales indicating upstream shocklet activity. At PSP the downstream level
+of fluctuations is enhanced by a factor ∼4 with respect to the upstream levels, whereas
+at Solar Orbiter this region is populated with strong compressive and non-compressive
+magnetic field fluctuations, which indicates that the shock propagated through a much
+more structured portion of the solar wind than at PSP. These authors conclude that the
+shock environment at Solar Orbiter is much more disturbed than at PSP.
+Telloni et al. (2021) used the first radial alignment between Parker Solar Probe and
+Solar Orbiter to investigate the evolution of solar wind turbulence in one and the same
+plasma parcel in the inner heliosphere. They allowed a tolerance of ±1.5 degrees in
+latitude and longitude to identify a 1.5 hour time period centered around 04:00 UT on the
+27th of September 2020 at PSP (00:00 UT on the 2nd of October 2020 at Solar Orbiter)
+as corresponding to the same plasma parcel at 0.1 and 1 au. Using burst-mode magnetic
+field measurements at the two spacecraft, they could show that the two spacecraft indeed
+measured very similar characteristics of the solar wind stream. The stream originated
+from a quiescent region and showed exceptionally smooth magnetic field and a Parker-like
+field orientation without any switchbacks. They used standard diagnostics for spectral
+power, compressibility, and intermittency of the magnetic field fluctuations to show that
+at PSP turbulence was still highly Alf´enic while it showed fully developed, intermittent
+turbulence at Solar Orbiter. They concluded that nonlinear interactions between Alfv´en
+waves probably did not yet have time to fully develop at 0.1 au, where the solar wind
+sampled by PSP was still pristine and unaffected by stream–stream interactions. At Solar
+Orbiter (at 1 au) the same plasma has evolved considerably, the turbulent cascade has
+fully developed and Alfv´enic fluctuations have decreased.
+Kollhoff et al. (2021) investigated the solar particle event observed by multiple space-
+craft (ACE, Parker Solar Probe, SOHO, Solar Orbiter, and STEREO-A) across a longi-
+tudinal range of > 230◦on the 29th of November 2020. This was the first wide-spread
+event of solar cycle 25 and accelerated electrons to near-relativistic energies as well as
+ions to energies > 50 Mev. It was associated with an M4.4 class X-ray flare, a coronal
+mass ejection and an extreme ultraviolet (EUV) wave as well as a type II radio burst and
+multiple type III radio bursts. Kollhoff et al. (2021) used velocity dispersion and time-
+shift analysis techniques to identify the particle release times at the Sun to show that
+the delays in onset time increased with increasing angle between the flare foot point and
+the observer. They compared the thus determined onset times with the time the EUV
+wave intersected the estimated magnetic footpoints of each spacecraft and concluded
+that a simple scenario where the particle release is only determined or triggered by the
+EUV wave is unlikely. Anisotropic particle distributions were observed at SolO, Wind,
+and STEREO-A. Remarkably, they found that the largest anisotropy was observed by
+STEREO-A which was separated by ∼95◦from the parent solar active region. Their
+observations suggest that particles are injected over a wide longitudinal range close to
+the Sun, in fact even crossing the heliospheric current sheet.
+Mason et al. (2021) investigated the same event (29th of November 2021) as Kollhoff
+et al. (2021) in view of the heavy ion properties of energetic particles. SIS and ULEIS
+on ACE (which is a very similar instrument to SIS) saw only upper limits of < 1% and
+0.03% to the enrichment of 3He in this event. This could simply be a consequence of
+this being the first large solar particle event of solar cycle 25 and that the “reservoir” of
+suprathermal flare material (Wiedendeck and Mason 2013) had not yet been replenished
+enough to provide sufficient 3He seed particles. Heavy ion abundances normalized to oxy-
+gen were observed to be about two time lower at PSP and ACE than long-term averages
+(Desai et al. 2006). PSP observed a nearly monotonic drop in Fe/O with increasing en-
+
+[Page 7]
+SEP environment in the inner heliosphere
+7
+ergy, consistent with measurements at STEREO and ACE. At low energies (below ∼30
+keV), however, PSP measured a significantly enhanced Fe/O ratio that increased with
+decreasing energy. These measurements extend below the energy range of most previous
+SEP events and may be a new feature.
+5. Summary and Discussion
+We have considered several new results from Solar Orbiter and Parker Solar Probe that
+illustrate the complexity of the question being tackled by the energetic particle instru-
+ments on these two spacecraft. The question “How do solar eruptions produce energetic
+particle radiation that fills the heliosphere?” sounds deceitfully simple but reveals a re-
+markable richness in phenomena once one digs into the details. We have broken it down
+into three stages which can bring an energetic particle to end up in one of the many
+instruments used to measure such radiation: injection, acceleration, and transport. We
+have seen that these different stages are strongly interlinked and are not easily separated.
+The often reported enhancements of Fe/O were shown by Mason et al. (2023) to be due
+to a depletion of fully stripped O, at least for the two events discussed in that publication.
+They propose that the waves responsible for heating particles are strongly damped by
+protons and 4He and thus there is less wave power available to ions with charge-to-mass
+ratios close to 0.5. This interpretation implies that not all variability in heavy-ion abun-
+dances (generally normalized to O) would be due to enrichments of those elements in
+the “seed population”, but that the acceleration mechanism itself causes these apparent
+enrichments. Therefore the distinction between “injection” and “acceleration” becomes
+blurred and in a sense ill-defined.
+The STEP sensor, part of Solar Orbiter’s EPD suite of energetic particle instruments,
+is capable of measuring at an exceptionally high cadence of one second. Yang et al.
+(2023) and Trotta et al. (2023) used this 15-pixel pin-hole instrument to reconstruct
+high-resolution pitch-angle distributions in the vicinity of two shocks. Their high time-
+resolution results allowed them to catch shock-drift acceleration in the act (Yang et al.
+2023) and revealed bursty, non-local acceleration close to IP shock (Trotta et al. 2023).
+STEP measures in a previously hardly accessible energy range close to the bulk energy of
+the solar wind. The remarkable dynamics in the vicinity of the shocks again demonstrate
+how blurred the distinction between “injection” and “acceleration” has become.
+Once injected and accelerated, energetic particles leave their source region and expe-
+rience “transport” effects. We may have been a little too inclusive here by also including
+the radial evolution of shocks in Sec. 4 (Transport) as discussed by Trotta et al. (2024),
+but this is an important effect. Shocks do evolve with distance from the Sun and the new
+constellations of spacecraft in the inner heliosphere allow us to measure this evolution.
+Similarly, Telloni et al. (2021) measured the radial evolution of turbulent fluctuations in
+a plasma parcel between 0.1 and 1 au. This went beyond the usual statistical sampling
+by identifying one and the same plasma parcel at PSP and Solar Orbiter. Kollhoff et al.
+(2021) and Mason et al. (2021) investigated the same event (29th of November 2021)
+at multiple spacecraft to elucidate especially the longitudinal spread of particles and
+the properties of heavy ions which serve as tracers for micro-physical processes in the
+injection/acceleration regions.
+The constantly changing constellations of inner-heliosphere spacecraft (including space-
+craft at one au) are allowing us to better understand radial and longitudinal gradients
+and spreads of particles and properties of the solar wind and interplanetary magnetic
+field through which they propagate. Solar Orbiter leaving the ecliptic in 2025 will add
+latitudinal transport the equation.
+
+[Page 8]
+8
+Wimmer-Schweingruber et al.
+References
+Cliver, E. W., C. J. Schrijver, K. Shibata, and I. G. Usoskin: “Extreme solar events”. Living
+Reviews in Solar Physics, 19(1), (2022), 2.
+Desai, M. and J. Giacalone: “Large gradual solar energetic particle events”. Living Reviews in
+Solar Physics, 13(1), (2016), 3.
+Desai, M. I., G. M. Mason, J. E. Mazur, and J. R. Dwyer: “The Seed Population for Energetic
+Particles Accelerated by CME-Driven Shocks”. Space Sci. Rev., 124, (2006), 261–275.
+Dwyer, J. R., G. M. Mason, J. E. Mazur, R. E. Gold, S. M. Krimigis, E. M¨obius, and M. Popecki:
+“Isotopic Composition of Solar Energetic Particle Events Measured by Advanced Compo-
+sition Explorer/ULEIS”. Astrophys. J., 563(1), (2001), 403–409.
+Fox, N. J., M. C. Velli, S. D. Bale, R. Decker, A. Driesman, R. A. Howard, J. C. Kasper,
+J. Kinnison, M. Kusterer, D. Lario, et al.: “The Solar Probe Plus Mission: Humanity’s
+First Visit to Our Star”. Space Sci. Rev., 204(1-4), (2016), 7–48.
+Johlander, A., S. J. Schwartz, A. Vaivads, Y. V. Khotyaintsev, I. Gingell, I. B. Peng, S. Markidis,
+P. A. Lindqvist, R. E. Ergun, G. T. Marklund, et al.: “Rippled Quasiperpendicular Shock
+Observed by the Magnetospheric Multiscale Spacecraft”. Phys. Rev. Lett., 117(16), (2016),
+165101.
+Johlander, A., A. Vaivads, Y. V. Khotyaintsev, I. Gingell, S. J. Schwartz, B. L. Giles, R. B.
+Torbert, and C. T. Russell: “Shock ripples observed by the MMS spacecraft: ion reflection
+and dispersive properties”. Plasma Physics and Controlled Fusion, 60(12), (2018), 125006.
+Kollhoff, A., A. Kouloumvakos, D. Lario, N. Dresing, R. G´omez-Herrero, L. Rodr´ıguez-Garc´ıa,
+O. E. Malandraki, I. G. Richardson, A. Posner, K. L. Klein, et al.: “The first widespread
+solar energetic particle event observed by Solar Orbiter on 2020 November 29”. Astron. &
+Astrophys., 656, (2021), A20.
+Leske, R. A., R. A. Mewaldt, C. M. S. Cohen, E. R. Christian, A. C. Cummings, P. L. Slocum,
+E. C. Stone, T. T. von Rosenvinge, and M. E. Wiedenbeck: “Isotopic abundances in the so-
+lar corona as inferred from ACE measurements of solar energetic particles”.
+In “Joint
+SOHO/ACE workshop “Solar and Galactic Composition””, edited by R. F. Wimmer-
+Schweingruber, volume 598 of American Institute of Physics Conference Series. AIP (2001).
+127–132.
+Leske, R. A., R. A. Mewaldt, C. M. S. Cohen, A. C. Cummings, E. C. Stone, M. E. Wieden-
+beck, and T. T. von Rosenvinge: “Solar Isotopic Composition as Determined Using Solar
+Energetic Particles”. Space Sci. Rev., 130(1-4), (2007), 195–205.
+Mason, G. M., C. M. S. Cohen, G. C. Ho, D. G. Mitchell, R. C. Allen, M. E. Hill, G. B. Andrews,
+L. Berger, S. Boden, S. B¨ottcher, et al.: “Solar energetic particle heavy ion properties in
+the widespread event of 2020 November 29”. Astron.& Astrophys., 656, (2021), L12.
+Mason, G. M., R. E. Gold, S. M. Krimigis, J. E. Mazur, G. B. Andrews, K. A. Daley, J. R.
+Dwyer, K. F. Heuerman, T. L. James, M. J. Kennedy, et al.: “The Ultra-Low-Energy
+Isotope Spectrometer (ULEIS) for the ACE spacecraft”. Space Sci. Rev., 86, (1998), 409–
+448.
+Mason, G. M., G. C. Ho, R. C. Allen, A. Kouloumvakos, R. F. Wimmer-Schweingruber, and
+J. Rodriguez-Pacheco: “Quiet-time suprathermal ions in the inner heliosphere during the
+rising phase of solar cycle 25”. Astron.& Astrophys., 673, (2023), L12.
+Mason, G. M., J. E. Mazur, and D. C. Halmilton: “Heavy-Ion Isotopic Anomalies in 3He-rich
+Solar Particle Events”. Astrophys. J., 425, (1994), 843.
+McComas, D. J., N. Alexander, N. Angold, S. Bale, C. Beebe, B. Birdwell, M. Boyle, J. M.
+Burgum, J. A. Burnham, E. R. Christian, et al.: “Integrated Science Investigation of the
+Sun (ISIS): Design of the Energetic Particle Investigation”.
+Space Sci. Rev., 204(1-4),
+(2016), 187–256.
+M¨uller, D., O. C. St. Cyr, I. Zouganelis, H. R. Gilbert, R. Marsden, T. Nieves-Chinchilla,
+E. Antonucci, F. Auch`ere, D. Berghmans, T. S. Horbury, et al.: “The Solar Orbiter mission.
+Science overview”. Astron. & Astrophys., 642, (2020), A1.
+Rodr´ıguez-Pacheco, J., R. F. Wimmer-Schweingruber, G. M. Mason, G. C. Ho, S. S´anchez-
+Prieto, M. Prieto, C. Mart´ın, H. Seifert, G. B. Andrews, S. R. Kulkarni, et al.: “The Ener-
+getic Particle Detector. Energetic particle instrument suite for the Solar Orbiter mission”.
+Astron. & Astrophys., 642, (2020), A7.
+
+[Page 9]
+SEP environment in the inner heliosphere
+9
+Roth, I. and M. Temerin: “Enrichment of 3He and Heavy Ions in Impulsive Solar Flares”.
+Astrophys. J., 477(2), (1997), 940–957.
+Stone, E. C., C. M. S. Cohen, W. R. Cook, A. C. Cummings, B. Gauld, B. Kecman, R. A.
+Leske, R. A. Mewaldt, M. R. Thayer, B. L. Dougherty, et al.: “The Cosmic-Ray Isotope
+Spectrometer for the Advanced Composition Explorer”. Space Sci. Rev., 86, (1998a), 285–
+356.
+Stone, E. C., C. M. S. Cohen, W. R. Cook, A. C. Cummings, B. Gauld, B. Kecman, R. A. Leske,
+R. A. Mewaldt, M. R. Thayer, B. L. Dougherty, et al.: “The Solar Isotope Spectrometer
+for the Advanced Composition Explorer”. Space Sci. Rev., 86, (1998b), 357–408.
+Stone, E. C., A. M. Frandsen, R. A. Mewaldt, E. R. Christian, D. Margolies, J. F. Ormes, and
+F. Snow: “The Advanced Composition Explorer”. Space Sci. Rev., 86, (1998c), 1–22.
+Telloni, D., L. Sorriso-Valvo, L. D. Woodham, O. Panasenco, M. Velli, F. Carbone, G. P. Zank,
+R. Bruno, D. Perrone, M. Nakanotani, et al.: “Evolution of Solar Wind Turbulence from
+0.1 to 1 au during the First Parker Solar Probe-Solar Orbiter Radial Alignment”. Astro-
+phys. J. Lett., 912(2), (2021), L21.
+Temerin, M. and I. Roth: “The production of 3He and heavy ion enrichments in 3He-rich flares
+by electromagnetic hydrogen cyclotron waves”. Astrophys. J., 391, (1992), L105 – L108.
+Trotta, D., T. S. Horbury, D. Lario, R. Vainio, N. Dresing, A. Dimmock, J. Giacalone, H. Hi-
+etala, R. F. Wimmer-Schweingruber, L. Berger, et al.: “Irregular Proton Injection to High
+Energies at Interplanetary Shocks”. Astrophys. J. Lett., 957(2), (2023), L13.
+Trotta, D., A. Larosa, G. Nicolaou, T. S. Horbury, L. Matteini, H. Hietala, X. Blanco-Cano,
+L. Franci, C. H. K. Chen, L. Zhao, et al.: “Properties of an Interplanetary Shock Observed
+at 0.07 and 0.7 au by Parker Solar Probe and Solar Orbiter”. Astrophys. J., 962(2), (2024),
+147.
+Wiedendeck, M. E. and G. M. Mason: “The solar-cycle variation of 3 He from solar energetic
+particle events.” In “Proceedings of the 33rd international cosmic ray conference, CBPF”,
+(2013).
+Wimmer-Schweingruber, R. F., L. Berger, A. Kollhoff, P. K¨uhl, B. Heber, L. Yang, V. Heidrich-
+Meisner, A. Klassen, R. Gomez-Herrero, J. Rodriguez-Pacheco, et al.: “Unusually long path
+length for a nearly scatter-free solar particle event observed by Solar Orbiter at 0.43 au”.
+Astron.& Astrophys., 678, (2023a), A98.
+Wimmer-Schweingruber, R. F., N. P. Janitzek, D. Pacheco, I. Cernuda, F. Espinosa Lara,
+R. G´omez-Herrero, G. M. Mason, R. C. Allen, Z. G. Xu, F. Carcaboso, et al.: “First year
+of energetic particle measurements in the inner heliosphere with Solar Orbiter’s Energetic
+Particle Detector”. Astron.& Astrophys., 656, (2021), A22.
+Wimmer-Schweingruber, R. F., A. Kollhoff, D. Pacheco, L. Yang, J. Rodr´ıguez-Pacheco,
+R. G´omez-Herrero, G. M. Mason, L. Berger, P. K¨uhl, S. I. B¨ottcher, et al.: “Advances
+in energetic particle physics with Solar Orbiter”. In “27th European Cosmic Ray Sympo-
+sium”, (2023b). 9.
+Yang, L., V. Heidrich-Meisner, L. Berger, R. F. Wimmer-Schweingruber, L. Wang, J. He, X. Zhu,
+D. Duan, A. Kollhoff, D. Pacheco, et al.: “Acceleration of suprathermal protons near an
+interplanetary shock”. Astron.& Astrophys., 673, (2023), A73.
+Yang, L., L. Wang, G. Li, R. F. Wimmer-Schweingruber, J. He, C. Tu, H. Tian, and S. D.
+Bale: “The Strongest Acceleration of >40 keV Electrons by ICME-driven Shocks at 1 au”.
+Astrophys. J.,, 853(1), (2018), 89.
+Discussion
+Bernd Heber:
+How certain can it be that we see the same plasma parcel with PSP
+and SOLO (Telloni paper)?
+Robert Wimmer-Schweingruber: It is certainly not exactly the same plasma parcel,
+but we took care to identify the same solar wind stream. That may differ across a
+few degrees in longitiude, but note that the changes we reported are many orders of
+magnitude, So the result is not affected by those small local variations.
+
+[Page 10]
+10
+Wimmer-Schweingruber et al.
+Vladimir Airapetian: Can you also measure rarer elements such as potassium? This
+would be important for FIP studies.
+Robert Wimmer-Schweingruber: Yes, in principle SIS has the resolution to measure
+these rare ions but we have not yet performed such studies.
+Nariaki Nitta: How many circumsolar events have we seen and what have we learned
+from them?
+Robert Wimmer-Schweingruber: With the now available constellation of inner-
+heliosphere spacecraft we have seen several such events, but sofar studies have focussed on
+individual events. I am not aware of a study that compares such events or even presents
+statistical properties of them.

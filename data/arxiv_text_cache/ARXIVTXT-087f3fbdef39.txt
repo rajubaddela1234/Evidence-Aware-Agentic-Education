@@ -1,0 +1,1841 @@
+[Page 1]
+Article
+Modelling variability of the immunity build-up and
+waning following RNA-based vaccination
+Juan Magalang 1,2*
+, Tyll Krueger 3 and Joerg Galle 4*
+1
+Department of Visceral Surgery and Medicine, Inselspital, Bern University Hospital, University of Bern, Murtenstrasse 35,
+Bern 3008, Switzerland
+2
+Institute of Mathematical Statistics and Actuarial Science, University of Bern, Alpeneggstrasse 22, Bern 3012, Switzerland
+3
+Faculty of Information and Communication Technology, Wroclaw University of Science and Technology, Janiszewskiego
+11-17, 50-372 Wrocław, Poland
+4
+Interdisciplinary Centre for Bioinformatics (IZBI), Leipzig University, Haertelstr. 16-18, 04107 Leipzig, Germany
+*
+Correspondence: juan.magalang@unibe.ch, galle@izbi.uni-leipzig.de
+Abstract
+RNA-based vaccination has been broadly applied in the COVID pandemic. A characteristic of the
+immunization was fast waning immunity. However, the time scale of this process varied considerable
+for virus subtypes and among individuals. Understanding the origin of this variability is crucial in
+order to improve future vaccination strategies. Here, we introduce a mathematical model of RNA-
+based vaccination and the kinetics of the induced immune response. In the model, antigens produced
+following vaccination rise an immune response leading to germinal center reactions and accordingly
+B-cell differentiation into memory B-cells and plasma cells. In a negative feedback loop, the antibodies
+synthesized by newly specified plasma cells shut down the germinal center reaction as well as antigen-
+induced differentiation of memory B-cell into plasma cells. This limits the build-up of long-lasting
+immunity and thus is accompanied by fast waning immunity. The detailed data available on infection
+with and vaccination against SARS-CoV-2 enabled computational simulation of essential processes of
+the immune response. By simulation, we analyzed to which extent a single or double dose vaccination
+provides protection against infection. We find that variability of the immune response in individuals,
+originating e.g. in different immune cell densities, results in a broad log-normal–like distribution of
+the vaccine-induced protection times that peaks around 100 days. Protection times decrease for virus
+variants with mutated antibody binding sites or increased replication rates. Independent of these virus
+specifics, our simulations suggest optimal timing of a second dose about 5 weeks after the first in
+agreement with clinical trials.
+Keywords: Mathematical modelling, RNA vaccines, immune response
+1. Introduction
+The immune response enables our body to defend itself against pathogens including viruses and
+bacteria. Mathematical models describing the kinetics of the immune response against infections with
+them are well established. In many cases, they combine aspects of the innate and adaptive response
+(e.g. in case of influenza, [1]). While the innate response is directed against the spreading infection, the
+adaptive response mainly serves to protect the body from potential future infections. The effectivity of
+the latter comes into focus when vaccination is applied. A core component of the adaptive response
+are germinal center reactions enabling the specification of cells capable of producing antibodies that
+can efficiently neutralize the pathogens. This process can provide lifelong protection against future
+infections. Modeling these reactions has attracted increasing attention in the last years [2,3].
+The source of antibodies are plasma cells [4]. Two types of these cells are typically specified
+during immune responses against a pathogen V, short- and long-living plasma cells. Short-living
+plasma cells vanish over several weeks. They become newly induced during repeated infection with
+arXiv:2511.05130v1  [q-bio.PE]  7 Nov 2025
+
+[Page 2]
+2 of 30
+V. Their long-living counterparts are resident in the bone marrow and permanently secret V-specific
+antibodies. Thus, they are most efficient in suppressing repeated infections with V.
+The emergence of SARS-CoV-2 led to the first-time broad application of RNA-based vaccination.
+Several mathematical models have been introduced that provide insight into the principles of the
+immune response on both infection by the virus and vaccination against it (e.g. [5]). In summer 2021, it
+became obvious that the immunization reached by vaccination significantly decreases on the time scale
+of several months. Starting with reports about breakthrough infections from Israel [6], an increasing
+number of studies provided insights into this waning process [7]. Meanwhile, related effects have been
+integrated into mathematical models aiming at forecasts of infection numbers [8]. Some of them link
+the level of remaining protection and control measures such as antibody concentrations in the serum
+[9,10]. The cellular and molecular factors that control individual waning of protection against infection
+remain largely open. A potential explanation of the fast waning is missing specification of long-living
+plasma cells following vaccination [11].
+Here, we introduce a mathematical model of RNA-based vaccination against a virus V and the
+kinetics of the induced immune response. We focus on the adaptive immune response and the processes
+leading to production of antibodies against V-specific antigens. We quantify the immunization reached
+by the vaccination by the concentration of the antibodies and their capability to bind the antigen. We
+observe waning immunity and identify potential sources of this process.
+2. Basic assumptions
+Figure 1. Model schema. Vaccination, followed by production of pseudo-antigen P, induces i) a primary response
+(activation of GC, affinity maturation (AM) and specification of BM- and B2-cells) and ii) a secondary response
+(activation of BM cells, specification of B1-cells). Both contribute to the production of antibodies that help fighting
+future infection. The model introduced does not comprise details of the transport of antigen and of the AM.
+2.1. Vaccination model
+We present a within-host model of RNA-based vaccination against virus V. The naive host is
+vaccinated with a V-specific mRNA that is encapsulated in lipid-nano-particles (LNPs). Part of the
+
+[Page 3]
+3 of 30
+LNPs is taken up by susceptible cells (S) - mostly antibody-presenting-cells (APCs) - which become
+‘infected’ cells (I). Alternatively, LNPs become degraded over time. Infected cells (I) produce pseudo-
+antigen (P), the protein encoded by the transferred RNA. The antigen triggers an adaptive immune
+response in the host. In order to describe this response, we extend our model in two steps. In a first step
+we include the primary response comprising the GC reaction. In a second step, we add the secondary
+response leading to memory B-cell differentiation.
+2.2. Primary response model
+Initially, the presence of P leads to activation of naïve B-cells (BN). These cells can specify directly
+into memory B-cells (BM) and short-living plasma cells (B1) or are recruited into developing germinal
+centers (GCs), where they become germinal center B-cells (BG) [4]. As the BN-based BM- and B1-
+responses come with antibodies of low affinity against V and on short times scales, we consider
+the BG-option only. In the GC, BGs underwent affinity maturation (AM), a process that, based on
+somatic hyper-mutation, improves the binding of their B-cell receptor (BCR) to the antigen. This
+process comprises expansion, and selection of BGs. Thereby, it requires activity of APCs and of specific
+T-cell subtypes in the GC. These details are not considered in the model. We assume a continuous
+increase of the average BCR affinity during V-specific AM. BGs leave the GC, thereby specifying either
+into memory B-cells (BM), or into long-living plasma cells (B2). These cells enrich in subcapsular
+proliferative foci (SPF) [12] and the bone marrow [13], respectively.
+2.3. Secondary response
+In case of prolonged presence of pseudo-antigen or repeated vaccination, BM-cells that have
+developed in the GCs and moved into SPFs become activated by antigen presented by subcapsular
+sinus macrophages (SSM) [12]. Subsequently, they amplify and differentiate into short-living plasma
+cells (B1) [14]. In part, BM-cells re-enter GCs for further maturation. Here, we neglect this option. B1-
+and B2-cells produce antibodies (A) of different affinity that help fighting infection with V. Waning of
+the vaccine-induced B-cell responses is analyzed studying the time course of antibody affinity and
+concentration.
+Parameters of our vaccination and immune response model are derived mainly from studies
+on RNA-based vaccination against SARS-CoV-2. Thus, in the following, spike protein refers to the
+SARS-CoV-2 variants of this protein. Most of the related studies focus on the Wuhan variant. Protection
+against other variants can be simulated e.g. considering the changed antibody-antigen binding affinity
+[15]. Some parameters of the model are taken from animal studies (indicated). A schematic of the
+entire model i.e. the extended model, is provided in Figure 1.
+3. Mathematical formulation: Vaccination model
+We describe vaccination as a systemic ‘infection’ with LNPs. Starting at the injection site LNPs
+distribute passively throughout the body in a few hours [16]. We neglect differences between tissues
+and take blood concentration as the mean. Mainly, APCs uptake LNPs and produce pseudo-antigen
+[17]. We assume that these antigens distributes passively throughout the body, as well and blood
+concentration represents the mean concentration of free-floating antigen. However, part of antigen
+is actively transported by immune cells to lymph nodes leading to high local concentrations within
+developing germinal centers (GCs) and subcapsular proliferative foci (SPF).
+3.1. LNPs (L)
+In the vaccine, RNA is encapsulated in LNPs. Each LNP contains about 5 RNA molecules (1-10,
+[18]). In the body, the concentration of L decreases due to LNP uptake via endocytosis by susceptible
+cells (S) and LNP degradation.
+dL
+dt = −kLSL −L
+τL
+.
+(1)
+
+[Page 4]
+4 of 30
+Here, kL is the LNP uptake rate by susceptible cells. We estimate kL from decay rates of spike-
+encoding RNA in blood plasma [19]. Assuming a constant density, S = S0, these decay rates suggest
+an RNA uptake rate larger than 6.9 × 10−7mL/(day × cell). Considering 5 RNA molecules per LNP,
+we assume: kL = 2.0 × 10−7mL/(day × cell).
+We set the lifetime of LNPs in the body equal to the lifetime of encapsulated RNA, τL = 7 days [19].
+This is a long lifetime for LNPs. Nevertheless, it is supported by experiments detecting Spike-RNA up
+to 28 days after vaccination [20].
+3.2. Susceptible cells (S)
+LNPs are taken up mostly by APCs including dendritic cells and macrophages (primates, [16,17]).
+Susceptible cells (S) that uptake LNPs become ‘infected’ cells (I). Accordingly, the density S decreases
+in the presence of L. S decreases also, if susceptible cells capture free-floating antigen (Pf ) secreted
+by infected cells, become activated and start traveling to the lymph nodes (see below). S increases if
+naïve APCs travel to the vaccination site. In our model, this process is described as cell-inflow from an
+external pool that ensures that the initial density of susceptible cells S0 is restored. Thus, changes of S
+are described as:
+dS
+dt = −kSLS −kAPCPf S + k1(S0 −S).
+(2)
+Here, kS is the infection rate of susceptible cells by LNPs. We calculated kS assuming that one
+LNP infects one cell (kL/kS = 1 copy/cell). kAPC is the activation rate of susceptible cells per captured
+antigen (see below). Susceptible cells are recruited from a cell pool that has a constant density S0.
+We estimated it from the density of tissue macrophages in muscle (106 cells/mL, [21]). The rate of
+recruitment k1 was set to 1/14 days−1.
+3.3. Infected cells (I)
+Infected cells start synthesis of pseudo-antigen (P, see below) the protein encoded by the trans-
+ferred RNA. The density of I changes as:
+dI
+dt = kSSL −1
+τI
+I.
+(3)
+Here, τI is the lifetime of infected cells. We assume τI = 4 days which is the lifetime of circulating
+dendritic cells [22]. This time is much shorter than the lifetime of follicular dendritic cells (FDC)
+presenting antigen in the GC (see below), which is in mice larger than two weeks [23].
+3.4. Pseudo-antigens P
+Antigen synthesized by infected cells (I) cells is released as free-floating protein (Pf ) into body
+fluids [24]. We assume that susceptible cells (S) capture the protein, become activated, move into
+lymph nodes and relay it to FDCs in the GC or to SSMs in the SPF (for the sake of simplicity in equal
+amounts). These cells present it, in form of immune complexes PFDC or PSSM to germinal center B-cells
+(BG) and memory B-cells (BM), respectively. We do not model the antigen transport into lymph nodes
+(see e.g. mice studies on BG cells by Heesters et al. [23]). The free-floating protein (Pf ) and the immune
+complexes (PFDC, PSSM) changes as:
+dPf
+dt = pPI −kpSPf −
+Pf
+τP f
+,
+(4)
+dPFDC
+dt
+= kP
+2 SPf −PFDC
+τFDC
+,
+dPSSM
+dt
+= kP
+2 SPf −PSSM
+τSSM
+.
+(5A,B)
+The production rate was set to: pP = 25 copies/(day × cell) (BHK cells, [25]). The lifetime
+of the free-floating protein τP f was set to 2 days. Under this setting, protein concentration reaches
+baseline 1-2 weeks after vaccination in agreement with Cognetti et al. [26]. PFDC can survive long
+times [23]. We set its lifetime, τFDC, to 20 days. Assuming that it can be released again in small
+
+[Page 5]
+5 of 30
+amounts might explain that the Spike protein remains more than 10 weeks detectable in blood [27].
+There is no report about a similar behavior for PSSM. Thus, we assume: τSSM = τP f . We consider
+degradation to represent the dominant process responsible for loss of free-floating protein. Thus, for
+the rate of Pf capture by S-cells should hold: kPS ≪1/τP f. This relation is ensured for S ≤S0 setting:
+kP = 1.0 × 10−7mL/(day × cell). We calculated kAPC assuming that one antigen activates one cell
+(kP/kAPC = 1 copy/cell).
+3.5. Injected LPC density
+According to Kent et al. [19], the measurable concentration of total RNA peaks in the peripheral
+blood at day 1 after vaccination at concentrations between 105 and 106 copies/mL. To cope with these
+findings, we set: L0 = 2.5 × 105 copies/mL.
+3.6. Second vaccination time
+Our simulations start with the first dose of the vaccine L0 at t = 0. Let t∗> 0 be a time at which
+a second dose of the vaccine is administered. Such a subsequent dose of vaccines is simulated as an
+increase of L by the value L0 at time t∗.
+3.7. Analytical solutions
+Figure 2. Time course of the concentration of: A) free LNPs (L), B) infected cells (I), C) free-floating protein (Pf )
+and D) interaction complexes (PFDC, PSSM) after a single vaccination. Shown are analytical (red) and numerical
+solutions (black lines and symbols). The maximum density of infected cells Imax and its time point after vaccination
+t0 are specified in the Supplement A
+The vaccination model can be solved analytically if S is kept constant, S = S0 (Fig. 2). The
+equations are given in the Supplement A. For the LNP concentration (L) one obtains an exponential
+decay. The density of infected cells (I) shows a single peak. For the reference model, the peak is reached
+after about 3 days. The concentrations of free-floating protein (Pf ) and of interaction complexes (PSSM,
+
+[Page 6]
+6 of 30
+PFDC) peak a few days after. For the reference parameter set, the maximum concentration of Pf is
+reached after about 5 days in agreement with Ogata et al. [24]. According to our settings, PSSM peak at
+the same time, PFDC after about 14 days.
+We compared the analytical with numerical solutions of the extended model described below, and
+with numerical solutions of the extended model without antibodies (no AB) and without antibodies at
+constant S = S0 (S0, no AB). We found that: i) newly synthesized antibodies do not affect the behavior
+before day 13 (see deviation in Pf ) and ii) variable S has a large impact on PFDC and PSSM (Fig.2).
+Thus, in order to analyze the early dynamics of antigen production following RNA-based vac-
+cination the immune response can be neglected. A sophisticated model of the pool of susceptible
+cells, however, might be required in order to model the B-cell response (depending on PFDC and PSSM)
+quantitatively. Here, we proceed with our simplified model.
+4. Mathematical formulation: Primary response model
+4.1. Naïve B-cell (BN)
+Activation of an adaptive immune response requires besides the presence of antigen the presence
+of naïve B-cells (BN) which can become activated. Naïve B-cells account for about 50% of the B-cells
+in adults [14]. Due to their fast turnover, we consider a constant pool of BN (steady state). As B-cells
+represent about 10% of the peripheral blood mononuclear cells [28], the BN density can be estimated
+by: BN = 5 × 104 cells/mL.
+4.2. Germinal center B-cells (BG)
+If APCs present antigen within the GC (PFDC > 0), naïve B-cells (BN) become activated and are
+recruited to become BGs. They start expansion, selection and maturation. Depending on details of the
+AM process, they differentiate after several days into memory B-cells (BM) or long-living plasma cells
+(B2). The GC reaction can take up to 14 weeks [29]. It includes internalization of antigen (PFDC) by BG
+cells and thus consumes PFDC. We neglect this process in our model. The density of BG changes as:
+dBG
+dt
+= cNgGCBN + (c0 −apD −ϵ)BG −apL(1 −gGC)BG.
+(6)
+Here, cN is the maximum recruitment rate of BN into GCs. With cN = 10−3day−1, the maximum
+recruitment per day reaches 50 cells/mL. With one GC per ml (see below) this gives 50 cells per GC as
+suggested by Robert et al. [30].
+Recruitment is activated by immune complexes (PFDC). BG cells bind PFDC via their BCR. Thereby,
+they compete with free-floating antibodies A (see below). Thus, the strength of GC activation gGC
+depends on the concentrations of immune complexes PFDC and of the antibodies. Details are provided
+in the Supplement B.
+According to Mayer et al. [31], cell amplification (c0) balances the cell apoptosis (apD) in the active
+GC. Indeed, in mice, a rate of BG- amplification: c0 = 2.0 day−1 was found [32], being in the same
+range as the apoptosis rate apD = 2.0 day−1 [31]. Thus, we assume: T = (c0 −apD)BG = 0. The
+rate ϵ of cells leaving GC is small. Data by Robert et al. [30] suggest an upper limit of 0.15 day−1.
+We set: ϵ = 0.05 day−1. The rate apL denotes the maximum apoptosis rate in the inactive GC. We
+set:apL = 0.5day−1 ensuing a fast shutdown of the GC if activation gGC decreases. For T = 0, equation
+(6) simplifies to:
+dBG
+dt
+= cNgGCBN −apL(1 −gGC)BG.
+(6∗)
+Thus, for gGC = 1 (maximum activation) an maximum density BG = (cN/ϵ)BN = 103 cells/mL
+can be reached. These cells are confined in the volume of all GCs that supply one mL body fluid.
+For vaccination into the deltoid muscle, only axillary lymph nodes might be involved in the immune
+response (20-49 nodes, [29]). Thus, assuming i) that about 10% of the 600 lymph nodes in human
+become activated during vaccination, and ii) 100 GCs per lymph nodes as found in macaques [33] an
+
+[Page 7]
+7 of 30
+average tissue density of about one V-induced GC per ml can be estimated. Thus, for a GC volume of
+2.0 × 10−5 mL [34] the local density of BG can reach: 5.0 × 107 cells/mL (see also: Supplement B).
+4.3. Affinity maturation
+The activation of the GC reaction and ongoing selection during this reaction depend on the affinity
+of the BCR of BN- and BG-cells for the antigen, respectively [35]. Affinity is commonly defined as 1/KD,
+where KD is the dissociation constant of the reaction of interest. For BCR-antigen complex formation,
+KD is typically larger than nanomolar [36]. We assume a minimal affinity a0
+BG that is required for BN
+recruitment to the GC. Thus, BGs have an affinity:
+aBG = a0
+BGABCR,
+(7)
+with ABCR ≥1. In the model, only ratios of affinities are relevant (see Supplement B). Thus, a0
+BG can
+have arbitrary values. We set Amin
+BCR = 1 for recruited BN cells and assume that in course of AM, ABCR
+and thus, the BCR affinity increases as:
+dABCR
+dt
+= a f f + w(Amin
+BCR −ABCR) = w(Amax
+BCR −ABCR)
+(8)
+The maturation process increases ABCR by a constant value a f f per day. The second term estimates
+the loss of affinity of the GC cells due to the fact, that cells with low BCR affinity (Amin
+BCR) are recruited
+and cells with higher affinity (ABCR) leave the GC. We set w equal to the fraction of cells that leave the
+GC, w = ϵ = 0.05 day−1. The maximum Amax
+BCR = Amin
+BCR + (a f f /w) can be calculated for a given a f f .
+It depends on the mutation frequency, which is determined by T-cell help [37]. We set a f f = 1.2 per
+day and accordingly Amax
+BCR = 25. For vanishing V-specific maturation (a f f = 0), ABCR reduces again to
+Amin
+BCR (see below).
+4.4. BG specification
+BG cells specify into BM and B2 cells [38]. We consider two types of BM-cells, BML and BMH, with
+low (aBML = a0
+BGAmin
+BCR) and high (aBMH = a0
+BGAmax
+BCR) affinity, respectively. All B2-cells have high BCR
+affinity (aB2 = a0
+BGAmax
+BCR). The fractions of BG-cells that specify into BML-, BMH- and B2-cells is chosen
+such that the mean value aBG is conserved [4].
+4.5. Memory B-cells (BM)
+Initially, the major fraction of amplifying BG-cells specify into BML-cells. With progressing AM, i.e.
+increasing ABCR, more and more BMH-cells are specified. The density of BML- and BMH-cells evolves
+as following:
+dBML
+dt
+= f ϵBG −BML
+τBM
+,
+f = Amax
+BCR −ABCR
+Amax
+BCR −Amin
+BCR
+,
+(9)
+dBMH
+dt
+= v(1 −f )ϵBG −BMH
+τBM
+.
+(10)
+The lifetime of BM-cells, τBM, was set to 18 days, as observed for elderly [39]. v is the fraction of
+high affinity BG-cells that specifies into BMH-cells, while a fraction of (1 −v) specifies into B2- (plasma)
+cells. In mice, 10 days after immunization, plasma cells nearly exclusively carry high affinity BCRs and
+represent less than 3 percent of all cells with high affinity BCRs [40]. Setting: v = 0.9, similar properties
+are observed at maximum response around day 21 (single dose, see results).
+4.6. Long-living plasma cells (B2)
+B2 specification requires fast and repeated cycling in the active GC [41]. This might be enabled by
+strong T-cell help, which is triggered by particular high BCR affinity. We assume a stochastic nature of
+the process. In the model, a small fraction (1 −v) of high affinity BG-cells becomes B2-cells if the GC
+matures,
+
+[Page 8]
+8 of 30
+dB2
+dt = (1 −v)(1 −f )ϵBG −B2
+τB2
+.
+(11)
+The lifetime of B2-cells, τB2L, was set to τBML = 180 days (minimum in mice: 90 days [42]). B2-cells
+permanently secrete high affinity antibodies A2 (see below).
+5. Mathematical formulation: Secondary response model
+In a secondary response to antigen, BM-cells located in SPFs become activated, expand and
+differentiate into B1-cells that produce antibodies capable of neutralizing antigen and labeling infected
+cells for lysis. BM activation depends on the antigen affinity of their BCR [4]. We neglect antigen
+consumption by BM-cell activation.
+5.1. Memory B-cells (BM)
+If activated, memory B-cells (BM) are capable of fast amplification and differentiation into short-
+living plasma cells (B1) [43]. Activation is triggered by PSSM. BM-cells bind the antigen via their
+BCR. Thereby, they compete with free-floating antibodies. Under such conditions, the density of
+BML/BMH-cells evolves as following:
+dBML
+dt
+= f ϵBG + (1 −h)c1gBMLBML −BML
+τBM
+,
+(9#)
+dBMH
+dt
+= v(1 −f )ϵBG + (1 −h)c1gBMHBMH −BMH
+τBM
+.
+(10#)
+The strength of BM activation gBML and gBMH depends on the concentrations of PSSM and of the
+antibodies A1 and A2. Details are given in the Supplement B. The maximum amplification rate for
+BM-cells, c1, is set to 0.6 day−1 (mice, at maximum stimulation 3 divisions in 5 days on average, [43]).
+The parameter h quantifies the part of amplifying cells that specify into B1-cells. We set h = 0.6.
+5.2. Short-living plasma cells (B1)
+Short-living plasma cells are derived from activated memory B-cells (BM). Compared to long-
+living plasma cells (B2), they have a relatively short lifetime of a few days. Their density evolves
+as:
+dB1L
+dt
+= hc1gBMBML −B1L
+τB1
+(12)
+dB1H
+dt
+= hc1gBMBMH −B1H
+τB1
+(13)
+We set the lifetime of B1-cells to: τB1 = 5 days [44]. B1L (B1H) cells permanently secrete low (high)
+affinity antibodies A1 and A2, respectively (see below).
+5.3. Antibodies (A)
+Antibodies with low (A1) and high (A2) affinity are produced by B1L-plasma cells and by B1H-
+and B2-plasma cells, respectively. As the antibodies have different antigen affinity, we describe them
+independently. Their turnover can be described as:
+dA1
+dt
+= pAB1L −A1
+τA
+(14)
+dA2
+dt
+= pA(B1H + B2) −A2
+τA
+(15)
+
+[Page 9]
+9 of 30
+where τA = 60 days denotes the lifetime of antibodies (30 days [45], 90 days, [46]) and pA =
+2.0 ng/(day × cell) is the antibody production rate (0.8 ng/(day × cell) spleen, 3.4 ng/(day × cell)
+peripheral blood [47]).
+We assume that following plasma cell differentiation antibody affinity matches BCR affinity of
+the cell of origin. Nevertheless, association constants with antigen might differ between surface-bound
+BCR and antibody, e.g. due to steric hindrance [48]. Details are given in the Supplement B.
+Protection of the host against virus by antibodies A is at least twofold: Antibodies mark infected
+cells for destruction by antibody-dependent cell-mediated cytotoxicity (ADCC), antibody-dependent
+cellular phagocytosis (ADCP) or antibody-dependent complement deposition (ADCD) [49]. We assume
+that all antibodies have this labeling capacity. In addition to labeling cells for destruction, antibodies
+can directly neutralize antigen, which here means can bind Pf and suppress its functionality. Assuming
+that all antibodies have both capabilities, we modify equations (3), (4) and (14), (15) to:
+dI
+dt = kSSL −1
+τI
+I −(βIA1A1 + βIA2A2)I,
+(3#)
+dPf
+dt = pPI −kpSPf −
+Pf
+τP f
+−(βP f A1A1 + βP f A2A2)Pf ,
+(4#)
+dA1
+dt
+= pAB1L −A1
+τA
+−(γIA1I + γP f A1Pf )A1,
+(14#)
+dA2
+dt
+= pA(B1H + B2) −A1
+τA
+−(γIA2I + γP f A2Pf )A2.
+(15#)
+Here, βIA1 and βIA2 are the rates of cell destruction and βP f A1 and βP f A2 the rates of antigen
+neutralization induced by A1 and A2, respectively. These processes consume antibodies. γIA1, γIA2,
+γP f A1 and γP f A2 are the rates of consumption per infected cell I and pseudo-antigen Pf , respectively.
+Details are provided in the Supplement B.
+5.4. Antibody-dependent feedback on AM
+In a negative feedback, antibodies control the activity of the GC (see equation (6∗)). We assume
+that they enter the GC and bind the antigen in competition with BG-cell BCRs [50]. This also dampens
+or even eliminates AM towards dominant antigen V [30]. For ABCR it follows:
+dABCR
+dt
+= v(Amin
+BCR −ABCR + (Amax
+BCR −Amin
+BCR)gGC)
+(8#)
+Thus, equation (8) yields for gGC = 1 only. For gGC = 0, ABCR is forced to decrease to Amin
+BCR.
+Consequently, antigen-specific AM is terminated at the time point where Pf is successfully degraded
+and/or the antibody titer increases. In vivo, GC reaction can be still active in case the AM target
+switches to subdominant antigen [51]. We simulate only dominant antigen-specific AM, thus GC
+lifetime is shorter than seen during GC reaction in response to complex antigen.
+Notably, permanent inflow of non-specific BN has been observed in mice and was considered
+to result in low affinity of BG cells in late GCs [52,53]. This suggests that due to AM towards non-
+dominant antigen initial selection towards dominant antigen (Amin
+BCR = 1) vanishes and values Amin
+BCR < 1
+could occur. We neglect this effect.
+6. Simulation results
+6.1. Systems dynamics
+The extended model can be solved numerically, only. We started analyzing basic model properties
+applying the reference parameter set provided in Tables A1, A2 and A3. Parameters that were not
+available from experiments were set such that, the model reproduces properties of the peripheral
+blood following vaccination against SARS-CoV-2. We compared the response to single and double
+
+[Page 10]
+10 of 30
+Figure 3. Model dynamics I. Simulation of single (day 0, red dotted line) and double dose vaccination (day 0 and
+day 21, black solid line) for the reference parameter set. Vaccination model: Concentration of LNPs (L), infected
+cells (I), susceptible cells (S), free-floating protein (Pf ), and the two types of immune complexes (PFDC, PSSM).
+Figure 4. Model dynamics II. Simulation of single and double dose vaccination (see Fig. 3) for the reference
+parameter set. Primary response model: Density of GC B-cells (BG), the BCR affinity of BG cells (ABCR) and the
+density of the long-living plasma cells (B2).
+dose vaccination (Fig. 3, 4 and 5). The first dose stimulates antigen production that peaks a few days
+later (compare Fig. 2). At the time point of the second dose, the concentrations of LNPs (L) and
+infected cells (I) but also of pseudo-antigen Pf and PSSM have dropped already close to zero (Fig.
+3). The second dose massively increases these concentrations again but has a rather small effect on
+PFDC. Accordingly, the primary response, the GC reaction, is similar for both single and double dose
+
+[Page 11]
+11 of 30
+Figure 5. Model dynamics III. Simulation of single and double dose vaccination (see Fig. 3) for the reference
+parameter set. Secondary response model: Low and high affinity memory B-cells (BML, BMH), low and high
+affinity short-living plasma cells (B1L, B1H). Protective potential: Low (A1) and high (A2) affinity antibody
+concentration and the resulting titer T.
+vaccination; in particular, similar numbers of B2 cells are induced (Fig. 4). Thus, a second dose does
+not improve long-term protection very much.
+The second dose controls short-term protection via amplification of the BM-B1 response, i.e.
+amplification of the secondary response. A single dose vaccination results in a peak concentration
+of Pf of about 1 to 2 × 106 copies/mL in agreement with Spike protein peaks (68 pg/mL, [24]). This
+reaction elicits a weak secondary BM-B1 response only (Fig. 5). Stronger response requires repeated
+BM activation and amplification. This is achieved by a second dose, which stimulates production of
+new antigen. Massive B1 induction results in much higher antibody titers. However, these amplified
+titers remain for less than 200 days only. Notably, the simulated peak density of BM-cells after the
+second dose reaches 103-104 cells/mL and that of antibodies 5 to 10 × 104 ng/mL. Both results are in
+agreement with concentrations found by Goel et al. [54]. Moreover, B1 cell densities peak between
+week 4 and 5 after the first vaccination in agreement with Turner et al. [29].
+As shown in Figs. 3, 4, 5, the systems dynamics recapitulate many aspects of RNA-vaccination
+against SARS-CoV-2. About 2 weeks after the 2nd vaccination, the immune response provides high
+amounts of antibodies that can help fighting a future infection with the virus. While feedback of these
+antibodies was negligible for the infection scenario following the first vaccination (first 2 weeks, Fig.
+2), we next asked for its impact on the whole B-cell response.
+Detailed analysis revealed that antibody feedback has large impact on plasma cell specification
+(Fig. 6). The emergence of antibodies represses BM activation by competitive PSSM-binding with
+BM-BCRs (Fig. 6A). Without antibody feedback, the concentration of the B1H-maximum would double
+and arise about 10 days later. To keep it at about 22 days, A1-feedback is sufficient. Shutdown of the
+GC is controlled by A2-feedback (Fig. 6B), i.e. by competitive PFDC-binding of these antibodies with
+the BG-BCRs. Thereby, rising A2 concentration limits GC lifetime to about 50 days and thus keeps B2
+specification low. Without antibody feedback, the GC would remain activated up to 200 days.
+
+[Page 12]
+12 of 30
+Figure 6. Antibody feedback after a double dose vaccination (reference parameter set). A) Density of B1H-cells
+(upper row). The emergence of low affinity antibodies is sufficient to stop B1H-specification. B1H peaks at the
+point, where the activation function gBM (lower row) starts decreasing. Compared is the behavior for full feedback
+(gBM) with that based on A1 (gBM(A1)) or A2 (gBM(A2)) only and the behavior without feedback (gBM(Pf )). B)
+Density of BG-cells (upper row). The shutdown of the GC is triggered by the emergence of A2-antibodies. BG
+peaks at the point, where the activation function gGC (lower row) starts decreasing. Compared is the behavior for
+full feedback (gGC) with that based on A1 (gGC(A1)) or A2 (gGC(A2)) only and the behavior without feedback
+(gGC(Pf )).
+6.2. Protective potential of vaccination
+The immune response induced by vaccination potentially can protect the individual against
+infection with virus V. Whether or not protection after some time is given is commonly estimated
+by the remaining antibody titer. Due to inter-individual differences of the infection, the critical titer
+required to prevent infection varies as well.
+Here, we used a model of natural infection to calculate the critical titer Tc depending on properties
+of the virus and the individual immune response. For details, we refer to Supplement C. We measure
+the titer in equivalents of low affinity antibodies A1 in ng/mL. If Tc ≤0 ng/mL the infection can
+be controlled without antibodies. Otherwise, antibodies are required. As both A1 and A2 antibodies
+contribute to protection, the time-dependent titer acquired by vaccination is given by:
+T = A1Amin
+BCR + A2Amax
+BCR
+[ng/mL]
+(16)
+If T is larger than the critical titer Tc, the infection does not spread. Otherwise, it will spread
+until the immune response on the infection controls it. We analyzed whether a double vaccination as
+described by our model provides the required level of protection and how long it lasts.
+Fig. 7A shows simulation results for the titer applying the reference parameter set. The critical
+titer Tc was calculated as described in the Supplement C applying the infection parameter set provided
+in Tab. A5. After the first dose, Tc is not reached and no protection is achieved. The second dose
+(t∗= 3 weeks) increases the titer much above Tc. This is sufficient to provide protection between day
+37 and 143 after first vaccination, i.e. for about 15 weeks.
+Notably, we derived part of the reference parameter set from data that are characteristic for blood
+of elderly. Examples are the lifetime of BM-cells, τBM = 18 days, and the density of naïve B-cells,
+BN = 5 × 104 cells/mL. Changing these parameters to values appropriate to describe blood of younger
+individuals can increase the protection time. Increasing τBM from 18 days to 25 days [39] has a minor
+effect on protection. A strong effect, however, is seen increasing BN from 0.5 to 1.0 × 105 cells/mL
+[55]. The higher BN density increases the protection time by more than 10 weeks. In this case, even
+following a single dose the critical titer is reached, although late, i.e. after more than 10 weeks only.
+For mutant virus, the binding strength of antibodies, that have been synthesized following
+vaccination, to the mutated antigen decreases. Accordingly, higher concentrations of pre-existing
+
+[Page 13]
+13 of 30
+Figure 7. Protection level. A) Simulation results for the titer after a single dose (dashed lines) and a double dose
+(t∗= 3 weeks, solid lines) vaccination. The response after a double dose vaccination provides protection against
+infection (dotted line: Tc) for about 15 weeks (blue label). Accounting for properties of young individuals can
+increase the protection time. B) The critical titer increases with increasing virus replication rate pV and decreasing
+antibody-antigen affinities achieved by multiplying them with a factor q. C) Protection time vs time to second
+dose after first dose (t∗). A maximum is seen for t∗= 5 weeks.
+antibodies are required in order to avoid future infections. This means that for the synthesized
+antibodies the critical titer, measured in equivalents of their now lower affinity, increases (Fig. 7B).
+Accordingly, the protection time enabled by the vaccination decreases. Mutations can also affect virus
+replication rates pV. In this case, the critical titer increases with increasing pV (Fig. 7B)
+6.3. Vaccination timing
+A parameter of the extended model that can be easily controlled to optimize the protection time is
+vaccination timing t∗(Fig. 7B). A maximum protection time is observed if the second dose is provided
+about 5 weeks after the first dose. This is in line with studies by Shioda et al. [56]. They found a
+better protection against SARS-CoV-2 infection for t∗= 26 to 42 days (Pfizer) and t∗= 33 to 49 days
+(Moderna) compared to FDA-recommended t∗of 17-25 days and 24-32 days, respectively. The optimal
+time for the second vaccination remains stable increasing the critical titer. Thus, vaccination against
+mutant virus should follow the same timing.
+The early occurrence of high affinity A2 antibodies appeared as an essential problem of the
+vaccination process to induce long-term protection. We have shown (Fig. 6) that these antibodies
+shutdown the GC reaction and thus impede the specification of B2-cells. This problem does not
+occur during natural infection. Here, virus reproduces itself and infects new cells. Accordingly, early
+emerging high affinity antibodies bind virus and infected cells and do not compete with BG-cells
+for antigen binding. Thus, the GC reaction remains active until the infection is stopped. In order to
+support this thesis, we performed B1H-cell-knock-down simulations, by shortening B1H-cell lifetime
+(Fig. 8). In line with our thesis, the number of B2-cells and the protection time increases. However, the
+peak of the titer moves to later times and protection is reached 10 weeks after the second vaccination
+only.
+
+[Page 14]
+14 of 30
+Figure 8. Simulation of B1H-cell knock-down by decreasing B1H-cell lifetime. A) B1H- (upper row) and B2-cell
+density (lower row). B) Acquired titer. For short B1H-cell lifetime, the peak of the titer moves to later times and
+the protection time increases from 106 to 180 days.
+6.4. Sensitivity analysis
+Our results on the protection time are consistent with the observation of faster waning immunity
+in elderly [57,58] and for mutant virus [59]. Next, we study the parameter sensitivity of the protection
+time and the amplification of antibody titer by a second dose in detail.
+To identify those parameters that contribute most to the variance of these two variables, we
+performed a variance-based global sensitivity analysis, called the Sobol’ method or Sobol’ indices
+[60]. This method has been previously used in infectious disease dynamics models, including models
+for cholera and schistosomiasis [61]. Sobol’ indices rank the importance of each model parameter,
+depending on how it affects the variance of a model output. An advantage of the Sobol’ method is
+that it both captures the main effects of each parameter (first-order indices), as well as the interaction
+effects between parameters (total-order indices). Here, we provide the Total Sobol Indices (TSI) as they
+captures nonlinear effects when two or more parameters are varied at a time.
+The three parameters of the extended model that strongest impact protection time are: i) the
+lifetime of the B2 cells τB2, ii) the fraction of BG cells v specifying into BM cells (respective not into B2),
+and iii) the fraction of amplifying BM cells h that specify into B1H (remain not BM cells) (Fig. 9A). These
+are cell intrinsic parameters. It remains open whether they vary depending on the pseudo-antigen
+encoded by the vaccine, i.e. whether they can be modulated selecting specific antigens. Among the
+parameter of the infection model, used to calculate the critical titer, the parameters with the highest
+impact to the protection time are the lifetime of the virus infected cells τIV , the virus production rate
+pV and the virus infection rate kV (Fig. A2). Thus, the potential protection time is most sensitive
+to the time of virus production, which is typically limited by type 1 IFN response [62], and to virus
+infection parameters. Together these properties decide whether effective application of RNA-based
+vaccination is feasible and whether multiple vaccination is required to increase the antibody titer.
+Protection could be improved e.g. by modulating parameters linked to plasma cell specification. An
+example is the parameter v, which is the fraction of BG-cells that specify into BM- and not in to B2-cells.
+Here, improvement can be twofold. Smaller v is linked to longer protection, as the B2-cells are the only
+antibody producing cells with a lifetime of several months. However, v is linked to the amplification
+of the protection level after the second dose as well (Fig. A3). Larger v results in higher numbers
+of BM-cells capable of specifying into B1H-cells and thus in higher numbers of B1-plasma cells. This
+enforces amplification of the antibody titer (Fig. A3, insert). Thus, for large v a particular high critical
+titer can potentially be reached. However, the enforced amplification of the titer does reduce the
+protection time.
+Assuming 10% variance of each parameter, a population of vaccinated individuals shows a
+distribution of the protection times that peaks around 100 days (Fig. 9B). The distribution can be
+fitted by a simple log-normal distribution with a mean protection time of 111 days. One minus its
+
+[Page 15]
+15 of 30
+Figure 9. Waning immunity. A) Sensitivity analysis for the protection time including all model parameter
+assuming 10% variance for each. The 10 parameters of the extended model with the highest TSI are shown.
+B) Distribution of the protection time for a population assuming 10% variation of all model parameters. Fit
+(red curve): Log-normal distribution (parameters are indicated). C) Waning function for the distribution of the
+protection time considering 10% variance and for distributions considering experimental variance for τA (30 to 90
+days, [45,46]) and BN (5 to 15 × 104 cells/mL).
+cumulative distribution gives the waning function (WF) of the model (Fig. 9C). The decay of the
+WF becomes broader if experimental variation of τA (30-90 days) or BN (0.5 to 1.5 × 105 cells/mL) is
+considered. While symmetric variation of the antibody lifetime (τA) around 60 days conserves the
+mean protection time, higher density of naïve B-cell (BN), as seen in younger individuals, increases
+it. Actually, the mean protection time reaches about 189 days, suggesting that the protection time of
+younger individuals is on average 70% longer and that of elderly.
+7. Discussion
+A characteristic of RNA-based vaccination against SARS-CoV-2 is fast waning immunity. Here,
+we introduced a mathematical model of this vaccination method that explains this undesirable char-
+acteristic based on an early shutdown of the adaptive immune response by high affinity antibodies.
+While most of the parameters of the model are derived from vaccination studies against SARS-CoV-2,
+we expect the principals to hold also if applied to other RNA-virus.
+7.1. Mechanisms responsible for waning
+An essential part of the model constitutes a negative feedback loop where the antibodies synthe-
+sized by the emerging plasma cells shut down the GC reaction as well as the conversion of memory
+B-cells into plasma cells. Antibody-dependent control of the GC reaction has been suggested already
+by Zhang et al. [50]. How this control mechanism interacts with an ongoing natural infection is largely
+open. Here, we suggest that ongoing infection consumes newly synthesized antibodies and thus
+enables enforced B2 specification. In other words, the extensiveness of the infection controls whether
+
+[Page 16]
+16 of 30
+a long lasting protection against a secondary infection builds up. In case of RNA-based vaccination,
+pseudo-antigen producing cells and the antigen itself, in most cases, vanish in short time. We suggest
+that accordingly a quick increasing concentration of high-affinity antibodies shuts down the GC much
+too early to enable relevant B2 specification, i.e. long-term protection. Thereby, pre-existing immunity,
+e.g. cross-reactive memory B-cells that are recalled into GCs, might affect timing [63]. We neglected
+these effects in the model.
+Vaccination against SARS-CoV-2 can induce long-lasting GC reactions (> 30 weeks, [64]) as
+typically observed for virus infections [51]. This seems to argue against our thesis. However, AM
+against the dominant antigen might not proceed over such long periods. Experimental studies
+documented permanent inflow of BN with low affinity BCR into the GC [53]. Such behavior has been
+suggested to originate in competitive AM with so-called ‘dark antigen’ [51]. The antibody feedback
+proposed in our model would block AM against dominant antigen after some time and favor dark
+antigen-specific AM as suggested by experiments [52]. Focusing on dominant antigen specific AM,
+we did not incorporate these processes in our model. Notably, a recent publication by Mulroney et
+al. [65], highlights a possible source of ‘dark antigen’ in case of vaccination against SARS-CoV-2. The
+authors show, that incorporation of N1-methylpseudouridine into mRNA results in +1 ribosomal
+frameshifting. Strikingly, +1 frameshifted products from BNT162b2 vaccine mRNA translation occurs
+after vaccination. As this products reach up to 8% of the produced protein, competitive AM might
+indeed be important in case of SARS-CoV-2 vaccination.
+Different processes contribute to antibody consumption. Besides direct antigen neutralization,
+also ADCC consumes antibodies. This process is well studied with respect to its function in SARS-
+CoV-2 infection [66]. Its efficacy depends on the targeted cell type. We here assumed that infected cells
+are mainly APCs. In experiments, these cells show different responses to ADCC. While peripheral
+dendritic cells are sensitive [67], macrophages can escape ADDC [68]. Thus, it is currently not clear
+whether ADCC, while reducing antibody concentration, plays a substantial role in controlling numbers
+of ‘infected’ cells during vaccination. Similar arguments apply to ADCP and ADCD.
+Our model describes the immune response to a single pseudo antigen P, where recruitment of
+naïve B-cells (BN) to GCs is limited to cNBN. What happens if vaccines are applied that contain RNA
+encoding different pseudo antigens P1 and P2? In rodents, RNA-based vaccines combining RNA
+encoding spike- and nucleocapsid-protein have been investigated [69,70]. These studies show that the
+response is additive. This might be a consequence of recruitment of BNs with different BCRs. Thus, in
+the model one would assume a maximum recruitment cN1BN + cN2BN, with cN1 and cN2 being the
+maximum recruitment rates into P1- and P2-specific GCs, respectively.
+If the antigens both are V-specific, a combined vaccination provides a better protection against
+infection with V compared to such against a single antigen. In particular, protection provided by
+B2-cells secreting antibodies against P1 will combine with that of B2-cells secreting antibodies against
+P2. Together these antibodies could reach the critical titer and provide a long-term protection. Here,
+one has to consider that antibodies that do not block virus entry receptors, as e.g. those against
+nucleocapsid-protein, do not provide neutralization function. Moreover, in mice, spike-nucleocapsid-
+based vaccines have been found to be associated with high frequency lung pathology [70].
+Large differences are observed in the timing of a natural infection as such by SARS-CoV-2, [71].
+According to our results, these differences can be expected to result in large differences in long-term
+protection against re-infection. Thus, in order to estimate protection times, models of the immune
+response to natural infection have to consider timing and spreading of the infection carefully.
+7.2. Waning immunity in cohorts
+We have shown that, variability of immune response in individuals, originating e.g. in different
+immune cell densities, results in a broad distribution of waning rates in accordance with experimental
+studies [57,58]. Unfortunately, biological variances of essential parameters, such as the rates of B1 or
+B2 specification, are currently unknown. Thus, a quantitative modelling of waning functions is still
+not feasible. Nevertheless, our studies enable estimations of the importance of individual parameters
+
+[Page 17]
+17 of 30
+for long-term protection. Among those showing age-related changes, the size of the compartment
+of naïve B-cells (BN) appears to be important. High numbers improve the protection induced by
+vaccination. This suggests that comorbid conditions or repeated antigenic exposures that reduce naïve
+B-cell pools may impair vaccine-induced responses. Actually, HIV-infection, which is linked to reduced
+BN numbers [72], is accompanied by weaker response to SARS-CoV-2 vaccination [73]. This holds also
+for vaccination of HIV-positive individuals against other infections. Whether there is a causal link to
+reduced BN-cell density remains open.
+We like to emphasize, that our model only explains protection against infection i.e. their probabil-
+ity, but not its severity. Severity of infection might correlate with immune response [74], prediction of
+it from acquired antibody titers alone will fail. Currently, even an estimate of the critical titer required
+to prevent infection with the original or derived virus strains is challenging. Virus variants, with
+mutated antibody binding site or changed replication rates modulate the vaccine-induced immunity.
+Immunization against the Wuhan variant of SARS-CoV-2 was very efficient. The Omicron variant
+showed high escape from vaccination-induced immunization due to mutations in the receptor-binding
+domain of the Spike protein. Changes of the BCR affinity distribution following SARS-CoV-2 evolution
+have been quantified [15].
+Our model can consider such changes by changing antibody-BCR interaction strength. More
+sophisticated modeling strategies that integrate binding site variability have been introduced recently
+[30]. However, for quantitative modeling of infection scenarios in parallel sophisticated spatio-
+temporal models of infection spreading are required. This process can vary even between closely
+related virus strains e.g. due to variable tropism [75].
+Mathematical modeling of vaccination scenarios can suggest optimal timing of the vaccination
+process and necessary modifications for virus variants. However, quantitative recommendations
+require validation against clinical/serological datasets. In addition, mathematical modelling can
+support understanding of the general kinetics of the adaptive response and help to avoid pitfalls of
+new approaches.
+Author Contributions: Conceptualization, J.G. and T.K.; methodology, J.G.; software, J.M.; formal analysis and
+investigation, J.G.; data curation, J.M.; writing—original draft preparation, J.G.; writing—review and editing, J.G.,
+J.M.; visualization, J.M. All authors have read and agreed to the published version of the manuscript.
+Data Availability Statement: The source code for the model is available on https://github.com/jarmsmagalang/
+immu_buildup_waning
+Acknowledgments: This work was supported by the UniBE Short Travel Grants for (Post)Docs 2024. Figures 1, 3,
+4, 5 have been created with https://BioRender.com.
+Conflicts of Interest: The authors declare no conflicts of interest.
+Appendix A. Analytical solutions for the vaccination model
+For S = S0, the concentration of LNPs is given by:
+L = L0 exp
+
+−
+
+kLS0 + 1
+τL
+
+t
+
+.
+(A1)
+Setting kLS0 + (1/τL) = 1/τLC, one obtains the density of infected cells:
+I = I0
+
+exp
+
+−t
+τI
+
+−exp
+
+−t
+τLC
+
+,
+with I0 =
+kLS0L0τI
+(τI/τLC) −1.
+(A2)
+The maximum density of infected cells is given by
+Imax = kLS0L0τIx−
+x
+x−1 ,
+with x = τI
+τLC
+> 1.
+(A3)
+
+[Page 18]
+18 of 30
+It is reached at t0 = (τI ln x)/(x −1). Setting kPS0 + (1/τP f ) = 1/τPC, one obtains for the
+concentration of free-floating protein:
+Pf =P0
+"
+τI
+τI −τPC
+
+exp
+
+−t
+τI
+
+−exp
+
+−t
+τPC
+
+−
+τLC
+τLC −τPC
+
+exp
+
+−t
+τLC
+
+−exp
+
+−t
+τPC
+#
+,
+with P0 = pPI0τPC,
+(A4)
+and for the immune complex PFDC (similarly for PSSM but with τSSM):
+PFDC =kP
+2 S0P0τFDC
+"
+τ2
+I
+(τI −τPC)(τI −τFDC)
+
+exp
+
+−t
+τI
+
+−exp
+
+−
+t
+τFDC
+
+−
+τ2
+LC
+(τLC −τPC)(τLC −τFDC)
+
+exp
+
+−t
+τLC
+
+−exp
+
+−
+t
+τFDC
+
++
+τ2
+PC(τI −τLC)
+(τPC −τI)(τPC −τLC)(τPC −τFDC)
+
+exp
+
+−t
+τPC
+
+−exp
+
+−
+t
+τFDC
+#
+(A5)
+Figure A1. Maximum density of infected cells Imax following vaccination. For larger life-time of the infected cells,
+τI, the maximum occurs later and reaches higher densities. Similar changes are observed for larger τL. Increasing
+kL and S0, however, increases the maximum cell density but shorten the time to reach it.
+Appendix B. Details on antibody feedback
+Activation of the GC depends on the concentrations of immune complex PFDC and of the antibod-
+ies A1 and A2. BG cells bind the antigen PFDC via their BCR. Thereby, they compete with free-floating
+antibodies. Assuming a competitive binding of antigen by BCRs and antibodies, classical enzyme
+kinetics gives for the concentration of the antigen-BCR complex:
+
+[Page 19]
+19 of 30
+[PFDCB] =
+PFDC,GC
+1 + KB
+B + KB
+KA
+A
+B
+,
+(A6)
+where PFDC,GC is the total concentration of PFDC in the GC, and KB, KA the dissociation constants
+of BCR- and A- binding, respectively. The BCR density is given by: B = nBG,GC. Here, n is the number
+of BCR per BG cell [copies/cell] and BG,GC the concentration of BG cells in the GC. The concentration
+[PFDCB] divided by BG,GC is the number of complexes per BG cell [copies/cell]:
+[PFDCB]
+BG,GC
+≈
+PFDC,GC
+BG,GC + KB
+KA
+A
+n
+.
+(A7)
+We assume that the activation gGC of the germinal center requires that a sufficient number 1/C
+[copies/cell] of BCRs are bound by antigen.
+gGC = 1 −exp
+
+−[PFDCB]
+BG,GC
+C
+
+(A8)
+Typically, 10 −20 bound BCR are required to activate a signal in B-cells. We set: C = 0.1. We
+estimate the parameters of equations (A7) and (A8) as following: P(FDC,GC) can be calculated from
+PFDC considering that the complexes are concentrated in GCs (1 GC/mL), leading to P(FDC,GC) =
+PFDC mL/1 VGC . With a GC-volume of VGC = 2 × 10−5 mL [34], it follows: P(FDC,GC) = 5 × 104 PFDC.
+The same factor applies to the concentration of BGs: BG,GC = 5 × 104 BG. Calculating A in ng/mL, it
+follows:
+[PFDCB]
+BG,GC
+≈
+PFDC,GC
+BG,GC + KB
+KA x A
+n
+,
+(A9)
+where x gives the number of antibodies per ng [copies/ng]. The constant r = (xKB)/(nKA) [cells/ng]
+is antibody-specific. For an antibody with the same dissociation constant as the BCR follows: r = x/n.
+For x = 4 × 109 copies/ng and n = 105 copies/cell it follows: r = 4 × 104 cells/ng. Thus, activation
+gGC is given by:
+gGC = 1 −exp
+
+−
+(5 × 104)PFDC
+(5 × 104)BG + (4 × 104) cells
+ng A
+C
+!
+≈1 −exp
+
+−
+PFDC
+BG + cells
+ng A
+C
+!
+(A10)
+In case of BM activation, these cells are concentrated in subcapsular proliferative foci (SPF) and
+interact with subcapsular sinus macrophages (SSM) that present interaction complexes PSSM [12]. We
+assume that SPF have to confine antigen and B-cells similar to the GC. Thus, the concentration of
+antigen and the density of B-cells are similarly increased in this structure. It follows:
+gBM = 1 −exp
+
+−
+(5 × 104)PSSM
+(5 × 104)BM + (4 × 104) cells
+ng A
+!
+≈1 −exp
+
+−
+PSSM
+BM + cells
+ng A
+C
+!
+(A11)
+Thus, activation properties are similar to the GC, but depend on the short-living interaction
+complex PSSM.
+Equations (A10) and (A11) describe activation functions for binding competition for antigen
+between BCRs and antibodies with the same dissociation constants. To consider different affinities of
+both we assume:
+AGC = A1Amin
+BCR + A2Amax
+BCR
+ABCR
+,
+for gGC
+(A12)
+
+[Page 20]
+20 of 30
+ABML = A1Amin
+BCR + A2Amax
+BCR
+Amin
+BCR
+,
+for gBML
+(A13)
+ABMH = A1Amin
+BCR + A2Amax
+BCR
+Amax
+BCR
+,
+for gBMH.
+(A14)
+The rates of cell destruction, βIA1 and βIA2, and the rates of antigen neutralization, βP f A1 and
+βP f A2, depend on the affinity of the antibodies as well. We assume:
+βIA1 = βIAAmin
+BCR
+and
+βIA2 = βIAAmax
+BCR,
+(A15)
+βP f A1 = βP f AAmin
+BCR
+and
+βP f A2 = βP f AAmax
+BCR.
+(A16)
+Values of βIA and βP f A are provided in Tab. A3. Similarly, we assume for the antibody consump-
+tion rates γIA1, γIA2, γP f A1 and γP f A2:
+γIA1 = γIAAmin
+BCR
+and
+γIA2 = γIAAmax
+BCR,
+(A17)
+γP f A1 = γP f AAmin
+BCR
+and
+γP f A2 = γP f AAmax
+BCR.
+(A18)
+Values of γIA and γP f A are provided in Tab. A3.
+We set βP f A = βIA = 5 × 10−5mL/(day × ng). Thus, at the maximum concentration of antibodies
+reached in our simulations (about 6 × 104 ng/mL) the antibody-depending terms in equations (3#) and
+equation (4#) reach (-3/(day × I)) and (-3/day × Pf )), respectively. This means that all infected cells
+become destroyed and all free protein neutralized within 8h. The amount of antibody required for
+these processes and thus the parameters γIA and γP f A were estimated from experiments.
+Appendix B.1. ADCC experiment
+Infected cells (target cells, initial density I0) and neutrophils are mixed with antibodies (initial
+concentration A0). Infected cells fluoresce due to an integrated reporter gene. The total fluorescence of
+the population decreases due to ADCC by neutrophils. (time scale: 12 hours). Assuming a constant
+neutrophil density, we calculate I and A according to:
+dI
+dt = βIAAI
+(A19)
+dA
+dt = γIAAI
+(A20)
+with the rate of cell destruction by ADCC , βIA [mL/(µg × day)], and the rate of antibody
+consumption γIA [mL/(cell × day)].
+Here, n = γIA/βIA [µg/cell] is the amount of antibody required per cell. The analytical solution
+for the remaining infected cells (I) is given by:
+I = I0
+A0 −nI0
+A0 exp(tβIA(A0 −nI0)) −nI0
+.
+(A21)
+For A0 < nI0, one observes for long times
+I = I0(1 −A0
+nI0
+),
+(A22)
+otherwise, I = 0.
+
+[Page 21]
+21 of 30
+In Alpert et al. [76], they show that for HIV infection, an initial antibody concentration of A0 = 100
+µg/ml and an initial density of infected cells of I0 = 5 × 104 cells/mL, allows 20% of the cells to
+survive, giving: n = 2.5 ng/cell.
+Appendix B.2. Neutralization experiment
+Pseudo-virus (initial concentration Pf0) is mixed with antibodies (initial concentration A0). The
+remaining capability of the mixture to infect cells that fluoresce due to an integrated reporter gene is
+measured (time scale: 10 minutes).
+dPf
+dt = βP f AAPf ,
+(A23)
+dA
+dt = γP f AAPf ,
+(A24)
+with the rate of cell neutralization by ADCC, βP f A [mL/(ng × day)], and the rate of antibody
+consumption, γP f A [ml/(copy × day)].
+Here, m = γP f A/βP f A [ng/copy] is the amount of antibody required per antigen. The analytical
+solution for the remaining infected cells I is given by:
+Pf = Pf0
+A0 −mPf0
+A0 exp
+
+tβP f A(A0 −mPf0)
+
+−mPf0
+.
+(A25)
+For A0 < mPf0, one observes for long times
+Pf = Pf0(1 −
+A0
+mPf0
+),
+(A26)
+otherwise, Pf = 0.
+In Chen et al. [77], they show that the total neutralization is reached by 10% of the serum antibody
+level (A0 = 1 µg/ml). In their assays they use: Pf0 = 500 TCID50. Assuming TCID50 = 4 × 103
+copies/mL [78] this gives: Pf0 = 2 × 106 copies/mL and: m = 5 × 10−4 ng/copy.
+Using the values of n and m, the parameters γIA and γP f A were calculated from βIA and βP f A.
+Appendix C. Virus infection model
+We assume that virus V infects a specific tissue only. The tropism of V is thereby determined
+by the level of expression of virus entry receptors [79]. In the following, we model an infection
+of the respiratory tract. We assume initial cell-free infection. Subsequent spreading depends on
+the site of virus release. While apical release of virus into lumen is typically associated with local
+infection, basolateral release can result in systemic infections. We assume virus release into the lumen.
+Nevertheless, infected immune cells, as macrophages, can contribute to spreading [80]. We neglect this
+contribution.
+Appendix C.1. Susceptible cells
+Spreading via cell-cell contacts limits the infection rate [81]. For a non-spatial population model,
+we assume:
+dS
+dt = −kVI
+
+1 −
+I
+Imax
+
+SV + k2(S0 −S).
+(A27)
+The virus infection rate kVI depends on the virus variant. We set: kVI = 10−7 mL/(day × copy).
+This value is in the range that have been assumed for corona viruses [82]. The maximum density
+of infected cells typically reaches 10% of S0 [83]. Regeneration, depends on lung epithelial cell
+proliferation.
+
+[Page 22]
+22 of 30
+Appendix C.2. Infected cells
+Virus infected cells (I) produce virus, until they undergo lysis or become subject of phagocytosis
+[84]:
+dI
+dt = kVI
+
+1 −
+1
+Imax
+I
+
+SV −1
+τI
+I −(βIA1A1 + βIA2A2)I,
+(A28)
+The lifetime of the infected cells is short. It depends on properties of the innate immune response.
+We set it to the time of virus reproduction, τI = 0.5 days [85]. βIA1 and βIA2 [ml/(ng × day)] are
+the rates of destruction of infected cells following labeling by antibodies A1 and A2, respectively.
+Values were taken from the extended model. The antibodies are present at the time of infection
+due to vaccination. Note that in the model, βIA1 and βIA2 link tissue concentration of cells to body
+concentrations of antibodies.
+Appendix C.3. Virus
+Free-floating virus (V) can be taken up by susceptible cells that accordingly become infected, can
+be degraded or can be neutralized by antibodies A. As V is shed into the lumen [86], its concentration
+is measured in copies per mL fluid.
+dV
+dt = pV I −kV
+
+1 −
+1
+Imax
+I
+
+SV −1
+τV
+V −(βVA1A1 + βVA2A2)V,
+(A29)
+Here, pV is the virus production rate of infected cells. They can vary between 240 and 8000
+copies/(day × cell) [85]. We set: pV = 2500 copies/(day × cell). Assuming that one virus infects one
+cells i.e. kV/kVI = 1 copy/cell, one gets: kV = 10−7 ml/(day × copy). We set the virus lifetime to:
+τV = 2.0 days being at the lower bound of values found in respiratory secretions [87]. βVA1 and βVA2
+are virus neutralization rates by antibodies A1 and A2 respectively.
+Appendix C.4. Analytical solution for the critical titer Tc
+We first set βIA1A1 + βIA2A2 = βIAT and βVA1A1 + βVA2A2 = βVAT (see equations (A15) and
+(A16)). For fast regeneration (S = S0) and slowly evolving infection (dI/dt = 0), it follows:
+dV
+dt = pV I −
+
+kV
+kVI
++
+1
+τV + βAVT
+
+1 +
+1
+Imax I
+
+kVIS0
+
+
+ 1
+τI
++ βAIT
+
+I
+= (pV −p0)I.
+(A30)
+The virus population vanishes for: dV/dt < 0, which is observed for: pV < p0. The virus
+production rate that can be tolerated without antibody for a starting infection (I = 0) is:
+pVC =
+"
+kV
+kVI
++
+1
+τV
+kVIS0
+#
+1
+τI
+(A31)
+For the reference parameter set, one finds pVC = 12 copies/(day × cell), which is below reported
+rates. For higher pV, antibodies are required to control the infection. The critical titer is given by:
+Tc = −x
+2 +
+r
+x2
+2 −y > 0,
+for: p > pVC,
+with:
+x =
+1
+βIAτI
++
+1
+βVA
+ 1
+τV
++ kVS0
+
+> 0,
+y =
+1
+βVAβIA
+ 1
+τV
++ kVS0
+ 1
+τI
+−pkVIS0
+
+< 0.
+(A32)
+
+[Page 23]
+23 of 30
+Tc depends on parameters of the virus infection model. We included these dependencies in our
+calculations of the parameter sensitivity for the protection time (Fig. A2). The titer amplification by the
+second dose (Fig. A3) does not depend on Tc.
+
+[Page 24]
+24 of 30
+Figure A2. Sensitivity analysis I. TSI regarding protection time. Black: Parameters of the extended model, Red:
+Parameters of the infection model. Insert: The protection time decreases with increasing virus replication rate pV.
+Figure A3. Sensitivity analysis II. TSI for titer amplification by the second compared to the first dose. The
+parameters with the highest impact to the titer amplification are the lifetime of the virus infected cells τIV, the
+virus production rate pV and the virus infection rate. Insert: For v > 0.5, decreasing B2 specification by increasing
+v strengthen the titer amplification.
+
+[Page 25]
+25 of 30
+Appendix D. Reference parameter sets
+Parameter
+Description
+Value
+Reference
+kL
+Uptake rate of L
+2 × 10−7 mL/day/cell
+[19]
+τL
+Lifetime of L
+7 days
+[19]
+kS
+Infection rate
+2 × 10−7 mL/day/cell
+[19]
+τI
+Lifetime of I
+4 days
+[22]
+k1
+Recruitment rate of S
+7.1 × 10−2 /day
+Set
+S0
+S-pool density
+106 cells/mL
+[21]
+pP
+Protein production rate
+25 copies/day/cell
+[25]
+kp
+Internalization rate of Pf
+10−7 mL/day/copy
+See text
+kAPC
+Activation rate of APC
+10−7 mL/day/copy
+See text
+τP f , τPSSM
+Lifetime of Pf and PSSM
+2 days
+[26]
+τPFDC
+Lifetime of PFDC
+20 days
+[29]
+Table A1. Vaccination model
+Parameter
+Description
+Value
+Reference
+BN
+BN density
+5 × 104 cells/mL
+See text
+NGC
+Number of productive GCs
+1 /mL
+See text
+cN
+Maximum BN recruitment rate
+10−3/day
+[30]
+apL
+GC apoptosis rate
+0.5/day
+Set
+ϵ
+Rate of BG leaving GC
+0.05/day
+[30]
+Amin
+BCR
+Minimum ABCR
+1
+Set
+Amax
+BCR
+Maximum ABCR
+25
+Set
+v
+Fraction of BG to BMH
+0.9
+Set
+c1
+Maximum BM amplification rate
+0.6/day
+[43]
+h
+Fraction of BM to B1
+0.6
+Set
+τBM
+Lifetime of BM
+18 days
+[39]
+τB1
+Lifetime of B1
+5 days
+[44]
+τB2
+Lifetime of B2
+180 days
+[42]
+pA
+Antibody production rate
+2 ng/day/cell
+[47]
+τA
+Antibody lifetime
+60 days
+[45,46]
+Table A2. Response models
+Parameter
+Description
+Value
+C
+Scaling rate
+0.1 cells/copy
+βIA
+Cell destruction rate
+5 × 10−5 mL/day/ng
+βP f A
+Neutralization rate
+5 × 10−5 mL/day/ng
+γIA
+Antibody consumption of I
+2.5 × βIA ng/cell
+γP f A
+Antibody consumption of Pf
+5 × 10−4 × βAP f ng/copy
+Table A3. Nonlinear terms and activation functions derived in Supplement B.
+Population
+Initial density
+L
+2.5 × 105 copies/mL [19]
+S
+S0
+I, BG, BM, B1, B2
+0
+Pf , PFDC, PSSM
+0
+A1, A2
+0
+Table A4. Initial densities of cells, antigens, and antibodies
+
+[Page 26]
+26 of 30
+Parameter
+Description
+Value
+Reference
+kVI
+Cell infection rate
+10−7 mL/days/copy
+Set
+τI
+Lifetime of infected cells
+0.5 days
+[85]
+S0
+S-pool density
+106 cells/mL
+Set
+kV
+Virus internalization rate
+10−7 mL/days/cell
+Set
+pV
+Virus production rate
+2500 copies/day/cell
+[85]
+τV
+Virus lifetime
+2 days
+[87]
+Table A5. Virus infection model: Parameters defining Tc.The rates of cell destruction, βIA1 and βIA2 and the rates
+of antigen neutralization βVA1 and βVA2 are taken from the response model (βVA1 = βP f A1 and βVA2 = βP f A2).
+References
+1.
+Lee, H.Y.; Topham, D.J.; Park, S.Y.; Hollenbaugh, J.; Treanor, J.; Mosmann, T.R.; Jin, X.; Ward, B.M.; Miao, H.;
+Holden-Wiltse, J.; et al. Simulation and Prediction of the Adaptive Immune Response to Influenza A Virus
+Infection. Journal of Virology 2009, 83, 7151–7165. https://doi.org/10.1128/jvi.00098-09.
+2.
+Molari, M.; Eyer, K.; Baudry, J.; Cocco, S.; Monasson, R. Quantitative modeling of the effect of antigen dosage
+on B-cell affinity distributions in maturating germinal centers. eLife 2020, 9. https://doi.org/10.7554/elife.
+55678.
+3.
+Meyer-Hermann, M. A molecular theory of germinal center B cell selection and division. Cell Reports 2021,
+36, 109552. https://doi.org/10.1016/j.celrep.2021.109552.
+4.
+Akkaya, M.; Kwak, K.; Pierce, S.K. B cell memory: building two walls of protection against pathogens.
+Nature Reviews Immunology 2019, 20, 229–238. https://doi.org/10.1038/s41577-019-0244-2.
+5.
+Leon, C.; Tokarev, A.; Bouchnita, A.; Volpert, V. Modelling of the Innate and Adaptive Immune Response to
+SARS Viral Infection, Cytokine Storm and Vaccination. Vaccines 2023, 11, 127. https://doi.org/10.3390/
+vaccines11010127.
+6.
+Kustin, T.; Harel, N.; Finkel, U.; Perchik, S.; Harari, S.; Tahor, M.; Caspi, I.; Levy, R.; Leshchinsky, M.; Ken Dror,
+S.; et al. Evidence for increased breakthrough rates of SARS-CoV-2 variants of concern in BNT162b2-mRNA-
+vaccinated individuals. Nature Medicine 2021, 27, 1379–1384. https://doi.org/10.1038/s41591-021-01413-7.
+7.
+Menegale, F.; Manica, M.; Zardini, A.; Guzzetta, G.; Marziano, V.; d’Andrea, V.; Trentini, F.; Ajelli, M.; Poletti,
+P.; Merler, S. Evaluation of Waning of SARS-CoV-2 Vaccine–Induced Immunity: A Systematic Review and
+Meta-analysis. JAMA Network Open 2023, 6, e2310650. https://doi.org/10.1001/jamanetworkopen.2023.106
+50.
+8.
+Bicher, M.; Zuba, M.; Rainer, L.; Bachner, F.; Rippinger, C.; Ostermann, H.; Popper, N.; Thurner, S.; Klimek,
+P. Supporting COVID-19 policy-making with a predictive epidemiological multi-model warning system.
+Communications Medicine 2022, 2. https://doi.org/10.1038/s43856-022-00219-z.
+9.
+Uwamino, Y.; Nagashima, K.; Yoshifuji, A.; Suga, S.; Nagao, M.; Fujisawa, T.; Ryuzaki, M.; Takemoto, Y.;
+Namkoong, H.; Wakui, M.; et al. Estimating immunity with mathematical models for SARS-CoV-2 after
+COVID-19 vaccination. npj Vaccines 2023, 8. https://doi.org/10.1038/s41541-023-00626-w.
+10.
+Russell, T.W.; Townsley, H.; Hellewell, J.; Gahir, J.; Shawe-Taylor, M.; Greenwood, D.; Hodgson, D.; Hobbs,
+A.; Dowgier, G.; Penn, R.; et al. Real-time estimation of immunological responses against emerging SARS-
+CoV-2 variants in the UK: a mathematical modelling study. The Lancet Infectious Diseases 2025, 25, 80–93.
+https://doi.org/10.1016/s1473-3099(24)00484-5.
+11.
+Nguyen, D.C.; Hentenaar, I.T.; Morrison-Porter, A.; Solano, D.; Haddad, N.S.; Castrillon, C.; Runnstrom,
+M.C.; Lamothe, P.A.; Andrews, J.; Roberts, D.; et al. SARS-CoV-2-specific plasma cells are not durably
+established in the bone marrow long-lived compartment after mRNA vaccination. Nature Medicine 2024,
+31, 235–244. https://doi.org/10.1038/s41591-024-03278-y.
+12.
+Moran, I.; Nguyen, A.; Khoo, W.H.; Butt, D.; Bourne, K.; Young, C.; Hermes, J.R.; Biro, M.; Gracie, G.;
+Ma, C.S.; et al. Memory B cells are reactivated in subcapsular proliferative foci of lymph nodes. Nature
+Communications 2018, 9. https://doi.org/10.1038/s41467-018-05772-7.
+13.
+Tellier, J.; Nutt, S.L. Plasma cells: The programming of an antibody-secreting machine. European Journal of
+Immunology 2018, 49, 30–37. https://doi.org/10.1002/eji.201847517.
+14.
+Seifert, M.; Küppers, R. Human memory B cells. Leukemia 2016, 30, 2283–2292. https://doi.org/10.1038/leu.
+2016.226.
+
+[Page 27]
+27 of 30
+15.
+Moulana, A.; Dupic, T.; Phillips, A.M.; Chang, J.; Roffler, A.A.; Greaney, A.J.; Starr, T.N.; Bloom, J.D.; Desai,
+M.M. The landscape of antibody binding affinity in SARS-CoV-2 Omicron BA.1 evolution. eLife 2023, 12.
+https://doi.org/10.7554/elife.83442.
+16.
+Hassett, K.J.; Rajlic, I.L.; Bahl, K.; White, R.; Cowens, K.; Jacquinet, E.; Burke, K.E. mRNA vaccine trafficking
+and resulting protein expression after intramuscular administration. Molecular Therapy - Nucleic Acids 2024,
+35, 102083. https://doi.org/10.1016/j.omtn.2023.102083.
+17.
+Lindsay, K.E.; Bhosle, S.M.; Zurla, C.; Beyersdorf, J.; Rogers, K.A.; Vanover, D.; Xiao, P.; Araínga, M.;
+Shirreff, L.M.; Pitard, B.; et al.
+Visualization of early events in mRNA vaccine delivery in non-human
+primates via PET–CT and near-infrared imaging. Nature Biomedical Engineering 2019, 3, 371–380. https:
+//doi.org/10.1038/s41551-019-0378-3.
+18.
+Bepperling, A.; Richter, G.
+Determination of mRNA copy number in degradable lipid nanoparticles
+via density contrast analytical ultracentrifugation. European Biophysics Journal 2023, 52, 393–400. https:
+//doi.org/10.1007/s00249-023-01663-y.
+19.
+Kent, S.J.; Li, S.; Amarasena, T.H.; Reynaldi, A.; Lee, W.S.; Leeming, M.G.; O’Connor, D.H.; Nguyen, J.; Kent,
+H.E.; Caruso, F.; et al. Blood Distribution of SARS-CoV-2 Lipid Nanoparticle mRNA Vaccine in Humans.
+ACS Nano 2024, 18, 27077–27089. https://doi.org/10.1021/acsnano.4c11652.
+20.
+Castruita, J.A.S.; Schneider, U.V.; Mollerup, S.; Leineweber, T.D.; Weis, N.; Bukh, J.; Pedersen, M.S.; Westh, H.
+SARS-CoV-2 spike mRNA vaccine sequences circulate in blood up to 28 days after COVID-19 vaccination.
+APMIS 2023, 131, 128–132. https://doi.org/10.1111/apm.13294.
+21.
+Sender, R.; Weiss, Y.; Navon, Y.; Milo, I.; Azulay, N.; Keren, L.; Fuchs, S.; Ben-Zvi, D.; Noor, E.; Milo, R. The
+total mass, number, and distribution of immune cells in the human body. Proceedings of the National Academy
+of Sciences 2023, 120. https://doi.org/10.1073/pnas.2308511120.
+22.
+Dalod, M.; Chelbi, R.; Malissen, B.; Lawrence, T. Dendritic cell maturation: functional specialization
+through signaling specificity and transcriptional programming. The EMBO Journal 2014, 33, 1104–1116.
+https://doi.org/10.1002/embj.201488027.
+23.
+Heesters, B.A.; Chatterjee, P.; Kim, Y.A.; Gonzalez, S.F.; Kuligowski, M.P.; Kirchhausen, T.; Carroll, M.C.
+Endocytosis and Recycling of Immune Complexes by Follicular Dendritic Cells Enhances B Cell Antigen
+Binding and Activation. Immunity 2013, 38, 1164–1175. https://doi.org/10.1016/j.immuni.2013.02.023.
+24.
+Ogata, A.F.; Cheng, C.A.; Desjardins, M.; Senussi, Y.; Sherman, A.C.; Powell, M.; Novack, L.; Von, S.;
+Li, X.; Baden, L.R.; et al. Circulating Severe Acute Respiratory Syndrome Coronavirus 2 (SARS-CoV-2)
+Vaccine Antigen Detected in the Plasma of mRNA-1273 Vaccine Recipients. Clinical Infectious Diseases 2021,
+74, 715–718. https://doi.org/10.1093/cid/ciab465.
+25.
+Sutton, W.J.; Branham, P.J.; Williamson, Y.M.; Cooper, H.C.; Najjar, F.N.; Pierce-Ruiz, C.L.; Barr, J.R.; Williams,
+T.L. Quantification of SARS-CoV-2 spike protein expression from mRNA vaccines using isotope dilution
+mass spectrometry. Vaccine 2023, 41, 3872–3884. https://doi.org/10.1016/j.vaccine.2023.04.044.
+26.
+Cognetti, J.S.; Miller, B.L. Monitoring Serum Spike Protein with Disposable Photonic Biosensors Following
+SARS-CoV-2 Vaccination. Sensors 2021, 21, 5857. https://doi.org/10.3390/s21175857.
+27.
+Brogna, C.; Cristoni, S.; Marino, G.; Montano, L.; Viduto, V.; Fabrowski, M.; Lettieri, G.; Piscopo, M. Detection
+of recombinant Spike protein in the blood of individuals vaccinated against SARS-CoV-2: Possible molecular
+mechanisms. PROTEOMICS – Clinical Applications 2023, 17. https://doi.org/10.1002/prca.202300048.
+28.
+Moore, D.K.; Leisching, G.R.; Snyders, C.I.; Gutschmidt, A.; van Rensburg, I.C.; Loxton, A.G.
+Im-
+munoglobulin profile and B-cell frequencies are altered with changes in the cellular microenviron-
+ment independent of the stimulation conditions.
+Immunity, Inflammation and Disease 2020, 8, 458–467.
+https://doi.org/10.1002/iid3.328.
+29.
+Turner, J.S.; O’Halloran, J.A.; Kalaidina, E.; Kim, W.; Schmitz, A.J.; Zhou, J.Q.; Lei, T.; Thapa, M.; Chen, R.E.;
+Case, J.B.; et al. SARS-CoV-2 mRNA vaccines induce persistent human germinal centre responses. Nature
+2021, 596, 109–113. https://doi.org/10.1038/s41586-021-03738-2.
+30.
+Robert, P.A.; Arulraj, T.; Meyer-Hermann, M. Germinal centers are permissive to subdominant antibody
+responses. Frontiers in Immunology 2024, 14. https://doi.org/10.3389/fimmu.2023.1238046.
+31.
+Mayer, C.T.; Gazumyan, A.; Kara, E.E.; Gitlin, A.D.; Golijanin, J.; Viant, C.; Pai, J.; Oliveira, T.Y.; Wang, Q.;
+Escolano, A.; et al. The microanatomic segregation of selection by apoptosis in the germinal center. Science
+2017, 358. https://doi.org/10.1126/science.aao2602.
+32.
+Allen, C.D.C.; Okada, T.; Tang, H.L.; Cyster, J.G. Imaging of Germinal Center Selection Events During
+Affinity Maturation. Science 2007, 315, 528–531. https://doi.org/10.1126/science.1136736.
+
+[Page 28]
+28 of 30
+33.
+Margolin, D.H.; Helmuth Saunders, E.F.; Bronfin, B.; de Rosa, N.; Axthelm, M.K.; Alvarez, X.; Letvin, N.L.
+High Frequency of Virus-Specific B Lymphocytes in Germinal Centers of Simian-Human Immunodeficiency
+Virus-Infected Rhesus Monkeys. Journal of Virology 2002, 76, 3965–3973. https://doi.org/10.1128/jvi.76.8.3
+965-3973.2002.
+34.
+Schemel, C.M.; Wurzel, P.; Scharf, S.; Schäfer, H.; Hartmann, S.; Koch, I.; Hansmann, M.L. Three-dimensional
+human germinal centers of different sizes in patients diagnosed with lymphadenitis show comparative
+constant relative volumes of B cells, T cells, follicular dendritic cells, and macrophages. Acta Histochemica
+2023, 125, 152075. https://doi.org/10.1016/j.acthis.2023.152075.
+35.
+Wishnie, A.J.; Chwat-Edelstein, T.; Attaway, M.; Vuong, B.Q. BCR Affinity Influences T-B Interactions and B
+Cell Development in Secondary Lymphoid Organs. Frontiers in Immunology 2021, 12. https://doi.org/10.338
+9/fimmu.2021.703918.
+36.
+Broketa, M.; Sokal, A.; Mor, M.; Canales-Herrerias, P.; Perima, A.; Meola, A.; Fernández, I.; Iannascoli, B.;
+Chenon, G.; Vandenberghe, A.; et al. Qualitative monitoring of SARS-CoV-2 mRNA vaccination in humans
+using droplet microfluidics. JCI Insight 2023, 8. https://doi.org/10.1172/jci.insight.166602.
+37.
+Cirelli, K.M.; Crotty, S. Germinal center enhancement by extended antigen availability. Current Opinion in
+Immunology 2017, 47, 64–69. https://doi.org/10.1016/j.coi.2017.06.008.
+38.
+Weisel, F.J.; Zuccarino-Catania, G.V.; Chikina, M.; Shlomchik, M.J. A Temporal Switch in the Germinal
+Center Determines Differential Output of Memory B and Plasma Cells.
+Immunity 2016, 44, 116–130.
+https://doi.org/10.1016/j.immuni.2015.12.004.
+39.
+Macallan, D.C.; Wallace, D.L.; Zhang, Y.; Ghattas, H.; Asquith, B.; de Lara, C.; Worth, A.; Panayiotakopoulos,
+G.; Griffin, G.E.; Tough, D.F.; et al. B-cell kinetics in humans: rapid turnover of peripheral blood memory
+cells. Blood 2005, 105, 3633–3640. https://doi.org/10.1182/blood-2004-09-3740.
+40.
+Phan, T.G.; Paus, D.; Chan, T.D.; Turner, M.L.; Nutt, S.L.; Basten, A.; Brink, R. High affinity germinal center
+B cells are actively selected into the plasma cell compartment. The Journal of Experimental Medicine 2006,
+203, 2419–2424. https://doi.org/10.1084/jem.20061254.
+41.
+Wiggins, K.J.; Scharer, C.D. Roadmap to a plasma cell: Epigenetic and transcriptional cues that guide B cell
+differentiation. Immunological Reviews 2020, 300, 54–64. https://doi.org/10.1111/imr.12934.
+42.
+Manz, R.A.; Thiel, A.; Radbruch, A. Lifetime of plasma cells in the bone marrow. Nature 1997, 388, 133–134.
+https://doi.org/10.1038/40540.
+43.
+Tangye, S.G.; Avery, D.T.; Hodgkin, P.D. A Division-Linked Mechanism for the Rapid Generation of
+Ig-Secreting Cells from Human Memory B Cells.
+The Journal of Immunology 2003, 170, 261–269.
+https:
+//doi.org/10.4049/jimmunol.170.1.261.
+44.
+Khodadadi, L.; Cheng, Q.; Radbruch, A.; Hiepe, F. The Maintenance of Memory Plasma Cells. Frontiers in
+Immunology 2019, 10. https://doi.org/10.3389/fimmu.2019.00721.
+45.
+Barnes, T.W.; Schulte-Pelkum, J.; Steller, L.; Filchtinski, D.; Jenness, R.; Williams, M.R.; Kober, C.; Manni, S.;
+Hauser, T.; Hahn, A.; et al. Determination of neutralising anti-SARS-CoV-2 antibody half-life in COVID-19
+convalescent donors. Clinical Immunology 2021, 232, 108871. https://doi.org/10.1016/j.clim.2021.108871.
+46.
+Lau, C.S.; Phua, S.K.; Liang, Y.L.; Oh, M.L.H.; Aw, T.C. SARS-CoV-2 Spike and Neutralizing Antibody
+Kinetics 90 Days after Three Doses of BNT162b2 mRNA COVID-19 Vaccine in Singapore. Vaccines 2022,
+10, 331. https://doi.org/10.3390/vaccines10020331.
+47.
+Bromage, E.; Stephens, R.; Hassoun, L. The third dimension of ELISPOTs: Quantifying antibody secretion
+from individual plasma cells. Journal of Immunological Methods 2009, 346, 75–79. https://doi.org/10.1016/j.
+jim.2009.05.005.
+48.
+García-Sánchez, M.; Castro, M.; Faro, J. B cell receptors and free antibodies have different antigen-binding
+kinetics. Proceedings of the National Academy of Sciences 2023, 120. https://doi.org/10.1073/pnas.2220669120.
+49.
+Izadi, A.; Nordenfelt, P. Protective non-neutralizing SARS-CoV-2 monoclonal antibodies. Trends in Immunol-
+ogy 2024, 45, 609–624. https://doi.org/10.1016/j.it.2024.06.003.
+50.
+Zhang, Y.; Meyer-Hermann, M.; George, L.A.; Figge, M.T.; Khan, M.; Goodall, M.; Young, S.P.; Reynolds, A.;
+Falciani, F.; Waisman, A.; et al. Germinal center B cells govern their own fate via antibody feedback. Journal
+of Experimental Medicine 2013, 210, 457–464. https://doi.org/10.1084/jem.20120150.
+51.
+Finney, J.; Yeh, C.; Kelsoe, G.; Kuraoka, M. Germinal center responses to complex antigens. Immunological
+Reviews 2018, 284, 42–50. https://doi.org/10.1111/imr.12661.
+52.
+Hägglöf, T.; Cipolla, M.; Loewe, M.; Chen, S.T.; Kara, E.E.; Mesin, L.; Hartweger, H.; ElTanbouly, M.A.; Cho,
+A.; Gazumyan, A.; et al. Continuous germinal center invasion contributes to the diversity of the immune
+response. Cell 2023, 186, 147–161.e15. https://doi.org/10.1016/j.cell.2022.11.032.
+
+[Page 29]
+29 of 30
+53.
+de Carvalho, R.V.; Ersching, J.; Barbulescu, A.; Hobbs, A.; Castro, T.B.; Mesin, L.; Jacobsen, J.T.; Phillips,
+B.K.; Hoffmann, H.H.; Parsa, R.; et al. Clonal replacement sustains long-lived germinal centers primed by
+respiratory viruses. Cell 2023, 186, 131–146.e13. https://doi.org/10.1016/j.cell.2022.11.031.
+54.
+Goel, R.R.; Painter, M.M.; Apostolidis, S.A.; Mathew, D.; Meng, W.; Rosenfeld, A.M.; Lundgreen, K.A.;
+Reynaldi, A.; Khoury, D.S.; Pattekar, A.; et al.
+mRNA vaccines induce durable immune memory to
+SARS-CoV-2 and variants of concern. Science 2021, 374. https://doi.org/10.1126/science.abm0829.
+55.
+Frasca, D.; Diaz, A.; Romero, M.; Landin, A.M.; Blomberg, B.B. Age effects on B cells and humoral immunity
+in humans. Ageing Research Reviews 2011, 10, 330–335. https://doi.org/10.1016/j.arr.2010.08.004.
+56.
+Shioda, K.; Breskin, A.; Harati, P.; Chamberlain, A.T.; Komura, T.; Lopman, B.A.; Rogawski McQuade, E.T.
+Comparative effectiveness of alternative intervals between first and second doses of the mRNA COVID-19
+vaccines. Nature Communications 2024, 15. https://doi.org/10.1038/s41467-024-45334-8.
+57.
+Menni, C.; May, A.; Polidori, L.; Louca, P.; Wolf, J.; Capdevila, J.; Hu, C.; Ourselin, S.; Steves, C.J.; Valdes,
+A.M.; et al.
+COVID-19 vaccine waning and effectiveness and side-effects of boosters: a prospective
+community study from the ZOE COVID Study. The Lancet Infectious Diseases 2022, 22, 1002–1010. https:
+//doi.org/10.1016/s1473-3099(22)00146-3.
+58.
+Nanishi, E.; Levy, O.; Ozonoff, A. Waning effectiveness of SARS-CoV-2 mRNA vaccines in older adults: a
+rapid review. Human Vaccines & Immunotherapeutics 2022, 18. https://doi.org/10.1080/21645515.2022.2045
+857.
+59.
+Garcia-Beltran, W.F.; St. Denis, K.J.; Hoelzemer, A.; Lam, E.C.; Nitido, A.D.; Sheehan, M.L.; Berrios, C.;
+Ofoman, O.; Chang, C.C.; Hauser, B.M.; et al. mRNA-based COVID-19 vaccine boosters induce neutralizing
+immunity against SARS-CoV-2 Omicron variant. Cell 2022, 185, 457–466.e4. https://doi.org/10.1016/j.cell.
+2021.12.033.
+60.
+Sobol’, I. Global sensitivity indices for nonlinear mathematical models and their Monte Carlo estimates.
+Mathematics and Computers in Simulation 2001, 55, 271–280. https://doi.org/10.1016/s0378-4754(00)00270-6.
+61.
+Wu, J.; Dhingra, R.; Gambhir, M.; Remais, J.V. Sensitivity analysis of infectious disease models: methods,
+advances and their application. Journal of The Royal Society Interface 2013, 10, 20121018. https://doi.org/10.1
+098/rsif.2012.1018.
+62.
+Paludan, S.R.; Pradeu, T.; Pichlmair, A.; Wray, K.B.; Mikkelsen, J.G.; Olagnier, D.; Mogensen, T.H. Early host
+defense against virus infections. Cell Reports 2024, 43, 115070. https://doi.org/10.1016/j.celrep.2024.115070.
+63.
+Termote, M.; Marques, R.C.; Hyllner, E.; Guryleva, M.V.; Henskens, M.; Brutscher, A.; Baken, I.J.; Dopico,
+X.C.; Gasull, A.D.; Murrell, B.; et al. Antigen affinity and site of immunization dictate B cell recall responses.
+Cell Reports 2025, 44, 115221. https://doi.org/10.1016/j.celrep.2024.115221.
+64.
+Laidlaw, B.J.; Ellebedy, A.H. The germinal centre B cell response to SARS-CoV-2. Nature Reviews Immunology
+2021, 22, 7–18. https://doi.org/10.1038/s41577-021-00657-1.
+65.
+Mulroney, T.E.; Pöyry, T.; Yam-Puc, J.C.; Rust, M.; Harvey, R.F.; Kalmar, L.; Horner, E.; Booth, L.; Ferreira,
+A.P.; Stoneley, M.; et al. N1-methylpseudouridylation of mRNA causes +1 ribosomal frameshifting. Nature
+2023, 625, 189–194. https://doi.org/10.1038/s41586-023-06800-3.
+66.
+Chen, X.; Rostad, C.A.; Anderson, L.J.; Sun, H.y.; Lapp, S.A.; Stephens, K.; Hussaini, L.; Gibson, T.; Rouphael,
+N.; Anderson, E.J. The development and kinetics of functional antibody-dependent cell-mediated cytotoxicity
+(ADCC) to SARS-CoV-2 spike protein. Virology 2021, 559, 1–9. https://doi.org/10.1016/j.virol.2021.03.009.
+67.
+Wang, B.; Sun, J.; Li, F.; Zhu, Y.; Li, J.; Wang, H.; Qin, Y.; Wu, G.; Guan, J.; Zhu, J.; et al. OP0221 LBL-047, A
+novel afucosylated anti-BDCA2/TACI fusion protein with YTE mutation inhibiths the functiouns of both
+pDCs and B cells. Annals of the Rheumatic Diseases 2024, 83, 17–18. https://doi.org/10.1136/annrheumdis-20
+24-eular.1177.
+68.
+Clayton, K.L.; Mylvaganam, G.; Villasmil-Ocando, A.; Stuart, H.; Maus, M.V.; Rashidian, M.; Ploegh,
+H.L.; Walker, B.D. HIV-infected macrophages resist efficient NK cell-mediated killing while preserving
+inflammatory cytokine responses. Cell Host & Microbe 2021, 29, 435–447.e9. https://doi.org/10.1016/j.chom.
+2021.01.006.
+69.
+Hajnik, R.L.; Plante, J.A.; Liang, Y.; Alameh, M.G.; Tang, J.; Bonam, S.R.; Zhong, C.; Adam, A.; Scharton,
+D.; Rafael, G.H.; et al. Dual spike and nucleocapsid mRNA vaccination confer protection against SARS-
+CoV-2 Omicron and Delta variants in preclinical models. Science Translational Medicine 2022, 14. https:
+//doi.org/10.1126/scitranslmed.abq1945.
+70.
+Kim, J.; Kachko, A.; Selvaraj, P.; Rotstein, D.; Stauft, C.B.; Rajasagi, N.; Zhao, Y.; Wang, T.; Major, M.
+Combined immunization with SARS-CoV-2 spike and SARS-CoV nucleocapsid protects K18-hACE2 mice
+but increases lung pathology. npj Vaccines 2025, 10. https://doi.org/10.1038/s41541-025-01085-1.
+
+[Page 30]
+30 of 30
+71.
+Owens, K.; Esmaeili, S.; Schiffer, J.T. Heterogeneous SARS-CoV-2 kinetics due to variable timing and intensity
+of immune responses. JCI Insight 2024, 9. https://doi.org/10.1172/jci.insight.176286.
+72.
+Wang, L.; Vulesevic, B.; Vigano, M.; As’sadiq, A.; Kang, K.; Fernandez, C.; Samarani, S.; Anis, A.H.;
+Ahmad, A.; Costiniuk, C.T. The Impact of HIV on B Cell Compartment and Its Implications for COVID-19
+Vaccinations in People with HIV. Vaccines 2024, 12, 1372. https://doi.org/10.3390/vaccines12121372.
+73.
+Griffin, D.W.; Pai Mangalore, R.; Hoy, J.F.; McMahon, J.H. Immunogenicity, effectiveness, and safety of
+SARS-CoV-2 vaccination in people with HIV. AIDS 2023, 37, 1345–1360. https://doi.org/10.1097/qad.0000
+000000003579.
+74.
+Holder, K.A.; Ings, D.P.; Harnum, D.O.A.; Russell, R.S.; Grant, M.D. Moderate to severe SARS-CoV-2
+infection primes vaccine-induced immunity more effectively than asymptomatic or mild infection. npj
+Vaccines 2022, 7. https://doi.org/10.1038/s41541-022-00546-1.
+75.
+Yang, O.O. The immunopathogenesis of SARS-CoV-2 infection: Overview of lessons learned in the first 5
+years. The Journal of Immunology 2025, 214, 1095–1104. https://doi.org/10.1093/jimmun/vkaf033.
+76.
+Alpert, M.D.; Heyer, L.N.; Williams, D.E.J.; Harvey, J.D.; Greenough, T.; Allhorn, M.; Evans, D.T. A Novel
+Assay for Antibody-Dependent Cell-Mediated Cytotoxicity against HIV-1- or SIV-Infected Cells Reveals
+Incomplete Overlap with Antibodies Measured by Neutralization and Binding Assays. Journal of Virology
+2012, 86, 12039–12052. https://doi.org/10.1128/jvi.01650-12.
+77.
+Chen, X.; Li, G.; Ciric, C.; Gibson, T.; Anderson, L.J.; Rostad, C.A. Fc-effector functional antibody assays for
+SARS-CoV-2 variants of concern. Frontiers in Immunology 2025, 16. https://doi.org/10.3389/fimmu.2025.157
+1835.
+78.
+Bordi, L.; Piralla, A.; Lalle, E.; Giardina, F.; Colavita, F.; Tallarita, M.; Sberna, G.; Novazzi, F.; Meschi, S.;
+Castilletti, C.; et al. Rapid and sensitive detection of SARS-CoV-2 RNA using the Simplexa™COVID-19
+direct assay. Journal of Clinical Virology 2020, 128, 104416. https://doi.org/10.1016/j.jcv.2020.104416.
+79.
+Compans, R.W.; Herrler, G., Virus Infection of Epithelial Cells. In Mucosal Immunology; Elsevier, 2005; p.
+769–782. https://doi.org/10.1016/b978-012491543-5/50045-0.
+80.
+Wang, X.L.; Wang, X.; Ho, W.Z. Roles of Macrophages in Viral Infections. Viruses 2024, 16, 1643. https:
+//doi.org/10.3390/v16101643.
+81.
+Raach, B.; Bundgaard, N.; Haase, M.J.; Starruß, J.; Sotillo, R.; Stanifer, M.L.; Graw, F. Influence of cell
+type specific infectivity and tissue composition on SARS-CoV-2 infection dynamics within human airway
+epithelium. PLOS Computational Biology 2023, 19, e1011356. https://doi.org/10.1371/journal.pcbi.1011356.
+82.
+Kim, K.S.; Ejima, K.; Iwanami, S.; Fujita, Y.; Ohashi, H.; Koizumi, Y.; Asai, Y.; Nakaoka, S.; Watashi, K.;
+Aihara, K.; et al. A quantitative model used to compare within-host SARS-CoV-2, MERS-CoV, and SARS-
+CoV dynamics provides insights into the pathogenesis and treatment of SARS-CoV-2. PLOS Biology 2021,
+19, e3001128. https://doi.org/10.1371/journal.pbio.3001128.
+83.
+Ravindra, N.G.; Alfajaro, M.M.; Gasque, V.; Huston, N.C.; Wan, H.; Szigeti-Buck, K.; Yasumoto, Y.; Greaney,
+A.M.; Habet, V.; Chow, R.D.; et al. Single-cell longitudinal analysis of SARS-CoV-2 infection in human
+airway epithelium identifies target cells, alterations in gene expression, and cell state changes. PLOS Biology
+2021, 19, e3001143. https://doi.org/10.1371/journal.pbio.3001143.
+84.
+Nainu, F.; Shiratsuchi, A.; Nakanishi, Y. Induction of Apoptosis and Subsequent Phagocytosis of Virus-
+Infected Cells As an Antiviral Mechanism. Frontiers in Immunology 2017, 8. https://doi.org/10.3389/fimmu.
+2017.01220.
+85.
+Timm, A.; Yin, J. Kinetics of virus production from single cells. Virology 2012, 424, 11–17. https://doi.org/10
+.1016/j.virol.2011.12.005.
+86.
+Chapuy-Regaud, S.; Allioux, C.; Capelli, N.; Migueres, M.; Lhomme, S.; Izopet, J. Vectorial Release of Human
+RNA Viruses from Epithelial Cells. Viruses 2022, 14, 231. https://doi.org/10.3390/v14020231.
+87.
+Guang, Y.; Hui, L. Determining half-life of SARS-CoV-2 antigen in respiratory secretion. Environmental
+Science and Pollution Research 2023, 30, 69697–69702. https://doi.org/10.1007/s11356-023-27326-1.
+Disclaimer/Publisher’s Note: The statements, opinions and data contained in all publications are solely those
+of the individual author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s)
+disclaim responsibility for any injury to people or property resulting from any ideas, methods, instructions or
+products referred to in the content.

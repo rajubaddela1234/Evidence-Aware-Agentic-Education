@@ -1,0 +1,890 @@
+[Page 1]
+Received: 00 Month 0000
+Revised: 00 Month 0000
+Accepted: 00 Month 0000
+DOI: xxx/xxxx
+RESEARCH ARTICLE
+Causal Discovery to Understand Hot Corrosion
+Akhil Varghese | Miguel Arana-Catania* | Stefano Mori | Adriana Encinas-Oropesa | Joy Sumner
+1Cranfield University, UK
+Correspondence
+*Miguel Arana-Catania. Email:
+miguel.aranacatania@cranfield.ac.uk
+Gas turbine superalloys experience hot corrosion, driven by factors including corro-
+sive deposit flux, temperature, gas composition, and component material. The full
+mechanism still needs clarification and research often focuses on laboratory work.
+As such, there is interest in causal discovery to confirm the significance of factors
+and identify potential missing causal relationships or co-dependencies between these
+factors. The causal discovery algorithm Fast Causal Inference (FCI) has been trialled
+on a small set of laboratory data, with the outputs evaluated for their significance
+to corrosion propagation, and compared to existing mechanistic understanding. FCI
+identified the salt deposition flux as the most influential corrosion variable for this
+limited dataset. However, HCl was the second most influential for pitting regions,
+compared to temperature for more uniformly corroding regions. Thus FCI generated
+causal links aligned with literature from a randomised corrosion dataset, while also
+identifying the presence of two different degradation modes in operation.
+KEYWORDS:
+Gas Turbine superalloys, Hot Corrosion, Causal Inference, Causal Discovery Method, FCI Algorithm,
+Kernel-based Conditional Independence Test
+1
+INTRODUCTION
+Gas turbines are used to generate power and provide thrust[1].
+In 2023 between 26% and 37% of UK electricity was gen-
+erated from natural gas combustion, with gas turbines now
+shifting towards zero emission fuels such as H2 or NH3, to
+meet UN goals. In order to increase the efficiency, gas tur-
+bines operate in a combined cycle with steam turbines, and are
+required to operate at higher temperatures and pressures, gen-
+erating a more challenging environment for the materials used
+for their manufacture. Furthermore, contaminants such as sul-
+phates, halides, and chlorides, contained in the fuel, together
+with salt impurities from the air, can create a highly corro-
+sive environment[2]. Deposition of such contaminants on to
+the gas turbine’s component blades and vanes gives rise to a
+corrosion mechanism called “hot corrosion", which adversely
+affects the service life of the gas turbines. Depending on the
+operating temperature conditions inside the gas turbine, Type-
+I or Type-II hot corrosion can occur[3]. Type-I and Type-II
+hot corrosion are temperature-dependent and deposit-induced
+corrosion mechanisms that occur across the approximate tem-
+perature ranges of 850-950°C and 650-800°C, respectively[2].
+Melting temperatures of the salt contaminants influence both
+these types of accelerated corrosion mechanisms but factors
+such as a high partial pressure of SO3 are crucial for Type-II hot
+corrosion to occur[2]. While it is known that factors like oper-
+ating temperatures, melting temperatures of salt contaminants,
+the deposition rate of the flux on gas turbine surface, partial
+pressures of gas contaminants, and material and gas composi-
+tions lead to hot corrosion in gas turbines, the exact variation
+of the underlying mechanism with changing parameters needs
+clarification.
+Moreover, the degree of co-dependence and independence
+between these factors will help in understanding the influ-
+ence that each factor has on hot corrosion. Hence, Causal
+Discovery[4,5] has been introduced to understand the causal
+relationships between the different corrosion factors from a sta-
+tistical approach. These data-driven, causal relationships will
+help in understanding the underlying causal relationships of
+arXiv:2402.07804v1  [cond-mat.mtrl-sci]  12 Feb 2024
+
+[Page 2]
+2
+each corrosion variable, and thus clarifying the physical corro-
+sion mechanism. Such findings from this early-stage study can
+also help in designing future hot corrosion experiments, both
+in terms of the variables and their values, and can become the
+foundation upon which a predictive maintenance model can be
+developed.
+1.1
+Hot Corrosion
+Hot corrosion is a type of material degradation which is
+induced by the deposition of contaminants contained in the
+exhaust stream of a gas turbine[6]. These deposits are usually
+formed by alkali compounds that can increase the corrosion
+rates if in molten state[3]. Some of the contaminants come from
+the air intake (such as sodium, potassium, calcium), while oth-
+ers come from the fuel. The amount of deposition influences
+the corrosion rate of the materials in such environments[7].
+Based on the operating temperatures and the type of contam-
+inant attack, hot corrosion can be further divided into Type-I
+and Type-II hot corrosion:
+1.1.1
+Type-I Hot Corrosion
+(High-temperature Hot Corrosion)
+Type-I hot corrosion is also called high-temperature hot cor-
+rosion (HTHC) because it occurs within the temperature range
+of 850-950°C[2]. Various compounds can form, for example,
+Sodium from the ingested air and sulphur from the fuel could
+combine to form sodium sulphate (Na2SO4), during the com-
+bustion cycle of the gas turbine[8] [9]. The sodium sulphate
+could then condense onto the colder blading, and form a liq-
+uid (molten) salt, which initiates Type-I hot corrosion. In the
+presence of further impurities, such as NaCl from the indus-
+trial or marine atmosphere combines or K from sea droplets[9],
+the formation of mixtures with lower melting points could
+occur which extend the temperature range of Type-I hot corro-
+sion[10].
+Using a fluxing reaction, these eutectic mixtures dissolve
+the protective layer of the superalloy and attack the base mate-
+rial. These mixtures shorten the incubation period. Type-I hot
+corrosion is characterised by internal sulfidation, depletion of
+protective layers formed by chromium or aluminium, and leads
+to severe metal loss from the base material, impacting the gas
+turbine life. Sulfidation can be seen in Figure 1 (b) and (d).
+1.1.2
+Type-II Hot Corrosion
+(Low-temperature Hot Corrosion)
+Type-II hot corrosion, also called low-temperature hot corro-
+sion (LTHC), occurs at temperatures between 650-800°C[3].
+As in the case of Type-I hot corrosion, the formation of a
+FIGURE 1 Optical micrographs of SC2-B exposed for 500h
+with a flux of 5 µg/cm2/h. The picture shows pitting attack and
+scale formation at 700 and 900 °C[11].
+molten deposit is also involved in the mechanism control-
+ling the corrosion behaviour. However, the mechanism occurs
+at temperatures below the melting temperature of many pure
+salts. In Type-II hot corrosion the Na2SO4 forms mixtures with
+metallic inorganic compounds[2], which lowers the combined
+melting temperature and initiates the corrosion process. These
+inorganic metal compounds are formed by SO3 present in the
+combustion gas and the metal[10], making Type-II hot corro-
+sion not only a function of the temperature, but also a function
+of the partial pressure of the SO3 gas[3]. Type-II hot corro-
+sion is characterised by pitting with localized failure as seen
+in Figure 1 (a)[2]. The cause of pitting initiation is currently
+under consideration and has been linked to a wide range of fac-
+tors including grain boundaries, precipitates, gas environment
+and the salt deposit.
+1.2
+Gas Turbine Materials
+To increase efficiency, higher turbine operating temperatures
+and pressures are required. This has driven the formulation and
+selection of materials to be used, which need to have[10]:
+• high mechanical strength at temperatures close to the
+melting point
+• high creep resistance
+• high corrosion resistance
+For these reasons “superalloys" with better mechanical
+properties than conventional alloys have been developed.
+These alloys are nickel-, iron-nickel and cobalt-based[12], with
+other elements in solution, such as chromium and aluminium,
+
+[Page 3]
+3
+which preferentially oxidise to form a thin protective oxide
+layer to provide resistance to corrosion and oxidation[12].
+To ensure resistance to hot corrosion, a minimum amount of
+chromium is needed, for instance, 22% chromium is present in
+Co-base Haynes 188 superalloy, which provides high fatigue
+strength and strong resistance to hot corrosion[13]. In com-
+parison, even though nickel-base Haynes 214 contains 16%
+chromium, it provides high oxidation resistance to tempera-
+tures above 900°C due to the presence of 4.5% aluminium[12].
+Microstructure can also be controlled with commercially
+used single crystal superalloys like CMSX-11C and SC-16
+providing increased resistance to hot corrosion due to the
+presence of more than 12% chromium[6].
+1.2.1
+Protective Coatings
+Despite the more recent advancements, most of the superalloys
+are not able to provide the desired lifetime in all conditions
+within gas turbines. Thus, for specific areas of the turbines,
+coatings are required[6,12]. Aluminide diffusion coatings, over-
+lay coatings and thermal barrier coatings are the most used
+types of coatings for gas turbine applications[14]. Platinum-
+modified aluminide (Pt-Al) coatings like RT-22 and CN-91
+are widely used[15] due to their great resistance to Type-I and
+Type-II hot corrosion[16]. On the other hand, overlay coatings
+provide excellent oxidation and hot corrosion resistance due
+to their ability to form alumina and chromia scales[17]. Figure
+2
+shows the degradation resistance of a platinum-aluminide
+diffusion coating versus three overlay coatings[8].
+FIGURE 2 Comparison of resistance performance between
+platinum-aluminide, and overlay coatings[8]
+1.2.2
+Hot Corrosion summary
+Hot corrosion is dependent on different factors including the
+chemistry of the corroding material, temperature, partial pres-
+sure of contaminants and chemistry of the contaminants. For
+this reason, it is not straightforward to understand the con-
+nection between the different parameters and the rates of cor-
+rosion. Understanding the cause-effect relationship between
+the corrosion factors discussed can help in analysing materi-
+als’ degradation in gas turbines. The discovery of cause-effect
+relationships can be done through the use of causal discov-
+ery techniques, which can investigate the links between these
+corrosion factors.
+1.3
+Causal Discovery
+Causal analysis techniques have been prominently used in the
+fields of engineering, medicine, and economics[4]. Manufac-
+turing, however, has yet to fully embrace causal discovery
+methods when compared to the previous fields, and thus there
+is limited work on hot corrosion using these techniques[18].
+One example of the use of causal discovery methods was
+applied to detect strong relationships in degradation data[19].
+A neural network was used to assess the degradation state of
+some equipment. The causal discovery method FCI was used
+to create a model of the relationship between the variables.
+The variables responsible for the degradation state found using
+FCI, were then fed into Long Short Term Memory (LSTM)
+neural networks for the subsequent assessment. In this manner,
+the data-driven model was trained, and its interpretability was
+improved.
+In a second example[20], the method was applied to the
+design process of energy-efficient buildings. The authors
+applied the causal discovery algorithm Greedy Equivalence
+Search (GES) to the variables that potentially affect building
+design. Creating such a causal framework is expected to allow
+designers, developers, and construction workers to inspect
+and continuously improve their own designs and construction
+methodology.
+In the final example reported here, causal discovery algo-
+rithms were used on an Alzheimer’s disease dataset[21]. The
+study compared between two causal discovery algorithms and
+an existing standard graph on Alzheimer’s Disease, which was
+formed using literature and prior experience. FCI and Fast
+Greedy Equivalence Search were the methods used to form
+causal graphs, with initial causal graphs formed purely based
+on observational datasets i.e., without prior subject knowl-
+edge. Subsequently, ‘background knowledge’ was added to the
+algorithms and the changes in average accuracy, recall and pre-
+cision were compared with the former results. These causal
+graphs were later validated based on the existing standard
+graph and the discovered graphs were found to be very close.
+This research aims to understand the degree of influence,
+independence and co-dependence of several hot corrosion vari-
+ables causing material degradation in a gas turbine setting
+using causal discovery techniques.
+
+[Page 4]
+4
+2
+METHODS
+Section 2.1 explains the corrosion dataset along with its seven
+variables. Section 2.1.1 illustrates the arrangements and the
+necessary fine-tuning made to the dataset to use as input to
+the causal discovery algorithms. Section 2.2 explains the sig-
+nificance levels and the assumptions made for analysing the
+causal graphs during the discussion. Sections 2.2 to 2.5 explain
+the causal discovery algorithm and everything required for its
+implementation.
+2.1
+Corrosion Data
+The corrosion dataset used in this work was formed by Dr
+Adriana Encinas-Oropesa in 2005, during her Ph.D. thesis in
+collaboration with the Advanced Long Life Turbine Coating
+Systems project (ALLBATROS)[11]. To produce the corro-
+sion dataset, experiments were conducted on a single crystal
+CMSX-4. Three different metallic protective coatings, RT22,
+CN91 and LCO22 were applied to the CMSX-4 base alloy.
+The uncoated CMSX-4 material and the three coated versions
+of the CMSX-4 alloy were treated as four different materi-
+als during the application of the causal discovery algorithm.
+The dataset consists of two different operating temperatures,
+700 and 900°C, with varying levels of gas compositions and
+deposit chemistries and fluxes.
+After an exposure time of 1000 hours, the material loss data
+were collected. This data corresponded to three different flux
+deposition rates of 0.5, 1.5 and 5 µg/cm2/h. The gas com-
+position consisted of a constant 300vppm (volumetric parts
+per million) of SO2 along with varying amounts of HCl (0 or
+100vppm). Material loss values (due to hot corrosion) corre-
+sponding to each deposition rate, temperature, material, and
+amount of gas composition were tabulated.
+2.1.1
+Data Pre-Processing
+To asses the extent of hot corrosion, pre- and post-exposure
+sample dimensions were compared resulting in 30 values. The
+dataset formed gives material loss as a function of the cumula-
+tive probability of each amount of metal loss. The probability
+indicates the likelihood of having a certain amount of metal
+loss or more. Thus, the most extensive damage occurs with low
+probability. For simplicity, the cumulatively distributed dataset
+was truncated to three values: highest, median, and lowest
+material loss. The highest and the lowest material loss (HML
+and LML) are used to understand the factors that are domi-
+nantly influencing the hot corrosion at the opposite ends of the
+material loss spectrum, while the median material loss (MML)
+helps in identifying the typical corrosion factors leading to hot
+corrosion from an overall perspective.
+‘Amount of salt’, ‘Temperature’, ‘SO2’, ‘HCl’, ‘Time of
+exposure’, ‘Material’, and ‘Material Loss’ were the seven vari-
+ables tabulated. Although the variables could take continuous
+values, in the experiments they were fixed to specific values.
+Thus all are considered categorial variables for the causal dis-
+covery algorithm, except for the case of the Material Loss
+which took different, continuous values.
+2.2
+Statistical Independence Tests
+The cause-effect relationship between the corrosion variables
+present in the dataset are analysed from a statistical point of
+view. The null hypothesis considered is a lack of any causal
+relationship. As such, results are presented with their signifi-
+cance level 𝛼, which represents the probability of incorrectly
+rejecting the null hypothesis when it is true. The confidence
+level (CL) follows the relation CL = 1-𝛼[22,23].
+Causal discovery methods use conditional independence
+tests (CIT) to identify causal links between the variables of
+the dataset and attempt to eliminate the spurious correlations
+within those variables[24]. The independence between the set
+of nodes X and Y, conditional to a set of nodes Z, is writ-
+ten as X ⟂Y | Z[4]. The independence between variables
+can be inferred locally from the CIT, but also globally from
+the causal structures present in the graph and how they are
+connected. Analysing all the causal paths connecting any vari-
+ables it can be inferred what is their causal relationship. A
+criterion commonly used in this regard is the d-separation of
+variables[4].
+Causal discovery algorithms use various statistical tests to
+assess the independence between variables, such as the Chi-
+squared 𝜒2 test (non-parametric test measuring the goodness-
+of-fit between expected and observed frequencies which works
+well with large discrete categorical samples)[25,26], Fisher-Z
+test (used for partial and zero correlation, this parametric test
+assumes that the variables are normally distributed and works
+mainly on large sample sizes of continuous variables)[26,27], G-
+squared test (non-parametric test that highlights relationships
+between categorical variables with more than two levels)[25],
+or the Kernel-based conditional independence test (KCI). In
+this work, it was used the latter.
+The KCI test is a non-parametric test that can be derived
+from the kernel matrices of the variables under considera-
+tion, which characterize the similarity of the samples of those
+variables[28,29]. These kernel functions recognise non-linear
+relationships between data points. This test can be applied to
+discrete or continuous variables. Figure 3
+shows the evolu-
+tion of the accuracy of the test as a function of the number of
+samples for the dataset analysed in the original publication of
+the method.
+
+[Page 5]
+5
+FIGURE 3 Accuracy of different CITs to infer the correct
+Markov Equivalence Class as a function of the sample size[28].
+2.3
+Causal Links, Structures and Graphs
+The different causal nature of the relationships between the
+variables can be represented with different types of causal
+links[30], as illustrated in Table 1 . The relationship depends on
+the variables measured and on possible confounding variables
+(those unmeasured variables which influence the underlying
+causal mechanism)[31].
+After applying the CIT to the variables from the dataset, the
+result of the causal discovery algorithm is a graphical represen-
+tation of the causal links between the variables called a causal
+graph[30]. Chains, forks, and colliders (also called v-structures)
+are the three building blocks used in these causal graphical
+models to illustrate the cause-effect relationship between the
+variables.
+FIGURE 4 Building blocks of a Causal Graph[30]
+Figure 4 (a) shows the chain structure wherein X →Y →
+Z forms a chain where X causes Y and Y causes Z, therefore
+the conditional independence can be written as X ⟂Z | Y[34].
+Figure 4 (b) shows the fork structure Y ←X →Z wherein the
+node X forms a directed edge towards Y and Z making it the
+common ancestor for Y and Z[34]. Since there is only one path
+between Y and Z through X based on the d-separation crite-
+rion, conditional independence can be written as Y ⟂Z | X.
+Figure 4 (c) shows a collider X →Z ←Y, wherein the descen-
+dant Z has two common ancestors X and Y. Even though there
+is one path between X and Y, the presence of a collision node
+Z makes X and Y conditionally dependent given the collision
+node Z, i.e. X̸ ⟂Y | Z. Figure 4 (d) shows a collider structure
+with extra descendant W where X̸ ⟂Y | Z and X̸ ⟂Y | W.
+A causal directed acyclic graph (DAG) consists of a set of
+random variables with edges between them which never form a
+directed cycle within the graph[4]. Generally, causal discovery
+algorithms do not allow identifying the causal graph, but the
+Markov Equivalence Class (MEC) of the graph. If two DAGs
+are Markov equivalent, they have the same skeleton and set of
+colliders as well as the same (conditional) independencies[24],
+which is what the algorithms can usually identify. Once the
+class is identified, using interventions in the variables it is then
+possible to identify the actual causal DAG[35].
+FIGURE 5 Example of Markov Equivalence Class[30]
+The example taken from[30] in Figure 5
+shows a Com-
+pleted Partially DAG (CPDAG) of G and H which represents
+the union of the Markov equivalent DAGs G and H. The undi-
+rected edge between X and Z in the CPDAG suggests that it
+might contain X →Z (shown in the DAG G) or Z →X (shown
+in the DAG H).
+Table 2 , shows the different edges that can be observed in
+each type of causal graph. Each causal discovery algorithm
+produces as an output a different type of causal graph.
+2.4
+Causal Discovery Algorithms
+The two main categories of causal discovery algorithms are
+constraint-based and score-based methods. The first checks the
+graph structure against the independence constraints imposed
+by the data. In the second method, possible graphs are scored
+for their ability to fit the data. In the latter, the space of DAGs
+is searched to find the graph that maximises the score. This last
+method is especially useful when dealing with a large number
+of variables since the combinatorial space of possible graphs
+grows exponentially. In this work, since a small number of
+variables are studied it is used a constraint-based method.
+The constraint-based algorithms use CITs to investigate the
+type of edges between the variables or their absence[5]. One
+of the earliest and most common of these algorithms is the
+
+[Page 6]
+6
+TABLE 1 Different types of causal links and their respective denotations ignoring any selection bias[31–33]
+Causal Link
+Description
+A →B (directed)
+A is the cause of B
+A — B (undirected)
+Undetermined. A can cause B and B can cause A
+A ↔B (bidirected)
+A and B do not cause each other but have a latent common cause.
+Confounding variables between A and B
+A o→B (partially directed)
+A →B
+A causes B (“o” turns into tail end)
+A ↔B
+There exists a confounder between A and B (“o” turns into arrow end)
+A o—o B (undirected with “o” ends)
+A →B
+A causes B
+A ←B
+B causes A
+A ↔B
+A and B do not cause each other. Confounder between A and B
+This last option can be also combined with the previous two
+TABLE 2 Causal Graphs and their types of edges[30,36–39]
+Directed (→)
+Undirected (—)
+Bi-directed (↔)
+Partially Directed (o→)
+DAG
+X
+Partially DAG (PDAG)
+X
+X
+Completed PDAG (CPDAG)
+X
+X
+Maximal Ancestral Graph (MAG)
+X
+X
+X
+Partial Ancestral Graph (PAG)
+X
+X
+X
+X
+PC (Peter & Clark) Algorithm[40]. It uses CITs to understand
+the underlying causal mechanism of the causal structures. It
+assumes independent and identically distributed (i.i.d) samples
+and absence of confounding variables.
+Here it is used the Fast Causal Inference (FCI) algorithm[40].
+It is a variant of the PC algorithm that provides asymp-
+tomatically correct results while considering the presence of
+confounding variables in a dataset with i.i.d samples[5]. The
+output causal graph of the FCI algorithm is a Partial Ancestral
+Graph (PAG), including the presence of directed, undirected,
+partially directed and bi-directed edges[30].
+2.5
+FCI Algorithm Implementation
+The causal-learn1 package[41] was used for implementing the
+FCI algorithm. The dataset used as the input of the FCI
+algorithm included the variables shown in Table 3 .
+From the initial seven variables available, mentioned in
+section 2.1.1, SO2 and Time of Exposure were removed from
+the dataset because of their constant values. The rest of the
+variables were used as input to the algorithm. The four mate-
+rials used in the experiments were assigned numbers from 1
+to 4, respectively. The algorithm was applied with the default
+parameter settings, CIT = KCI and no background knowledge.
+1 https://github.com/py-why/causal-learn
+Since the dataset consisted of only five variables, no back-
+ground knowledge was introduced into the causal algorithm
+to avoid selection- or expert-bias. Therefore, the causal graphs
+formed were purely based on the observational data. A range
+of 1% to 99% significance level, with a 1% step increment, was
+implemented to observe how the causal links would form with
+high and low confidence levels.
+3
+RESULTS
+This section presents the causal graphs obtained by imple-
+menting the FCI algorithm on the material loss datasets. The
+descriptions of the algorithms, graphs and types of links can
+be found in Sections 2.3 and 2.4.
+Based on the degree of material loss, the dataset was divided
+into three parts: Highest Material Loss (HML), Median Mate-
+rial Loss (MML) and Lowest Material Loss (LML) (see Table
+3 ). Varying significance levels from 1% to 99% were con-
+sidered in the FCI algorithm. The results are differentiated
+according to HML, MML and MML and the significance level
+of each graph.
+Table 4 shows the causal graphs obtained by applying KCI
+in the FCI algorithm on the HML dataset. The “o” termination
+in the causal link formed between Amount of Salt and Material
+Loss at 𝛼= 1%, illustrates that it can be either an arrowhead
+(>) or a tail end of a directed edge (see Table 1 ). Hence, the
+
+[Page 7]
+7
+TABLE 3 Categories of variables present in the datasets for highest (HML), median (MML) and lowest (LML) material loss
+Mat. Loss / Dataset
+Materials
+Temperature (°C)
+Amount of Salt (µg/cm2/h)
+HCl (ppm)
+HML
+1
+2
+3
+4
+700
+900
+0.5
+1.5
+5.0
+0
+100
+MML
+1
+2
+3
+4
+700
+900
+0.5
+1.5
+5.0
+0
+100
+LML
+1
+2
+3
+4
+700
+900
+0.5
+1.5
+5.0
+0
+100
+direction of the causal relationship is not clearly depicted at
+𝛼= 1% between the two variables.
+At 𝛼= 7%, partially directed edges “o→” from Amount
+of Salt and HCl to Material Loss were formed. This means
+that if “o” becomes an arrowhead, it forms a bidirected edge.
+Table 1
+shows that the bidirected edge indicates that there
+is an unmeasured confounder present between the two vari-
+ables. On the other hand, if “o” becomes a tail end, it confirms
+that Amount of Salt and HCl causes Material Loss. Similarly,
+Temperature and Material formed partially directed edges with
+Material Loss at 𝛼= 8% and 𝛼= 60% for HML conditions,
+respectively.
+Table 5 shows the results for the MML dataset. The undi-
+rected edges with “o” ends which formed between Amount of
+Salt and Material Loss at 𝛼= 1%, get converted to a par-
+tially directed edge from Amount of Salt to Material Loss,
+along with a partially directed edge from Temperature to Mate-
+rial Loss at 𝛼= 9%. Gradually, partially directed edges were
+formed from HCl and Material to Material Loss at 𝛼= 20%
+and 𝛼= 60%, respectively.
+The causal graphs for the LML dataset are presented in
+Table 6 . At 𝛼= 1% for the LML dataset, an undirected
+edge with “o” ends was formed between Amount of Salt and
+Material Loss. With the increase in 𝛼to 20%, 50% and 70%,
+partially directed edges were formed from Amount of Salt and
+Temperature, HCl and Material to Material Loss, respectively.
+4
+DISCUSSION
+In this section it is discussed the nature of the current corrosion
+dataset and its drawbacks, as well as the causal graphs formed
+by the FCI algorithm and their key findings.
+The type of dataset that is used as an input to the algorithm
+is one of the major factors determining the result. The cur-
+rent corrosion dataset was designed to maintain control over
+the corrosion variables to understand the effects on the mate-
+rial loss. The causal graphs in Tables 4 to 6 , show that all
+the corrosion variables are directed towards Material Loss
+with increasing significance values. This means that the vari-
+ables were controlled to observe the amount of material loss in
+the base material. However, for a pure causal inference study,
+randomisation in the variables would have offered a greater
+benefit[40]. For instance, if all the variables were uncontrolled
+and randomised, observing causal links within the variables
+could have been a possibility. This would have helped in under-
+standing the cause-effect relationship between the variables
+and not just through the Material Loss. The degree of influence
+that each variable has on Material Loss with varying signif-
+icance levels can be observed in Tables 4
+to 6 . However,
+no claims can be made about the presence of causal rela-
+tionships between ‘Amount of Salt’, ‘Temperature’, ‘HCl’, and
+‘Material’ using the current dataset.
+As discussed in sections 1.1.1 and 1.1.2, the salt deposi-
+tion on the material surface is a significant factor in causing
+hot corrosion and, indeed, hot corrosion is also defined as
+a deposit-induced accelerated form of corrosion[3]. The salt
+deposits initiate the breakdown of the protective oxide layer
+of the substrate which is the starting point of hot corrosion[2].
+Therefore, even at smaller significance values, Amount of Salt
+makes a directed or an undirected causal link with Material
+Loss for all the material loss levels (HML, MML, and LML).
+Operating temperature facilitates the corrosive environment
+that enables hot corrosion[3]. Moreover, the lower melting
+point of the eutectic mixtures formed by different salts acceler-
+ates the corrosion process[2], hence proving that temperature is
+another factor that has a significant influence on hot corrosion.
+Indeed, for MML and LML temperature becomes the second
+significant variable that influences hot corrosion in the given
+dataset, at smaller significance values. For MML and LML
+HCl in the gas only appears to form a causal link with Mate-
+rial Loss at higher significance levels. Chloride-contaminated
+oxide layers are known to accelerate the corrosion rate[42]. HCl
+is a crucial factor that participates in increasing hot corrosion
+rates. More experimental research is required to clarify the
+influence of HCl. However, this analysis shows its significance
+for driving extreme metal loss such as pitting.
+Table 4 , formed using the HML dataset, shows that at 1%
+significance level, the outcome from FCI shows an undirected
+causal link between Amount of Salt and Material Loss with
+“o” at either end. This means that at such a conservative sig-
+nificance value, FCI is only able to infer the existence of a link
+between the two variables without pointing out the cause-effect
+relationship. The undirected causal link can also point towards
+the probability of incorrectly accepting the null hypothesis i.e.,
+Type-II error. The “o” ends can be perceived as an arrowhead
+or a tail end of a directed edge because the algorithm is too con-
+servative in assigning them to form a meaningful causal link.
+
+[Page 8]
+8
+TABLE 4 Causal graphs using KCI in FCI algorithm with increasing significance levels for HML dataset
+𝛂
+Causal Graphs
+0.01
+0.07
+0.08
+0.6
+In case both “o” ends become arrowheads, then it means that
+there is a confounding variable that has not been considered in
+the dataset.
+In Table 4 , with a significance value of 7%, the three
+partially directed (o→) causal links confirm that there is a
+possibility of Amount of Salt, HCl, and Temperature being
+factors causing Material Loss, or there exist unmeasured con-
+founders between them that are influencing the behaviour of
+those variables. The FCI algorithm is not able to clarify the
+causal relationship between these variables and shows the pos-
+sibility that confounder variables are present. HCl forms the
+same partially directed edge with Material Loss and a simi-
+lar argument can be made for this causal link as well. Under
+the specific conditions of the test, it seems that HCl is linked
+to HML, so it seems as HCl is one of the driving forces
+involved in the formation of pitting. This provides a very use-
+ful insight into the mechanism of hot corrosion, as the cause
+of pit initiation is still under debate. From 𝛼= 7%, Temper-
+ature also forms a partially directed causal link with Material
+Loss. This suggests that for the HML dataset, HCl and Temper-
+ature are the most influential factors advancing material loss,
+after Amount of Salt. There is also a possibility that unmea-
+sured confounders exist which influence all the said variables.
+Therefore, datasets with a larger sample size and greater num-
+ber of variables can further help in understanding the presence
+of these confounders.
+
+[Page 9]
+9
+TABLE 5 Causal graphs using KCI in FCI algorithm with increasing significance levels for MML dataset
+𝛂
+Causal Graphs
+0.01
+0.09
+0.2
+0.6
+Table 5
+shows that the FCI algorithm is not confident
+enough in forming causal links between the variables up to 9%
+significance value, for the MML dataset. At this value, both
+Amount of Salt and Temperature form partially directed causal
+links pointing towards Material Loss. Amount of Salt and Tem-
+perature are observed to be the dominant factors accelerating
+the Material Loss because the salt deposits initiate the breaking
+of the protective layer of the base material and high operat-
+ing temperature facilitates such corrosion mechanisms. There
+is a possibility that the inclusion of variables like partial pres-
+sure would have addressed the presence of the unmeasured
+confounder at LTHC (700°C). This is because LTHC is a func-
+tion of temperature and partial pressure, as discussed in section
+1.1.2.
+For the LML condition in Table 6 , the undirected causal
+link with “o” ends formed between Amount of Salt and Mate-
+rial Loss at 1% significance value suggests that at such a low
+level of material loss, Amount of Salt might have just started to
+break down the protective layer to cause the Material Loss. Or
+there is an unmeasured variable that exists which is influencing
+both variables.
+Results beyond the 10% significance level are not discussed
+since they are not statistically significant.
+
+[Page 10]
+10
+TABLE 6 Causal graphs using KCI in FCI algorithm with increasing significance levels for LML dataset
+𝛂
+Causal Graphs
+0.01
+0.2
+0.5
+0.7
+The causal links shown in the previous tables suggest the
+possible presence of confounding variables. This opens up the
+avenue to design experiments that also cater to other vari-
+ables that were not included in this dataset. The FCI algorithm
+indicates that for the experimental conditions represented in
+this study’s limited dataset, Amount of Salt has the maximum
+influence on Material Loss.
+5
+CONCLUSIONS
+Understanding the underlying causal mechanisms between the
+factors leading to hot corrosion in gas turbines can high-
+light the inner workings of this process. Implementing causal
+discovery methods can help in recognising the causal relation-
+ships between these corrosion factors. These methods were
+applied to three different datasets that were divided based on
+the degree of material loss observed on the materials tested:
+highest, median, and lowest material loss. The causal discov-
+ery algorithm FCI was applied to produce the causal graphs
+that illustrate the causal relationships between the corrosion
+
+[Page 11]
+11
+variables present in these three datasets. A wide range of sig-
+nificance levels was analysed, to showcase the confidence level
+with which the causal relationships were formed between the
+corrosion variables.
+After analysing the causal graphs for the given range of sig-
+nificance levels, it was observed that the number of causal
+links decreased in the order of highest to lowest material loss.
+As the degree of material loss decreased to the median range,
+only two causal links i.e., Amount of Salt and Temperature to
+Material Loss were formed within the set range of significance
+levels. Eventually, only a single undirected causal link was
+formed between Amount of Salt and Material Loss for LML
+conditions. This showcased that there is uncertainty in claim-
+ing the real causal relationship between the two variables at
+low degrees of material loss. Causal graphs produced using the
+FCI algorithm suggested the possible existence of unmeasured
+confounding variables.
+From this nascent-stage study of causality in hot corrosion,
+it can be concluded that Amount of Salt and Temperature were
+the typical factors causing Material Loss from an overall per-
+spective. However, HCl also proved to be a dominant factor for
+the HML dataset. As this dataset can include pitting regions
+this can give insight into factors driving pit formation rather
+than more average metal loss.
+The FCI algorithm proved beneficial in understanding the
+causal relationships, but a randomised and uncontrolled type
+of corrosion dataset can further help in future causal research.
+Since this study is at a nascent phase of its research time-
+line, several avenues for future research can be delved into to
+improve the understanding and application of causal discov-
+ery techniques. Following are the recommendations that can
+potentially improve the quality of further studies:
+1. A randomised dataset which can help in performing a
+more comprehensive causal discovery study should be
+produced.
+2. Including variables such as partial pressures of the
+gaseous contaminants, crystalline structures, and vary-
+ing gas compositions can improve the depth of the
+dataset.
+3. The sample sizes must be increased to generate stronger
+causal links with higher confidence levels.
+4. If a time-dependent dataset is produced, causal discov-
+ery algorithms for time series data can be implemented
+such as Granger Causality-based algorithms[30].
+These recommendations can help in designing the next phase
+of the causal discovery study of hot corrosion. Expanding upon
+this study can further help in developing predictive mainte-
+nance and material degradation detection models.
+Data Availability Statement
+The data that support the findings of this study are available
+from the corresponding author upon reasonable request.
+References
+[1] Richard T. C. Harman, Applications for Gas Turbine
+Engines, Macmillan Education UK, London, 1981, pp.
+18–33.
+[2] N Eliaz, G Shemesh, RM Latanision, Engineering failure
+analysis 2002, 9 (1), 31–43.
+[3] Fred Pettit, Oxidation of Metals 2011, 76, 1–21.
+[4] Judea Pearl, Causality, Cambridge university press,
+2009.
+[5] Clark Glymour, Kun Zhang, Peter Spirtes, Frontiers in
+genetics 2019, 10, 524.
+[6] Nageswara Rao Muktinutalapati, Advances in gas turbine
+technology 2011, 23.
+[7] Joy Sumner, Adriana Encinas-Oropesa, Nigel J Simms,
+John R Nicholls, Oxidation of Metals 2013, 80, 553–563.
+[8] PW Schilke, GE Energy 2004.
+[9] Stefano Mori, Mathilde Mendil, Jonathan Wells, Neil
+Chapman, Nigel Simms, Roger Wells, Joy Sumner,
+Energy Systems 2023, 1–20.
+[10] Roger C Reed, The superalloys: fundamentals and appli-
+cations, Cambridge university press, 2008.
+[11] Adriana Encinas-Oropesa, Ph.D. thesis, Cranfield Uni-
+versity, 2005.
+[12] Matthew J Donachie, Stephen J Donachie, Superalloys:
+a technical guide, ASM international, 2002.
+[13] GA Kool, Journal of Thermal Spray Technology 1996, 5
+(1), 31–34.
+[14] GW Goward, Surface and coatings technology 1998,
+108, 73–79.
+[15] Nadia Vialas, Daniel Monceau, Oxidation of Metals
+2006, 66, 155–189.
+[16] WT Wu, A Rahmel, M Schorr, Oxidation of metals 1984,
+22, 59–81.
+[17] MJ Pomeroy, Materials & design 2005, 26 (3), 223–231.
+
+[Page 12]
+12
+[18] Matej Vuković, Stefan Thalmann, Journal of Manufac-
+turing and Materials Processing 2022, 6 (1), 10.
+[19] Chen Feng, Xiaochen Liu, Shulei Bi, Jian Kang, in 2022
+Prognostics and Health Management Conference (PHM-
+2022 London), IEEE, 2022, pp. 545–548.
+[20] Xia Chen, Jimmy Abualdenien, Manav Mahan Singh,
+André Borrmann, Philipp Geyer, Energy and Buildings
+2022, 277, 112583.
+[21] Xinpeng Shen, Sisi Ma, Prashanthi Vemuri, Gyorgy
+Simon, Scientific reports 2020, 10 (1), 2975.
+[22] Stephen C. Loftus in Basic Statistics with R, Stephen C.
+Loftus (Ed.), Academic Press, 2022, pp. 137–150.
+[23] Amitav Banerjee, UB Chitnis, SL Jadhav, JS Bhawalkar,
+S Chaudhury, Industrial psychiatry journal 2009, 18 (2),
+127.
+[24] Jonas Peters, Dominik Janzing, Bernhard Schölkopf, Ele-
+ments of causal inference: foundations and learning
+algorithms, The MIT Press, 2017.
+[25] Noel Cressie, Timothy RC Read, International Statistical
+Review/Revue Internationale de Statistique 1989, 19–43.
+[26] Alan Agresti, Categorical data analysis, Vol. 792, John
+Wiley & Sons, 2012.
+[27] Joseph D Ramsey, arXiv preprint arXiv:1401.5031 2014.
+[28] Kun Zhang, Jonas Peters, Dominik Janzing, Bernhard
+Schölkopf, arXiv preprint arXiv:1202.3775 2012.
+[29] Jenny Yang, Yang Liu, Yufeng Liu, Wei Sun, The annals
+of applied statistics 2021, 15 (1), 194.
+[30] Uzma Hasan, Emam Hossain, Md Osman Gani, arXiv
+preprint arXiv:2303.15027 2023.
+[31] Ana Rita Nogueira, Andrea Pugnana, Salvatore Rug-
+gieri, Dino Pedreschi, João Gama, Wiley interdisci-
+plinary reviews: data mining and knowledge discovery
+2022, 12 (2), e1449.
+[32] Jiji Zhang, Artificial Intelligence 2008, 172 (16-17),
+1873–1896.
+[33] Jiji Zhang, Journal of Machine Learning Research 2008,
+9, 1437–1474.
+[34] Judea Pearl, Madelyn Glymour, Nicholas P Jewell,
+Causal inference in statistics: A primer, John Wiley &
+Sons, 2016.
+[35] Yangbo He, Jinzhu Jia, Bin Yu, The Journal of Machine
+Learning Research 2015, 16 (1), 2589–2609.
+[36] Thomas Richardson, Peter Spirtes, The Annals of Statis-
+tics 2002, 30 (4), 962–1030.
+[37] Emilija Perkovic, in Conference on Uncertainty in Artifi-
+cial Intelligence, PMLR, 2020, pp. 530–539.
+[38] Jin Tian, arXiv preprint arXiv:1207.1428 2012.
+[39] Zhongyi Hu, Robin Evans, in Conference on Uncertainty
+in Artificial Intelligence, PMLR, 2020, pp. 739–748.
+[40] P. Spirtes, C.N. Glymour, R. Scheines, Causation,
+Prediction, and Search, of Adaptive computation and
+machine learning, CogNet, 2000.
+[41] Yujia Zheng, Biwei Huang, Wei Chen, Joseph Ram-
+sey, Mingming Gong, Ruichu Cai, Shohei Shimizu, Peter
+Spirtes, Kun Zhang, arXiv preprint arXiv:2307.16405
+2023.
+[42] Peter Viklund, Rachel Pettersson, Oxidation of metals
+2011, 76 (1-2), 111–126.

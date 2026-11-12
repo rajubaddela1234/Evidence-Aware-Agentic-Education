@@ -12,14 +12,11 @@ outputs_final_5q/
 data/reference_pools/
 data/reference_pools_5q/
 data/reference_pools_final_5q/
-data/arxiv_text_cache/
 .DS_Store
 Thumbs.db
 .pytest_tmp/
 
-data/reference_pools_final_10q/
 
-data/reference_pools_final_10q/
 outputs_pilot_10q/
 data/reference_pools_pilot_10q/
 

@@ -1,0 +1,1348 @@
+[Page 1]
+Probing the position-dependent optical energy fluence rate in three-dimensional
+scattering samples
+Ozan Akdemir,1, ∗Minh Duy Truong,1 Alfredo Rates,1 Ad Lagendijk,1 and Willem L. Vos1, †
+1Complex Photonic Systems (COPS), MESA+ Institute for Nanotechnology,
+University of Twente, P.O. Box 217, 7500 AE Enschede, The Netherlands
+(Dated: 23 July 2024, for Phys. Rev. A.)
+The accurate determination of the position-dependent energy fluence rate of scattered light (that
+is proportional to the energy density) is crucial to the understanding of transport in anisotropically
+scattering and absorbing samples, such as biological tissue, seawater, atmospheric turbulent layers,
+and light-emitting diodes. While Monte Carlo simulations are precise, their long computation time
+is not desirable. Common analytical approximations to the radiative transfer equation (RTE) fail to
+predict light transport, and could even give unphysical results. Therefore, we experimentally probe
+the position-dependent energy fluence rate of light inside scattering samples where the widely used
+P1 and P3 approximations to the RTE fail. The samples are aqueous suspensions of anisotropically
+scattering and both absorbing and non-absorbing spherical scatterers, namely microspheres (r =
+0.5 µm) with and without absorbing dye. To probe the energy fluence rate, we detect the emission
+of quantum dot reporter particles that are excited by the incident light and that are contained in a
+thin capillary. By scanning the capillary through the sample, we access the position dependence. We
+present a comprehensive discussion of experimental limitations and of both random and systematic
+errors. Our observations agree well with the Monte Carlo simulations and the P3 approximation of
+the RTE with a correction for forward scattering. In contrast, the P1 and the P3 approximations
+deviate increasingly from our observations, ultimately even predicting unphysical negative energies.
+I.
+INTRODUCTION
+For myriad applications such as light emitting diodes
+(LEDs) [1–8], atmospheric aerosols [9], oceanography and
+FIG. 1. Measured (red triangles) and modeled energy fluence
+rate Φ(z) as a function of depth z, for a sample with optical
+thickness b = µext(λ)L = 2.47. The measured Φ(z) is normal-
+ized to the incident intensity. The curves represent the PN
+approximations to the radiative transfer equation, and the
+circles are Monte Carlo simulations.
+The unphysical range
+with negative Φ is highlighted with black hatched lines.
+∗o.akdemir@utwente.nl
+† w.l.vos@utwente.nl
+remote sensing [10–16], and biophysics [17–20], as well
+as for fundamental physics like phase-conjugated scat-
+tering [21], random lasing [22], correlated and inhomoge-
+neous scattering media [23–25], and metamaterials [26],
+it is crucial to understand the light transport. Hence,
+it is vital to predict the position-dependent energy flu-
+ence rate that is proportional to the energy density.
+While Monte Carlo simulations are a powerful tool to
+study the energy distribution in scattering media [27–
+35], they come at the cost of extremely long computa-
+tion times [36]. Analytical approximations to transport
+theory offer a much faster alternative [37–44], but they
+may not provide accurate results for samples that exhibit
+strong anisotropic scattering and absorption [45].
+Experimental observations of the position-dependent
+energy fluence rate in real scattering samples are essential
+to identify reliable methods to model the light transport
+in real devices. Such in situ and in vitro measurements
+of light transport have been widely made in different re-
+search areas, including aerosols [46, 47], LEDs [48], and
+photodynamic therapy (PDT) [49–51].
+In Ref. [45], we have studied several analytic models of
+light transport that are summarized in Appendix B, and
+presented their ranges of validity as well as their accura-
+cies, as gauged by Monte Carlo simulations. As a next
+step, we decided to observe what happens in real samples
+where analytic models break down. As an illustrative ex-
+ample, Figure 1 shows the measured and modeled energy
+fluence rate Φ(z) of a forward scattering and moderately
+absorbing sample that lies in the unphysical range of
+the P3 approximation to the radiative transfer equation.
+Naively one would solely trust Monte Carlo simulations,
+but it is important to note that even the best simulation
+cannot fully replicate experimental observations. For in-
+arXiv:2401.14748v2  [physics.optics]  19 Sep 2024
+
+[Page 2]
+2
+stance, Monte Carlo simulations of light transport rely
+on input parameters such as scattering and absorption
+coefficients, which are typically interpreted from other
+experiments that carry additional assumptions and er-
+rors. Hence, accurate experimental observations are ul-
+timately indispensable for device applications in, for in-
+stance, semiconductor metrology, solid-state lighting, or
+space observation optics, all of which are actual applica-
+tions of our research program [52].
+FIG. 2. Cross-section of a slab with thickness L that contains
+an aqueous suspension of microspheres. A thin capillary filled
+with fluorescent reporters is inserted in the sample as a probe.
+The slab is illuminated from the side by light with intensity
+I0(ν0). The white arrows represent the direction of light with
+frequency ν0, including both the diffuse and the unscattered
+parts. The black arrows represent the direction of emitted
+light with frequency νe. Fluorescent emission is detected from
+the top of the probe.
+In this work, we report on experiments done in param-
+eter ranges where most of the analytic approximations
+fail, to observe what happens and how well models per-
+tain. The energy fluence rate Φ(r, ν) represents the total
+optical power through a unit spherical area, with units
+Wm−2Hz−1. We simplify the representation of the 3D
+position r to a 1D z-dependence by considering the to-
+tal rate versus z position in a cross-section, see Fig. 2.
+For notational ease, we omit the frequency ν dependency
+to write the position-dependent energy fluence rate as
+Φ(z), since our study is a nearly monochromatic one. We
+present our experiments on the in situ detection of the
+position-dependent fluence rate Φ(z) in both absorbing
+and non-absorbing, anisotropically scattering samples.
+FIG. 3. Photographs of the suspensions with different den-
+sities of (a) red dyed scatterers, (b) undyed scatterers. The
+scatterers are polystyrene spheres with D = (1.00 ± 0.05) µm
+diameter.
+We compare the experiments to well-known theoretical
+models, namely the P1, P3, and P3 + δE(4) approxima-
+tions to the radiative transfer equation, and to Monte
+Carlo simulations of light transport, where the method
+of simulations used here is adapted from Ref. [29].
+A schematic of our experimental method is shown in
+Figure 2, where a slab with spherical scatterers is illumi-
+nated from the (x, y) side by light with intensity I0(ν0).
+Light enters the sample and propagates inside, under-
+going scattering and absorption by the spheres. A probe
+consisting of a thin cylindrical capillary, filled with quan-
+tum dot reporter particles, is utilized to detect the in-
+tensity at known positions inside the sample, see, e.g.,
+Refs. [53–55]. When the light reaches the probe from any
+direction, it excites the quantum dot reporters that sub-
+sequently emit light at a Stokes-shifted lower frequency
+νe. Part of the re-emitted light is then collected from
+the top of the probe, and the position-dependent energy
+fluence rate is inferred from this measurement. Our ob-
+servations match well with physical and accurate models
+for these types of samples, and show a clear distinction
+from the ones that fail and predict unphysical negative
+energy fluence rates.
+II.
+EXPERIMENTAL DETAILS
+The experiments are done on samples with strongly
+forward-scattering (anisotropy g > 0.75) and absorbing
+(albedo a < 1) scatterers, to be in the parameter range
+where common analytical approximations fail [45].
+
+[Page 3]
+3
+A.
+Sample preparation
+Samples are prepared by diluting commercially-bought
+polystyrene microsphere suspensions, with reported par-
+ticle radii r = 0.5 ± 0.025 µm. The microsphere suspen-
+sions used in our experiments are both plain and red-dyed
+Polybead® Polystyrene Microspheres from Polysciences
+for undyed and dyed sphere suspensions, respectively. A
+buffer solution is produced by mixing Sodium dodecyl
+sulfate (SDS) surfactant (0.05%) with de-ionized (DI)
+water (99.95%). The samples with scatterers are then
+prepared by diluting their respective suspensions with
+the buffer solution, where syringe filters with 0.2 µm pore
+size are used to remove residual particles from the buffer
+solution. The use of SDS in the buffer solution serves to
+stabilize the colloidal suspension, and prevent agglomer-
+ation and sedimentation of the scatterers. The samples
+prepared with this buffer solution are stable for at least
+24 hours, after which some initial sedimentation is ob-
+served. Prior to experiments, the samples are carefully
+agitated, with attention paid to prevent the introduction
+of air bubbles. Overall, and based on our previous de-
+tailed colloidal studies [56–59], we estimate the fraction
+of non-single spheres to be less than about 5%, hence
+Mie theory for single spheres is valid for our samples.
+Dyed sphere samples are labelled DS, and plain (undyed)
+sphere samples are US. A photograph of the samples is
+shown in Figure 3, showing the different diffuse color ap-
+pearance of the DS samples and different whiteness of
+the US samples. The contents and scatterer concentra-
+tions of prepared samples are listed in Table I. Since the
+weight fraction of polystyrene spheres in water is closely
+equal to the volume fraction, and since all our suspen-
+sions have a volume fraction less than 0.026 vol%, the
+structure factors of our suspensions are very nearly equal
+to S(Q) = 1 [60], hence Monte Carlo simulations of light
+transport do not require structural corrections [61].
+B.
+Experimental Setup
+Figure 4 presents a schematic of the setup used in
+our experiments. A blue laser (Thorlabs NPL41B, λ =
+408.5 nm) is used as the primary light source, see Ap-
+pendix A 1. The laser beam is spatially filtered because
+multiple modes inside the laser cavity are not collimated
+as well as the fundamental mode, while they perturb the
+beam profile at the sample. A substantial improvement
+is observed upon spatial filtering, see Ref.[62].
+The sample holders SH1 and SH2 are attached to the
+integrating sphere, whereas the holder SH3, where the
+probe is immersed in (see Fig. 4 and Fig. 5), is posi-
+tioned separately from the integrating sphere. The probe
+is connected to a custom-built holder with 3D-printed
+and manually made parts, as shown in Figure 5. For de-
+tails on the preparation of the probe, see appendix A 2.
+To detect the intensity emitted from the probe, a con-
+nector part is created in the workshop to connect the
+FIG. 4. Schematic of the experimental setup: the blue laser
+(λ = 408.5 nm) is the primary light source that is spatially fil-
+tered and combined with the HeNe laser at the beam splitter
+for alignment purposes. The probe is attached to an assem-
+bly of motorized translation stages for precise positioning in 3
+dimensions. The spectrometer is connected to the probe, in-
+tegrating sphere, and unscattered transmission detection via
+fiber-optic cables. Several components, including ND filters
+and beam dumps, have been omitted for clarity.
+probe with a fiber-optic cable that is attached to a spec-
+trometer (Avantes Starline, AvaSpec-2048L) on the other
+end. The holder is attached to an assembly of motorized
+translation stages (Thorlabs MTS50/M-Z8) that moves
+the probe to precise positions in 3 dimensions. In-house
+Python scripts are used to control the movement of the
+probe and detection with the spectrometer. The x di-
+rection movement is utilized to move the probe in and
+take it out of the sample, whereas the y and z direc-
+tion movements are used to scan the sample and mea-
+sure the intensity at specific positions. Total transmis-
+sion and total reflection measurements are done with an
+integrating sphere (Opsira UKU240), with a port diam-
+eter dport = 20 mm for both transmission and reflection
+ports.
+Before collecting data, each sample suspension is trans-
+ferred to a wide quartz cuvette (outer dimensions 12.5 ×
+32.5×45mm) with an inner thickness of L = 10 mm along
+the z direction, as is shown in Figure 5. These cuvettes
+are then placed in sample holders for measurements. The
+holders SH1 and SH2 are used for total reflection and to-
+tal transmission measurements, respectively. Holder SH3
+shown in Fig. 5 is used in the measurements with the
+probe and to measure unscattered transmission (Tu) that
+represents the light that survives extinction while main-
+taining its original direction. The distance between the
+fiber coupler of Tu detection and SH3 is 750 mm, which
+results in a half-acceptance angle θ = 0.04◦. The fraction
+of detected scattered light is estimated to be < 0.1% in
+our Tu measurements [63].
+
+[Page 4]
+4
+Sample name
+Contents
+ρ (mm−3)
+Reference
+99.95 wt.% DI water + 0.05 wt.% SDS
+0
+DS1
+0.025% (w/v) dyed sphere + Ref
+(4.6 ± 0.6) × 105
+DS2
+0.013% (w/v) dyed sphere + Ref
+(2.3 ± 0.3) × 105
+DS3
+0.006% (w/v) dyed sphere + Ref
+(1.1 ± 0.1) × 105
+US1
+0.026% (w/v) plain sphere + Ref
+(4.7 ± 0.6) × 105
+US2
+0.013% (w/v) plain sphere + Ref
+(2.4 ± 0.3) × 105
+US3
+0.007% (w/v) plain sphere + Ref
+(1.2 ± 0.2) × 105
+TABLE I. Contents and the number density of scatterers ρ of the prepared samples. The percentages of spheres are adjusted
+from the information provided by the vendor about their products. DS are red-dyed microsphere samples, and US are undyed
+microsphere samples.
+FIG. 5. Photograph of the assembled probe holder. The fiber
+attached to the probe, the integrating sphere transmission
+port and the sample holder SH3 with an empty cuvette at-
+tached to it, is also visible in the photo.
+III.
+RESULTS AND DISCUSSION
+In this section, the results of unscattered transmission,
+total transmission, total reflection, and probe measure-
+ments are discussed. In addition, the method to extract
+the albedo a and the anisotropy g of the samples is dis-
+cussed.
+A.
+Unscattered Transmission, Total Transmission
+and Total Reflection
+The unscattered transmission Tu represents the por-
+tion of the incident light that is transmitted through
+the sample without deviating from its initial direction of
+travel. Usually, the Beer-Lambert-Bouguer’s law is used
+to express Tu as
+Tu(λ, ρ) = Iu(λ, ρ)
+I0(λ)
+= e−ρσext(λ,ρ)L.
+(1)
+Here, Iu is the intensity transmitted without changing its
+direction, I0 is the incident intensity, ρ the number den-
+sity, σext the extinction cross-section, and L the sample
+thickness. Furthermore, the optical thickness b is defined
+to be
+b(λ, ρ) ≡ρσext(λ)L = µext(λ)L,
+(2)
+where µext is the extinction coefficient.
+Figure 6(a)
+FIG. 6.
+(a) Unscattered transmission Tu, and (b) the ex-
+tracted optical thickness b of samples DS2, DS3, US2 and
+US3.
+presents the measured unscattered transmission Tu, and
+Figure 6(b) displays the extracted optical thickness (see
+Eq. 2) of samples DS2, DS3, US2, and US3 throughout
+the bandwidth of the blue laser. The densest samples
+DS1 and US1 have a vanishing transmission below our
+
+[Page 5]
+5
+FIG. 7. Total transmission TT(b) and total reflection TR(b)
+as a function of optical thickness for (a)dyed microsphere sus-
+pensions, (b) and for undyed microsphere suspensions. The
+lines connect the data points.
+detection limit and are not shown. Therefore, the optical
+thickness of DS1 and US1 are calculated from the mea-
+surements of other samples, by appropriately scaling the
+density of scatterers. The results show a clear effect of the
+density of scatterers and the composition of the scatterers
+on the light transmission. Naively, one would expect dyed
+samples to be optically thicker than undyed samples with
+similar scatterer concentrations due to increased absorp-
+tion, but our measurements show the opposite behav-
+ior. We attribute this intriguing result to the presence
+of the unknown red dye inside the scatterers that alters
+the refractive index of the polystyrene spheres in DS2
+and DS3. The dye likely increases the anisotropy, caus-
+ing the spheres to scatter light more in the forward di-
+rection.1Consequently, the unscattered part of the trans-
+mitted light increases, which explains our observations in
+1 We performed Mie scattering calculations for relevant parame-
+ters, namely sphere with diameter D = 1.0 µm and real part of
+the refractive index n′
+s = 1.61, in a medium with nout = 1.33
+typical of water at wavelength λ = 0.4085 µm, for increasing
+imaginary sphere’s index n′′
+s = 0.0004 (undyed), 0.01, 0.1, 0.2,
+resulting in g = 0.919, 0.924, 0.950, 0.954, respectively, thus
+agreeing with our hypothesis. If we further increase the imag-
+inary part to n′′
+s = 1 (unrealistic) the anisotropy decreases to
+g = 0.871. For reference, in case of gain (n′′
+s < 0) [64], we find
+that g decreases increasingly rapidly, to a point where g < 0,
+the albedo becomes absurdly large, and a divergence in Mie res-
+onance linewidth occurs [65].
+Figure 6.
+Total transmission (TT) and total reflection (TR) of
+dyed and undyed microsphere suspensions are displayed
+in Figure 7 as a function of their optical thicknesses at
+the central wavelength λ = 408.5 nm.
+As the optical
+thickness b increases, both TT and TR decrease for the
+dyed microspheres, see Figure 7(a). The decrease in TT
+matches with increased absorption and increased scat-
+tering.
+The simultaneous decrease in TR agrees with
+the increasing density of forward scattering microspheres
+and the increasing absorption when the suspensions get
+optically thicker.
+Since the scatterers in the dyed microsphere suspen-
+sions are filled with an unknown red dye (the manu-
+facturer was unable to share the information with us),
+we cannot use Mie theory to obtain the albedo and
+anisotropy (a, g), since the complex refractive index of
+the scatterers is unknown. Therefore, our TT and TR
+measurements are necessary to determine the (a, g) scat-
+tering parameters of the dyed samples using models such
+as PN approximations to the RTE, and Monte Carlo sim-
+ulations of light transport. While the random errors in
+the measurements are negligibly small, see Figure 7, sys-
+tematic errors merit attention during the determination
+of the scattering parameters.
+For the samples with dyed scatterers, systematic errors
+are more significant at low scatterer density, where the
+absorption is low. The reason is that the suspensions are
+held in quartz cuvettes, and escaping light reflects multi-
+ple times from the cuvette walls before leaving the sam-
+ple. Hence, light exits the sample and cuvette at wider
+angles, corresponding to a increased diffuse spot whose
+size exceeds the port sizes of the integrating sphere. This
+effect is notable in total reflection, since here light is in-
+cident on the sample at 6◦off the normal due to the
+(generic) design of the integrating sphere. If the sam-
+ple absorption is strong, this effect becomes minor since
+the internally reflected light is quickly attenuated, hence
+the angular spread is not substantial. Since errors are
+largest at lowest densities, and since we know that the
+zero-density reference sample (buffer solution with SDS)
+has a = 1 and g = 1, we estimate maximum systematic
+errors in both TT and TR by comparing the measure-
+ments to the Monte Carlo simulations for this reference
+sample. This comparison yields maximum systematic er-
+rors ∆TT = 6% in total transmission and ∆TR = 4%
+in total reflection. We utilize these errors to extract a
+range of possible (a, g) parameters for each dyed sample,
+and we take the average of that range as the extracted
+(a, g) pair. While the determination of the (a, g) param-
+eters is best for the densest dyed samples, we will see
+below that the parameters obtained from all samples are
+in good mutual agreement.
+For undyed sphere suspensions, Figure 7(a) shows that
+TT decreases with increasing scatterer density (or in-
+creasing optical thickness), as expected, see e.g. [66–68].
+In contrast to the dyed microspheres, Figure 7(b) shows
+that TR increases with increasing optical thickness, since
+
+[Page 6]
+6
+the light that is less transmitted (compare Fig. 7(a))
+is necessarily diffusely reflected, and since absorption is
+negligible, no light gets lost in the bulk of the samples.
+From the reasoning above about reflected light escap-
+ing undetected in weakly absorbing samples, we con-
+clude that the systematic error in TR is greater for
+undyed sphere samples than for the dyed spheres, since
+the amount of light escaping at even greater angles has in-
+creased further. As an illustration, the theoretically com-
+puted total reflection for sample US2 is TRP3+δE(4) =
+28.4%, whereas the measured total reflection is much
+less namely TRexp = 10%.
+In contrast, the system-
+atic error in total transmission is much less, as illus-
+trated by theoretical total transmission for US2 being
+TTP3+δE(4) = 65.6%, which is in good agreement with
+the measured total transmission TRexp = 61%. There-
+fore, even though TT agrees well, our extraction method
+is not able to obtain (a, g) parameters for undyed spheres,
+since TR is substantially off. Therefore, we employ Mie
+theory for undyed spheres.
+B.
+Determining (a, g) parameters of the samples
+In this section, the albedo and anisotropy (a, g) of dyed
+microsphere suspensions are obtained by comparing TT
+and TR measurements to Monte Carlo simulations of
+light transport, using a brute-force approach. We em-
+phasize that internal reflections from cuvette walls are
+included in the Monte Carlo simulations to obtain re-
+sults as close as possible to our measurements.
+First,
+the optical thicknesses b of the samples are extracted,
+and then Monte Carlo simulations of light transport are
+performed for a grid of (a, g) pairs covering all possible
+albedos and anisotropies. We then use the relative cost
+function S(a, g) defined as
+S(a, g) ≡
+p
+δTT(a, g, a0, g0) + δTR(a, g, a0, g0),
+(3)
+where the squared relative distances δTR(a, g, a0, g0) and
+δTR(a, g, a0, g0) are equal to
+δTT(a, g, a0, g0) = (TTMC(a, g) −TTDS#(a0, g0))2
+TT 2
+DS#(a0, g0)
+,
+δTR(a, g, a0, g0) = (TRMC(a, g) −TRDS#(a0, g0))2
+TR2
+DS#(a0, g0)
+,
+(4)
+and where TTMC(a, g) and TRMC(a, g) are the total
+transmission and reflection from Monte Carlo simula-
+tions, TTDS#(a0, g0) and TRDS#(a0, g0) are measured,
+(a, g) is the running coordinate in the albedo-anisotropy
+grid, and (a0, g0) is the albedo-anisotropy pair of the
+sample that we want to extract.
+For the measured
+TTDS#(a0, g0) and TRDS#(a0, g0) quantities, # repre-
+sents the number of the sample name, given in Table I.
+Figure 8 shows the extracted parameters for sample
+DS3 (b = 2.47) using the brute-force method explained
+FIG. 8.
+The extracted parameter range (a, g) using the
+cost function S(a, g) for sample DS3 with optical thickness
+b = 2.47, shown with the unphysical ranges of P1, P3, and
+P3+δE(4) approximations. The inset highlights the extracted
+(a, g) typical of a forward scattering and absorbing sample.
+above. In addition, Figure 8 shows the unphysical ranges
+of P1, P3, and P3 + δE(4) approximations for the sample
+with optical thickness b = 2.47. The horizontal and ver-
+tical axes represent all possible albedo a and anisotropy g
+values, respectively. The minimum cost S(a, g) (the best
+fit) is found, as expected, in the strong forward scattering
+and moderately absorbing region of the (a, g) grid, which
+is in the unphysical range of P3 approximation 2. How-
+ever, it is noteworthy that the best fit to our measure-
+ments is at g0 = 1, which is an extreme point and is re-
+alistically unattainable in real samples with scatterers 3.
+This implies that errors in our measurements have a sig-
+nificant effect on the determination of the (a, g) parame-
+ters of the samples. We utilize the errors ∆TT and ∆TR
+reported in section III A to extract the (a, g) parameters
+of the dyed samples.
+The extracted (a, g) parameters
+of the dyed microsphere suspension samples are given in
+Table II, which shows that the dyed samples are strongly
+forward scattering, and have a moderate absorption. We
+note that the mutual agreement between the (a, g) pa-
+rameters obtained for the different samples is very good,
+within δ(a) < 2% for the albedo and δ(g) < 1% for the
+anisotropy, which is even better than expected from the
+systematic errors discussed above.
+The comparison between simulated and measured
+transmission and reflection signals is not necessary for the
+undyed microsphere suspensions, as their optical proper-
+ties are obtained directly from Mie theory for spheres.
+From previous characterization studies [56, 69], it is
+2 Remarkably, physical ranges do not imply better accuracy [45].
+3 As the extreme points are not physical, they are not considered
+in S(a, g) calculations.
+
+[Page 7]
+7
+Sample name
+Extracted a
+Extracted g
+DS1
+0.90 ± 0.02
+0.95 ± 0.02
+DS2
+0.91 ± 0.01
+0.96 ± 0.02
+DS3
+0.94 ± 0.02
+0.97 ± 0.01
+TABLE II. Extracted albedo a and anisotropy g values of dyed
+microsphere suspension samples DS1, DS2 and DS3.
+The
+values reported here are averaged over the extracted range
+of (a, g) pairs, and errors are the standard deviation of the
+mean.
+known that such microspheres are highly spherical, hence
+Mie theory that pertains to spheres gives an excellent
+description of the scattering properties. The complex re-
+fractive index of polystyrene spheres at 408.5 nm is taken
+from reference [70] to be npoly = 1.61 + 0.0004i, which
+yields non-absorbing a = 0.997 and strong forward scat-
+tering g = 0.919 for the undyed microspheres suspended
+in DI water. Mie calculations also provide the extinction
+cross-section σext, which we utilized together with the
+uncertainty of the scatterer radius ∆rscat = ±0.03 µm
+to determine the 13% uncertainty in the reported den-
+sities listed in Table I. The extracted (a, g) parameters
+for both dyed and undyed samples lie within the range
+where both P1 and P3 approximations fail, whereas the
+P3 + δE(4) approximation is expected to give accurate
+results.
+C.
+Position-dependent energy fluence rate of dyed
+microsphere suspensions
+To determine the position-dependent energy fluence
+rate Φ(z), the light intensity at specific points inside sam-
+ples is measured using the experimental setup described
+in subsection II B. The coordinate system adopted in this
+section is depicted in Figure 4. The objective is to infer
+Φ(z) from measurements of the emission of quantum dots
+inside the probe, which are excited by the blue light in-
+side the sample, along z from the left boundary at z = 0
+where the incident light enters, to the right boundary at
+z = 10 mm. For the details of the probing procedure,
+see appendix A 3. The experimental data are compared
+to Monte Carlo simulations and analytical P1, P3, and
+P3+δE(4) approximations to the radiative transfer equa-
+tion [45].
+Figure 9 presents the comparison between the models
+and our measurements. The P1 and P3 approximations
+are not shown as they demonstrate poor accuracy (see
+Figure 10). The green areas in Figure 9 represent the
+modeled values for the extracted (a, g) range using the
+P3+δE(4) approximation. The horizontal axis represents
+the z positions scaled by the thickness of the sample,
+whereas the left ordinate displays the Φ(z) measurements
+of samples normalized to the measured the incident in-
+tensity, which is presented in Figure 12(b). The ordinate
+corresponds to the modeled relative Φ(z). Both ordinates
+are scaled to compare the trends of measured and mod-
+eled Φ, and a good mutual agreement is observed. We
+define a straightforward proportionality, neglecting the
+small random errors in measurements,
+Φreal(z) ≡KΦmeasured(z),
+(5)
+where K is a constant that represents the portion of
+Φ that is measured. K mainly depends on the exper-
+imental limitations that are discussed below in subsec-
+tion III E. The small differences in measured and mod-
+eled Φ trends, excluding the scaling discussed above, are
+attributed to the limitations of the Henyey-Greenstein
+phase function [71].
+The results of the P1, P3, and P3 + δE(4) approxi-
+FIG. 9. Comparison of measurement and models for samples
+(a) DS1, (b) DS2, and (c) DS3. The horizontal axis repre-
+sents the z positions scaled by the thickness of the sample.
+The vertical axis on the left displays the Φ(z) measurements
+of samples normalized to the measurements of the incident
+intensity. The right vertical axis corresponds to the modeled
+relative Φ(z). The dotted lines represent the calculated Φ(z)
+from the P3 + δE(4) approximation. The dynamic range of
+the P3 + δE(4) approximation is shown as the green area.
+The circles represent the results of Monte Carlo simulations,
+and the triangles connected with red dash-dotted lines repre-
+sent the measured results of samples. The measured results
+are calculated by integrating the y scans at each z position,
+shown as triangles.
+
+[Page 8]
+8
+mations and Monte Carlo simulations are illustrated in
+Figure 10, where the z positions are scaled by the thick-
+ness of the sample, and the modeled Φ(z) is relative, as
+the incident flux density (irradiance) in the models is set
+to be F0 = 1. The dynamic ranges of the PN approxi-
+mations represent the modeled values for the extracted
+(a, g) range. Initially, it may appear confusing that a
+relative result is greater than 1, as seen in the case of
+sample DS1. Although both the irradiance F0 and energy
+fluence rate Φ have the same units Wm−2, the former de-
+notes the optical power through the surface of a flat unit
+area in the direction normal to the surface, while the
+latter refers to the total optical power through a spher-
+ical unit surface area in all directions [72]. Therefore,
+depending on the scattering properties of the medium
+under study, it is possible for Φ to exceed the incident
+irradiance [17, 73, 74].
+FIG. 10.
+Modeled position-dependent energy fluence rate
+Φ(z) for samples (a) DS1, (b) DS2, and (c) DS3. The hori-
+zontal axis represents the z positions scaled by the thickness
+of the sample. The vertical axis displays the modeled relative
+Φ(z). Lines represent the results of the PN approximations,
+and the circles represent the results of Monte Carlo simu-
+lations.
+In (c), the unphysical area where Φ is negative is
+hatched in black hatched lines.
+Figure 10 shows that the P3 + δE(4) approximation
+agrees best with the Monte Carlo simulations, consistent
+with previous reports [17, 45]. The P1 and P3 approx-
+imations perform poorly for these anisotropically scat-
+tering and absorbing samples, and the P3 approximation
+even predicts an unphysical negative energy fluence rate
+for the dynamic range of the optically thin sample DS3.
+The unphysical results of the P3 approximation for sam-
+ple DS3 also agree with our previous findings [45], which
+shows a broader unphysical range of P3 for optically thin
+samples in the strong forward scattering range, compared
+to the thicker samples.
+D.
+Position-dependent energy fluence rate of
+undyed microsphere suspensions
+We present measured Φ(z) of undyed sphere suspen-
+sions and compare them to models in Figure 11. The
+PN approximation results do not have dynamic ranges in
+Figure 11 as the (a, g) pair of samples US1, US2, and US3
+are extracted from exact Mie calculations, as explained
+in subsection III B. Similar to Figure 9, the horizontal
+axis denotes the z positions scaled by the thickness of
+the sample, and the left vertical axis gives the Φ(z) mea-
+surements of samples normalized to the measurements of
+the incident intensity given in Figure 12(b). The right
+vertical axis is the modeled relative Φ(z), and both ver-
+tical axes are scaled to compare the trends of measured
+and modeled Φ. A good agreement between the trends
+of P3 + δE(4), Monte Carlo, and measurements are ob-
+served. For these microspheres no unphysical predictions
+occur since the absorption is absent, hence the albedo is
+equal to 1. Differences due to experimental limitations
+are discussed in subsection III E.
+E.
+Experimental limitations
+Systematic errors are inevitable in any experiment, in-
+cluding the measurements of Φ(z). It is thus important
+to identify and comprehend the underlying causes of the
+systematic errors, before claiming that the measurements
+reflect reality. Hence, this subsection discusses the limi-
+tations of our experiment that affects the scaling value,
+K, for eqn. 5.
+Our discussion starts with the shift in detected peaks
+for y scans at different z positions, which is not immedi-
+ately obvious for scans presented in Figure 18. To clarify
+this effect, y scans by the probe at specific z are pre-
+sented in Figure 12(a), which demonstrate a clear shift
+of the detected intensity in the y direction. This shift is
+caused by the probe moving at a small angle with respect
+to the z axis. The angle is estimated as approximately
+θz = 0.63◦, considering the peaks movement of 0.1 mm
+in the y direction for a 9.1 mm travel in the z direction.
+Furthermore, Figure 12(b) presents the incident intensity
+detected by the probe in air, which is used to normalize
+
+[Page 9]
+9
+FIG. 11. Comparison of observations and models for samples
+(a) US1, (b) US2, and (c) US3. The abscissa represents the
+z position scaled by the sample thickness. The left ordinate
+displays the Φ(z) measurements of samples normalized to the
+measured incident intensity. The right ordinate corresponds
+to the modeled relative Φ(z).
+The red triangles connected
+with dash-dotted lines represent the measured results of sam-
+ples. The measured results are calculated by integrating the
+y scans at each z position, shown as triangles. Curves are the
+results of the PN approximations and the purple circles are
+the results of Monte Carlo simulations.
+the measurements of samples in order to compensate for
+the effect of the y-shift.
+Other experimental limitations associated with the
+measurements with the probe are listed as follows:
+1. The capillary filled with quantum dots is not ex-
+actly parallel to the x axis given in Figure 4. Al-
+though the kinematic mount attached to the probe
+holder, as shown in Figure 5, is utilized to adjust
+the capillary angle, perfect alignment is not always
+achieved. As a result, the probe positioning inside
+the sample is restricted to a range between z = 0.35
+mm and z = 9.75 mm, for the z direction. In the
+event that the probe approaches the boundaries be-
+yond these limits, the capillary may come into con-
+FIG. 12.
+(a) Probe scans in the y direction in absence of
+a sample. This represents the incident beam profiles at the
+indicated z positions inside the sample. (b) Integrated y scans
+at specific z positions, in the absence of a sample. The blue
+line represents the polynomial fit to the measurements, to
+determine the incident beam intensity at all z positions.
+tact with the quartz walls of the cuvette, poten-
+tially causing its displacement or, worse, breaking
+of the capillary.
+2. The stabilities of the probe holder, sample holder,
+and fiber-optic cable that connects the probe and
+detector are not perfect. Small variances in differ-
+ent scan directions presented in Figure 16 are likely
+caused by this. However, even slight changes in the
+adjustment of these elements can lead to drastic
+changes in the detected intensity. Therefore it is
+crucial to normalize the measurements to the inci-
+dent intensity measured under identical conditions
+as the sample measurements. The measurements
+presented in this work are conducted with utmost
+care to address this issue.
+3. The finite dimensions of the cuvette used in our ex-
+periments differ from ideal slab geometry, as a slab
+has an infinite xy plane. However, the beam diam-
+eter of our source (dbeam ≈1 mm) is significantly
+smaller than the inner xy dimensions of the cuvette
+(42.5 × 30 mm), rendering this effect negligible.
+4. Although the measurement of Φ(z) along the xy
+plane is carried out through y scans of the sam-
+ples, the scans are limited to the range y = −6
+mm to y = 6 mm with the beam centred at y = 0.
+This range is selected due to low signal strength
+beyond this range, and to shorten the complete
+measurement time.
+The range restriction leaves
+18 mm of unmeasured space in the y axis. Addi-
+tionally, during the sample scans, the capillary tip
+is situated at a distance of approximately x ≈11
+mm from the cuvette’s bottom. Consequently, the
+probe scans a rectangular area of dimensions 34×12
+mm within the cuvette. Hence, the portion of the
+scanned area to the full xy plane within the sam-
+ple is Ascan = 32%.
+However, the measurement
+of Φ(z) cannot be directly scaled with Ascan be-
+cause the experiments employ a collimated beam
+as the source and detect most of the light within
+
+[Page 10]
+10
+the cuvette, as evident by the low signal strength
+beyond the scan range (see Figure 18). However, it
+is worth noting that the signal outside the scanned
+range is higher for undyed samples, owing to the
+lower absorption by the scatterers compared to the
+dyed samples. Therefore, the scaling difference be-
+tween the measured and modeled Φ(z) for undyed
+samples is greater than the one for dyed samples.
+5. The quantum dots inside the capillary have a cer-
+tain quantum yield to convert absorbed blue light
+to emitted red light. This quantum yield is pro-
+vided by the manufacturer as η ≥64%. Further-
+more, the manufacturer specifies the molar extinc-
+tion coefficient ϵ = 5.7 × 106 cm−1M−1, and the
+molar concentration c = 1.0 ± 0.1 µM. Using the
+inner diameter of the capillary that holds the quan-
+tum dots dinner = 100 µm and the Beer-Lambert-
+Bouguer’s law, we calculate the extinction Eqdots
+to be
+Eqdots = ϵcdinner = 57,
+(6)
+and the optical thickness bqdots to be
+bqdots = Eqdots ∗ln(10) = 131.2.
+(7)
+6. The presence of the probe inside the sample has
+an impact on light transport within the medium.
+In order to investigate this effect, the unscattered
+transmission Tu of the probe is measured 4, while
+scanning in the y direction at various z positions in-
+side sample Ref (see Table I). The obtained results
+are illustrated in Figure 13. Based on Figure 13,
+the extinction coefficient of the probe is derived as
+µext = 4.8 mm−1 when the probe is situated at the
+center of the beam. The µext represents the sum of
+absorption and scattering by the probe, hence, the
+absorbed portion of light by the probe and quantum
+dots inside, cannot be estimated by this measure-
+ment alone.
+7. Part of the emitted light propagates through the
+capillary and emerges from its top, where it is cou-
+pled to the fiber-optic cable of the spectrometer
+via a connector manufactured in the workshop of
+the University of Twente. This connector, visible
+in Figure 5, introduces a distance of approximately
+dcap−fiber ≈5 mm between the capillary and the
+fiber. Assuming that the light emanates from the
+capillary with a solid angle of 2π and taking into
+account the core diameter of the fiber-optic cable
+(600 µm), straightforward calculations yield a cou-
+pling efficiency of ηcoup = 2% between the capillary
+and the fiber.
+4 This measurement is conducted with a similar capillary as the
+one used in the measurements of Φ(z).
+FIG. 13. Unscattered transmission Tu of the probe scanning
+the y direction at various z positions inside sample Ref, see
+Table I.
+All experimental limitations listed above contribute to
+the deviation of measurement results to the model pre-
+dictions in scale, and the parameter K in eqn. 5 is intro-
+duced to capture these effects.
+IV.
+CONCLUSIONS
+In this work, we present a comprehensive analy-
+sis of the experimental measurements of the position-
+dependent energy fluence rate in 3D scattering sam-
+ples with anisotropically scattering and absorbing micro-
+spheres (r = 0.5 µm), with and without absorbing dye.
+A thin capillary filled with quantum dots is used as a
+probe to measure the position-dependent energy fluence
+rate inside the samples, and the results are compared to
+analytical models and Monte Carlo simulations. The an-
+alytical P1 and P3 approximations to the radiative trans-
+fer equation predict inaccurate (and even unphysical) re-
+sults for these samples, that have a range of scatterer
+densities. The albedo and anisotropy parameters for the
+dyed samples are extracted from both experiments and
+Monte Carlo simulations, while Mie calculations are used
+to determine the parameters for the undyed samples.
+Notably, the P1 and P3 approximations fail to match
+the trends observed in the position-dependent fluence
+rate, as anticipated. In contrast, the Monte Carlo simu-
+lations and the P3 + δE(4) approximation, which do not
+yield unphysical results for the samples under considera-
+tion, exhibit a relatively good agreement with the mea-
+sured trends of the fluence rate. We provide a detailed
+discussion of the experimental limitations that prevent
+an absolute measurement, and an exact match with the
+models.
+
+[Page 11]
+11
+V.
+ACKNOWLEDGMENTS
+We thank Cock Harteveld and Melissa Goodwin for
+their help in sample preparation and building the ex-
+perimental setup, Mario Vretenar for 3D-printing parts
+for the experimental setup, and Alwin Kienle, Suhyb
+Salama, Johannes de Boer, and Gilles Vissenberg for
+very helpful discussions. We thank the staff of the De-
+sign Lab and of the Rapid Prototyping Lab at the Uni-
+versity of Twente for 3D-printing sample holders for
+our experimental setup.
+This work was supported by
+the NWO-TTW program P15-36 ‘Free-form scattering
+optics’ (FFSO) in collaboration with TUE and TUD
+and with industrial partners ASML, Demcon, Lumileds,
+Schott, Signify, and TNO, and by the MESA+ Institute’s
+section Applied Nanophotonics (ANP). The data used for
+this publication are available via the open-access reposi-
+tory Zenodo database that is developed under the Euro-
+pean OpenAIRE program and operated by CERN [75].
+Appendix A: Infrastructure
+1.
+Choice of the light source
+FIG. 14. Measured extinction of dyed microsphere suspension
+with number density ρ = (4.6 ± 0.6) × 104 mm−3.
+Extinction spectra of the diluted dyed microsphere sus-
+pension with a scatterer number density of ρ = (4.6 ±
+0.6)×104mm−3 were measured using a UV-Vis spectrom-
+eter (Perkin Elmer Lambda 850, MNF chair at MESA+).
+The measured spectrum is presented in Figure 14. The
+sphere suspension is diluted with DI water, thus, the
+reference used in this UV-Vis measurement is also DI
+water. The extinction peak of the microspheres in the
+visible range is observed to be around 400 nm wave-
+length. Therefore, we chose a Thorlabs NPL41B nanosec-
+ond laser with a peak wavelength of λ = 408.5 nm as the
+light source in our experiments to minimize the albedo
+of the scatterers.
+FIG. 15. Photograph of the preparation phases of the probe.
+(a) The quantum dots, the capillary held by the fiber chuck,
+and the rubber stop used for sucking quantum dots inside the
+capillary. (b) Red emission is observed when the capillary is
+illuminated with UV light.
+2.
+Preparation of the probe
+An example of a probe filled with fluorescent reporters
+is depicted in Figure 2. To realize such a probe, a cylin-
+drical, quartz capillary with 10 cm length (CM Scien-
+tific, CV1017Q-100), an outer diameter of 170 µm, and
+an inner diameter of 100 µm is utilized.
+Such a cap-
+illary is filled with quantum dots suspended in decane
+(Thermo Fisher QdotTM 655 ITKTM Organic Quantum
+Dots). The quantum dots scatter and absorb the inci-
+dent UV light, and re-emit in the red part of the visible
+spectrum, with a peak at λpeak = 665 nm wavelength,
+see Figure 15(b). To place the quantum dots inside the
+capillary, the capillary is placed in a teflon-lined fiber
+chuck (Newport FPH-J). A rubber stop is attached to
+the back end of the fiber chuck, and the quantum dots
+are sucked in the capillary using this assembly, see Fig-
+ure 15(a). Finally, both ends of the capillary are sealed
+with super glue, as shown in Figure 15(c). In our study,
+the capillary-fiber chuck assembly is referred to as the
+probe.
+3.
+Experimental procedures with the probe
+Measurements with the probe along the z direction in-
+side the sample DS1 are shown in Figure 16, including
+the results from four primary scan directions: forward,
+forward-side, random, and random-side. To prevent col-
+lisions with the sample holder that would damage the
+fragile probe, the scans start at z = 0.05 mm and end at
+z = 9.75 mm.
+The forward direction indicates that the sample is
+scanned from the left boundary (z = 0) to the right
+boundary (z = 10), while forward-side refers to scanning
+the sample in the same direction as forward in z, as well
+as scanning it in the y direction at specific z positions.
+Random direction refers to scans of the sample along the
+z direction with the probe randomly positioned during
+the scan. Finally, random-side indicates that the sample
+is scanned in the same way as in random direction, but
+in addition, it is scanned in the y direction at specific z
+
+[Page 12]
+12
+FIG. 16. Representative scans of the position-dependent in-
+tensity in the z direction in sample DS1, for four different scan
+directions. The vertical axis displays the measured intensity
+and the horizontal axis shows the position in z direction. The
+inset highlights the small differences between scans.
+positions, and the y scans are also done with a random
+positioning of the probe. Figure 16 shows that the scan
+direction has minimal influence on the outcomes. The
+minor differences are attributed to slight instabilities of
+the probe holder, which are discussed further in subsec-
+tion III E.
+FIG. 17. Position-dependent intensity in the z direction de-
+tected inside dyed microsphere suspensions DS1, DS2 and
+DS3. The vertical axis displays the measured intensity and
+the horizontal axis shows the position in z direction. The op-
+tical thicknesses of the samples are given in the legend. Data
+points represent the averages of four scans in different direc-
+tions (see Figure 16).
+Figure 17 presents the position-dependent intensity in
+the z direction for samples DS1, DS2, and DS3. The data
+points in Figure 17 represent an average of four different
+scan directions, as elaborated in Figure 16. Notably, the
+optically thicker samples exhibit a higher intensity than
+the thinner samples, up to a depth of approximately 2
+mm inside the sample.
+This behavior is attributed to
+the increased number of scatterers in the thicker sam-
+ples, which scatter the light into the probe more than
+the less dense samples at the first few millimeters. Af-
+ter z = 2 mm depth, the trend reverses and the densest
+sample has the lowest detected intensity. This trend is
+expected, as the extinction is higher for thicker samples.
+However, it should be noted that while the probe scans
+the z direction entirely in this measurement, it is insuffi-
+cient to fully characterize the Φ(z), since a large portion
+of the xy plane is not measured. The models simplify
+the problem to one dimension by utilizing the symme-
+tries within the slab and averaging over the xy plane at
+each z position [45]. The diameter of our probe is 170
+µm, while the beam size is approximately 1 mm, and the
+z scans are done when the probe is at the center of the
+beam in y direction. Consequently, although the probe’s
+length in the x direction is roughly 40 mm within the
+sample, the scan presented in Figure 17 predominantly
+collects the unscattered intensity.
+FIG. 18.
+Representative scans of y direction at specific z
+positions inside sample DS2. The vertical axis displays the
+measured intensity and the horizontal axis shows the position
+in z direction.
+In order to obtain a more comprehensive understand-
+ing of Φ(z), it is necessary to scan samples in the y
+direction at various positions in z. Figure 18 presents
+three scans at specific z positions. The results show that
+the energy distribution broadens in the y direction as
+the light travels deeper in z, in agreement with expec-
+tations from multiple scattering [67, 76–78]. All samples
+are probed in the y direction at numerous z positions, and
+the resulting curves obtained from these y scans at each z
+position are integrated to derive a value that represents
+the total Φ(z) integrated over an xy plane. Figure 19
+shows the integrated y scans of sample DS2, where the z
+
+[Page 13]
+13
+FIG. 19. Representative integrated y scans at specific z posi-
+tions inside sample DS2. The vertical axis displays the Φ(z)
+measurements of samples normalized to the measurements of
+the incident intensity. The horizontal axis represents the z
+positions scaled by the thickness of the sample.
+positions are scaled by the thickness of the sample, and
+the measured Φ(z) is normalized by the incident inten-
+sity. Notably, Figure 19 illustrates the inclusion of diffuse
+light to the detection, in contrast to the measurements
+obtained solely from z scans, as shown in Figure 17.
+Appendix B: Theory background
+Transport theory describes the propagation of light in
+complex media using the well-known radiative transfer
+equation (RTE) [23–26, 79–81].
+Whereas in transport
+theory, one neglects the wave nature and concomitant
+interference of light (speckle), it is widely used as it gen-
+erally provides a robust description [66, 78]. The most
+fundamental quantity described by RTE is the specific in-
+tensity I(r,ˆs) that describes the average power flux den-
+sity at position r in a given direction ˆs, within a unit solid
+angle and a unit frequency band. It is challenging to solve
+I(r,ˆs) directly, as it depends on both the position r and
+the direction ˆs. Therefore, analytical approximations to
+RTE or Monte Carlo simulations are preferred.
+1.
+PN approximations
+The so-called PN approximation is a widely used ana-
+lytical approximation to the RTE, where the dependence
+on both variables (r,ˆs) is separated [80] by expanding
+I(r,ˆs) in products of complete sets on the domains of r
+and ˆs
+I(r,ˆs) =
+N
+X
+l=0
+l
+X
+m=−l
+ψm
+l (r)Y m
+l (ˆs).
+(B1)
+Here, ψm
+l (r) are the spatial components, Y m
+l (ˆs) are the
+directional components taken as the Laplace spherical
+harmonics [82, 83], and N is the order of the approxima-
+tion that determines the number of terms in Eq. (B1).
+In particular the P1 approximation is well known as
+it corresponds to the widely-used diffusion approxima-
+tion [66, 78].
+The analytical PN approximations are
+mostly used for simple sample geometries such as a slab
+and a sphere and their accuracies depend notably on (i)
+the order N of the approximation, (ii) on the optical
+properties of the medium and (iii) the scattering phase
+function used in the approximation.
+2.
+Boundary conditions
+In this work, we apply Marshak type boundary con-
+ditions [84] to solve the RTE for a slab geometry. The
+boundary conditions assume that on the boundaries, no
+diffuse light enters the scattering medium from the sur-
+rounding medium outside. When the refractive indices
+of the media inside and outside do not match, the total
+diffuse flux at the boundary directed into the medium is
+the part of the outwardly directed flux that is reflected
+by the surface [17, 38, 39, 43, 85]. This conservation law
+results in two boundary conditions
+Z 1
+0
+Idiff(0, µ)Pl(µ)dµ =
+Z 1
+0
+R(µ)Idiff(0, −µ)Pl(µ)dµ,
+(B2)
+Z 0
+−1
+Idiff(L, −µ)R(−µ)Pl(µ)dµ =
+Z 0
+−1
+Idiff(L, µ)Pl(µ)dµ,
+(B3)
+where L is the sample thickness, R(µ) the specular Fres-
+nel reflection function for unpolarized light, Idiff the dif-
+fuse specific intensity, and µ the directional cosine of
+light.
+Pl is a Legendre polynomial and l specifies the
+order of the approximation.
+In our experiments, the microsphere suspensions are
+held inside quartz cuvettes during measurements.
+We
+modify the boundary conditions in eqns. B2 and B3 by
+introducing a reflection coefficient that accounts for the
+internal reflections from the quartz walls surrounding the
+samples. The reader is referred to the underlying PhD
+thesis [62] for details about this modification and the full
+derivation of the PN approximations used in this work.
+
+[Page 14]
+14
+[1] E. F. Schubert, Light-Emitting Diodes, 2nd ed. (Cam-
+bridge University Press, Cambridge, 2006).
+[2] M. R. Krames, O. B. Shchekin, R. Mueller-Mach, G. O.
+Mueller, L. Zhou, G. Harbers,
+and M. G. Craford, J.
+Display Technol. 3, 160 (2007).
+[3] H. Bechtel,
+P. Schmidt,
+W. Busselt,
+and B. S.
+Schreinemacher, in Eighth International Conference on
+Solid State Lighting, Vol. 7058, edited by I. T. Ferguson,
+T. Taguchi, I. E. Ashdown,
+and S. Park, International
+Society for Optics and Photonics (SPIE, 2008) pp. 64 –
+73.
+[4] I. Akasaki, Rev. Mod. Phys. 87, 1119 (2015).
+[5] H. Amano, Rev. Mod. Phys. 87, 1133 (2015).
+[6] S. Nakamura, Rev. Mod. Phys. 87, 1139 (2015).
+[7] M. L. Meretska, G. Vissenberg, A. Lagendijk, W. L. IJz-
+erman, and W. L. Vos, ACS Photon. 6, 3070 (2019).
+[8] C.-C. Lin, Y.-R. Wu, H.-C. Kuo, M. Wong, S. Denbaars,
+S. Nakamura, A. Pandey, Z. Mi, P. Tian, K. Ohkawa,
+D. Iida, T. Wang, Y. Cai, J. Bai, Z. Yang, Y. Qian, S.-
+T. Wu, J. Han, C. Chen,
+and Y.-H. Fang, Journal of
+Physics: Photonics 5, 042502 (2023).
+[9] T. Nousiainen and K. Kandler, “Light scattering by
+atmospheric mineral dust particles,” in Light Scatter-
+ing Reviews 9: Light Scattering and Radiative Transfer
+(Springer Berlin, Heidelberg, 2015) pp. 3–52.
+[10] C. J. Funk, Appl. Opt. 12, 301 (1973).
+[11] W. L. Vos, M. Donze,
+and H. Buiteveld, Communica-
+tions on Sanitary Engineering and Water Management ,
+86 (1986).
+[12] G. R. Fournier and J. L. Forand, Ocean Optics XII 2258,
+194 (1994).
+[13] F. Fell and J. Fischer, J. Quant. Spectrosc. Radiat.
+Transfer 69, 351 (2001).
+[14] D. Stramski, E. Boss, D. Bogucki, and K. J. Voss, Prog.
+Oceanogr. 61, 27 (2004).
+[15] N. J. McCormick, in Computational Methods in Trans-
+port, edited by F. Graziani (Springer Berlin, Heidelberg,
+2006) pp. 151–163.
+[16] M. S. Salama and W. Verhoef, Remote Sens. Environ.
+157, 111 (2015), special Issue: Remote Sensing of Inland
+Waters.
+[17] W. M. Star, in Dosimetry of Laser Radiation in Medicine
+and Biology, Vol. 10305 (SPIE, 1989) pp. 147 – 155.
+[18] B. C. Wilson and S. L. Jacques, IEEE J. Quantum Elec-
+tron. 26, 2186 (1990).
+[19] W. F. Cheong, S. A. Prahl,
+and A. J. Welch, IEEE J.
+Quantum Electron. 26, 2166 (1990).
+[20] A. Kienle and R. Hibst, Phys. Rev. Lett. 97, 018104
+(2006).
+[21] J. C. J. Paasschens, M. J. M. de Jong, P. W. Brouwer,
+and C. W. J. Beenakker, Phys. Rev. A 56, 4216 (1997).
+[22] R. Pierrat and R. Carminati, Phys. Rev. A 76, 023821
+(2007).
+[23] P. Wang, S. R. Arridge, and M. Jiang, Phys. Rev. A 90,
+023803 (2014).
+[24] K. Vynck, R. Pierrat, and R. Carminati, Phys. Rev. A
+94, 033851 (2016).
+[25] F. Tommasi, L. Fini, F. Martelli, and S. Cavalieri, Phys.
+Rev. A 102, 043501 (2020).
+[26] T. J. Arruda, A. S. Martinez, and F. A. Pinheiro, Phys.
+Rev. A 98, 043855 (2018).
+[27] S. A. Prahl, M. Keijzer, S. L. Jacques, and A. J. Welch,
+in Dosimetry of Laser Radiation in Medicine and Biol-
+ogy, Vol. 10305, edited by G. J. Mueller, D. H. Sliney,
+and R. F. Potter, International Society for Optics and
+Photonics (SPIE, 1989) pp. 105 – 114.
+[28] S. Mujumdar, R. Torre, H. Ramachandran,
+and D. S.
+Wiersma, J. Nanophotonics 4, 1 (2010).
+[29] S. L. Jacques, “Monte Carlo modeling of light transport
+in tissue (steady state and time of flight),” in Optical-
+Thermal Response of Laser-Irradiated Tissue (Springer
+Netherlands, 2011) pp. 109–144.
+[30] M. Atif, A. Khan, and M. Ikram, Opt. Spectrosc. 111,
+107 (2011).
+[31] R. Uppu and S. Mujumdar, Phys. Rev. A 87, 013822
+(2013).
+[32] A. A. Leino, A. Pulkkinen, and T. Tarvainen, OSA Con-
+tin. 2, 957 (2019).
+[33] J. J¨onsson and E. Berrocal, Opt. Express 28, 37612
+(2020).
+[34] M. G. Cooper,
+L. C. Smith,
+A. K. Rennermalm,
+M. Tedesco, R. Muthyala, S. Z. Leidman, S. E. Moustafa,
+and J. V. Fayne, Cryosphere 15, 1931 (2021).
+[35] A. Krieger and S. Wolf, Astron. Astrophys. 645, A143
+(2021).
+[36] R. W. Shonkwiler and F. Mendivil, Explorations in
+Monte Carlo Methods (Springer, New York, 2009).
+[37] J. H. Joseph, W. L. Wiscombe, and J. A. Weinman, J.
+Atmos. Sci. 33, 2452 (1976).
+[38] W. M. Star, J. P. A. Marijnissen,
+and M. J. C. van
+Gemert, Phys. Med. Biol. 33 (1988).
+[39] M. Keijzer, W. M. Star,
+and P. R. M. Storchi, Appl.
+Opt. 27, 1820 (1988).
+[40] D. Dickey, O. Barajas, K. Brown, J. Tulip,
+and R. B.
+Moore, Phys. Med. Biol. 43, 3559 (1998).
+[41] H. Egger and M. Schlottbom, Appl. Anal. 93, 1283
+(2014), https://doi.org/10.1080/00036811.2013.826798.
+[42] A. Liemert and A. Kienle, Phys. Rev. A 83, 015804
+(2011).
+[43] A. Liemert, S. Geiger, and A. Kienle, J. Opt. Soc. Am.
+A 38, 405 (2021).
+[44] F. Ott, D. Reitzle, B. Kr¨uger, A. Liemert, and A. Kienle,
+J Quant Spectrosc Radiat Transf 277, 107987 (2022).
+[45] O. Akdemir, A. Lagendijk, and W. L. Vos, Phys. Rev.
+A 105, 033517 (2022).
+[46] G. Dolgos and J. V. Martins, Opt. Express 22, 21972
+(2014).
+[47] R. Boiger, R. L. Modini, A. Moallemi, D. Degen, A. Adel-
+mann, and M. Gysel-Beer, J. Aerosol Sci. 163, 105977
+(2022).
+[48] Q. Chen, Q. Chen, S. Liu,
+and X. Luo, IEEE Trans.
+Device Mater. 14, 645 (2014).
+[49] W. M. Star, H. P. A. Marijnissen, H. Jansen, M. Kei-
+jzer,
+and M. J. C. van Gemert, Photochem. Pho-
+tobiol. 46, 619 (1987), https://doi.org/10.1111/j.1751-
+1097.1987.tb04822.x.
+[50] N. Pomerleau-Dalcourt and L. Lilge, Phys. Med. Biol.
+51, 1929 (2006).
+[51] T. C. Zhu,
+M. M. Kim,
+J. Padawer,
+A. Dimofte,
+M. Potasek, K. Beeson, and E. Parilov, in Optical Meth-
+ods for Tumor Treatment and Detection: Mechanisms
+and Techniques in Photodynamic Therapy XXVII , Vol.
+
+[Page 15]
+15
+10476, edited by D. H. Kessel and T. Hasan, Intern. Soc.
+Opt. Photon. (SPIE, 2018) p. 104760F.
+[52] “Freeform
+scattering
+optics,
+initiative
+by
+3
+dutch
+universities,”
+(2016),
+https://www.
+freeformscatteringoptics.com/ [Accessed: (1 Decem-
+ber 2020)].
+[53] R. Horstmeyer, H. Ruan, and C. Yang, Nature Photon
+9, 563–571 (2015).
+[54] P. Hong, O. S. Ojambati, A. Lagendijk, A. P. Mosk, and
+W. L. Vos, Optica 5, 844 (2018).
+[55] A. Daniel, D. Oron, and Y. Silberberg, Opt. Express 27,
+21778 (2019).
+[56] M. Megens, C. M. van Kats, P. B¨osecke,
+and W. Vos,
+Langmuir 13, 6120 (1997).
+[57] D. O. Riese, G. H. Wegdam, W. L. Vos, R. Sprik,
+D. Fenistein, J. H. H. Bongaerts, and G. Gr¨ubel, Phys.
+Rev. Lett. 85, 5460 (2000).
+[58] M. Megens and W. L. Vos, Phys. Rev. Lett. 86, 4855
+(2001).
+[59] A. Hartsuiker and W. L. Vos, Langmuir 24, 4670 (2008),
+https://doi.org/10.1021/la800137e.
+[60] W. L. Vos, Phase equilibria in simple systems at high
+pressure, Ph.D. thesis, University of Amsterdam (1991).
+[61] L. F. Rojas-Ochoa, J. M. Mendez-Alcaraz, J. J. S´aenz,
+P. Schurtenberger,
+and F. Scheffold, Phys. Rev. Lett.
+93, 073903 (2004).
+[62] O. Akdemir, Light transport in anisotropically scattering
+and absorbing media, Ph.D. thesis, University of Twente
+(2023).
+[63] X. Li, J. M. Zhao, C. C. Wang,
+and L. H. Liu, Appl.
+Opt. 55, 8171 (2016).
+[64] J. Olmos-Trigo, C. Sanz-Fern´andez, D. R. Abujetas,
+J. Lasa-Alonso, N. de Sousa, A. Garcia-Etxarri, J. A.
+S´anchez-Gil, G. Molina-Terriza, and J. J. S´aenz, Phys.
+Rev. Lett. 125, 073205 (2020).
+[65] K. L. van der Molen, P. Zijlstra, A. Lagendijk, and A. P.
+Mosk, Opt. Lett. 31, 1432 (2006).
+[66] M. C. W. van Rossum and T. M. Nieuwenhuizen, Rev.
+Mod. Phys. 71, 313 (1999).
+[67] E. Akkermans and G. Montambaux, Mesoscopic Physics
+of Electrons and Photons (Cambridge University Press,
+Cambridge, 2007).
+[68] W. L. Vos, T. W. Tukker, A. P. Mosk, A. Lagendijk, and
+W. L. IJzerman, Appl. Opt. 52, 2602 (2013).
+[69] A. Rates, Transparency, Secrecy, and Profiling using Mu-
+tual Scattering in Complex Media, Ph.D. thesis, Univer-
+sity of Twente (2023).
+[70] X. Ma, J. Q. Lu, R. S. Brock, K. M. Jacobs, P. Yang,
+and X.-H. Hu, Phys. Med. Biol. 48, 4165 (2003).
+[71] L. G. Henyey and J. L. Greenstein, Astrophys. J. 93, 70
+(1941).
+[72] E. Henderson, B. Lai,
+and L. Lilge, in Data Acquisi-
+tion, edited by M. Vadursi (IntechOpen, Rijeka, 2010)
+Chap. 14.
+[73] S. L. Jacques, Photochem. Photobiol. 67, 23 (1998).
+[74] Y. H. Ong and T. C. Zhu, Opt. Express 24, 26261 (2016).
+[75] 10.5281/zenodo.10534239.
+[76] A. F. Koenderink and W. L. Vos, J. Opt. Soc. Am. B 22,
+1075 (2005).
+[77] B. P. J. Bret, Multiple light scattering in porous gallium
+phosphide, Ph.D. thesis, University of Twente (2005).
+[78] R. Carminati and J. C. Schotland, Principles of Scatter-
+ing and Transport of Light (Cambridge University Press,
+Cambridge, 2021).
+[79] S. Chandrasekhar, Radiative Transfer (Dover Publica-
+tions, New York, 1960).
+[80] J. H. Tait, An Introduction to Neutron Transport Theory
+(Longmans, London, 1964).
+[81] A. Ishimaru, Wave propagation and scattering in random
+media, Vol. I & II (Academic, New York, 1978).
+[82] J. D. Jackson, Classical electrodynamics (Wiley, New
+York, 1998).
+[83] G. B. Arfken and H. J. Weber, Mathematical Methods for
+Physicists (Elsevier, Boston, 2005).
+[84] M. F. Modest, Radiative Heat Transfer (Academic, Lon-
+don, 2003).
+[85] A. Liemert and A. Kienle, Medical Phys. 41, 111916
+(2014), https://doi.org/10.1118/1.4898097.

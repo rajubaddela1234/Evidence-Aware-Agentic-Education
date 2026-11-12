@@ -1,0 +1,688 @@
+[Page 1]
+Sum rules for the Gravitational Form Factors using light-front dressed quark state
+Jai More,1, ∗Asmita Mukherjee,1, † Sreeraj Nair,2, 3, 4, ‡ and Sudeep Saha1, §
+1Department of Physics, Indian Institute of Technology Bombay, Powai, Mumbai 400076, India
+2Institute of Modern Physics, Chinese Academy of Sciences, Lanzhou 730000, China
+3School of Nuclear Science and Technology, University of Chinese Academy of Sciences, Beijing 100049, China
+4CAS Key Laboratory of High Precision Nuclear Spectroscopy,
+Institute of Modern Physics, Chinese Academy of Sciences, Lanzhou 730000, China
+We consider a light-front dressed quark state, per se, instead of a proton state, we consider a simple
+composite spin-1/2 state of a quark dressed with a gluon. This perturbative model incorporates
+gluonic degrees of freedom, which enable us to evaluate the gravitational form factors (GFFs) of the
+quark as well as the gluon in this model [1, 2]. We employ the Hamiltonian framework and choose
+the light-front gauge A+ = 0. We calculate the four GFFs and corroborate the sum rules that GFFs
+satisfy. The GFF D is attributed to information like pressure, shear, and energy distributions. We
+analyze some of these distributions for a dressed quark state at one loop in QCD.
+I.
+INTRODUCTION
+Despite the fact that the proton was discovered over a century ago, understanding its structure remains one of the
+most pressing questions in the field of hadron physics. Significant efforts have been made on both the theoretical and
+experimental fronts to shed light on issues such as the decomposition of mass and spin in terms of the underlying
+quarks and gluons that make up the proton. However, the strong force that holds these particles together presents
+a significant challenge to experimental study, making it difficult to obtain a complete picture of the proton’s struc-
+ture. Nonetheless, ongoing research efforts in high-energy collisions [3–8] and theoretical models studies [9–15] hold
+promising for advancing our understanding.
+Understanding the energy-momentum tensor (EMT) of the hadronic matrix element would provide valuable infor-
+mation about the sum rules and gravitational coupling of quarks and gluons. The matrix element of the EMT encodes
+information about the gravitational form factors. These GFFs have become a focus of interest as they offer insights
+into the mechanical properties of nucleons, particularly through the additional form factor D(Q2), also known as the
+“D-term”.
+In this work, we study the quark and gluon GFFs in a theoretical framework that describes a relativistic spin-
+half system, specifically a quark dressed with a gluon at one loop. To accomplish this, we utilize the light-front
+Hamiltonian approach and expand the dressed quark state in Fock space using light-front wave functions (LFWFs).
+By analytically computing the two-particle quark-gluon LFWF using the light-front QCD Hamiltonian, we obtain the
+necessary overlap expressions using a two-component representation [16]. Our approach builds upon previous research
+that utilized a similar model to investigate the Wigner function [17, 18].
+The manuscript is organized in the following manner: In Sec.II we start by writing the EMT of QCD and briefly
+discuss the dressed quark state. We give the final expressions for the quark and gluon GFFs. We then give the
+procedure to extract the GFFs for these states. In Sec. III we discuss the numerical plots of all the GFFs of the
+quark and the gluon. In Sec. IV we use the D−term to analyze the mechanical properties like pressure and shear
+distributions of the quark, the gluon and the total contribution. Finally, we conclude in Sec. V.
+II.
+ENERGY MOMENTUM TENSOR OF QCD
+A.
+Definition
+The symmetric QCD EMT is defined as [19],
+θµν = θµν
+Q + θµν
+G ,
+(1)
+∗Presented by Jai More at the International Conference on the Structure of Baryons, November 7–11th, Universidad Pablo de Olavide,
+Sevilla, Spain
+jai.more@iitb.ac.in
+† asmita@phy.iitb.ac.in
+‡ sreeraj@impcas.ac.cn
+§ sudeepsaha@iitb.ac.in
+arXiv:2306.08683v2  [hep-ph]  16 Jun 2023
+
+[Page 2]
+2
+where
+θµν
+Q
+= 1
+2ψ i [γµDν + γνDµ] ψ −gµνψ
+iγλDλ −m
+
+ψ,
+(2)
+θµν
+G
+= −F µλaF ν
+λa + 1
+4gµν (Fλσa)2 .
+(3)
+The last term in Eq. 2 vanishes because of the equation of motion. The EMT matrix element can be parameterized
+for a spin −1/2 system as follows [20]:
+⟨P ′, S′|θµν
+i (0)|P, S⟩= U(P ′, S′)
+
+−Bi(q2)P
+µ P
+ν
+m
++
+Ai(q2) + Bi(q2)
+ 1
+2(γµP
+ν + γνP
+µ)
++ Ci(q2)qµqν −q2gµν
+m
++ Ci(q2)m gµν
+
+U(P, S),
+(4)
+where P
+µ = 1
+2(P ′ +P)µ is the average nucleon four-momentum, U(P ′, S′), U(P, S) are the Dirac spinors for the state,
+and m is the mass of the target state. The Lorentz indices (µ, ν) ≡{+, −, 1, 2}, i ≡(Q, G). The quantities Ai, Bi, Ci
+and Ci are the quark or gluon gravitational form factors.
+B.
+Dressed quark state
+The light-front Hamiltonian approach provides a powerful framework for expanding the Fock state of any system
+with momentum P and helicity λ in terms of the light-front wave functions (LFWFs). For instance, here we consider a
+dressed quark state that incorporates one gluon at one loop level, in which case we truncate the Fock space expansion
+at the two-particle state. The state can be written as [19, 21]
+|P, λ⟩= ψ1(P, λ)b†
+λ(P)|0⟩+
+X
+λ1,λ2
+Z
+[k1][k2]
+p
+2(2π)3P +δ3(P −k1 −k2) ψ2(P, λ|k1, λ1; k2, λ2)b†
+λ1(k1)a†
+λ2(k2)|0⟩,
+where [k] : = dk+d2k⊥
+√
+16π3k+ .
+(5)
+b†( a†) is the creation operator of quark (gluon).
+ψ1(P, λ) corresponds to a single particle wavefunction which
+contributes when x = 1 and gives the normalization of the state. The two-particle LFWF, ψ2(P, λ|k1, λ1; k2, λ2) is
+related to the probability amplitude of finding a bare quark and a bare gluon with momentum (helicity) k1(λ1) and
+k2(λ2), respectively, inside the target state.
+C.
+Two-component formalism
+The boost invariant LFWF and two-particle LFWF are related as:
+ϕλa
+λ1,λ2(xi, κ⊥
+i ) =
+√
+P +ψ2(P, λ|k1, λ1; k2, λ2).
+(6)
+The constituent momenta in terms of the relative momenta (xi, κ⊥
+i ) are such that they satisfy the relation x1 +x2 = 1
+and κ⊥
+1 + κ⊥
+2 = 0.
+k+
+i = xiP +,
+k⊥
+i = κ⊥
+i + xiP ⊥,
+(7)
+where xi is the longitudinal momentum fraction for the quark or gluon, inside the two-particle LFWF. The boost
+invariant two-particle LFWF can be written as
+ϕλa
+λ1,λ2(x, κ⊥) =
+g
+p
+2(2π)3
+
+x(1 −x)
+κ⊥2 + m2x2
+ T a
+√xχ†
+λ1
+×
+2(κ⊥· ϵ⊥∗
+λ2 )
+x
++
+1
+1 −x(˜σ⊥· κ⊥)(˜σ⊥· ϵ⊥∗
+λ2 ) + im(˜σ⊥· ϵ⊥∗
+λ2 )
+x
+1 −x
+
+χλψλ
+1 ,
+(8)
+We work in light-cone gauge A+ = 0 and utilize the two-component formalism proposed in Ref [16]. Here, χ represents
+the two-component spinor, m denotes the mass of the quark, T a is the color SU(3) matrices and ϵ⊥
+λ2 is the polarization
+vector of the gluon. σ⊥(⊥≡1, 2) are Pauli matrices.
+
+[Page 3]
+3
+In this gauge, the quark field can be decomposed into:
+ψ+ =
+
+ξ
+0
+
+,
+ψ−=
+
+0
+η
+
+,
+(9)
+where the two-component quark fields are given by
+ξ(y) =
+X
+λ
+χλ
+Z
+[k]
+p
+2(2π)3 [bλ(k)e−ik·y + d†
+−λ(k)eik·y],
+(10)
+η(y) =
+ 1
+i∂+
+ 
+σ⊥·
+i∂⊥+ gA⊥(y)
+
++ im
+
+ξ(y),
+(11)
+η(y) is the constrained field, which depends on ξ(y), so it can be eliminated using the above equation. The dynamical
+components of the gluon field are given by
+A⊥(y) =
+X
+λ
+Z
+[k]
+p
+2(2π)3k+ [ϵ⊥
+λ aλ(k)e−ik·y + ϵ⊥∗
+λ a†
+λ(k)eik·y].
+(12)
+Here we have suppressed the colour indices.
+D.
+The kinematical variables
+The four momenta in light-front coordinates are defined as
+P µ = (P +, P ⊥, P −),
+(13)
+where P −is the light-front energy, P + is the longitudinal momentum and P ⊥is the transverse momentum. We use
+the Drell-Yan frame (DYF), thus, momentum transfer is purely in the transverse direction, and q+ = 0, Therefore,
+the four momenta of the initial and the final state are given by :
+P µ =
+
+P +, 0⊥, m2
+P +
+
+,
+(14)
+P ′µ =
+
+P +, q⊥, q⊥2 + m2
+P +
+
+,
+(15)
+and the invariant momentum transfer
+qµ = (P ′ −P)µ =
+
+0, q⊥, q⊥2
+P +
+
+.
+(16)
+Hence, one can also write q2 = −q⊥2.
+E.
+Prescription to extract GFFs
+To calculate the GFFs, we sandwich the EMT between the dressed quark state given in Eq. (5). This yields a
+generic form of the matrix element which can be expressed as:
+Oµν
+SS′ = 1
+2 [⟨P ′, S′|θµν
+i (0)|P, S⟩] ,
+(17)
+where (S, S′) ≡{↑, ↓} is the helicity of the initial and final state. ↑(↓) positive (negative) spin projection along z−
+axis. Then by selecting the appropriate Lorentz index (µ, ν) and by choosing the correct spin state, we can extract
+the GFFs for quark and gluon. A detailed description of the extraction of each GFFs can be seen in Ref [1, 2]
+
+[Page 4]
+4
+F.
+Quark and gluon GFFs
+The final expression for the four independent GFFs are as follows [1]:
+AQ(q2) = 1 + g2 CF
+2π2
+11
+10 −4
+5
+
+1 + 2m2
+q2
+ f2
+f1
+−1
+3 log
+ Λ2
+m2
+
+(18)
+BQ(q2) = g2CF
+12π2
+m2
+q2
+f2
+f1
+,
+(19)
+DQ(q2) = 5g2CF
+6π2
+m2
+q2
+
+1 −f1f2
+
+= 4 CQ(q2),
+(20)
+CQ(q2) = g2CF
+72π2
+
+29 −30 f1 f2 + 3 log
+ Λ2
+m2
+
+,
+(21)
+where
+f1 : = 1
+2
+s
+1 + 4m2
+q2 ,
+(22)
+f2 : = log
+
+1 + q2 (1 + 2f1)
+2m2
+
+.
+(23)
+CF is the colour factor and Λ is the ultra-violet cut-off.
+The final expression for the gluon GFFs are as follows [2]:
+AG(q2)= g2CF
+8π2
+"
+29
+9 + 4
+3 log
+ Λ2
+m2
+
+−
+Z
+dx
+
+1 + (1 −x)2
++
+4m2x2
+q2 (1 −x)
+ ˜f2
+˜f1
+#
+,
+(24)
+BG(q2)=−g2CF
+2π2
+Z
+dx m2x2
+q2
+˜f2
+˜f1
+,
+(25)
+DG(q2)= g2CF
+6π2
+2m2
+3q2 +
+Z
+dxm2
+q4
+x
+(2 −x) q2 −4m2x
+ ˜f2
+˜f1
+,
+(26)
+CG(q2)= g2CF
+72π2
+"
+10 + 9
+Z
+dx
+
+x −
+4m2x2
+q2 (1 −x)
+ ˜f2
+˜f1
+−3 log
+ Λ2
+m2
+#
+,
+(27)
+where,
+˜f1 :=
+s
+1 +
+4m2x2
+q2 (1 −x)2 .
+(28)
+˜f2 := log
+
+1 + ˜f1
+−1 + ˜f1
+!
+.
+(29)
+CF is the colour factor and Λ is the ultra-violet cut-off. The details of extraction and calculations of all the GFFs of
+quark and gluon are explained in the appendix of ref. [1, 2].
+III.
+PLOTS AND NUMERICAL ANALYSIS OF THE QUARK AND GLUON GFFS
+In this section, we study the analytical expressions of the quark and gluon GFFs, which were obtained in Eqs.
+18-20 and 24 27 respectively. To understand reasonably the behavior of GFFs, we plot the quark, the gluon and the
+total GFF as a function of the momentum transferred squared (q2) for each GFFs. For the calculation of both quark
+and gluon GFFs we use the following parameters: (1) the mass of the dressed quark m = 0.3 GeV (2) g = CF = 1
+(3) the UV cutoff Λ = 2 GeV. In Fig. 1, we plot the individual quark, the individual gluon and the total GFFs A(q2)
+and B(q2) as a functions of q2. The GFF A(q2) for the quark and gluon depend on the cut-off Λ, but when we sum
+the quark and gluon contribution we obtain the total A(q2) which is independent of this cutoff. We observe, that
+
+[Page 5]
+5
+0.
+2.
+4.
+6.
+8.
+10.
+-0.2
+0.
+0.2
+0.4
+0.6
+0.8
+1.
+0.
+2.
+4.
+6.
+8.
+10.
+-0.01
+-0.005
+0.
+0.005
+0.01
+FIG. 1. The GFF A(q2) and B(q2) is plotted as a function of q2 for m = 0.3 GeV and Λ = 2 GeV. The quark (q) and gluon
+(g) form factors are identified by the dashed blue curve and the dot-dashed magenta curve respectively. The solid black curve
+represents the sum of quark and gluon (q + g) contribution.
+the gluon contribution in the dressed quark state for the GFF B(q2) is negative. However, the quark contribution is
+positive. We observe that the total contribution to B(q2) at q2 →0 vanishes.
+Some comparisons: We set our parameter to QED limits and our results for A(q2) and B(q2) agree with those
+reported in ref [22]. We also observe a qualitative agreement with the Lattice study of the gluon contribution to GFFs
+A(q2) and B(q2) of the nucleon, made in [23, 24].
+0.
+2.
+4.
+6.
+8.
+10.
+-0.01
+-0.005
+0.
+0.005
+0.01
+0.
+2.
+4.
+6.
+8.
+10.
+-0.08
+-0.04
+0.
+0.04
+0.08
+FIG. 2. The GFF D(q2) and C(q2) is plotted as a function of q2 for m = 0.3 GeV and Λ = 2 GeV. The dashed blue curve
+and the dot-dashed magenta curve show the quark (q) and gluon (g) form factors respectively. The quark and gluon (q + g)
+contribution is represented by the solid black curve.
+In Fig. 2, we plot the individual quark, the individual gluon and the total GFFs D(q2) and C(q2) as function
+of q2. Here, we observe that C(q2) for quark and gluon depends on the cut-off Λ, but the sum of quark and gluon
+contribution is independent of the cut-off as expected. Also, we observe that C(0) = 0 at q2 = 0. We observe that
+D(q2) for quark is negative while for gluon it shows positive nature in the chosen range. As seen from the figure total
+D(q2) is negative for the entire range except for the region near zero.
+A.
+Sum rules of GFFs
+The constraint on GFF A(q2) corresponds to the momentum sum rule. For B(q2), the condition implies that the
+anomalous gravito-magnetic moment is zero for a spin−1/2 system [25]. The sum rule we obtain for the form factors
+at q2 →0 using the dressed quark state are:
+• A(0) = 1, B(0) = 0 [26, 27]
+• J(0) = 1
+2[A(0) + B(0)] [28]
+• C(0) = 0
+
+[Page 6]
+6
+IV.
+MECHANICAL PROPERTIES OF DRESSED QUARK STATE
+In this section, we will focus on the pressure and shear distributions of a dressed quark state, specifically those
+related to the quark and gluon components. A detailed discussion on topics like the force, the energy density and
+pressure distribution combinations for the quark and the gluon see ref[1, 2]. It is important to note that GFF D
+provides a wealth of information about the pressure and shear distributions as highlighted in [25]. The expressions
+for pressure and shear distributions in two dimensions [29] are
+pi(b⊥) =
+1
+8mb⊥
+d
+db⊥
+
+b⊥
+d
+db⊥Di(b⊥)
+
+−m Ci(b⊥),
+(30)
+si(b⊥) = −b⊥
+4m
+d
+db⊥
+ 1
+b⊥
+d
+db⊥Di(b⊥)
+
+,
+(31)
+where
+F(b⊥) =
+1
+(2π)2
+Z
+d2q⊥e−iq⊥b⊥F(q2)
+=
+1
+2π
+Z ∞
+0
+dq⊥q⊥J0
+q⊥b⊥
+F(q2),
+(32)
+where F =
+Ai, Bi, Di, Ci
+
+, i ≡(Q, G). J0 is Bessel’s function of zeroth order. m is the mass of the dressed quark
+state.
+0.
+0.02
+0.04
+0.06
+0.08
+0.1
+-0.5
+0.
+0.5
+1.
+1.5
+0.
+0.02
+0.04
+0.06
+0.08
+0.1
+-2.
+0.
+2.
+4.
+FIG. 3. The pressure distribution and the shear force distribution are plotted as a function of b⊥for ∆= 0.2. The dashed
+blue curve and the dot-dashed magenta curve represent the quark and gluon contributions respectively. The sum of quark and
+gluon contribution is shown by the solid black curve.
+In Fig. 3, (left panel) we analyze the plot of 2πb⊥p(b⊥) vs q2 for the three distributions viz, the quark, the gluon
+and the sum of quark and gluon for ∆= 0.2. The quark and the gluon contribute complementary to each other and
+slightly differ in magnitude. The total pressure curve profile reveals that a positive core exists at the center of the
+two-particle system, while a negative pressure distribution occurs towards the outer region. This pressure distribution
+behavior is crucial for maintaining system stability, where the repulsive core is balanced by the confining pressure in
+the boundary region. Fig. 3, (right panel) is a plot of 2πb⊥s(b⊥) vs q2. We observe that the quark contribution to
+shear force is positive, whereas the contribution of the gluon is negative. But, the total contribution to shear force is
+positive.
+V.
+SUMMARY
+The gravitational form factor of nucleons has been a topic of great interest in the theoretical side [10, 11, 30–33]. In
+particular, the D−term has been of prime importance due to its relation with pressure distribution inside the nucleons
+[9, 25, 29, 34]. A lot of studies are dedicated to investigate the GFFs and mechanical properties of the bound-state
+systems. However, most of the phenomenological models do not incorporate gluons, thus information about the gluon
+cannot be perceived. In this work, instead of considering a proton state, we employ a light-front dressed quark state
+that takes into account gluonic degrees of freedom. Particularly, we examine a composite spin−1/2 state consisting
+
+[Page 7]
+7
+of a quark dressed with a gluon.
+We have also evaluated mechanical properties like pressure distribution, shear
+distribution and 2-D energy distribution details of which can be found in refs. [1, 2]. This work provides a review
+of the quark and the gluon GFFs using the light-front dressed quark state. These GFFs have been shown to satisfy
+sum rules that have been highlighted in this paper. Further, we investigate some of the mechanical properties like
+pressure and shear distributions of the quark and the gluon in this model.
+ACKNOWLEDGMENTS
+J. M. would like to thank the Department of Science and Technology (DST), Government of India, for financial
+support through grant No. SR/WOS-A/PM-6/2019(G) and Prof. Uma Sankar for partial travel support to attend
+the conference under the grant ‘PGRDFI94091’.
+DECLARATION OF COMPETING INTEREST
+The authors declare that they have no known competing financial interests or personal relationships that could
+have appeared to influence the work reported in this paper.
+[1] J. More, A. Mukherjee, S. Nair, S. Saha, Gravitational form factors and mechanical properties of a quark at one loop in light-
+front Hamiltonian QCD, Phys. Rev. D 105 (5) (2022) 056017. arXiv:2112.06550, doi:10.1103/PhysRevD.105.056017.
+[2] J. More, A. Mukherjee, S. Nair, S. Saha, Gluon contribution to the mechanical properties of a dressed quark in light-front
+Hamiltonian QCD (2 2023). arXiv:2302.11906.
+[3] N. d’Hose, S. Niccolai, A. Rostomyan, Experimental overview of deeply virtual compton scattering, The European Physical
+Journal A 52 (6) (2016) 151. doi:10.1140/epja/i2016-16151-9.
+URL https://doi.org/10.1140/epja/i2016-16151-9
+[4] K. Kumeriˇcki, S. Liuti, H. Moutarde, GPD phenomenology and DVCS fitting, The European Physical Journal A 52 (6)
+(jun 2016). doi:10.1140/epja/i2016-16157-3.
+URL https://doi.org/10.1140%2Fepja%2Fi2016-16157-3
+[5] M. Aaboud, et al., A strategy for a general search for new phenomena using data-derived signal regions and its ap-
+plication within the ATLAS experiment, Eur. Phys. J. C 79 (2) (2019) 120.
+arXiv:1807.07447, doi:10.1140/epjc/
+s10052-019-6540-y.
+[6] S. Diehl, et al., Extraction of Beam-Spin Asymmetries from the Hard Exclusive π+ Channel off Protons in a Wide Range
+of Kinematics, Phys. Rev. Lett. 125 (18) (2020) 182001. arXiv:2007.15677, doi:10.1103/PhysRevLett.125.182001.
+[7] F. Georges, et al., Deeply Virtual Compton Scattering Cross Section at High Bjorken xB, Phys. Rev. Lett. 128 (25) (2022)
+252002. arXiv:2201.03714, doi:10.1103/PhysRevLett.128.252002.
+[8] R. Abdul Khalek, et al., Science Requirements and Detector Concepts for the Electron-Ion Collider: EIC Yellow Report,
+Nucl. Phys. A 1026 (2022) 122447. arXiv:2103.05419, doi:10.1016/j.nuclphysa.2022.122447.
+[9] C. Lorc´e, H. Moutarde, A. P. Trawi´nski, Revisiting the mechanical properties of the nucleon, Eur. Phys. J. C 79 (1) (2019)
+89. arXiv:1810.09837, doi:10.1140/epjc/s10052-019-6572-3.
+[10] D. Chakrabarti, C. Mondal, A. Mukherjee, S. Nair, X. Zhao, Gravitational form factors and mechanical properties of proton
+in a light-front quark-diquark model, Phys. Rev. D 102 (2020) 113011. arXiv:2010.04215, doi:10.1103/PhysRevD.102.
+113011.
+[11] M. J. Neubelt, A. Sampino, J. Hudson, K. Tezgin, P. Schweitzer, Energy momentum tensor and the D-term in the bag
+model, Phys. Rev. D 101 (3) (2020) 034013. arXiv:1911.08906, doi:10.1103/PhysRevD.101.034013.
+[12] P. Hagler, J. W. Negele, D. B. Renner, W. Schroers, T. Lippert, K. Schilling, Moments of nucleon generalized parton
+distributions in lattice QCD, Phys. Rev. D 68 (2003) 034505. arXiv:hep-lat/0304018, doi:10.1103/PhysRevD.68.034505.
+[13] D. Brommel, et al., Moments of generalized parton distributions and quark angular momentum of the nucleon, PoS
+LATTICE2007 (2007) 158. arXiv:0710.1534, doi:10.22323/1.042.0158.
+[14] A. Rajan, T. Gorda, S. Liuti, K. Yagi, Bounds on the Equation of State of Neutron Stars from High Energy Deeply Virtual
+Exclusive Experiments (12 2018). arXiv:1812.01479.
+[15] C. Alexandrou, S. Bacchio, M. Constantinou, J. Finkenrath, K. Hadjiyiannakou, K. Jansen, G. Koutsou, H. Panagopoulos,
+G. Spanoudes, Complete flavor decomposition of the spin and momentum fraction of the proton using lattice QCD simula-
+tions at physical pion mass, Phys. Rev. D 101 (9) (2020) 094513. arXiv:2003.08486, doi:10.1103/PhysRevD.101.094513.
+[16] W.-M. Zhang, A. Harindranath, Light front QCD. 2: Two component theory, Phys. Rev. D 48 (1993) 4881–4902. doi:
+10.1103/PhysRevD.48.4881.
+[17] J. More, A. Mukherjee, S. Nair, Quark Wigner Distributions Using Light-Front Wave Functions, Phys. Rev. D 95 (7)
+(2017) 074039. arXiv:1701.00339, doi:10.1103/PhysRevD.95.074039.
+
+[Page 8]
+8
+[18] J. More, A. Mukherjee, S. Nair, Wigner Distributions For Gluons, Eur. Phys. J. C 78 (5) (2018) 389. arXiv:1709.00943,
+doi:10.1140/epjc/s10052-018-5858-1.
+[19] A. Harindranath, R. Kundu, A. Mukherjee, J. P. Vary, Twist four longitudinal structure function in light front QCD,
+Phys. Rev. D 58 (1998) 114022. arXiv:hep-ph/9808231, doi:10.1103/PhysRevD.58.114022.
+[20] X. Ji, X. Xiong, F. Yuan, Transverse Polarization of the Nucleon in Parton Picture, Phys. Lett. B 717 (2012) 214–218.
+arXiv:1209.3246, doi:10.1016/j.physletb.2012.09.027.
+[21] A. Harindranath, R. Kundu, W.-M. Zhang, Deep inelastic structure functions in light front QCD: Radiative corrections,
+Phys. Rev. D 59 (1999) 094013. arXiv:hep-ph/9806221, doi:10.1103/PhysRevD.59.094013.
+[22] S. J. Brodsky, D. S. Hwang, B.-Q. Ma, I. Schmidt, Light cone representation of the spin and orbital angular momentum of
+relativistic composite systems, Nucl. Phys. B 593 (2001) 311–335. arXiv:hep-th/0003082, doi:10.1016/S0550-3213(00)
+00626-X.
+[23] M. Deka, et al., Lattice study of quark and glue momenta and angular momenta in the nucleon, Phys. Rev. D 91 (1) (2015)
+014505. arXiv:1312.4816, doi:10.1103/PhysRevD.91.014505.
+[24] P. E. Shanahan, W. Detmold, Gluon gravitational form factors of the nucleon and the pion from lattice QCD, Phys. Rev.
+D 99 (1) (2019) 014511. arXiv:1810.04626, doi:10.1103/PhysRevD.99.014511.
+[25] M. V. Polyakov, P. Schweitzer, Forces inside hadrons: pressure, surface tension, mechanical radius, and all that, Int. J.
+Mod. Phys. A 33 (26) (2018) 1830025. arXiv:1805.06596, doi:10.1142/S0217751X18300259.
+[26] C. Lorc´e, The light-front gauge-invariant energy-momentum tensor, JHEP 08 (2015) 045. arXiv:1502.06656, doi:10.
+1007/JHEP08(2015)045.
+[27] P. Lowdon, K. Y.-J. Chiu, S. J. Brodsky, Rigorous constraints on the matrix elements of the energy–momentum tensor,
+Physics Letters B 774 (2017) 1–6. doi:10.1016/j.physletb.2017.09.050.
+URL http://dx.doi.org/10.1016/j.physletb.2017.09.050
+[28] X. Ji, Gauge-invariant decomposition of nucleon spin, Phys. Rev. Lett. 78 (1997) 610–613. doi:10.1103/PhysRevLett.
+78.610.
+URL https://link.aps.org/doi/10.1103/PhysRevLett.78.610
+[29] A. Freese, G. A. Miller, Forces within hadrons on the light front, Phys. Rev. D 103 (2021) 094023. arXiv:2102.01683,
+doi:10.1103/PhysRevD.103.094023.
+[30] M. V. Polyakov, B.-D. Sun, Gravitational form factors of a spin one particle, Phys. Rev. D 100 (3) (2019) 036003.
+arXiv:1903.02738, doi:10.1103/PhysRevD.100.036003.
+[31] C. Cebulla, K. Goeke, J. Ossmann, P. Schweitzer, The nucleon form-factors of the energy–momentum tensor in the skyrme
+model, Nuclear Physics A 794 (1-2) (2007) 87–114. doi:10.1016/j.nuclphysa.2007.08.004.
+URL https://doi.org/10.1016%2Fj.nuclphysa.2007.08.004
+[32] D. Chakrabarti, C. Mondal, A. Mukherjee, Gravitational form factors and transverse spin sum rule in a light front quark-
+diquark model in AdS/QCD, Phys. Rev. D 91 (11) (2015) 114026. arXiv:1505.02013, doi:10.1103/PhysRevD.91.114026.
+[33] M. V. Polyakov, H.-D. Son, Nucleon gravitational form factors from instantons: forces between quark and gluon subsystems,
+JHEP 09 (2018) 156. arXiv:1808.00155, doi:10.1007/JHEP09(2018)156.
+[34] A. Metz, B. Pasquini, S. Rodini, The gravitational form factor D(t) of the electron, Phys. Lett. B 820 (2021) 136501.
+arXiv:2104.04207, doi:10.1016/j.physletb.2021.136501.

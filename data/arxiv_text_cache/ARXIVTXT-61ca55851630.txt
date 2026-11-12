@@ -1,0 +1,2304 @@
+[Page 1]
+Astronomy & Astrophysics manuscript no. P
+©ESO 2022
+October 12, 2022
+The Galactic Chemical Evolution of phosphorus observed with
+IGRINS
+G. Nandakumar1, N. Ryde1, M. Montelius2, B. Thorsbro3, H. Jönsson4, and G. Mace5
+1 Lund Observatory, Department of Astronomy and Theoretical Physics, Lund University, Box 43, SE-221 00 Lund, Sweden
+e-mail: govind.nandakumar@astro.lu.se
+2 Kapteyn Astronomical Institute, University of Groningen, Landleven 12, NL-9747 AD Groningen, the Netherlands
+3 Department of Astronomy, School of Science, The University of Tokyo, 7-3-1 Hongo, Bunkyo-ku, Tokyo 113-0033, Japan
+4 Materials Science and Applied Mathematics, Malmö University, SE-205 06 Malmö, Sweden
+5 Department of Astronomy and McDonald Observatory, The University of Texas, Austin, TX 78712, USA
+Received ; accepted
+ABSTRACT
+Context. Phosphorus (P) is considered to be one of the key elements for life, making it an important element to look for in the
+abundance analysis of spectra of stellar systems. Yet, there exists only a handful of spectroscopic studies to estimate the P abundances
+and investigate its trend across a range of metallicities. This is due to the lack of good P lines in the optical wavelength region and the
+requirement of careful manual analysis of the blended P lines in near infrared H band spectra obtained with individual observations
+and surveys like APOGEE.
+Aims. Based on a consistent and systematic analysis of high-resolution, near-infrared IGRINS spectra of 38 K giant stars in the Solar
+neighborhood, we present and investigate the P abundance trend in the metallicity range of -1.2 dex < [Fe/H] < 0.4 dex. Furthermore,
+we compare this trend with the available chemical evolution models to shed some light on the origin and evolution of P.
+Methods. We have observed full H and K band spectra at a spectral resolving power of R=45,000 with IGRINS mounted on the
+Gemini South telescope, the Discovery Channel Telescope and the Harlan J Smith Telescope at McDonald Observatory. Abundances
+are determined from spectral lines by modelling the synthetic spectrum that best matches the observed spectrum by χ2 minimisation.
+For this task we use the Spectroscopy Made Easy (SME) tool in combination with 1D MARCS stellar atmosphere models. The
+investigated sample of stars have reliable stellar parameters estimated using optical FIES spectra obtained in a previous study of a set
+of stars called Giants in the Local Disk (GILD). In order to determine the P abundances from the at 16482.92 Å P line, we need to
+take special care of the blending the CO(ν = 7−4) line. With the stellar parameters known, we thus determine the C, N, O abundances
+from atomic carbon and a range of non-blended molecular lines (CO, CN, OH) which are aplenty in the H band region of K giant
+stars, assuring an appropriate modelling of the blending CO(ν = 7 −4) line.
+Results. We present [P/Fe] vs [Fe/H] trend for K giant stars in the metallicity range of -1.2 dex < [Fe/H] < 0.4 dex and enhanced P
+abundances for two metal poor s-rich stars. We ﬁnd that our trend matches well with the compiled literature sample of prominently
+dwarf stars and limited number of giant stars. Our trend is found to be higher by ∼0.05 - 0.1 dex compared to the theoretical
+chemical evolution trend in Cescutti et al. (2012) resulting from core collapse supernova (type II) of massive stars with the P yields
+from Kobayashi et al. (2006) arbitrarily increased by a factor of 2.75 (as suggested by Cescutti et al. 2012). Thus the enhancement
+factor might need to be ∼0.05 - 0.1 dex higher to match our trend. We also ﬁnd an empirically determined primary behaviour for
+phosphorus. Furthermore, the phosphorus abundance is found to be elevated by ∼0.6 - 0.9 dex in the two s-enriched stars compared
+to the theoretical chemical evolution trend.
+Key words. stars: abundances, late-type- Galaxy:evolution, disk- infrared: stars
+1. Introduction
+Analogous to fossils here on the Earth, light from stars can be
+used to understand the formation and evolution history of stel-
+lar populations. This is possible through detailed spectroscopic
+analysis of stellar spectra from which chemical compositions of
+each star and hence their parent molecular clouds can be de-
+termined. Individual elemental abundances derived from stellar
+spectra in conjunction with chemical evolution models have also
+been used to infer their nucleosynthetic origin, trace possible star
+progenitors, predict their stellar yields, and impose constraints
+on their formation inside stars. For example, α elements like O,
+Mg, Si, Ca, and Ti are formed in massive stars during hydrostatic
+and explosive burning phases, and are released to the interstel-
+lar medium (ISM) when they undergo type II supernova (SN)
+explosion (Chieﬃ& Limongi 2004; Nomoto et al. 2013; Mat-
+teucci 2021).
+There are many elements whose origin and formation sites
+are still in debate or unknown. This is due to various reasons like
+absence of measurable lines in commonly observed wavelength
+ranges, unreliable or unmeasured atomic data, weak/strong lines
+that are diﬃcult to model etc. Until a decade ago, phosphorus
+was one such element that remained unexplored in long lived
+stars of spectral type F, G, or K owing to the absence of phospho-
+rus lines in the commonly observed wavelength ranges of these
+stars (Struve 1930; Caﬀau et al. 2011). Phosphorus is specif-
+ically interesting since it is among the key elements for biol-
+ogy on Earth: H, C, N, O, P and S. Assuming a 1:1 correlation
+between elemental abundance in the star and the material out
+of which planets form, phosphorus detection in exoplanet hosts
+Article number, page 1 of 17
+arXiv:2210.04940v1  [astro-ph.SR]  10 Oct 2022
+
+[Page 2]
+A&A proofs: manuscript no. P
+could prove useful in the search for life (Hinkel et al. 2020).
+Thus, it is important to identify and model measurable phos-
+phorus lines for which reliable phosphorus abundance can be
+determined for large stellar samples. It will then be possible to
+investigate the origin and evolution of phosphorus based on the
+comparison of its observed trend versus metallicity and other el-
+ements to those predicted by chemical evolution models.
+One of the ﬁrst attempt to investigate phosphorus trend with
+metallicity was by Caﬀau et al. (2011) with P abundances mea-
+sured from the infrared weak P I lines of the multiplet 1, at
+1050-1082 nm in the CRIRES spectra for 20 cool dwarf stars
+in the Galactic disk. They showed a decreasing trend of [P/Fe]
+with increasing metallicity in the range of -1.0 < [Fe/H] < 0.3
+dex which is diﬀerent from the trend they found for other light
+odd-Z elements, sodium and aluminium. These abundance mea-
+surements were used by Cescutti et al. (2012) to construct and
+compare chemical evolution models with phosphorus and metal-
+licity yields from Woosley & Weaver (1995) and Kobayashi et al.
+(2006) and found that yields from massive stars have to be in-
+creased by a factor of 2.75 to match the observational trend.
+Jacobson et al. (2014) and Roederer et al. (2014) extended the
+lower metallicity range of the [P/Fe] vs [Fe/H] trend down to -3.8
+dex determining an upper limit value for [P/Fe] with a P I doublet
+in the ultraviolet, 2135.465 Å and 2136.182 Å using the Hubble
+Space Telescope–Space Telescope Imaging Spectrograph (STIS;
+Kimble et al. 1998; Woodgate et al. 1998). Using near-infrared
+(NIR) high resolution spectrograph GIANO (Origlia et al. 2014)
+at Telescopio Nazionale Galileo (TNG), and with the same lines
+used in Caﬀau et al. (2011), Caﬀau et al. (2016) and Caﬀau
+et al. (2019) found a consistent phosphorus trend with metal-
+licity using ∼43 stars. Similarly, Maas et al. (2017) and Maas
+et al. (2019) estimated P abundances for FGK dwarfs, giants
+and Hyades open cluster members using the aforementioned P
+I lines based on observations with Phoenix high-resolution spec-
+trometer (Hinkle et al. 1998) on the Kitt Peak National Observa-
+tory Mayall 4 m telescope and the Gemini South telescope. They
+also found consistent [P/Fe] vs [Fe/H] trends with the literature
+and estimated solar values for abundance ratios of phosphorus
+with elements like O, Mg, Si and Ti pointing towards a similar
+formation site for phosphorus as these elements. Using spectra
+observed with the Habitable Zone Planet Finder (HPF) on the
+10 m Hobby–Eberly Telescope (HET) at McDonald Observatory
+(Mahadevan et al. 2012, 2014), Sneden et al. (2021) estimated P
+abundances from the same set of P I lines for 13 ﬁeld red hori-
+zontal branch (RHB) stars. Very recently, Maas et al. (2022) used
+spectra from the same instrument to estimate P abundances for a
+sample of 163 FGK dwarfs and giants and ﬁnd thick disk stars
+to have approximately 0.1 dex higher [P/Fe] than thin disk stars.
+Among the large scale spectroscopic surveys, Apache Point
+Observatory Galactic Evolution Experiment/APOGEE (Majew-
+ski et al. 2017) which observe in the near infrared H-band
+(15,100–17,000 Å, R∼22,500) regime, have identiﬁed two P I
+lines, 15711.1 and 16482.9 Å (Shetrone et al. 2015), but the
+industrial pipeline used by APOGEE to analyse the spectra
+is not optimal for weak and blended lines like these. Hence,
+APOGEE DR12 Holtzman et al. (2015) does not include P
+abundance measurements. However, Hawkins et al. (2016) re-
+analysed APOGEE spectra for APOGEE+Kepler stellar sam-
+ple (APOKASC) of ∼2000 giants with the BACCHUS code
+(Masseron et al. 2016) and estimated P abundances from the
+aforementioned two lines, ﬁnding decreasing [P/Fe] trend with
+increasing metallicity. The recent data releases, APOGEE DR13
+- DR16 (e.g. Jönsson et al. 2018), includes P though it is cau-
+tioned to be one of the most uncertain element in APOGEE. As
+a result, the latest data release of APOGEE (DR17, Holtzman et
+al. in prep.), decided not to include any P abundances. But Hayes
+et al. (2022) has done a re-analysis of APOGEE data with BAC-
+CHUS to measure P, among other diﬃcult-to-measure elements
+in APOGEE.
+A similar type of re-analysis of APOGEE spectra led to the
+discovery of 15 P-rich stars by Masseron et al. (2020a). The ele-
+mental abundance patterns of these stars with enhanced Mg, Si,
+Al, and s-process elements have challenged theoretical models,
+suggesting these over abundances could have formed from a new
+s-process site (Masseron et al. 2020b). The same two P lines in
+higher resolution (R∼45,000) IGRINS spectra have been used
+by Af¸sar et al. (2018b), Böcek Topcu et al. (2019) and Böcek
+Topcu et al. (2020) to estimate [P/Fe] for three ﬁeld red horizon-
+tal branch stars, approximately 10 giant stars in the open clusters
+NGC 6940 and NGC 752 respectively.
+The above mentioned studies indicate a dearth of reliable
+phosphorus abundance estimates, especially for giant stars. Even
+though giants are less interesting in the context of searching for
+habitable planets, they allow us to probe more distant popula-
+tions. Thus there is an evident necessity for more high resolu-
+tion spectroscopic observations as well as systematic analysis to
+increase the sample size of stars with reliable P estimates es-
+pecially for giant stars. Here, we present a consistent, detailed
+and systematic analysis of the phosphorus line at 16482.92 Å
+in the high resolution near infrared H band IGRINS spectra of
+38 K giant stars in the solar neighborhood to determine their
+phosphorus abundances. Our sample of stars are a subset of the
+Giants in the Local Disk (GILD) sample (in the same way as
+Ryde et al. (2020) and Montelius et al. (2022)) and have reli-
+able stellar parameters determined from optical FIES spectra. In
+section 2, we brieﬂy describe the IGRINS observations and data
+reduction carried out to obtain the ﬁnal spectra. The determina-
+tion of phosphorus from spectra using SME is described in the
+section 3, followed by results and discussion in sections 4 and
+5 respectively. Finally, we make the concluding remarks in the
+section 6.
+2. Observations and Data reduction
+In this work, we have carried out near infrared spectroscopic
+observations of 38 K giant stars with Immersion GRating IN-
+frared Spectrograph (IGRINS; Yuk et al. 2010; Wang et al. 2010;
+Gully-Santiago et al. 2012; Moon et al. 2012; Park et al. 2014;
+Jeong et al. 2014) in 2016 on the 4.3-meter Discovery Chan-
+nel Telescope (DCT; now called the Lowell Discovery Tele-
+scope) at Lowell Observatory (Mace et al. 2018), and on the
+2.7-meter Harlan J. Smith Telescope at McDonald Observatory
+(Mace et al. 2016), as well as on Gemini South telescope (Mace
+et al. 2018) in early 2022 as part of the poor-weather programs
+GS-2021B-Q416 and GS-2022A-Q408. IGRINS provides spec-
+tra spanning the full H and K bands (1.45 - 2.5 µm) with a spec-
+tral resolving power of R ∼45000. Details of observations are
+listed in the Table 1.
+We selected the stars from among nearly 500 local disk gi-
+ants from the observing program with Fiber-fed Echelle Spectro-
+graph (FIES; Telting et al. 2014) at the Nordic Optical Telescope
+(NOT) started in Jönsson et al. (2017). The stellar parameters for
+these stars have been determined through a careful optical spec-
+troscopic analysis using the same tools for the spectral analysis
+as presented here (Jönsson et al. in prep). We also use the high
+resolution (R ∼100,000) infrared spectrum of Arcturus from the
+Arcturus atlas (Hinkle et al. 1995).
+Article number, page 2 of 17
+
+[Page 3]
+G. Nandakumar et al.: The Galactic Chemical Evolution of phosphorus observed with IGRINS
+Table 1: Observational details of K giant stars.
+Star
+2MASS ID
+H2MAS S
+K2MAS S
+Civil
+Telescope
+Exposure
+(mag)
+(mag)
+Date
+s
+µleo
+J09524585+2600248
+1.3
+1.2
+2016 Jan. 31
+HJST
+26
+ϵVir
+J13021059+1057329
+0.9
+0.8
+2016 Feb. 2
+HJST
+26
+βGem
+J07451891+2801340
+-1.0
+-1.1
+2016 Jan. 30
+HJST
+23
+HD102328
+J11465561+5537416
+2.9
+2.6
+2016 Feb. 2
+HJST
+32
+HIP50583
+J10195836+1950290
+-0.8
+-0.8
+2016 June 20
+HJST
+29
+HIP63432
+J12595500+6635502
+2.4
+2.1
+2016 May 29
+HJST
+180
+HIP72012
+J14434444+4027333
+2.6
+2.4
+2016 June 16
+HJST
+120
+HIP90344
+J18255915+6533486
+2.2
+2.1
+2016 June 15
+HJST
+120
+HIP96014
+J19311935+5018240
+2.9
+2.5
+2016 June 15
+HJST
+120
+HIP102488
+J20461266+3358128
+0.2
+0.1
+2016 June 19
+HJST
+26
+2M16113361
+J16113361+2436523
+7.9
+7.7
+2016 July 26
+HJST
+180
+2M17215666
+J17215666+4301408
+7.6
+7.5
+2016 July 25
+HJST
+1080
+KIC3748585
+J19272877+3848096
+6.4
+6.3
+2016 Nov. 17
+DCT
+240
+KIC3936921
+J19023934+3905592
+8.3
+8.1
+2016 Nov 23
+DCT
+120
+KIC3955590
+J19272677+3900456
+7.8
+7.7
+2016 Nov. 23
+DCT
+480
+KIC4659706
+J19324055+3946338
+7.6
+7.4
+2016 Nov. 19
+DCT
+480
+KIC5113061
+J19413439+4017482
+8.2
+8.0
+2016 Nov 22
+DCT
+90
+KIC5113910
+J19421943+4016074
+8.2
+8.0
+2016 Nov. 22
+DCT
+720
+KIC5709564
+J19321853+4058217
+7.6
+7.5
+2016 Nov. 23
+DCT
+480
+KIC5779724
+J19123427+4105257
+8.0
+7.8
+2016 Dec. 09
+DCT
+600
+KIC5859492
+J19021718+4107236
+7.9
+7.8
+2016 Nov. 23
+DCT
+480
+KIC5900096
+J19515137+4106378
+6.0
+5.8
+2016 Nov. 22
+DCT
+120
+KIC6465075
+J19512404+4149284
+8.0
+7.9
+2016 Nov. 23
+DCT
+480
+KIC6837256
+J18464309+4223144
+8.8
+8.7
+2016 Nov. 23
+DCT
+720
+KIC7006979
+J18433894+4235295
+7.5
+7.6
+2016 Nov 18
+DCT
+90
+KIC10186608
+J18444919+4717434
+8.9
+8.8
+2016 Nov. 17
+DCT
+960
+KIC11045542
+J19530590+4833180
+8.4
+8.2
+2016 Dec. 11
+DCT
+2000
+KIC11342694
+J19110062+4906529
+7.6
+7.4
+2016 Nov. 17
+DCT
+480
+KIC11444313
+J19014380+4923062
+9.1
+9.0
+2016 Nov. 23
+DCT
+720
+KIC11569659
+J19464387+4934210
+9.4
+9.3
+2016 Dec. 9
+DCT
+2400
+ksiHya
+J11330013-3151273
+1.5
+1.4
+2016 June 30
+HJST
+8
+HD175541
+J18554089+0415551
+5.9
+5.8
+2022 May 09
+Gemini South
+80
+HD176981
+J19022156+0822248
+2.6
+2.5
+2022 May 24
+Gemini South
+8
+HD206610
+J21432490-0724296
+6.1
+5.9
+2022 May 24
+Gemini South
+80
+HD76445
+J08564599+1728530
+5.4
+5.3
+2022 Jan. 24
+Gemini South
+20
+NGC6705 1184
+J18513901-0613070
+10.6
+10.4
+2022 May 09
+Gemini South
+160
+NGC6705 1423
+J18505581-0618147
+7.9
+7.7
+2022 May 24
+Gemini South
+200
+Notes.
+DCT: the Discovery Channel Telescope, a 4.3 m telescope at Lowell Observatory, Arizona.
+HJST: the Harlan J Smith Telescope, a 2.7 m telescope at McDonald Observatory, Texas.
+Gemini South : 8.1-meter Gemini South telescope.
+The IGRINS observations were carried out in an ABBA nod
+sequence along the slit permitting sky background subtraction.
+With the aim of achieving signal-to-noise ratios (SNR) of at least
+100, exposure times were set to ∼10 to 2500 seconds. Telluric
+standard stars were chosen to be rapidly rotating, late B to early
+A dwarfs and observed close in time and at a similar air mass
+as the science targets. We used the IGRINS PipeLine Package
+(IGRINS PLP; Lee et al. 2017) to optimally extract the telluric
+corrected, wavelength calibrated spectra after ﬂat-ﬁeld correc-
+tion and A-B frame subtraction. The spectral orders of the sci-
+ence targets and the telluric standards are subsequently stitched
+together after normalizing every order and then combining them
+in iraf (Tody 1993), excluding the low signal-to-noise edges of
+every order. This resulted in one normalized stitched spectrum
+for the entire H band. However, to take care of any modulations
+in the continuum levels of the spectra we put large attention in
+deﬁning speciﬁc local continua around the spectral line being
+studied. This turns out to be an important measure for accu-
+rate determinations of abundances, see for example Santos-Peral
+et al. (2020).
+The standard procedure for eliminating the contaminating
+telluric lines is to divide with a telluric standard-star spectrum,
+showing only telluric lines and mostly no stellar features. This
+works very well for most wavelength regions. Apart from some
+broad Brackett lines of hydrogen, some spurious broadband
+spectral features might, however, turn up in the telluric standard-
+star spectrum. For many of our observed stars, the correspond-
+ing telluric standard-star spectra indeed show broadband (rang-
+ing over more than 5 Å, i.e. over several resolution elements)
+and non-ﬂat features aﬀecting the normalized science spectra
+just in the wavelength region of the P line. There are no such
+features expected in the telluric spectrum in this wavelength re-
+Article number, page 3 of 17
+
+[Page 4]
+A&A proofs: manuscript no. P
+Fig. 1: The Molecﬁt corrected spectrum (red dots) and the stan-
+dard star corrected spectrum (blue dots) around the P I line at
+16482.92 Å for two stars in our sample. The normalised telluric
+spectra from the standard star observation and from using the
+Molecﬁt software tool are shown in blue dashed line and red
+dashed line, respectively. Since the telluric standard star spectra
+show unexpected spurious features at the wavelengths of the P
+line, we eliminate the telluric lines with Molecﬁt. Using the stan-
+dard star spectra with the spurious emission feature would lead
+to an artiﬁcial increase in the strength of the P I line.
+gion, where only CH4 absorption lines are expected. These ob-
+served spurious problems with the telluric standard-star spectra
+therefore make a proper continuum normalisation of the science
+spectra impossible. In order to rectify this problem we, there-
+fore, carried out telluric correction using the Molecﬁt software
+tool (Smette et al. 2015; Kausch et al. 2015) for the spectra sur-
+rounding the P line. This tool models and ﬁts the telluric lines
+in the observed science spectrum for various telluric molecules
+(H2O, CO2, CH4, O2 etc.). Molecﬁt requires the temperature,
+pressure, and humidity during the time of the target observa-
+tion as inputs in order to model the Earth’s atmosphere using
+a state-of-the-art radiative transfer code. The Molecﬁt GUI tool
+also provides the option to choose the wavelength regions to be
+included (strong telluric lines) and thus deﬁne masks which are
+then used to identify the lines to be ﬁtted. Finally, the model pa-
+rameters obtained by ﬁtting the chosen lines (masks) are used
+to model the telluric spectrum in the full wavelength range with
+which the science spectrum is corrected. Figure 1 shows the dif-
+ference between the molecﬁt corrected spectrum (red dots) and
+the standard star corrected spectra (blue dots) for two stars in our
+sample. The telluric spectra from the standard star observations
+(blue dashed lines) with problematic continuum normalisation
+result in artiﬁcially stronger lines, especially for our line of inter-
+est at 16481.92 Å. Meanwhile, the telluric spectra from Molecﬁt
+(red dashed lines) show a reliable continuum normalization and
+thus provide telluric corrected science spectra from which the
+phosphorus abundance can be determined.
+In all our spectral plots we also show the corresponding tel-
+luric spectra from Molecﬁt (in yellow) which is used to eliminate
+the telluric lines. We do this in order to show how good the elim-
+ination procedure actually works. Furthermore, it also shows
+where the telluric lines originally lay and where the signal-to-
+noise, therefore, is expected to be lower, as well as where spec-
+tral residuals might sometimes be identiﬁed, especially from the
+strongest telluric features.
+Finally, for the wavelength solutions, sky OH emission lines
+are used (Han et al. 2012; Oh et al. 2014) and the spectra are sub-
+sequently shifted to laboratory wavelengths in air after a stellar
+radial velocity correction. In addition, we make sure to carefully
+eliminate obvious cosmic-ray signatures in the spectra.
+3. Analysis
+3.1. Phosphorus lines in IGRINS
+There are two phosphorus lines in the H band spectra that
+have been used in the literature: the lines at 15711.52 Å and
+16482.92 Å. Upon initial checks, the line at 15711.52 Å in our
+spectra is found to be severely aﬀected by telluric lines mak-
+ing P abundance determination with this line impossible. Hence
+we only use the line at 16482.92 Å in our analysis. For this
+line, there is a theoretically determined log(gf)=-0.27 (Biemont
+et al. 1994), but when using this value, the line is synthesized
+too strong when comparing to a solar spectrum. For this reason,
+Af¸sar et al. (2018a) determined astrophysical log(gf) value of
+-0.56 for this line by applying reverse solar analysis using the
+high resolution infrared solar ﬂux spectrum of Wallace & Liv-
+ingston (2003) and a solar P abundance value of 5.41 from As-
+plund et al. (2009). Similarly we determined an astrophysical
+log(gf) value of -0.51 based on reverse solar analysis with the
+same solar ﬂux spectrum. The diﬀerence of 0.05 with respect
+to the value from Af¸sar et al. (2018a) is due to the lower solar P
+abundance value of 5.36 we adopted from Grevesse et al. (2007).
+Due to the odd number of protons in the phosphorus nucleus,
+the spectral lines are likely to be aﬀected by hyperﬁne struc-
+ture splitting (see e.g. Pendlebury & Smith (1964)). The line
+we measure our abundances from does not have information on
+the strength of the hyperﬁne structure splitting, but as the line is
+weak we do not expect it to impact our results signiﬁcantly.
+We also determined astrophysical log(gf) values based on
+reverse solar analysis for the spectral lines of light odd-Z (Na,
+Al, and K) and even-Z elements (Mg, Si, and S) used in this work
+(see Section 5.2 and Table A.2 below). For the molecular lines,
+we used the line data for CO from Li et al. (2015), for CN from
+Sneden et al. (2014) and for OH from from Brooke et al. (2016).
+In the section below, we explain in detail the determination of P
+abundance from this line.
+3.2. Determination of P abundance
+We determine P abundance from the observed spectra using the
+Spectroscopy Made Easy code (SME; Valenti & Piskunov 1996,
+2012) that generates synthetic spectra for a set of stellar param-
+eters by calculating the radiative transfer and interpolating in a
+grid of hydrostatic one-dimensional (1D) MARCS stellar atmo-
+sphere models (Gustafsson et al. 2008) in spherical geometry
+assuming LTE, chemical equilibrium, homogeneity, and conser-
+vation of the total ﬂux. SME generates and ﬁts multiple synthetic
+spectra for the chosen line of interest by varying its elemental
+abundance (set as a free parameter). The ﬁnal abundance of the
+line is chosen to be the one that corresponds to the synthetic
+spectrum that best matches the observed spectrum by means of
+χ2 minimisation method.
+As mentioned in the Section 2, the stars analysed in this
+work are a subset of the GILD stellar catalogue (Jönsson et
+al. in prep., which builds upon and improves the analysis de-
+scribed in Jönsson et al. (2017)). These stars were also used in,
+e.g., Jönsson et al. (2017); Forsberg et al. (2019); Ryde et al.
+(2020); Montelius et al. (2022), and Forsberg et al., in press).
+Article number, page 4 of 17
+
+[Page 5]
+G. Nandakumar et al.: The Galactic Chemical Evolution of phosphorus observed with IGRINS
+Fig. 2: Fits (red line) to the observed spectra (black points) for 4 stars chosen to represent typical spectrum at metallicities of -0.87
+dex (HIP63432), -0.54 dex (HIP50583), 0.01 dex (KIC3936921) and 0.28 dex (HD102328). Each row represent one star with stars
+arranged in the order of increasing metallcity from top to bottom. The segment of the corresponding spectrum with the P line at
+16482.92 Å is shown in the middle panel in each row. In the left and right panels, spectra of the neighbouring CO(ν = 7−4) lines are
+plotted. In each panel, the green line shows the synthetic spectrum without P or only showing the CO(ν = 7 −4) blend. The telluric
+spectrum used in the reduction is shown in yellow in order to indicate the pixels aﬀected by telluric correction. The red band in the
+middle panel for the P line shows the variation of synthetic spectrum with ∆[P/Fe] = ±0.3 dex variation. The eﬀective temperature,
+Teﬀ, of each star is listed in the middle panels.
+The fundamental stellar parameters, namely eﬀective tempera-
+ture (Teﬀ), surface gravity (log g), metallicity ([Fe/H]), and mi-
+croturbulence (ξmicro) are estimated from ﬁtting synthetic spectra
+for unsaturated and unblended Fe I and Fe II lines, Ca I lines,
+and log g sensitive Ca I line wings, while Teﬀ, log g , [Fe/H] ,
+ξmicro, and [Ca/Fe] are set as free parameters in SME. They
+have been benchmarked against independently determined eﬀec-
+tive temperatures, Teﬀ, from angular diameter measurements and
+surface gravities, log g, from asteroseismological measurements
+(see Jönsson et al. 2017, for more details). With uncertainties of
+±50K for Teﬀ, ±0.15 dex for log g, ±0.05 dex for [Fe/H], and
+±0.1 km/s for ξmicro, we have precise stellar parameters.
+The phosphorus abundance we determine from the line at
+16482.92 Å is blended with a CO(ν = 7 −4) line. Hence it is
+necessary to model the CO line as well as possible to determine
+accurate P abundance. Fortunately, vibrational-rotational lines
+from the CO(ν = 7 −4) band occur close to each other at regular
+spacing lying at wavelengths less than 10 Å apart. We can there-
+fore verify that the blending CO line has been reliably modeled
+by inspecting the neighbouring CO(ν = 7−4) lines, which we do
+in the same manner as in Montelius et al. (2022). We determine
+C, N, O abundances using the 25 OH (ν = 2−0, 3−1, 4−2, 5−3),
+20 CN (ν = 0 −1, 1 −2), 10 CO lines as well as two CO band
+heads (ν = 6 −3, 8 −5) in our IGRINS H band spectra using
+SME. We ﬁnd the neighbouring CO(ν = 7 −4) lines to ﬁt well
+Article number, page 5 of 17
+
+[Page 6]
+A&A proofs: manuscript no. P
+Table 2: Stellar parameters, stellar population from Jönsson et al. in prep. and vmacro], [P/Fe], σ[P/Fe] and signal-to-noise ratio
+(SNR) determined in this work.
+Star
+Population
+Teﬀ
+log g
+[Fe/H]
+vmicro
+vmacro
+[P/Fe]
+σ[P/Fe]
+SNR
+K
+log(cm/s2)
+dex
+Km/s
+Km/s
+dex
+dex
+per pixel
+αBoo∗
+thick
+4308
+1.7
+-0.55
+1.8
+4.9
+0.44
+0.12
+297
+µLeo
+thin
+4494
+2.5
+0.27
+1.5
+6.7
+0.29
+0.08
+169
+ϵVir
+thin
+5112
+3.0
+0.11
+1.6
+7.7
+-0.04
+0.06
+300
+betaGem
+thin
+4809
+2.8
+-0.02
+1.4
+6.9
+0.06
+0.07
+336
+HD102328
+thin
+4442
+2.5
+0.28
+1.5
+7.1
+0.12
+0.08
+250
+HIP50583
+thin
+4292
+1.6
+-0.54
+1.6
+5.6
+0.44
+0.06
+86
+HIP63432
+thick
+4155
+1.3
+-0.87
+1.9
+7.5
+0.4
+0.07
+275
+HIP72012
+thin
+4077
+1.4
+-0.28
+1.5
+6.3
+0.28
+0.08
+285
+HIP90344
+thin
+4454
+2.2
+-0.39
+1.4
+7.0
+0.1
+0.06
+282
+HIP96014
+thin
+4240
+1.6
+-0.43
+1.7
+7.8
+0.36
+0.08
+414
+HIP102488
+thin
+4742
+2.5
+-0.21
+1.6
+6.0
+0.16
+0.1
+343
+2M16113361
+halo,s-rich
+4042
+1.2
+-1.06
+1.9
+6.4
+0.93
+0.09
+160
+2M17215666
+halo,s-rich
+4342
+1.6
+-1.11
+1.6
+6.7
+1.2
+0.06
+165
+KIC3748585
+thin
+4569
+2.6
+0.03
+1.3
+5.6
+-0.09
+0.07
+205
+KIC3936921
+thick
+4488
+2.2
+0.01
+1.6
+5.4
+-0.04
+0.05
+130
+KIC3955590
+thin
+4411
+2.2
+0.03
+1.6
+5.7
+0.09
+0.1
+140
+KIC4659706
+thick
+4428
+2.5
+0.24
+1.4
+5.4
+0.09
+0.06
+86
+KIC5113061
+thin
+4100
+1.6
+-0.09
+1.8
+5.5
+0.16
+0.06
+164
+KIC5113910
+thin
+4338
+1.7
+-0.48
+1.6
+6.2
+0.37
+0.08
+182
+KIC5709564
+thick
+4687
+2.2
+-0.35
+1.7
+7.0
+0.22
+0.07
+137
+KIC5779724
+thick
+4303
+1.6
+-0.45
+1.6
+5.7
+0.54
+0.09
+215
+KIC5859492
+thin
+4511
+2.4
+0.09
+1.5
+5.5
+0.24
+0.06
+180
+KIC5900096
+thin
+4480
+2.5
+0.23
+1.5
+5.6
+-0.1
+0.08
+179
+KIC6465075
+thin
+4825
+2.8
+-0.37
+1.3
+5.5
+0.13
+0.09
+146
+KIC6837256
+thick
+4731
+2.3
+-0.73
+1.5
+5.6
+0.39
+0.06
+148
+KIC7006979
+thin
+4869
+2.6
+-0.34
+1.6
+5.3
+0.46
+0.06
+104
+KIC10186608
+thin
+4676
+2.5
+-0.12
+1.5
+5.8
+0.14
+0.06
+91
+KIC11045542
+thin
+4304
+1.6
+-0.65
+1.5
+5.9
+0.17
+0.06
+294
+KIC11342694
+thin
+4509
+2.8
+0.14
+1.3
+5.3
+-0.07
+0.07
+139
+KIC11444313
+thin
+4630
+2.3
+-0.18
+1.5
+5.3
+0.29
+0.09
+160
+KIC11569659
+thin
+4838
+2.4
+-0.43
+1.6
+5.8
+0.16
+0.03
+246
+ξHya
+thin
+5045
+2.8
+0.31
+0.5
+8.1
+-0.1
+0.06
+176
+HD175541
+thin
+5067
+3.5
+-0.15
+1.2
+3.7
+-0.07
+0.02
+115
+HD176981
+thin
+4095
+1.6
+-0.22
+1.8
+5.7
+0.24
+0.09
+95
+HD206610
+thick
+4849
+3.3
+0.04
+1.2
+3.2
+0.08
+0.1
+152
+HD76445
+thick
+4836
+3.1
+-0.22
+1.4
+3.6
+0.17
+0.08
+111
+NGC67051184
+thin
+4282
+1.6
+-0.05
+1.7
+6.2
+0.15
+0.07
+32
+NGC67051423
+thin
+4377
+1.8
+0.03
+1.9
+7.4
+0.19
+0.09
+38
+Notes.
+*: Infrared atlas spectrum of Arcturus (Hinkle et al. 1995)
+which ensures that the CO(ν = 7−4) blend in the P feature can be
+properly taken into account. Table 2 lists the fundamental stellar
+parameters from optical spectra along with the C, N, O and P
+abundances estimated from our IGRINS spectra for the stars in
+our sample. We adopt the solar abundance values for phosphorus
+(A(P)⊙= 5.36) (and other elements in this study) from Grevesse
+et al. (2007) in the determination of the [P/Fe] values.
+In Figure 2 we show the ﬁts (red line) to the observed spec-
+tra (black points) for 4 stars chosen to represent typical spectra
+at metallicities of -0.87 dex (HIP63432), -0.45 dex (HIP50583),
+0.01 dex (KIC3936921) and 0.28 dex (HD102328). Each row
+in Figure 2 represent one star with the lowest metallicity star in
+the top row and highest metallicity star in the bottom row. We
+show the segment of the corresponding spectrum with the P line
+at 16482.92 Å in the middle panel for each star (row). Synthetic
+and observed spectra of the neighbouring CO(ν = 7 −4) lines
+are plotted in the left and right panels to indicate the quality of
+the ﬁt to the CO(ν = 7 −4) line species which in turn show-
+case the reliability of the P abundance we estimate from the
+CO(ν = 7−4) blended P line. In addition, we show the sensitivity
+of the line to P abundance value with the red band that shows the
+variation of synthetic spectrum with ∆[P/Fe] = ±0.3 dex varia-
+tion. This in turn gives a qualitative idea of the uncertainty on the
+P I feature from the synthetic spectra ﬁt. In each panel, we plot
+the synthetic spectrum with no P I feature in green, i.e., showing
+only the CO(ν = 7 −4) line which shows the contribution of P
+and CO features to the line. We also plot the telluric spectra (in
+orange) used for telluric correction to highlight the noise intro-
+duced during telluric correction and how our line of interest is
+seldomly aﬀected by the same. Thus, Figure 2 shows the quality
+of our synthetic spectra ﬁts and the reliability of the P abundance
+estimates listed in the Table 2.
+Article number, page 6 of 17
+
+[Page 7]
+G. Nandakumar et al.: The Galactic Chemical Evolution of phosphorus observed with IGRINS
+Fig. 3: [P/Fe] vs [Teﬀ] for stars in our sample. Diﬀerent symbols
+represent stellar populations to which each star belongs.
+To investigate possible systematic eﬀects such as any poten-
+tial NLTE eﬀects, we plot [P/Fe] as a function of Teﬀin Fig-
+ure 3. We use diﬀerent symbols to indicate the stellar population
+of each star, i.e., thin-disk, thick-disk or halo, assigned based
+on their separation in the [Mg/Fe] vs [Fe/H] plane (see Jönsson
+et al. 2017; Lomaeva et al. 2019; Forsberg et al. 2019, for more
+details). Excluding the two halo which are s-rich and the three
+Teﬀ> 5000 K stars, there is no signiﬁcant [P/Fe] trend with Teﬀ.
+While s-rich stars have enhanced phosphorus abundances, the
+three 5000 K stars are metal rich and hence are expected to have
+lower phosphorus abundances. From the absence of any signif-
+icant trend, we also conclude that the assumption that there are
+no signiﬁcant non-LTE eﬀects might be justiﬁed.
+3.3. Uncertainty estimates
+We determine the uncertainties in our [P/Fe] estimates that arise
+from the uncertainties in stellar parameters. As mentioned in the
+previous section, typical uncertainties in stellar parameters for
+our stars are estimated to be ±50K for Teﬀ, ±0.15 dex for log g,
+±0.05 dex for [Fe/H], and ±0.1 km/s for ξmicro. Using the stellar
+parameter value as the mean and these typical uncertainties as
+the standard deviation, we randomly generate sets of stellar pa-
+rameters following a normal distribution and reanalyse the each
+star spectrum using those parameters. We generate 50 sets of pa-
+rameters for each star. Since the CO(ν = 7 −4) lines are blended
+in the P feature, we redetermine the C,N,O abundances for each
+set of stellar parameters in order for the blending line to ﬁt. The
+resulting distribution of estimated [P/Fe] values is ﬁtted with a
+Gaussian function. The dispersion estimated from the resulting
+ﬁt gives the uncertainty in [P/Fe], listed in the Table 2. In the
+same manner we also determine the uncertainties in C, N, O
+abundances, listed in Table A.1
+We note that the suﬃciently high SNR for our stars ensure that
+the observational noise plays a minimal role in the uncertainty
+while ﬁtting the synthetic spectra. In addition, we do not ﬁnd a
+strong correlation between SNR and [P/Fe] uncertainty for stars
+with similar parameters, so other factors, like carbon abundance,
+could play a more important role in the uncertainty.
+4. Results
+4.1. [P/Fe] vs [Fe/H]
+The metallicity of a star, [Fe/H], is considered to be an ideal pa-
+rameter to compare with and investigate the galactic chemical
+evolution of phosphorus of various stellar populations. In this
+section, we investigate the evolution of [P/Fe] as a function of
+[Fe/H] and compare the resulting trend with those from the liter-
+ature as well as theoretical chemical evolution models.
+In Figure 4, we plot the [P/Fe] vs [Fe/H] trend for our K gi-
+ants (in red) in the metallicity range of -1.1 ≤[Fe/H] ≤0.3 dex.
+There is a clear downward trend in [P/Fe] with increasing [Fe/H]
+that is slightly higher than the track of the chemical evolution
+model for P from Cescutti et al. (2012). They adopted the two-
+infall model of galactic chemical evolution and the P massive
+stellar yields from Kobayashi et al. (2006) that has been arbi-
+trarily enhanced by a factor of 2.75 to match the observed trend
+in Caﬀau et al. (2011). Also this trend is similar to the trends
+seen for α elements (Si, Mg, O etc) that are produced primar-
+ily through core collapse supernovae of massive stars with short
+lifetimes (order of MYr).
+We estimate a [P/Fe] of 0.44 ± 0.12 dex for Arcturus from
+the high resolution infrared atlas spectrum of Arcturus (Hinkle
+et al. 1995). We note that from the same atlas but using the Y
+band line of P I at 10581.5Å, Maas et al. (2017) estimated a
+[P/Fe] of 0.27 ± 0.1 dex (rescaled to the solar P and Fe used in
+our study). Furthermore, Fanelli et al. (2021) estimated [P/Fe]
+of 0.29 ± 0.06 dex (also rescaled) with a GIANO-B spectrum
+of Arcturus using P I lines at 10529.52 Å and 10581.58 Å. Our
+value is slightly higher than these, although the values overlap
+within uncertainties.
+The [P/Fe] vs [Fe/H] trends for various samples from the
+literature rescaled based on the solar abundances of P and Fe
+used in this work are also plotted in the Figure 4. We could ﬁnd
+only a handful of studies that analyse only giants, Af¸sar et al.
+(2018b), Böcek Topcu et al. (2019), Böcek Topcu et al. (2020)
+and Sneden et al. (2021), the trends of which are shown in diﬀer-
+ent color (black) compared to other works. Af¸sar et al. (2018b)
+analysed the IGRINS H- and K-band spectra of three ﬁeld red
+horizontal branch stars with sub solar metallicity and used two P
+lines, 15711.5 Å and 16482.9 Å to estimate P abundance. Böcek
+Topcu et al. (2019) and Böcek Topcu et al. (2020) carried out a
+similar analysis of K giant stars in the open clusters NGC 6940
+and NGC 752 respectively using IGRINS spectra. Sneden et al.
+(2021) analysed high resolution Habitable Zone Planet Finder
+(HPF) spectra of 13 ﬁeld red horizontal branch (RHB) stars and
+one open cluster giant to estimate P abundances using three lines
+in the 0.81-1.28 µm wavelength range. Metallicities for these
+stars are solar and lower, and the [P/Fe] estimates are consistent
+with our values.
+While the APOGEE wavelength coverage include the P lines
+used in this work and in Af¸sar et al. (2018b), the measurements
+of which are provided in data releases DR13 - DR16, due to
+the reasons elaborated in the Section 1, we do not include P
+abundances derived from the APOGEE spectra in the compar-
+ison sample.
+Very recently, Maas et al. (2022) determined the P abun-
+dances for 163 stars from the P I line at 10529.52 Å based on ob-
+servations with the HPF instrument on the Hobby-Eberly Tele-
+scope (HET). They ﬁnd consistent abundances for both red gi-
+ants and FGK dwarf stars, and ∼0.1 dex diﬀerence in [P/Fe]
+between thin and thick disk stars that were identiﬁed with kine-
+matics. They also ﬁnd [P/Fe] to be under-predicted by the Ces-
+Article number, page 7 of 17
+
+[Page 8]
+A&A proofs: manuscript no. P
+Fig. 4: [P/Fe] vs [Fe/H] for stars in our sample (shown in red) with their respective stellar population represented by diﬀerent
+symbols (thin disk - circle, thick disk - inverted triangle and halo, s-rich - diamond). Arcturus, for which P is determined from
+higher resolution atlas spectrum (Hinkle et al. 1995) is indicated by the black star symbol. P abundance determinations (all scaled
+to the solar abundance used in this work: A(P)⊙= 5.36 and A(Fe)⊙= 7.45) from multiple literature sources are also plotted in gray
+(giants in black) and represented by diﬀerent symbols. In dashed line we show the chemical evolution trend in Cescutti et al. (2012)
+resulting from core collapse supernova (type II) of massive stars with the P yields from Kobayashi et al. (2006) arbitrarily increased
+by a factor of 2.75
+cutti et al. (2012) model at lower metallicities ([Fe/H] < -0.5
+dex), i.e., they ﬁnd higher [P/Fe] for these stars. In the Figure 6,
+we plot the running mean of the [P/Fe] as a function of [Fe/H]
+trends for the 163 stars from Maas et al. (2022) (red line) and
+our measurements (blue line) excluding the 2 s-rich stars (see
+Section 4.2 below). The standard deviation within the 8 star bins
+for our sample and 15 star bins for the Maas et al. (2022) sam-
+ple are represented by the blue and red bands respectively. As
+mentioned above, the Maas et al. (2022) trend closely follows
+the Cescutti et al. (2012) model except at lower metallicities and
+also at super solar metallicities. Our trend is consistently higher
+by ∼0.05 - 0.1 dex compared to both Maas et al. (2022) and
+the chemical evolution model trend. Both observational trends
+level oﬀat super solar metallicities as opposed to the chemical
+evolution trend that decreases to sub solar [P/Fe] values at these
+metallicities.
+When comparing with all samples from the literature, our
+trend goes in unison with the trends from previous studies in the
+whole metallicity range within our estimated uncertainties. The
+[P/Fe] trend is found to be levelling oﬀfor [Fe/H] > 0 in the
+comparison samples which is also seen for the limited number
+of metal rich stars in our sample. In chemical evolution models,
+for [P/Fe] to be constant and high at [Fe/H] > 0, an additional
+production or adjustments to the metallicity dependence of su-
+pernovae yields may be needed. Thus, we need to analyse more
+metal rich stars to conﬁrm and understand possible mechanisms
+that lead to this trend.
+4.2. s-rich stars
+We ﬁnd a distinct enhancement of ∼0.6 - 0.9 dex for the 2 s-
+rich stars in our sample when compared with the Cescutti et al.
+(2012) model of P ﬁtted to the Caﬀau et al. (2011) P trend of
+solar neighborhood stars. They have been identiﬁed to be rich
+in s-process elements (e.g. Ba, Ce) while normal in r-process
+and lighter elements from the analysis of their optical spectra
+(Forsberg et al. 2019). In Figure 5, we show the ﬁts (red line) to
+the observed spectra (black points) for these 2 stars. Similar to
+Figure 2, ﬁts to the neighboring CO(ν = 7−4) lines are shown in
+the left and right panels, and the red bands indicate the sensitivity
+of the P line to [P/Fe]. The ﬁts along with the sensitivity band is
+Article number, page 8 of 17
+
+[Page 9]
+G. Nandakumar et al.: The Galactic Chemical Evolution of phosphorus observed with IGRINS
+Fig. 5: Same as Figure 2 except for the two s-rich stars in our sample.
+Fig. 6: Running mean of [P/Fe] for the stars in our sample (blue
+line) and Maas et al. (2022) sample (red line) as a function of
+[Fe/H]. Standard deviation is represented by the blue and red
+bands for our sample and Maas et al. (2022) sample respectively.
+In dashed line we show the chemical evolution trend in Cescutti
+et al. (2012).
+a clear indicator that the enhancement in P abundance for these
+stars is real, and not due to noise or telluric residuals.
+Masseron et al. (2020a) identiﬁed 15 P-rich stars from
+APOGEE after re analysing their spectra using the BACCHUS
+code, ﬁnding [P/Fe] in the range of 1.2 to 2.2 dex. They also ﬁnd
+enhanced O, Mg, Si, Al and Ce as compared to the P-normal
+stars. Based on further detailed analysis of the high-resolution
+optical spectra of two previously conﬁrmed phosphorus-rich
+stars in Masseron et al. (2020a), Masseron et al. (2020b) were
+able to ﬁnd heavy-element over abundances with high ﬁrst-peak
+(Sr, Y, and Zr) and second-peak (Ba, La, Ce, and Nd) element
+enhancements. While our P-rich stars are enhanced in Ce, we
+do not ﬁnd enhancement in any other elements they report. In
+addition, [P/Fe] for these 2 P-rich stars are 0.93 and 1.2 dex,
+just below the minimum value of the [P/Fe] (1.2 dex) in the P-
+rich sample of Masseron et al. (2020a). Hence, these P-rich stars
+might be of a diﬀerent class and origin and we believe that this
+warrants further detailed analysis of these stars.
+5. Discussion
+5.1. Nucleosynthesis of P
+From chemical evolution models and multi-dimensional (2D and
+3D) hydro dynamical simulations of supernova explosions (Type
+I and II), the following formation channels for phosphorus have
+been suggested :
+– The stable isotope of phosphorus, 31P, is considered to be
+mainly synthesized from neutron capture on neutron-rich
+Si isotopes,29Si and 30Si, all produced in the in hydrostatic
+carbon and neon burning during the late stages of the
+evolution of massive stars (10-300 M⊙) (Clayton 2003;
+Arnett 1996; Masseron et al. 2020a). It is then released by
+the explosion of these massive stars as type II supernovae
+with insigniﬁcant P production predicted during the explo-
+sive phases by Woosley & Weaver (1995). Clayton (2003)
+concludes that 95% of P is formed in core-collapse SN Type
+II.
+– 31P is produced, though in negligible amounts, in low mass
+(1-3 M⊙) Asymptotic Giant Branch (AGB) stars by neutron
+capture on 30Si (Karakas 2010). This is predicted to be ac-
+companied by large enhancements of C and s-process ele-
+ments by the stellar nucleosynthesis models.
+In addition, Caﬀau et al. (2011) suggest phosphorus formation
+through proton captures on 30Si and α captures on 27Al. Also,
+Weinberg et al. (2019) ﬁnd a possible SNIa contribution for
+phosphorus in the APGOEE DR14 data, which is contrary to
+what chemical evolution models ﬁnd (Cescutti et al. 2012) with
+SNIa yields from (Iwamoto et al. 1999). However, Weinberg
+et al. (2019) do warn about large statistical errors for P measure-
+ments in DR14, and, as already mentioned, APOGEE decided
+Article number, page 9 of 17
+
+[Page 10]
+A&A proofs: manuscript no. P
+Fig. 7: The running mean of the abundance ratios of P to odd-Z (Na, Al, K in in left panels) and even-Z (Mg,Si,S in right panels)
+as a function of [Fe/H]. The running mean and standard deviation are shown with the blue line and blue band respectively. The
+mean value, <[P/X]>, (excluding the two s-rich stars) is denoted in the right bottom part of each panel. Horizontal dash-dotted lines
+represent [P/X] values of ± 0.15 dex.
+not to include P abundances at all in the ﬁnal DR17 (Holtzman
+et al. in prep.).
+For the neutron-capture production channel for light odd-Z
+elements, like P, the production is sensitive to the neutron excess
+(Burbidge et al. 1957), which tends to decrease with decreas-
+ing metallicity (Kobayashi et al. 2006; Caﬀau et al. 2011) for
+metallicities lower than approximately [Fe/H]< −1. Our sample
+of stars do, unfortunately, not cover this metallicity range.
+In the sections below we attempt to decipher the nucleosyn-
+thetic origin of P based on the P abundance estimates from our
+sample. For this, we compare P with odd- and even-Z elements
+as well as investigate the primary/secondary behaviour of P by
+comparing A(P) with A(Mg).
+5.2. Comparison with odd- and even-Z elements
+For the comparison, we choose the odd-Z elements: Na, Al, K
+and the even-Z elements: Mg, Si, S, and determine their abun-
+dances from the IGRINS spectra with the lines listed in the Ta-
+ble A.2. We carry out line-by-line analysis using SME (see Sec-
+tion 3.2) and choose the mean abundance for each species by a
+careful visual selection of the best ﬁtting lines. The mean abun-
+dance thus determined and the standard deviation of abundances
+from all chosen lines are listed in the Table A.3. We plot the
+running mean of the abundance ratios of P and these elemen-
+tal abundances, [P/X], as a function of [Fe/H] in Figure 7, with
+odd-Z elements and even-Z elements in the left and right panels,
+respectively. In each panel, the running mean and standard devi-
+ation are shown with the blue line and blue band respectively.
+We expect [P/X] ratios to be close to zero and not show any
+signiﬁcant trends as a function of [Fe/H] if the evolution of P is
+similar to the element X with which it is compared. For all ele-
+Article number, page 10 of 17
+
+[Page 11]
+G. Nandakumar et al.: The Galactic Chemical Evolution of phosphorus observed with IGRINS
+Fig. 8: Abundance of phosphorus, A(P), versus abundance of
+magnesium, A(Mg) for stars in our sample. Excluding the 2 s-
+rich stars from the sample, we estimate a slope of 0.8±0.1 using
+linear regression, with the 95% conﬁdence interval marked in
+blue. This points to a primary behaviour of phosphorus similar
+to magnesium. We adopt solar abundance values of 5.36 and 7.53
+for phosphorus and magnesium respectively from Grevesse et al.
+(2007).
+Fig. 9: The fractional contribution of equivalent widths of P I
+line in the CO(ν = 7 −4) blended line versus Teﬀfor a set of
+marcs (Gustafsson et al. 2008) stellar models in the grid of 3900
+≤Teﬀ≤5000 K, 1.0 ≤log g≤3.0 and [Fe/H]of -1,-0.5, 0.0 and
+0.5 dex, all with solar scaled phosphorus abundances. Diﬀerent
+combinations of [Fe/H] and change in log g represented by dif-
+ferent colored lines and bands respectively with lower log g at
+each [Fe/H] resulting in lower equivalent widths for P I line.
+ments, the most metal poor bin exhibit higher diﬀerence values
+as the two s-enhanced stars with high P values are a major part of
+the stars in this bin. In the case of Mg, Al, Si, and S we ﬁnd [P/X]
+∼0 with the running mean values lying within [P/X] = ±0.15
+(horizontal dash-dot lines). The trend for [P/K] is close to 0 for
+[Fe/H] > -0.25 dex and increase for [Fe/H] < -0.25 dex. Thus
+[K/Fe] is not as enhanced as P in the metal poor regime. For the
+remaining odd-Z element, Na, the [P/X] ratio has a decreasing
+trend with increasing metallicity. This is because [Na/Fe] has a
+near constant value of zero at subsolar metallicities which starts
+increasing for super solar metallicities and hence show a diﬀer-
+ent trend compared to P.
+Mg, Si, and S are α elements that are conﬁrmed to have been
+produced from core collapse supernova of massive stars (Chieﬃ
+& Limongi 2004; Nomoto et al. 2013). Similarly, Al and K are
+also found to have signiﬁcant contribution from core collapse
+supernovae (for e.g. Clayton 2003; Weinberg et al. 2019, 2022).
+Thus we can conclude that P behaves like the α elements and
+supports the current idea about the contribution of core collapse
+supernova in the origin and evolution of P. Similar investigations
+in previous studies have led to the same conclusion about the
+origin and evolution of P (see Section 1).
+5.3. Primary behaviour of Phosphorous for
+−0.9 < [Fe/H] < 0.3
+Elements which are synthesized independently of the metallicity,
+i.e. elements produced in a star from chains of reactions start-
+ing directly from H and He are called primary elements (Arnett
+1996). 16O, and 24Mg are examples of primary elements (Clay-
+ton 2003). On the other hand, if the synthesis depends on the
+presence of other nuclei from earlier stellar generations, the ele-
+ments produced are called secondary.
+The synthesis of P is through neutron capture on neutron-
+rich Si isotopes, which are secondary in nature (Clayton 2003).
+One might therefore expect phosphorus to show a secondary
+behaviour. In Figure 8 we therefore plot the phosphorus abun-
+dances versus the magnesium abundances. Since 24Mg, a pri-
+mary nuclei, is the main isotope of Mg (approximately 80%
+(Clayton 2003)) we assume that our measured Mg abundance
+represents a primary behaviour. A secondary behaviour for phos-
+phorus would therefore yield a slope of 2. In Figure 8 we, how-
+ever, ﬁnd a slope of 0.8 ± 0.1 for our sample using linear re-
+gression, excluding the s-element and P-rich stars, which clearly
+points to a primary behaviour. We thus conclude that we ﬁnd
+an empirically determined primary behaviour of phosphorus at
+least for −0.9 <[Fe/H]< 0.3 range. This should be considered
+when further investigating the nucleosynthetic origin of phos-
+phorus. We note that Prantzos et al. (2018) indeed ﬁnd a primary
+behaviour in their rapidly-rotating massive stars models.
+5.4. Best stars to measure P I line at 16482.92 Å
+In this work, we have shown that it is possible to estimate reliable
+P abundances from the the P I line at 16482.92 Å even though it
+can be heavily blended with a CO(ν = 7 −4) line. In addition
+to careful manual analysis, i.e. selecting good continuum points,
+checking the ﬁt to each spectrum by eye and a careful inspec-
+tion of the telluric elimination procedure, we made sure to ﬁt the
+neighboring CO(ν = 7 −4) lines well so as to determine the best
+P value.
+Considering the dearth of P abundance measurements in the
+literature, we want to investigate which type of stars should be
+targeted in the future to get reliable P abundance estimates from
+this P I line. With that aim, we estimate the equivalent widths of
+the P I line and CO(ν = 7 −4) line for a set of marcs (Gustafs-
+son et al. 2008) stellar models in a grid of (i) 3900 ≤Teﬀ≤5000
+K, (ii) 1.0 ≤log g≤3.0 and (iii) [Fe/H] of -1.0,-0.5, 0.0 and
+0.5 dex, all with solar scaled phosphorus abundances. The re-
+sulting fractional contribution of equivalent widths of P I line in
+the CO(ν = 7 −4) blended line as a function of Teﬀis shown
+in Figure 9 with diﬀerent combinations of [Fe/H] and change
+in log g represented by diﬀerent colored lines and bands respec-
+Article number, page 11 of 17
+
+[Page 12]
+A&A proofs: manuscript no. P
+tively. While the strength of P line increases with increase in Teﬀ,
+the CO line strength becomes weaker at higher Teﬀ. As is normal,
+metal rich giants have stronger lines and for a given metallicity,
+higher surface gravities, log g, yield weaker lines.
+Thus, P lines will be stronger and the CO(ν = 7 −4) blend
+will be weaker for giant stars with Teﬀ> 4500 K and [Fe/H]>
+-0.5 dex. For cooler metal poor stars, the contribution from the P
+feature is still signiﬁcant enough (> 15%) to be measurable from
+a high SNR spectrum as shown in this work.
+Thus we can conclude that the P I line at 16482.92 Å is
+suitable to estimate P abundances for K giants at all metallic-
+ities. Yet it has to kept in mind that the contribution from the
+CO(ν = 7 −4) blend increases with decreasing Teﬀand [Fe/H] .
+With the s-rich stars, we have also seen that this line will be use-
+ful in the hunt for more P-rich stars.
+6. Conclusions
+Using high resolution (R∼45,000) IGRINS spectra, we deter-
+mine [P/Fe] for 38 K giant stars in the solar neighborhood based
+on a detailed spectroscopic analysis of the P I line at 16482.92 Å
+after a careful handling of the telluric contamination and its elim-
+ination, which we show is essential to minimize the uncertainty
+of the [P/Fe] trend. We show that our [P/Fe] versus [Fe/H] trend
+within uncertainties is consistent with the results from other
+studies in the literature. Our trend is higher than the chemical
+evolution trend from Cescutti et al. (2012) by ∼0.05 - 0.1 dex,
+which could mean that the enhancement factor might be higher
+than 2.75. We also ﬁnd that the two s-rich stars in our sample
+exhibit clear enhancements in phosphorus abundance and war-
+rants further detailed investigation to understand their possible
+origins. We further determine abundance ratios of phosphorus
+with respect to other odd-Z and even-Z elements, estimated from
+reliable spectral lines in the H and K-band IGRINS spectra to
+understand the origin of phosphorus. We ﬁnd that phosphorus
+behaves more like α elements than the neighboring odd-Z ele-
+ments, Na and K, and thus supports the current idea about the
+contribution of core collapse supernova in the origin and evo-
+lution of P. In addition, we ﬁnd empirical evidence that points
+to a primary behaviour of phosphorus even though the synthe-
+sis of P is through neutron capture on neutron-rich Si isotopes,
+which are secondary in nature. Finally we ﬁnd that although the
+P I line at 16482.92 Å is suitable to estimate P abundances for
+K giants at all metallicities, the weak contribution of the P fea-
+ture in cooler metal poor (Teﬀ< 4500 K, [Fe/H] < -0.5) stars
+may lead to larger uncertainties in case of low SNR spectra. We
+also show that this line will be useful in the hunt for more P-rich
+stars. Hence, we need more observations with highly capable
+instruments like IGRINS that provide high resolution covering
+larger spectral orders in order to mitigate the dearth of reliable
+phosphorus abundance estimates.
+Acknowledgements. We thank the anonymous referee for the very constructive
+comments and suggestions that improved the quality of the paper. G.N. acknowl-
+edges the support from the Wenner-Gren Foundations. N.R. acknowledge sup-
+port from the Royal Physiographic Society in Lund through the Stiftelsen Walter
+Gyllenbergs fond and Märta och Erik Holmbergs donation. B.T. acknowledges
+the ﬁnancial support from the Japan Society for the Promotion of Science as
+a JSPS International Research Fellow. This work used The Immersion Grating
+Infrared Spectrometer (IGRINS) was developed under a collaboration between
+the University of Texas at Austin and the Korea Astronomy and Space Science
+Institute (KASI) with the ﬁnancial support of the US National Science Foun-
+dation under grants AST-1229522, AST-1702267 and AST-1908892, McDonald
+Observatory of the University of Texas at Austin, the Korean GMT Project of
+KASI, the Mt. Cuba Astronomical Foundation and Gemini Observatory. These
+results made use of the Lowell Discovery Telescope (LDT) at Lowell Observa-
+tory. Lowell is a private, non-proﬁt institution dedicated to astrophysical research
+and public appreciation of astronomy and operates the LDT in partnership with
+Boston University, the University of Maryland, the University of Toledo, North-
+ern Arizona University and Yale University. This paper includes data taken at
+The McDonald Observatory of The University of Texas at Austin.
+The following software and programming languages made this research possi-
+ble: TOPCAT (version 4.6; Taylor 2005); Python (version 3.8) and its packages
+ASTROPY (version 5.0; Astropy Collaboration et al. 2022), SCIPY (Virtanen
+et al. 2020), MATPLOTLIB (Hunter 2007) and NUMPY (van der Walt et al.
+2011).
+References
+Af¸sar, M., Bozkurt, Z., Böcek Topcu, G., et al. 2018a, AJ, 155, 240
+Af¸sar, M., Sneden, C., Wood, M. P., et al. 2018b, ApJ, 865, 44
+Arnett, D. 1996, Supernovae and Nucleosynthesis: An Investigation of the His-
+tory of Matter from the Big Bang to the Present
+Asplund, M., Grevesse, N., Sauval, A. J., & Scott, P. 2009, ARA&A, 47, 481
+Astropy Collaboration, Price-Whelan, A. M., Lim, P. L., et al. 2022, ApJ, 935,
+167
+Biemont, E., Martin, F., Quinet, P., & Zeippen, C. J. 1994, A&A, 283, 339
+Böcek Topcu, G., Af¸sar, M., Sneden, C., et al. 2019, MNRAS, 485, 4625
+Böcek Topcu, G., Af¸sar, M., Sneden, C., et al. 2020, MNRAS, 491, 544
+Brooke,
+J.
+S.
+A.,
+Bernath,
+P.
+F.,
+Western,
+C.
+M.,
+et
+al.
+2016,
+J. Quant. Spectr. Rad. Transf., 168, 142
+Burbidge, E. M., Burbidge, G. R., Fowler, W. A., & Hoyle, F. 1957, Reviews of
+Modern Physics, 29, 547
+Caﬀau, E., Andrievsky, S., Korotin, S., et al. 2016, A&A, 585, A16
+Caﬀau, E., Bonifacio, P., Faraggiana, R., & Steﬀen, M. 2011, A&A, 532, A98
+Caﬀau, E., Bonifacio, P., Oliva, E., et al. 2019, A&A, 622, A68
+Cescutti, G., Matteucci, F., Caﬀau, E., & François, P. 2012, A&A, 540, A33
+Chieﬃ, A. & Limongi, M. 2004, ApJ, 608, 405
+Clayton, D. 2003, Handbook of Isotopes in the Cosmos
+Fanelli, C., Origlia, L., Oliva, E., et al. 2021, A&A, 645, A19
+Forsberg, R., Jönsson, H., Ryde, N., & Matteucci, F. 2019, A&A, 631, A113
+Grevesse, N., Asplund, M., & Sauval, A. J. 2007, Space Sci. Rev., 130, 105
+Gully-Santiago, M., Wang, W., Deen, C., & Jaﬀe, D. 2012, in Society of Photo-
+Optical Instrumentation Engineers (SPIE) Conference Series, Vol. 8450,
+Modern Technologies in Space- and Ground-based Telescopes and Instru-
+mentation II, ed. R. Navarro, C. R. Cunningham, & E. Prieto, 84502S
+Gustafsson, B., Edvardsson, B., Eriksson, K., et al. 2008, A&A, 486, 951
+Han, J.-Y., Yuk, I.-S., Ko, K., et al. 2012, in Society of Photo-Optical Instru-
+mentation Engineers (SPIE) Conference Series, Vol. 8550, Optical Systems
+Design 2012, ed. D. G. Smith, J.-L. M. Tissot, L. Mazuray, T. E. Kidger,
+F. Wyrowski, J. M. Raynor, R. Wartmann, S. David, A. Erdmann, A. P. Wood,
+P. Benítez, & M. C. de la Fuente, 85501B
+Hawkins, K., Masseron, T., Jofré, P., et al. 2016, A&A, 594, A43
+Hayes, C. R., Masseron, T., Sobeck, J., et al. 2022, arXiv e-prints,
+arXiv:2208.00071
+Hinkel, N. R., Hartnett, H. E., & Young, P. A. 2020, ApJ, 900, L38
+Hinkle, K., Wallace, L., & Livingston, W. 1995, PASP, 107, 1042
+Hinkle, K. H., Cuberly, R. W., Gaughan, N. A., et al. 1998, in Society of Photo-
+Optical Instrumentation Engineers (SPIE) Conference Series, Vol. 3354, In-
+frared Astronomical Instrumentation, ed. A. M. Fowler, 810–821
+Holtzman, J. A., Shetrone, M., Johnson, J. A., et al. 2015, AJ, 150, 148
+Hunter, J. D. 2007, Computing in Science and Engineering, 9, 90
+Iwamoto, K., Brachwitz, F., Nomoto, K., et al. 1999, ApJS, 125, 439
+Jacobson, H. R., Thanathibodee, T., Frebel, A., et al. 2014, ApJ, 796, L24
+Jeong, U., Chun, M.-Y., Oh, J. S., et al. 2014, in Society of Photo-Optical
+Instrumentation Engineers (SPIE) Conference Series, Vol. 9154, High En-
+ergy, Optical, and Infrared Detectors for Astronomy VI, ed. A. D. Holland &
+J. Beletic, 91541X
+Jönsson, H., Allende Prieto, C., Holtzman, J. A., et al. 2018, AJ, 156, 126
+Jönsson, H., Ryde, N., Nordlander, T., et al. 2017, A&A, 598, A100
+Karakas, A. I. 2010, MNRAS, 403, 1413
+Kausch, W., Noll, S., Smette, A., et al. 2015, A&A, 576, A78
+Kimble, R. A., Woodgate, B. E., Bowers, C. W., et al. 1998, ApJ, 492, L83
+Kobayashi, C., Umeda, H., Nomoto, K., Tominaga, N., & Ohkubo, T. 2006, ApJ,
+653, 1145
+Lee, J.-J., Gullikson, K., & Kaplan, K. 2017, Igrins/Plp 2.2.0, Zenodo
+Li, G., Gordon, I. E., Rothman, L. S., et al. 2015, ApJS, 216, 15
+Lomaeva, M., Jönsson, H., Ryde, N., Schultheis, M., & Thorsbro, B. 2019, A&A,
+625, A141
+Maas, Z. G., Cescutti, G., & Pilachowski, C. A. 2019, AJ, 158, 219
+Maas, Z. G., Hawkins, K., Hinkel, N. R., et al. 2022, arXiv e-prints,
+arXiv:2206.03528
+Maas, Z. G., Pilachowski, C. A., & Cescutti, G. 2017, ApJ, 841, 108
+Article number, page 12 of 17
+
+[Page 13]
+G. Nandakumar et al.: The Galactic Chemical Evolution of phosphorus observed with IGRINS
+Mace, G., Kim, H., Jaﬀe, D. T., et al. 2016, in Society of Photo-Optical Instru-
+mentation Engineers (SPIE) Conference Series, Vol. 9908, Ground-based and
+Airborne Instrumentation for Astronomy VI, ed. C. J. Evans, L. Simard, &
+H. Takami, 99080C
+Mace, G., Sokal, K., Lee, J.-J., et al. 2018, in Society of Photo-Optical Instru-
+mentation Engineers (SPIE) Conference Series, Vol. 10702, Ground-based
+and Airborne Instrumentation for Astronomy VII, ed. C. J. Evans, L. Simard,
+& H. Takami, 107020Q
+Mahadevan, S., Ramsey, L., Bender, C., et al. 2012, in Society of Photo-Optical
+Instrumentation Engineers (SPIE) Conference Series, Vol. 8446, Ground-
+based and Airborne Instrumentation for Astronomy IV, ed. I. S. McLean, S. K.
+Ramsay, & H. Takami, 84461S
+Mahadevan, S., Ramsey, L. W., Terrien, R., et al. 2014, in Society of Photo-
+Optical Instrumentation Engineers (SPIE) Conference Series, Vol. 9147,
+Ground-based and Airborne Instrumentation for Astronomy V, ed. S. K. Ram-
+say, I. S. McLean, & H. Takami, 91471G
+Majewski, S. R., Schiavon, R. P., Frinchaboy, P. M., et al. 2017, AJ, 154, 94
+Masseron, T., García-Hernández, D. A., Santoveña, R., et al. 2020a, Nature Com-
+munications, 11, 3759
+Masseron, T., García-Hernández, D. A., Zamora, O., & Manchado, A. 2020b,
+ApJ, 904, L1
+Masseron, T., Merle, T., & Hawkins, K. 2016, BACCHUS: Brussels Automatic
+Code for Characterizing High accUracy Spectra, Astrophysics Source Code
+Library, record ascl:1605.004
+Matteucci, F. 2021, A&A Rev., 29, 5
+Montelius,
+M.,
+Forsberg,
+R.,
+Ryde,
+N.,
+et
+al.
+2022,
+arXiv
+e-prints,
+arXiv:2202.00691
+Moon, B., Wang, W., Park, C., et al. 2012, in Society of Photo-Optical Instru-
+mentation Engineers (SPIE) Conference Series, Vol. 8450, Modern Tech-
+nologies in Space- and Ground-based Telescopes and Instrumentation II, ed.
+R. Navarro, C. R. Cunningham, & E. Prieto, 845048
+Nomoto, K., Kobayashi, C., & Tominaga, N. 2013, ARA&A, 51, 457
+Oh, J. S., Park, C., Cha, S.-M., et al. 2014, in Society of Photo-Optical Instru-
+mentation Engineers (SPIE) Conference Series, Vol. 9147, Ground-based and
+Airborne Instrumentation for Astronomy V, ed. S. K. Ramsay, I. S. McLean,
+& H. Takami, 914739
+Origlia, L., Oliva, E., Baﬀa, C., et al. 2014, in Society of Photo-Optical Instru-
+mentation Engineers (SPIE) Conference Series, Vol. 9147, Ground-based and
+Airborne Instrumentation for Astronomy V, ed. S. K. Ramsay, I. S. McLean,
+& H. Takami, 91471E
+Park, C., Jaﬀe, D. T., Yuk, I.-S., et al. 2014, in Society of Photo-Optical Instru-
+mentation Engineers (SPIE) Conference Series, Vol. 9147, Ground-based and
+Airborne Instrumentation for Astronomy V, ed. S. K. Ramsay, I. S. McLean,
+& H. Takami, 91471D
+Pendlebury, J. M. & Smith, K. F. 1964, Proceedings of the Physical Society, 84,
+849
+Prantzos, N., Abia, C., Limongi, M., Chieﬃ, A., & Cristallo, S. 2018, MNRAS,
+476, 3432
+Roederer, I. U., Jacobson, H. R., Thanathibodee, T., Frebel, A., & Toller, E.
+2014, ApJ, 797, 69
+Ryde, N., Jönsson, H., Mace, G., et al. 2020, ApJ, 893, 37
+Santos-Peral, P., Recio-Blanco, A., de Laverny, P., Fernández-Alvar, E., & Or-
+denovic, C. 2020, A&A, 639, A140
+Shetrone, M., Bizyaev, D., Lawler, J. E., et al. 2015, ApJS, 221, 24
+Smette, A., Kausch, W., Sana, H., et al. 2015, Molecﬁt: Telluric absorption cor-
+rection tool, Astrophysics Source Code Library, record ascl:1501.013
+Sneden, C., Af¸sar, M., Bozkurt, Z., et al. 2021, AJ, 161, 128
+Sneden, C., Lucatello, S., Ram, R. S., Brooke, J. S. A., & Bernath, P. 2014, ApJS,
+214, 26
+Struve, O. 1930, ApJ, 71, 150
+Taylor, M. B. 2005, in Astronomical Society of the Paciﬁc Conference Se-
+ries, Vol. 347, Astronomical Data Analysis Software and Systems XIV, ed.
+P. Shopbell, M. Britton, & R. Ebert, 29
+Telting, J. H., Avila, G., Buchhave, L., et al. 2014, Astronomische Nachrichten,
+335, 41
+Tody, D. 1993, in ASP Conf. Ser. 52: Astronomical Data Analysis Software and
+Systems II, ed. R. J. Hanisch, R. J. V. Brissenden, & J. Barnes, 173
+Valenti, J. A. & Piskunov, N. 1996, A&AS, 118, 595
+Valenti, J. A. & Piskunov, N. 2012, SME: Spectroscopy Made Easy, astrophysics
+Source Code Library
+van der Walt, S., Colbert, S. C., & Varoquaux, G. 2011, Computing in Science
+and Engineering, 13, 22
+Virtanen, P., Gommers, R., Oliphant, T. E., et al. 2020, Nature Methods, 17, 261
+Wallace, L. & Livingston, W. 2003, An atlas of the solar spectrum in the infrared
+from 1850 to 9000 cm-1 (1.1 to 5.4 micrometer)
+Wang, W., Gully-Santiago, M., Deen, C., Mar, D. J., & Jaﬀe, D. T. 2010, in So-
+ciety of Photo-Optical Instrumentation Engineers (SPIE) Conference Series,
+Vol. 7739, Modern Technologies in Space- and Ground-based Telescopes and
+Instrumentation, ed. E. Atad-Ettedgui & D. Lemke, 77394L
+Weinberg, D. H., Holtzman, J. A., Hasselquist, S., et al. 2019, ApJ, 874, 102
+Weinberg, D. H., Holtzman, J. A., Johnson, J. A., et al. 2022, ApJS, 260, 32
+Woodgate, B. E., Kimble, R. A., Bowers, C. W., et al. 1998, PASP, 110, 1183
+Woosley, S. E. & Weaver, T. A. 1995, ApJS, 101, 181
+Yuk, I.-S., Jaﬀe, D. T., Barnes, S., et al. 2010, in Society of Photo-Optical Instru-
+mentation Engineers (SPIE) Conference Series, Vol. 7735, Ground-based and
+Airborne Instrumentation for Astronomy III, ed. I. S. McLean, S. K. Ramsay,
+& H. Takami, 77351M
+Article number, page 13 of 17
+
+[Page 14]
+A&A proofs: manuscript no. P
+Appendix A: Tables
+Article number, page 14 of 17
+
+[Page 15]
+G. Nandakumar et al.: The Galactic Chemical Evolution of phosphorus observed with IGRINS
+Table A.1: [C/Fe], [N/Fe] and [O/Fe] abundances and their uncertainties determined in this work.
+Star
+[C/Fe]
+σ[C/Fe]
+[N/Fe]
+σ[N/Fe]
+[O/Fe]
+σ[O/Fe]
+dex
+dex
+dex
+dex
+dex
+αBoo∗
+0.19
+0.07
+0.3
+0.06
+0.51
+0.06
+µLeo
+0.06
+0.05
+0.49
+0.05
+0.1
+0.05
+ϵVir
+-0.18
+0.09
+0.71
+0.04
+0.31
+0.04
+betaGem
+-0.08
+0.08
+0.38
+0.05
+0.07
+0.05
+HD102328
+0.12
+0.06
+0.39
+0.03
+0.11
+0.03
+HIP50583
+-0.03
+0.06
+0.39
+0.03
+0.19
+0.03
+HIP63432
+0.15
+0.07
+0.48
+0.06
+0.46
+0.06
+HIP72012
+-0.03
+0.08
+0.3
+0.07
+0.17
+0.07
+HIP90344
+0.12
+0.08
+0.25
+0.05
+0.31
+0.05
+HIP96014
+0.12
+0.06
+0.22
+0.03
+0.19
+0.03
+HIP102488
+0.0
+0.07
+0.33
+0.05
+0.24
+0.05
+2M16113361
+0.09
+0.08
+0.16
+0.08
+0.48
+0.08
+2M17215666
+0.11
+0.07
+0.39
+0.05
+0.6
+0.05
+KIC3748585
+-0.0
+0.05
+0.39
+0.05
+0.11
+0.05
+KIC3955590
+0.05
+0.03
+0.36
+0.05
+0.09
+0.05
+KIC3936921
+0.08
+0.07
+0.27
+0.03
+0.15
+0.03
+KIC4659706
+0.14
+0.07
+0.34
+0.12
+0.17
+0.12
+KIC5113061
+0.0
+0.06
+0.34
+0.05
+0.08
+0.05
+KIC5113910
+0.01
+0.06
+0.4
+0.05
+0.19
+0.05
+KIC5709564
+0.16
+0.06
+0.28
+0.11
+0.41
+0.11
+KIC5779724
+0.17
+0.03
+0.28
+0.07
+0.43
+0.07
+KIC5859492
+0.02
+0.05
+0.38
+0.03
+0.06
+0.03
+KIC5900096
+0.1
+0.07
+0.36
+0.05
+0.1
+0.05
+KIC6465075
+0.12
+0.15
+0.21
+0.05
+0.19
+0.05
+KIC6837256
+0.21
+0.05
+0.3
+0.04
+0.48
+0.04
+KIC7006979
+0.03
+0.06
+0.43
+0.05
+0.4
+0.05
+KIC10186608
+0.11
+0.05
+0.21
+0.03
+0.16
+0.03
+KIC11045542
+0.1
+0.05
+0.3
+0.04
+0.24
+0.04
+KIC11342694
+0.07
+0.05
+0.16
+0.03
+0.07
+0.03
+KIC11444313
+0.02
+0.06
+0.32
+0.03
+0.1
+0.03
+KIC11569659
+0.16
+0.08
+0.26
+0.16
+0.29
+0.16
+ξHya
+-0.49
+0.05
+0.78
+0.04
+0.1
+0.04
+HD175541
+-0.08
+0.04
+0.38
+0.08
+0.24
+0.08
+HD176981
+-0.05
+0.05
+0.27
+0.08
+0.07
+0.08
+HD206610
+0.1
+0.03
+0.38
+0.06
+0.19
+0.06
+HD76445
+0.08
+0.09
+0.37
+0.03
+0.32
+0.03
+NGC67051184
+0.02
+0.07
+0.32
+0.04
+0.03
+0.04
+NGC67051423
+0.01
+0.07
+0.35
+0.04
+0.01
+0.04
+Article number, page 15 of 17
+
+[Page 16]
+A&A proofs: manuscript no. P
+Table A.2: Wavelengths of the lines for the elements Mg, Al,
+Si, S and K in IGRINS H and K-bands used to determined their
+respective abundances for the stars in our sample.
+Element
+Wavelength (Å )
+Na
+16373.87
+16388.85
+17227.70
+22056.43
+22083.66
+23348.42
+23379.14
+Mg
+15740.70
+15748.89
+17108.63
+Al
+16718.97
+16750.60
+16763.37
+17699.05
+Si
+15361.16
+16163.71
+16343.93
+16828.18
+17225.63
+S
+15469.82
+15478.48
+22006.41
+22507.60
+22519.11
+22526.05
+22552.61
+22563.87
+22575.43
+K
+15163.09
+15168.40
+Article number, page 16 of 17
+
+[Page 17]
+G. Nandakumar et al.: The Galactic Chemical Evolution of phosphorus observed with IGRINS
+Table A.3: Mean abundances of Na, Mg, Al, Si, S and K and their uncertainties based on line-by-line analysis using the lines listed
+in the Table A.2
+[X/Fe] ± σ[X/Fe]
+Star
+Na
+Mg
+Al
+Si
+S
+K
+αBoo
+0.1 ± 0.08
+0.49 ± 0.04
+0.29 ± 0.07
+0.3 ± 0.07
+0.37 ± 0.19
+0.27 ± 0.02
+µLeo
+0.24 ± 0.11
+0.16 ± 0.03
+0.1 ± 0.05
+0.0 ± 0.09
+0.1 ± 0.11
+0.08 ± 0.08
+EpsVir
+0.19 ± 0.06
+-0.05 ± 0.01
+0.0 ± 0.03
+0.03 ± 0.01
+0.06 ± 0.07
+0.04 ± 0.02
+βGem
+0.09 ± 0.06
+-0.01 ± 0.01
+-0.03 ± 0.05
+-0.01 ± 0.04
+0.0 ± 0.11
+0.04 ± 0.05
+HD102328
+0.16 ± 0.08
+0.07 ± 0.02
+0.06 ± 0.04
+0.0 ± 0.07
+0.04 ± 0.07
+0.04 ± 0.09
+HIP50583
+0.02 ± 0.08
+0.11 ± 0.08
+0.14 ± 0.08
+0.28 ± 0.05
+0.19 ± 0.19
+0.01 ± 0.11
+HIP63432
+0.02 ± 0.04
+0.42 ± 0.05
+0.2 ± 0.12
+0.38 ± 0.04
+0.45 ± 0.24
+0.17 ± 0.03
+HIP72012
+-0.01 ± 0.04
+0.23 ± 0.04
+0.06 ± 0.05
+0.03 ± 0.06
+0.24 ± 0.16
+-0.0 ± 0.0
+HIP90344
+0.04 ± 0.05
+0.15 ± 0.02
+0.13 ± 0.08
+0.11 ± 0.06
+0.12 ± 0.1
+0.08 ± 0.08
+HIP96014
+0.05 ± 0.05
+0.24 ± 0.02
+0.17 ± 0.04
+0.2 ± 0.03
+0.14 ± 0.12
+0.09 ± 0.03
+HIP102488
+0.04 ± 0.05
+0.15 ± 0.01
+0.14 ± 0.04
+0.11 ± 0.01
+0.07 ± 0.07
+0.16 ± 0.03
+2M16113361
+0.13 ± 0.23
+0.46 ± 0.04
+0.08 ± 0.14
+0.25 ± 0.17
+0.23 ± 0.4
+0.0 ± 0.0
+2M17215666
+0.07 ± 0.19
+0.57 ± 0.05
+0.36 ± 0.21
+0.6 ± 0.03
+0.39 ± 0.31
+0.0 ± 0.0
+KIC3748585
+0.1 ± 0.08
+0.06 ± 0.02
+0.06 ± 0.03
+0.03 ± 0.04
+0.12 ± 0.1
+0.16 ± 0.04
+KIC3936921
+0.0 ± 0.07
+0.26 ± 0.03
+0.06 ± 0.02
+0.11 ± 0.03
+0.18 ± 0.12
+0.03 ± 0.1
+KIC3955590
+0.14 ± 0.08
+0.14 ± 0.01
+0.1 ± 0.05
+0.09 ± 0.06
+0.21 ± 0.15
+0.07 ± 0.04
+KIC4659706
+0.06 ± 0.08
+0.14 ± 0.01
+0.07 ± 0.07
+0.04 ± 0.04
+0.08 ± 0.1
+0.02 ± 0.05
+KIC5113061
+0.16 ± 0.07
+0.19 ± 0.04
+0.01 ± 0.04
+0.12 ± 0.05
+0.24 ± 0.19
+0.04 ± 0.04
+KIC5113910
+0.17 ± 0.04
+0.3 ± 0.03
+0.2 ± 0.05
+0.25 ± 0.04
+0.26 ± 0.17
+0.1 ± 0.1
+KIC5709564
+0.12 ± 0.09
+0.42 ± 0.02
+0.28 ± 0.04
+0.3 ± 0.04
+0.25 ± 0.16
+0.25 ± 0.0
+KIC5779724
+0.12 ± 0.09
+0.44 ± 0.02
+0.28 ± 0.06
+0.27 ± 0.04
+0.31 ± 0.19
+0.27 ± 0.04
+KIC5859492
+0.06 ± 0.04
+0.15 ± 0.01
+0.06 ± 0.06
+0.09 ± 0.03
+0.12 ± 0.11
+0.02 ± 0.02
+KIC5900096
+0.1 ± 0.08
+0.04 ± 0.09
+0.07 ± 0.05
+0.02 ± 0.04
+0.06 ± 0.08
+0.01 ± 0.03
+KIC6465075
+0.07 ± 0.07
+0.23 ± 0.02
+0.17 ± 0.03
+0.19 ± 0.03
+0.11 ± 0.15
+0.09 ± 0.09
+KIC6837256
+0.16 ± 0.11
+0.48 ± 0.02
+0.38 ± 0.02
+0.33 ± 0.05
+0.3 ± 0.16
+0.37 ± 0.03
+KIC7006979
+0.13 ± 0.14
+0.16 ± 0.03
+0.12 ± 0.07
+0.1 ± 0.03
+0.18 ± 0.26
+0.04 ± 0.04
+KIC10186608
+0.01 ± 0.07
+0.06 ± 0.07
+0.08 ± 0.03
+0.16 ± 0.06
+0.07 ± 0.11
+0.06 ± 0.07
+KIC11045542
+0.09 ± 0.13
+0.2 ± 0.14
+0.18 ± 0.11
+0.19 ± 0.09
+0.18 ± 0.21
+0.04 ± 0.04
+KIC11342694
+0.04 ± 0.12
+0.14 ± 0.01
+0.1 ± 0.03
+0.05 ± 0.04
+0.06 ± 0.14
+0.06 ± 0.06
+KIC11444313
+0.09 ± 0.05
+0.21 ± 0.04
+0.16 ± 0.05
+0.15 ± 0.05
+0.21 ± 0.14
+0.1 ± 0.01
+KIC11569659
+0.11 ± 0.1
+0.28 ± 0.01
+0.2 ± 0.05
+0.21 ± 0.05
+0.23 ± 0.2
+0.17 ± 0.06
+ξHya
+0.05 ± 0.08
+-0.02 ± 0.02
+-0.02 ± 0.05
+-0.08 ± 0.1
+-0.07 ± 0.14
+-0.01 ± 0.02
+HD175541
+0.0 ± 0.0
+0.03 ± 0.0
+0.04 ± 0.04
+0.07 ± 0.04
+0.02 ± 0.02
+0.08 ± 0.01
+HD176981
+0.07 ± 0.09
+0.12 ± 0.1
+0.06 ± 0.04
+0.08 ± 0.08
+0.18 ± 0.03
+0.02 ± 0.0
+HD206610
+0.06 ± 0.05
+0.09 ± 0.0
+0.11 ± 0.03
+0.07 ± 0.01
+0.07 ± 0.01
+0.07 ± 0.01
+HD76445
+0.04 ± 0.05
+0.3 ± 0.05
+0.27 ± 0.02
+0.16 ± 0.09
+0.23 ± 0.01
+0.25 ± 0.02
+NGC67051184
+0.15 ± 0.09
+0.2 ± 0.03
+0.12 ± 0.07
+0.16 ± 0.05
+0.32 ± 0.0
+0.05 ± 0.02
+NGC67051423
+0.26 ± 0.09
+0.13 ± 0.09
+0.1 ± 0.04
+0.1 ± 0.06
+0.33 ± 0.04
+-0.05 ± 0.01
+Article number, page 17 of 17

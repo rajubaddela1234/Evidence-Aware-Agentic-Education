@@ -1,0 +1,923 @@
+[Page 1]
+arXiv:1501.03451v1  [q-bio.PE]  7 Jan 2015
+Mathematical models for vaccination, waning
+immunity and immune system boosting:
+a general framework
+M. V. Barbarossa ∗and G. R¨ost †
+Abstract
+When the body gets infected by a pathogen or receives a vaccine dose, the
+immune system develops pathogen-speciﬁc immunity. Induced immunity decays
+in time and years after recovery/vaccination the host might become susceptible
+again. Exposure to the pathogen in the environment boosts the immune system
+thus prolonging the duration of the protection. Such an interplay of within host
+and population level dynamics poses signiﬁcant challenges in rigorous mathe-
+matical modeling of immuno-epidemiology. The aim of this paper is twofold.
+First, we provide an overview of existing models for waning of disease/vaccine-
+induced immunity and immune system boosting. Then a new modeling approach
+is proposed for SIRVS dynamics, monitoring the immune status of individuals
+and including both waning immunity and immune system boosting. We show
+that some previous models can be considered as special cases or approximations
+of our framework.
+KEYWORDS: Immuno-epidemiology; Waning immunity; Immune status; Boost-
+ing; Physiological structure; Reinfection; Delay equations; Vaccination
+AMS Classiﬁcation: 92D30; 35Q91; 34K17
+1
+Introduction
+Models of SIRS type are a traditional topic in mathematical epidemiology. Classi-
+cal approaches present a population divided into susceptibles (S), infectives (I) and
+recovered (R), and consider interactions and transitions among these compartments
+[9]. Susceptibles are those hosts who either did not contract the disease in the past or
+lost immunity against the disease-causing pathogen. When a susceptible host gets in
+contact with an infective one, the pathogen can be transmitted from the infective to
+the susceptible and with a certain probability the susceptible host becomes infective
+himself. After pathogen clearance the infective host recovers and becomes immune for
+∗Bolyai Institute, University of Szeged, H-6720 Szeged, Aradi v´ertan´uk tere 1, Hungary,
+barbaros@math.u-szeged.hu
+†Bolyai Institute, University of Szeged, H-6720 Szeged, Aradi v´ertan´uk tere 1, Hungary,
+rost@math.u-szeged.hu
+1
+
+[Page 2]
+some time, afterward he possibly becomes susceptible again (in certain cases one can
+talk of life-long immunity). The model can be extended by adding vaccination. Vac-
+cinees (V) are protected from infection for some time, usually shorter than naturally
+infected hosts.
+From the in-host point of view, immunity to a pathogen is the result of either active
+or passive immunization. The latter is a transient protection due to the transmission
+of antibodies from the mother to the fetus through the placenta. The newborn is thus
+immune for several months after birth [26]. Active immunization is either induced by
+natural infection or can be achieved by vaccine administration [35, 15].
+Let us ﬁrst consider the case of natural infection. A susceptible host, also called
+naive host, has a very low level of speciﬁc immune cells for a pathogen (mostly a
+virus or a bacterium). The ﬁrst response to a pathogen is nonspeciﬁc, as the innate
+immune system cannot recognize the physical structure of the pathogen. The innate
+immune response slows down the initial growth of the pathogen, while the adaptive
+(pathogen-speciﬁc) immune response is activated. Clonal expansion of speciﬁc immune
+cells (mostly antibodies or CTL cells) and pathogen clearance follow. The population
+of pathogen-speciﬁc immune cells is maintained for long time at a level that is much
+higher than in a naive host. These are the so-called memory cells and are activated
+in case of secondary infection (see Figure 1, adapted from [6].). Memory cells rapidly
+activate the immune response and the host mostly shows mild or no symptoms [2].
+Each exposure to the pathogen might have a boosting eﬀect on the population of
+speciﬁc memory cells. Indeed, the immune system reacts to a new exposure as it did
+during primary infection, thus yielding an increased level of memory cells. Though
+persisting for long time after pathogen clearance, the memory cell population slowly
+decays and in the long run the host might lose his pathogen-speciﬁc immunity [37].
+Vaccine-induced immunity works in a similar way as immunity induced by the
+natural infection. Agents contained in vaccines resemble, in a weaker form, the disease-
+causing pathogen and force a speciﬁc immune reaction without leading to the disease.
+If the vaccine is successful, the host is immunized for some time. Vaccinees experience
+immune system boosting and waning immunity, just as hosts recovered from natural
+infection do. In general, however, disease-induced immunity induces a much longer
+lasting protection than vaccine-induced immunity does [35].
+Waning immunity might be one of the factors which cause, also in highly developed
+regions, recurrent outbreaks of infectious diseases such as measles, chickenpox and
+pertussis. On the other side, immune system boosting due to contact with infectives
+prolongs the protection duration. In a highly vaccinated population there are a lot of
+individuals with vaccine-induced immunity and few infection cases, as well as many
+individuals with low level of immunity. In other words, if a high portion of the popu-
+lation gets the vaccine, there are very few chances for exposure to the pathogen and
+consequently for immune system boosting in protected individuals.
+In order to understand the role played by waning immunity and immune system
+boosting in epidemic outbreaks, in the recent past several mathematical models were
+proposed. Few of these models describe only in-host processes during and after the
+infection [37, 16]. Many more models, formulated in terms of ordinary diﬀerential
+equations (ODEs), consider the problem only at population level, deﬁning compart-
+2
+
+[Page 3]
+Weeks
+Weeks
+Years
+Years
+Primary
+infection
+New
+exposure
+Clonal
+expansion
+Pathogen
+clearance
+Memory cell
+population
+ (slow decrease)
+Immune system
+is boosted
+Memory cell
+population
+ (slow decrease)
+Vaccine
+Figure 1: Level of pathogen-speciﬁc immune cells with respect to the time. The solid
+line represents the case of natural infection, the dotted line represents the immune
+status of a vaccinated host.
+Generation of memory cells takes a few weeks: once
+primary infection (respectively, vaccination) occurred, the adaptive immune system
+produces a high number of speciﬁc immune cells (clonal expansion). After pathogen
+clearance, speciﬁc immune cells (memory cells) are maintained for years at a level that
+is much higher than in a naive host. Memory cells are activated in case of secondary
+infection.
+ments for individuals with diﬀerent levels of immunity and introducing transitions
+between these compartments [10, 17]. Vaccinated hosts or newborns with passive im-
+munity are often included in the model equations and waning of vaccine-induced or
+passive immunity are observed [33, 31, 11, 3, 22, 5, 30].
+To describe the sole waning immunity process, authors have sometimes chosen delay
+diﬀerential equation (DDE) models with constant or distributed delays [21, 36, 8, 7, 38].
+The delay represents the average duration of the disease-induced immunity. However,
+neither a constant nor a distributed delay allows for the description of immune system
+boosting.
+Models which include partial diﬀerential equations (PDEs) mostly describe an age-
+structured population [27, 20, 33] and consider pathogen transmission among the dif-
+ferent age groups (newborns, children, pupils, adults, . . . ). Rare examples suggest a
+physiologically structured approach with populations structured by the level of immu-
+nity, coupling within-host and between-hosts dynamics [25, 6].
+The goal of the present book chapter is twofold.
+On the one side, we found nec-
+essary to provide a comprehensive overview of previously published models for waning
+of disease/vaccine-induced immunity and immune system boosting (Sect.
+2). On
+the other side, in Sect. 3 we propose a new modeling framework for SIRVS dynamics,
+monitoring the immune status of individuals and including both waning immunity and
+immune system boosting.
+3
+
+[Page 4]
+2
+Mathematical models for waning immunity and
+immune system boosting
+In the following we provide an overview on previous mathematical models for waning
+immunity and immune system boosting. We shall classify these models according to
+their mathematical structure (systems of ODEs, PDEs or DDEs).
+2.1
+Systems of ODEs
+Mossong and coauthors were among the ﬁrst to suggest the inclusion of individuals
+with waning immunity in classical SIRS systems [31]. Motivated by the observation
+that measles epidemics can occur even in highly vaccinated populations, the authors
+set up a model to study the waning of vaccine-induced immunity and failure of se-
+roconversion as possible causes for recurrent outbreaks. Their compartmental model
+includes hosts with the so-called “vaccine-modiﬁed measles infection” (VMMI) which
+can occur in people with some degree of passive immunity to the virus, including those
+previously vaccinated. Assuming that not all vaccinees are protected from developing
+VMMI, the authors classify vaccinees into three groups: immediately susceptible to
+VMMI (weak response), temporarily protected who become susceptible to VMMI due
+to waning of vaccine-induced immunity (intermediate response), and permanently pro-
+tected from VMMI (strong response). Infection occurs due to contact with infectious
+individuals (both regular measles infection and VMMI). The resulting compartmental
+model includes waning of vaccine-induced immunity but not of disease-induced immu-
+nity, nor immune system boosting. Similar to McLean and Blower [28], Mossong et al.
+deﬁne a parameter φ to describe the impact of the vaccine: if φ < 1, then vaccine
+failure is possible. Analytical results in [31] show that the main eﬀect of VMMI is to
+increase the overall reproduction number of the infection.
+Inspired by Mossong’s work, in 2003-2004 Glass, Grenfell and coauthors [14, 13, 12]
+proposed modiﬁcations and extensions of the system in [31]. The basic model is similar
+to the ODE system in [31], with a group of subclinical cases which carry the pathogen
+without showing symptoms [11]. In addition, the distribution of antibody levels in
+immune hosts (included in the ODEs coeﬃcients) and immune system boosting are
+introduced: the average antibody level in an immune host increases due to contact
+with infective or subclinical hosts. This model was used to ﬁt measles data in Eng-
+land [12]. In [13] the basic model was extended to consider measles transmission in a
+meta-population with N patches.
+Immune system boosting in vaccinees was further studied in [3]. In this work two
+models are introduced. In the ﬁrst one vaccinees are separated from non-vaccinated
+hosts. Both groups of individuals are classiﬁed into susceptible, infective and immune,
+but in contrast to the models in [14, 13, 12, 31], there is no compartment for subclinical
+cases. Non-vaccinated hosts do not undergo immune system boosting. For vaccinated
+hosts the authors include a so called “self-boosting” of vaccine, so that contact with
+infectives moves susceptible vaccinees to the immune vaccinated compartment. The
+second model extends the ﬁrst one with a new compartment for hosts with waning
+immunity (W). These can receive immune system boosting due to contact with infec-
+tives or move back to the susceptible compartment due to immunity loss. Numerical
+4
+
+[Page 5]
+simulations show possible sustained oscillations. The SIRWS system was partially an-
+alyzed by Daﬁlis et al. [10].
+Heﬀernan and Keeling [16] proposed an in-host model to understand the behavior
+of the immune system during and after an infection. Activation of immune system ef-
+fectors and production of memory cells depend on the virus load. When not stimulated
+by the virus, the number of activated cells decays (waning immunity). Vaccination is
+simulated by changing the initial conditions for the virus load. Numerical simulations
+show that the number of infected immune system cells in a vaccinated patient reaches
+approximately half of what is reached in a patient who undergoes natural infection.
+In turn, the level of immunity gained after one dose of vaccine is the same as the level
+observed in a measles patient 4 years after natural infection. The in-host model in
+[16] was extended by the same authors to a population model (SEIRS) with waning
+immunity and immune system boosting [17]. In contrast to classical SEIRS models,
+the class R refers here to individuals protected by short-term immune memory, while
+the class S refers to those individuals who have lost this short-term protection and may
+experience immune system boosting. Each compartment is classiﬁed according to the
+level of immunity, which can be related to the number of memory cells. Newborns
+are recruited into the susceptible class S0 (lowest level of immunity). During exposure
+and infection the host does not change his level of immunity, that is, transition occurs
+from Sj to Ej to Ij for each j ∈N. Hosts in S and R experience waning immunity
+and transit from Sj to Sj−1 (respectively from Rj to Rj−1). Immune system boosting
+is due to recovery from infection and is incorporated into the equations with transi-
+tion terms from Ij to Rk, with k ≥j. The resulting large system of ODEs, with a
+very high number of parameters, is quite hard to approach from an analytical point of
+view, hence the authors make use of numerical simulations to investigate the long term
+behavior. A somehow simpliﬁed version of the ODE system in [17] was proposed by
+Reluga et al. in [32]. A similar large system of ODEs was introduced by Lavine et al.
+[22], extending the SIRWS model in [31, 11], by including several levels of immunity
+for immune hosts (R) and hosts with waning immunity (W), as well as age classes
+for all compartments. The authors claim that the model can explain several observed
+features of pertussis in US, in particular a shift in the age-speciﬁc incidence and the
+re-emergence of the disease in a highly vaccinated population.
+2.2
+System of DDEs
+Delay models with constant or distributed delay have been introduced to describe
+waning of disease-induced or vaccine-induced immunity. A simple SIRS system with
+constant delay is given by
+˙S(t) = µ(1 −S(t)) −φS(t)f(I(t)) + γI(t −τ)e−µτ
+˙I(t) = φS(t)f(I(t)) −(µ + γ)I(t)
+˙R(t) = γI(t) −µR(t) −γI(t −τ)e−µτ.
+(1)
+This model was studied by Kyrychko and Blyuss [21], who provided results on exis-
+tence, uniqueness and non-negativity of solutions, linear and global stability of the
+disease-free equilibrium, as well as global stability of the unique endemic equilibrium.
+5
+
+[Page 6]
+A special case of (1) was considered some years later by Taylor and Carr [36]. An
+extension of system (1) with distributed delay was proposed in [8] and shortly after in
+[7].
+A more general model with distributed delay and vaccination was proposed by
+Arino et al. in [4]. Their system includes three compartments (susceptible, infective
+and vaccinated hosts) in a population which remains constant in time. Vaccine-induced
+immunity might be only partial, resulting in vaccinated individuals becoming infec-
+tive. Systems of ODEs or DDEs can be obtained from the general model by a proper
+choice of the kernel (see also [19, 18]).
+Recently, Yuan and B´elair proposed a SEIRS model with integro-diﬀerential equa-
+tions which resembles the systems in [4, 19]. The probability that an individual stays
+in the exposed class (E) for t units of time is P(t), hence,
+E(t) =
+Z t
+0
+βS(u)I(u)
+N
+e−b(t−u)P(t −u) du.
+Similarly, Q(t) is the probability that an individual is immune t units of time after
+recovery, thus
+R(t) =
+Z t
+0
+γI(u)e−b(t−u)Q(t −u) du.
+For a certain choice of the probabilities P and Q, the problem can be reduced to a
+system with one or two constant delays. The authors show existence of an endemic
+equilibrium and boundedness of solutions in a positive simplex. For the system with
+one constant delay, results for existence of a global attractor as well as the proof of
+persistence of the disease in case R0 > 1 are provided.
+2.3
+Systems of PDEs
+Structured populations in the context of waning immunity and immune system boost-
+ing have been motivated in diﬀerent ways. Often the structure can be found in the
+biological age [27, 26, 20, 33], and is used to observe disease transmission among ba-
+bies, children, adults and seniors. Only few works suggest models for physiologically
+structured populations [25, 6].
+McLean and Anderson [27, 26] proposed a model for measles transmission which in-
+cludes a compartment for babies protected by maternal antibodies. Indeed, mothers
+who have had measles or have been vaccinated transfer measles immunity to the baby
+through the placenta. For several months after birth (ca. 2 months if the mother
+was vaccinated, ca. 4 months if she had the disease [26]) the baby is still protected
+by maternal antibodies and should not be vaccinated. The model by McLean and
+Anderson [27] considers only waning of maternally induced immunity in the context of
+measles infection. Few years before McLean, Katzmann and Dietz [20] proposed a bit
+more general model, which includes also waning of vaccine-induced immunity. In both
+cases, the age structure was used to determine the optimal age for vaccination. A com-
+partment for adult hosts with waning immunity who can also receive immune system
+boosting was introduced only years later by Rouderfer et al. [33]. A further determin-
+istic system of ODEs for maternally induced immunity in measles was proposed in [29].
+6
+
+[Page 7]
+Diﬀerent is the approach when physiologically structured populations are considered.
+Martcheva and Pilyugin [25] suggest an SIRS model in which infective and recovered
+hosts are structured by their immune status. In infective hosts the immune status
+increases over the course of infection, while in recovered hosts the immune status de-
+cays at some non-constant rate. When the immune status has reached a critical level,
+recovered hosts transit from the immune to the susceptible compartment.
+A general framework for SIRS systems, modeling waning immunity and immune
+system boosting, and combining the in-host perspective with the population dynamics,
+was proposed in [6].
+3
+A general modeling framework
+In this section we extend the model in [6] to include vaccine-induced immunity. As in
+[25, 6], we couple the in-host with the between-hosts dynamics, focusing on the eﬀects
+of waning immunity and immune system boosting on the population dynamics. In
+contrast to the models proposed in [17, 22], we shall maintain the number of equations
+as low as possible. The resulting model (V1) is a system of ODEs coupled with two
+PDEs.
+The ODE systems in [31, 11, 3, 5, 30], as well as extensions of the DDEs
+systems in [36, 38], can be recovered from our modeling framework.
+Setting up our model we do not restrict ourselves to a particular pathogen.
+The
+model (V1) can be adapted to several epidemic outbreaks (e.g. measles, chickenpox,
+rubella, pertussis) by ad-hoc estimating coeﬃcients from available experimental data
+[24, 1, 23].
+3.1
+Model ingredients
+3.1.1
+Originally susceptible and infectives hosts
+Let S(t) denote the total population of originally susceptible hosts. These are sus-
+ceptible individuals which have neither received vaccination nor have been infected
+before. Newborns enter the susceptible population at rate b(N), dependent on the to-
+tal population size N. For simplicity we assume that the natural death rate d > 0 does
+not depend on N. Assume that b : [0, ∞) →[0, b+], N 7→b(N), with 0 < b+ < ∞,
+is a nonnegative function, with b(0) = 0. Finally, assume that in absence of disease-
+induced death there exists an equilibrium N∗such that b(N∗) = d N∗.
+Let I(t) denote the total infective population at time t. Infection of susceptible
+individuals occurs by contact, at rate βI/N. Infected hosts recover at rate γ > 0.
+When we include disease-induced death at rate dI > 0, the equilibrium N∗satisﬁes
+b(N∗) = d N∗+ dII∗.
+3.1.2
+Immune individuals
+Let us denote by r(t, z) the density of recovered individuals with disease-induced im-
+munity level z ∈[zmin, zmax] at time t. The total population of recovered hosts is given
+7
+
+[Page 8]
+by
+R(t) =
+Z zmax
+zmin
+r(t, z) dz.
+The parameter z describes the immune status and can be related to the number of
+speciﬁc immune cells of the host. The value zmax corresponds to maximal immunity,
+whereas zmin corresponds to low level of immunity. Individuals who recover at time
+t enter the immune compartment with maximal level of immunity zmax. The level
+of immunity tends to decay in time and when it reaches the minimal value zmin, the
+host becomes susceptible again. However, exposure to the pathogen can boost the
+immune system from z ∈[zmin, zmax] to any higher status. It is not straightforward
+to determine how this kind of immune system boosting works, as no experimental
+data are available. Nevertheless, laboratory analysis on vaccines tested on animals
+or humans suggest that the boosting eﬃcacy might depend on several factors, among
+which the current immune status of the recovered host and the amount of pathogen
+he receives [1, 24]. Possibly, exposure to the pathogen can restore the maximal level
+of immunity, just as natural infection does [6].
+Let p(z, ˜z), z ≥˜z, z, ˜z ∈R denote the probability that an individual with immunity
+level ˜z moves to immunity level z, when exposed to the pathogen. Due to the deﬁnition
+of p(z, ˜z), we have p(z, ˜z) ∈[0, 1], z ≥˜z and
+p(z, ˜z) = 0,
+for all
+z < ˜z.
+As we eﬀectively consider only immunity levels in the interval [zmin, zmax], we set
+p(z, ˜z) = 0,
+for all
+˜z ∈(−∞, zmin) ∪(zmax, ∞).
+Then we have
+Z ∞
+−∞
+p(z, ˜z) dz =
+Z zmax
+˜z
+p(z, ˜z) dz = 1,
+for all
+˜z ∈[zmin, zmax].
+Exposure to the pathogen might restore exactly the immunity level induced by the
+disease (zmax). In order to capture this particular aspect of immune system boosting,
+we write the probability p(z, ˜z) as the combination of a continuous (p0) and atomic
+measures (Dirac delta):
+p(z, ˜z) = cmax(˜z)δ(zmax −˜z) + c0(˜z)p0(z, ˜z) + c1(˜z)δ(z −˜z),
+where
+• cmax : [zmin, zmax] →[0, 1], y 7→cmax(y), is a continuously diﬀerentiable function
+and describes the probability that, due to contact with infectives, a host with
+immunity level y boosts to the maximal level of immunity zmax.
+• c0 : [zmin, zmax] →[0, 1], y 7→c0(y), is a continuously diﬀerentiable function and
+describes the probability that, due to contact with infectives, a host with immu-
+nity level y boosts to any other level z ∈(y, zmax), according to the continuous
+probability p0(z, y).
+• c1(y) = 1−cmax(y)−c0(y) describes the probability that getting in contact with
+infectives, the host with immunity level y ∈[zmin, zmax] does not experience
+immune system boosting.
+8
+
+[Page 9]
+The immunity level decays in time at some rate g(z) which is the same for all
+recovered individuals with immunity level z. In other words, the immunity level z
+follows
+d
+dtz(t) = g(z),
+with g : [zmin, zmax] →(0, Kg], Kg < ∞continuously diﬀerentiable. The positivity
+of g(z) is required from the biological motivation. Indeed, if g(˜z) = 0 for some value
+˜z ∈[zmin, zmax], there would be no change of the immunity level at ˜z, contradicting the
+hypothesis of natural decay of immune status. In absence of immune system boosting,
+we have that
+Z zmax
+zmin
+1
+g(x) dx
+is the time a recovered host remains immune (see [6]).
+3.1.3
+Vaccination
+We structure the vaccinated population by the level of immunity as well. Let v(t, z)
+be the density of vaccinees with immunity level z ∈[zmin, zmax] at time t. The total
+population of vaccinated hosts is given by
+V (t) =
+Z zmax
+zmin
+v(t, z) dz.
+Vaccination infers a level of immunity zvax, which is lower than the level of immunity
+after natural infection: zmax > zvax > zmin [35].
+As in recovered individuals, the
+level of immunity of a vaccinated host tends to decay in time and when it reaches the
+minimal value zmin, the host becomes susceptible again. However, also in vaccinated
+hosts, exposure to the pathogen can boost the immunity level z ∈[zmin, zvax] to any
+higher value in [zmin, zmax]. Immune system boosting is described by the probability
+p(z, ˜z), as in recovered hosts. We consider the possibility that exposure to the pathogen
+boosts the immune system of a vaccinated individual to z ∈(zvax, zmax]. Vaccinated
+hosts with z ∈(zvax, zmax] have an immune status which can be compared to the one
+of hosts who recovered from natural infection.
+It is reasonable to assume that in vaccinated individuals the immunity level decays
+in time at the same rate g, as in hosts who underwent natural infection. In absence
+of exposure to the pathogen (hence in absence of immune system boosting), the time
+that a vaccinee remains immune is shorter than the time a recovered host does:
+Z zvax
+zmin
+1
+g(x) dx <
+Z zmax
+zmin
+1
+g(x) dx.
+Let us deﬁne the vaccination rate at birth α > 0. We assume that originally susceptible
+(adult) individuals get vaccinated at rate φ ≥0.
+3.1.4
+Becoming susceptible again
+In absence of immune system boosting both disease-induced and vaccine-induced im-
+munity fade away. Individuals who lose immunity either after recovery from infection
+or after vaccination, enter the class S2 of susceptible individuals who shall not get a
+9
+
+[Page 10]
+new dose of vaccine. A host who had the disease or got vaccination relies indeed on
+the induced-immunity and is not aware of the fact that his level of immunity might
+have dropped below the critical immunity threshold.
+We denote by S2(t) the population at time t of susceptible hosts who are not go-
+ing to receive vaccination.
+3.2
+Model equations
+In view of all what we have mentioned above, we can easily write down the equations
+for the compartments S, I and S2. Let initial values S(0) = S0 ≥0, I(0) = I0 ≥0
+and S2(0) = S0
+2 ≥0 be given. The population of originally susceptible individuals is
+governed by
+˙S(t) = b(N(t))(1 −α)
+|
+{z
+}
+birth
+−
+φS(t)
+| {z }
+vaccination
+−βS(t)I(t)
+N(t)
+|
+{z
+}
+infection
+−dS(t)
+| {z }
+death
+,
+(2)
+whereas hosts who become susceptible due to immunity loss follow
+˙S2(t) = −βS2(t)I(t)
+N(t)
+|
+{z
+}
+infection
+−dS2(t)
+| {z }
+death
++
+ΛR
+|{z}
+immunity loss
+after recovery
++
+ΛV
+|{z}
+immunity loss
+after vaccination
+.
+The term ΛR (respectively ΛV ), which represents transitions from the immune (re-
+spectively, the vaccinated) compartment to the susceptible one, will be speciﬁed below
+together with the dynamics of the recovered (respectively, vaccinated) population.
+Both kinds of susceptible hosts can become infective due to contact with infective
+hosts:
+˙I(t) =
+βS(t)I(t)
+N(t)
+|
+{z
+}
+infection of S
++
+βS2(t)I(t)
+N(t)
+|
+{z
+}
+infection of S2
+−
+γI(t)
+| {z }
+recovery
+−dI(t)
+| {z }
+natural
+death
+−
+dII(t)
+| {z }
+disease-induced
+death
+.
+(3)
+To obtain an equation for the recovered individuals, structured by their levels of im-
+munity, one can proceed similarly to size structured models or as it was done for the
+immune population in [6]. The result is the following PDE. Let a nonnegative initial
+distribution r(0, z) = ψ(z), z ∈[zmin, zmax] be given. For t > 0, z ∈[zmin, zmax] we
+have
+∂
+∂tr(t, z) −∂
+∂z (g(z)r(t, z)) = −dr(t, z) + β I(t)
+N(t)
+Z z
+zmin
+p(z, x)r(t, x) dx
+−r(t, z)β I(t)
+N(t),
+(4)
+with the boundary condition
+g(zmax)r(t, zmax) = γI(t) + β I(t)
+N(t)
+Z zmax
+zmin
+p(zmax, x)r(t, x) dx.
+(5)
+10
+
+[Page 11]
+Equation (4) expresses the rate of change in the density of recovered individuals ac-
+cording to immune level due to natural waning, mortality, and boosting. The boundary
+condition (5) includes newly recovered individuals as well as those recovered individ-
+uals, who just received a boost which elevated their immune system to maximal level.
+Next we shall consider the vaccinated population. Again, by structuring this group
+according to immunity level, one has the PDE
+∂
+∂tv(t, z) = ∂
+∂z (g(z)v(t, z)) −dv(t, z) + β I(t)
+N(t)
+Z z
+zmin
+p(z, x)v(t, x) dx
+−v(t, z)β I(t)
+N(t) + δ(z −zvax) (φS(t) + αb(N(t))) ,
+(6)
+and
+g(zmax)v(t, zmax) = β I(t)
+N(t)
+Z zmax
+zmin
+p(zmax, x)v(t, x) dx,
+(7)
+provided with a nonnegative initial distribution v(0, z) = ψv(z), z ∈[zmin, zmax]. Ob-
+serve that newly vaccinated hosts do not enter the vaccinated population at zmax, but
+at the lower value zvax, which is expressed in equation (6) as an impulse at z = zvax
+by the term with the Dirac delta δ(z −zvax).
+It becomes evident that the quantity ΛR, initially introduced in the S2 equation
+to represent the number of hosts who experienced immunity loss, is given by the
+number g(zmin)r(t, zmin) of immune hosts who reached the minimal level of immunity
+after recovery from natural infection. Similarly, ΛV is the number g(zmin)v(t, zmin) of
+vaccinated hosts who reached the minimal level of immunity. Hence we have
+˙S2(t) = −βS2(t)I(t)
+N(t)
+|
+{z
+}
+infection
+−dS2(t)
+| {z }
+death
++ g(zmin)r(t, zmin)
+|
+{z
+}
+ΛR
++ g(zmin)v(t, zmin)
+|
+{z
+}
+ΛV
+.
+(8)
+In the following we refer to the complete system (2) – (8) as to model (V1).
+4
+Connection to other mathematical models
+4.1
+Connection to ODE models
+As it was shown in [6] for a simpler problem, model (V1) can be reduced to a system
+of ODEs analogous to those proposed in [31, 11, 3, 22, 17, 30]. The connection be-
+tween model (V1) and the ODE system is given by the method of lines, a technique in
+which all but one dimensions are discretized [34]. In our case, we shall discretize the
+immunity level (z) and obtain a system of ODEs in the time variable.
+Let us deﬁne a sequence {zj}j∈N, with hj := zj+1 −zj > 0, for all j ∈N.
+To
+keep the demonstration as simple as possible, we choose a grid with only a few points,
+z1 := zmin < zW := zvax < zF < zmax and for simplicity (or possibly after a rescal-
+ing) assume that hj = 1 for all j.
+We deﬁne the following subclasses of the im-
+mune/vaccinated population:
+11
+
+[Page 12]
+• RF(t) := r(t, zF), immune hosts with high level of immunity at time t. As their
+immunity level is quite high, these individuals do not experience immune system
+boosting. Immunity level decays at rate µ := g(zF) > 0.
+• RW(t) := r(t, zW), immune hosts with intermediate level of immunity at time t.
+These individuals can get immune system boosting and move to RF. Immunity
+level decays at rate ν := g(zW) > 0.
+• RC(t) := r(t, zmin), immune hosts with critically low level of immunity at time
+t. With probability θ boosting moves RC individuals to RW (respectively, with
+probability (1 −θ) to RF). Immunity level decays at rate σ := g(zmin) > 0.
+If they do not get immune system boosting, these hosts move to the class S2
+(become susceptible again).
+• VR(t) := v(t, zF), vaccinated hosts who thanks to immune system boosting
+gained a very high level of immunity at time t. These individuals do not ex-
+perience immune system boosting. Immunity level decays at rate µ.
+• V0(t) := v(t, zW), vaccinated individuals at time t with maximal vaccine-induced
+immunity.
+This class includes new vaccinees.
+If their immune system gets
+boosted hosts move to VR. Immunity level decays at rate ν.
+• VC(t) := v(t, zmin), vaccinees with critically low level of immunity at time t.
+With probability ξ boosting moves VC hosts to V0 and with probability (1 −ξ)
+to VR. Immunity level decays at rate σ. If they do not receive immune system
+boosting, VC hosts move to S2.
+To show how the PDE system can be reduced to a system of ODEs by means of the
+method of lines, we consider a simple example. Let us neglect immune system boosting
+for a moment. Then the PDE for r(t, z) in model (V1) becomes
+∂
+∂tr(t, z) = ∂
+∂z
+g(z)r(t, z)
+
+−dr(t, z),
+z ∈[zmin, zmax],
+(9)
+with boundary condition Rzmax(t) := r(t, zmax) = γI(t)/g(zmax). Using forward ap-
+proximation for the z-derivative in (9), we obtain, e.g., for RF(t) the following diﬀer-
+ential equation:
+˙RF(t) = ∂
+∂tr(t, zF)
+= ∂
+∂z
+g(zF)r(t, zF)
+
+−dr(t, zF)
+≈g(zmax)r(t, zmax) −g(zF)r(t, zF)
+zmax −zF
+|
+{z
+}
+=1
+−dr(t, zF)
+= g(zmax)Rzmax(t) −µRF(t) −dRF(t)
+= γI(t) −(µ + d)RF(t).
+12
+
+[Page 13]
+Analogously one can ﬁnd equations for RW, RC, VR, V0 and VC. Altogether we obtain
+a system of ordinary diﬀerential equations in which a linear chain of ODEs replaces
+the PDEs for the immune and the vaccinated class:
+˙S(t) = (1 −α)b(N(t)) −φS(t) −βS(t)I(t)
+N(t)
+−dS(t)
+˙I(t) = β I(t)
+N(t)(S(t) + S2(t)) −(γ + d + dI)I(t)
+˙RF(t) = γI(t) −µRF(t) −dRF(t)
+˙RW(t) = µRF(t) −νRW(t) −dRW(t)
+˙RC(t) = νRW(t) −σRC(t) −dRC(t)
+˙VR(t) = −µVR(t) −dVR(t)
+˙V0(t) = φS(t) + αb(N(t)) + µVR(t) −νV0(t) −dV0(t)
+˙VC(t) = νV0(t) −σVC(t) −dVC(t)
+˙S2(t) = −βS2(t)I(t)
+N(t)
+−dS2(t) + σ(RC(t) + VC(t)).
+The method of lines can be applied to the full model (V1) as well [6]. To this purpose
+it is necessary to discretize the boosting probability p(z, ˜z) (this is expressed by the
+parameters ξ and θ below). Incorporating the boosting eﬀect, the result is the following
+system of ODEs.
+˙S(t) = (1 −α)b(N(t)) −φS(t) −βS(t)I(t)
+N(t)
+−dS(t)
+˙I(t) = β I(t)
+N(t) (S(t) + S2(t)) −(γ + d + dI)I(t)
+˙RF(t) = γI(t) −µRF(t) −dRF(t) + β I(t)
+N(t) (RW(t) + (1 −θ)RC(t))
+˙RW(t) = µRF(t) −νRW(t) −dRW(t) + β I(t)
+N(t)(θRC(t) −RW(t))
+˙RC(t) = νRW (t) −σRC(t) −dRC(t) −β I(t)
+N(t)RC(t)
+˙VR(t) = β I(t)
+N(t) (V0(t) + (1 −ξ)VC(t)) −µVR(t) −dVR(t)
+˙V0(t) = φS(t) + αb(N(t)) + µVR(t) −νV0(t) −dV0(t) + β I(t)
+N(t) (ξVC(t) −V0(t))
+˙VC(t) = νV0(t) −σVC(t) −dVC(t) −βVC(t)I(t)
+N(t)
+˙S2(t) = −βS2(t)I(t)
+N(t)
+−dS2(t) + σ(RC(t) + VC(t)).
+The linear chain of ODEs provides a rough approximation of the PDEs in model (V1).
+Indeed, with the method of lines we approximate the PDE dynamics considering only
+changes at the grid points (zmin, zW, zF), whereas the dynamics remains unchanged
+13
+
+[Page 14]
+in each immunity interval [zj, zj+1]. We consider as representative point of the interval
+the lowest boundary zj - for this reason we do not have a diﬀerential equation for
+Rzmax(t) or Vzmax(t).
+4.2
+Connection to DDE models
+Delay models with constant delay can be recovered from special cases of model (V1).
+We show here how to obtain the classical SIRS model with delay studied in [36], or
+extensions thereof.
+In the following we neglect boosting eﬀects and vaccination. Further we do not distin-
+guish between originally susceptibles and host who have lost immunity, hence w.r.t.
+model (V1) we identify the classes S and S2. From our assumptions, the disease-
+induced immunity lasts for a ﬁx time, τ > 0 years, given by
+Z zmax
+zmin
+1
+g(x) dx = τ.
+We can express the total immune population at time t as the number of individuals
+who recovered in the time interval [t −τ, t],
+R(t) = γ
+Z t
+t−τ
+I(y)e−d(t−y) dy = γ
+Z τ
+0
+I(t −x)e−dx dx.
+Diﬀerentiation with respect to t yields
+˙R(t) = γI(t) −γI(t −τ)e−dτ −dR(t).
+(10)
+On the other side, we have the deﬁnition in terms of distribution of immune individuals,
+R(t) =
+Z zmax
+zmin
+r(t, z) dz.
+Diﬀerentiate the last relation and compare with (10):
+g(zmax)r(t, zmax) = γI(t),
+g(zmin)r(t, zmin) = γI(t −τ)e−dτ.
+This means that individuals with maximal level of immunity are those who recover
+from infection. If a host who recovers at time t1 survives up to time t1 + τ, he exits
+the R class and enter S. In turn, we ﬁnd a delay term in the equation for S too, and
+have a classical SIRS model with constant delay
+˙S(t) = b(N(t)) −βS(t)I(t)
+N(t)
+−dS(t) + γI(t −τ)e−dτ
+˙I(t) = βS(t)I(t)
+N(t)
+−(γ + d + dI)I(t)
+˙R(t) = γI(t) −γI(t −τ)e−dτ −dR(t),
+which was studied by Taylor and Carr [36].
+14
+
+[Page 15]
+Now we can include again vaccination and the class S2 as in the general model (V1).
+We assume that vaccine-induced immunity lasts for a time τv > 0,
+τv :=
+Z zvax
+zmin
+1
+g(x) dx <
+Z zmax
+zmin
+1
+g(x) dx =: τ.
+With similar arguments as for the immune population, we obtain the relations
+g(zvax)v(t, zvax) = αb(N(t)) + φS(t),
+g(zmin)v(t, zmin) = (αb(N(t −τv)) + φS(t −τv)) e−dτv,
+and ﬁnd a system with two constant delays
+˙S(t) = (1 −α)b(N(t)) −φS(t) −βS(t)I(t)
+N(t)
+−dS(t)
+˙I(t) = β I(t)
+N(t)(S(t) + S2(t)) −(γ + d + dI)I(t)
+˙R(t) = γI(t) −γI(t −τ)e−dτ −dR(t)
+˙V (t) = αb(N(t)) + φS(t) −(αb(N(t −τv)) + φS(t −τv)) e−dτv −dV (t)
+˙S2(t) = −βS2(t)I(t)
+N(t)
+−dS2(t) + γI(t −τ)e−dτ
++ (αb(N(t −τv)) + φS(t −τv)) e−dτv.
+Acknowledgments
+Authors were supported by the ERC Starting Grant No 259559. MVB was supported
+by the European Union and the State of Hungary, co-ﬁnanced by the European Social
+Fund in the framework of T´AMOP-4.2.4.
+A/2-11-1-2012-0001 National Excellence
+Program. GR was supported by Hungarian Scientiﬁc Research Fund OTKA K109782
+and T´AMOP-4.2.2.A-11/1/KONV-2012-0073 ”Telemedicine focused research activi-
+ties on the ﬁeld of Mathematics, Informatics and Medical sciences”.
+References
+[1] I. J. Amanna, N. E. Carlson and M. K. Slifka, Duration of humoral immunity to
+common viral and vaccine antigens, New Eng. J. Med. 357(19), 1903–1915 (2007)
+[2] R. Antia, V. V. Ganusov and R. Ahmed, The role of models in understanding
+CD8+ T-cell memory, Nat. Rev. Immunol. 5(2), 101–111 (2005)
+[3] N. Arinaminpathy, J. S. Lavine and B.T. Grenfell, Self-boosting vaccines and
+their implications for herd immunity, Proc. Natl. Acad. Sci. U. S. A. Early Ed.
+109(49), 154–159 (2012)
+[4] J. Arino, K. Cooke, P. van den Driessche and J. Velasco-Hern´andez, An epidemi-
+ology model that includes a leaky vaccine with a general waning function, Discr.
+Cont. Dyn. Sys. Series B 4(2), 479–495 (2004)
+15
+
+[Page 16]
+[5] J. Arino and P. van den Driessche, Time delays in epidemic models, In: Delay
+diﬀerential equations and applications, NATO Science Series 205, Springer, New
+York, 539–578 (2006)
+[6] M. V. Barbarossa and G. R¨ost, Immuno-epidemiology of a population structured
+by immune status: a mathematical study of waning immunity and immune system
+boosting, preprint arXiv:1411.3195 (2014)
+[7] S. Bhattacharya and F. R Adler, A time since recovery model with varying rates
+of loss of immunity, Bull. Math. Biol. 74(12), 2810–2819 (2012)
+[8] K. B. Blyuss and Y. N. Kyrychko, Stability and bifurcations in an epidemic model
+with varying immunity period, Bull. Math. Biol. 72(2), 490–505 (2010)
+[9] F. Brauer and C. Castillo-Ch´avez, Mathematical models in population biology
+and epidemiology, Springer, New York (2001)
+[10] M. P. Daﬁlis, F. Frascoli, J. G. Wood and J. M. McCaw, The inﬂuence of in-
+creasing life expectancy on the dynamics of SIRS systems with immune boosting,
+ANZIAM J. 54(1-2), 50–63 (2012)
+[11] K. Glass and B. Grenfell, Antibody dynamics in childhood diseases: waning and
+boosting of immunity and the impact of vaccination, J. Theor. Biol. 221(1), 121–
+131 (2003)
+[12] K. Glass and B. Grenfell, Waning immunity and subclinical measles infections in
+England, Vaccine 22(29), 4110–4116 (2004)
+[13] K. Glass, J. Kappey and B. Grenfell, The eﬀect of heterogeneity in measles vac-
+cination on population immunity, Epidemiol. Infect. 132(4), 675–683 (2004)
+[14] K. Glass, Y. Xia and B. Grenfell, Interpreting time-series analyses for continuous-
+time biological models: measles as a case study, J. Theor. Biol. 223(1), 19–25
+(2003)
+[15] R. A. Goldsby, T. J. Kindt, B. A. Osborne and J. Kubi, Immunology 5th ed., W.
+H. Freeman and Company, London (2003)
+[16] J. M. Heﬀernan and M. J. Keeling, An in-host model of acute infection: Measles
+as a case study, Theor. Popul. Biol. 73(1), 134–147 (2008)
+[17] J. M. Heﬀernan and M. J. Keeling, Implications of vaccination and waning im-
+munity, Proc. R. Soc. B: Biol. Scie. 276(1664), 2071–2080 (2009)
+[18] H. W. Hethcote, H. W. Stech and P. van den Driessche, Nonlinear oscillations in
+epidemic models, SIAM J. Appl. Math. 40(1), 1–9 (1981)
+[19] H. W. Hethcote and P. van den Driessche, Two SIS epidemiologic models with
+delays, J. Math. Biol. 40(1), 3–26 (2000)
+[20] W. Katzmann and K. Dietz, Evaluation of age-speciﬁc vaccination strategies,
+Theo. Popul. Biol. 25(2), 125–137 (1984)
+16
+
+[Page 17]
+[21] Y. N. Kyrychko and K. B. Blyuss, Global properties of a delayed SIR model with
+temporary immunity and nonlinear incidence rate, Nonlinear Anal. Real 6(3),
+495–507 (2005)
+[22] J. S. Lavine, A. A. King and O. N. Bjørnstad, Natural immune boosting in per-
+tussis dynamics and the potential for long-term vaccine failure, Proc. Nat. Acad.
+Sci. 108(17), 7259–7264 (2011)
+[23] S. Li, N. Rouphael, S. Duraisingham et al., Molecular signatures of antibody
+responses derived from a systems biology study of ﬁve human vaccines. Nat. Im-
+munol. 15(2), 195–204 (2013)
+[24] Z. Luo, H. Shi, H. Zhang et al., Plasmid DNA containing multiple CpG motifs
+triggers a strong immune response to hepatitis B surface antigen when combined
+with incomplete freund’s adjuvant but not aluminum hydroxide, Mol. Med. Rep.
+6(6), 1309–1314 (2012)
+[25] M. Martcheva and S. S. Pilyugin, An epidemic model structured by host immu-
+nity, J. Biol. Sys. 14(02), 185–203 (2006)
+[26] A. McLean and R. Anderson, Measles in developing countries Part II. The pre-
+dicted impact of mass vaccination, Epidemiol Inf. 100(3), 419–442 (1988a)
+[27] A. R. McLean and R. M. Anderson, Measles in developing countries Part I. Epi-
+demiological parameters and patterns, Epidemiol Inf. 100(1), 111–133 (1988b)
+[28] A. R. McLean and S. M. Blower, Imperfect vaccines and herd immunity to HIV,
+Proc. R. Soc. Lond. B253, 9–13 (1993)
+[29] S. M. Moghadas, M. E. Alexander and B. M. Sahai, Waning herd immunity: a
+challenge for eradication of measles, Rocky Mountain J Math. 38(5), 1587-1607
+(2008)
+[30] J. Mossong and C. P. Muller, Modelling measles re-emergence as a result of waning
+of immunity in vaccinated populations, Vaccine 21(31), 4597–4603 (2003)
+[31] J. Mossong, D. J. Nokes, W. J. Edmunds et. al., Modeling the impact of subclinical
+measles transmission in vaccinated populations with waning immunity, Am. J.
+Epidemiol. 150(11), 1238–1249 (1999)
+[32] T. C. Reluga, J. Medlock and A. S. Perelson, Backward bifurcations and multiple
+equilibria in epidemic models with structured immunity, J. Theor. Biol. 252(1),
+155–165 (2008)
+[33] V. Rouderfer, N. G. Becker and H. W. Hethcote, Waning immunity and its eﬀects
+on vaccination schedules, Math. Bioscie. 124(1), 59–82 (1994)
+[34] W. E. Schiesser, The numerical method of lines. Academic Press, San Diego (1991)
+[35] C. A. Siegrist, Vaccine immunology. In: Plotkin SA, Orenstein WA and Oﬃt PA
+(eds.) Vaccines, Elsevier Inc, Philadelphia, 1736 (2008)
+17
+
+[Page 18]
+[36] M. L. Taylor and T. W. Carr, An sir epidemic model with partial temporary
+immunity modeled with delay, J. Math. Biol. 59(6), 841–880 (2009)
+[37] D. Wodarz, Killer cell dynamics: mathematical and computational approaches to
+immunology, Springer, New York (2007)
+[38] Y. Yuan and J. B´elair, Threshold dynamics in an SEIRS model with latency and
+temporary immunity, J. Math. Biol. 69(4), 875–904 (2013)
+18

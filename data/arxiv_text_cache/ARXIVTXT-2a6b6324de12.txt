@@ -1,0 +1,1650 @@
+[Page 1]
+Impact of Resistance Development Mechanisms
+on Antibiotic Treatment Outcomes
+Ailin Zhang, Shigui Ruan, and Xi Huo∗
+Department of Mathematics, University of Miami, Coral Gables, FL 33146, USA
+Abstract
+Bacteria develop resistance to antibiotics through various mechanisms, with the
+speciﬁc mechanism depending on the drug-bacteria pair. It remains unclear, however,
+which resistance mechanism best supports favorable treatment outcomes, speciﬁcally in
+clearing infections and inhibiting further resistance. In this study, we use periodic or-
+dinary diﬀerential equation models to simulate diﬀerent antibiotic treatment protocols
+for bacterial infections. Using stability analysis and numerical simulations, we inves-
+tigate how diﬀerent resistance mechanisms, including plasmid-induced and mutation-
+induced resistance, aﬀect treatment outcomes.
+Our ﬁndings suggest that antibiotic
+treatments with ﬁxed dosing schedules are more likely to be eﬀective when resistance
+arises exclusively through plasmid-mediated transmission.
+Further, when treatment
+fails, mutation-driven mechanisms tend to favor the selection of fully resistant bacte-
+rial strains. We also investigated the eﬃcacy of diﬀerent treatment strategies based
+on these mechanisms, ﬁnding that a twice-daily regimen consistently outperforms a
+once-daily regimen in terms of infection clearance. Additionally, our simulations with
+short half-life antibiotics indicate that the "catch-up" strategy outperforms the "com-
+pensatory double-dose" approach after a missed dose, a ﬁnding that aligns with general
+pharmaceutical advice for short-half-life drugs.
+1
+Introduction
+Over the past several decades, antibiotic-resistant bacteria (ARB) have emerged rapidly
+and spread worldwide. Infections caused by ARB are challenging to treat, leading to pro-
+longed illness, disability, increased mortality, and higher healthcare costs. Each bacterial
+∗Correspondence: x.huo@math.miami.edu
+1
+arXiv:2511.03677v1  [q-bio.PE]  5 Nov 2025
+
+[Page 2]
+isolate causing infections may harbor a mix of antibiotic-resistant and susceptible popula-
+tions, and the antibiotic concentration required to eliminate the bacterial population varies
+signiﬁcantly based on the genetic material present. Resistance can further develop through
+various mechanisms during treatments. Therefore, the well-recognized "hit early and hit
+hard" concept emphasizes initiating treatment with an appropriate antibiotic dose and fre-
+quency so as to eﬀectively clear the infection and prevent the development of resistance.
+Bacteria develop resistance to antibiotics mostly by making genetic changes via two
+major mechanisms [14, 15]: chromosomal mutation - acquired by spontaneous mutations
+on the DNA, and horizontal gene transfer - acquired by bacteria-to-bacteria transmission
+of plasmids (small circular DNA). The speciﬁc mechanisms through which bacteria develop
+a certain resistance to an antibiotic depend highly on the bacteria-antibiotic combination.
+In modeling, chromosomal mutations are captured as a linear rate or a rate proportional to
+the logistic net growth rate [3, 4, 7, 16, 20, 23, 25], mutations via plasmid transmission are
+characterized by mass action [6, 8, 18, 22, 27, 31], and less work incorporate both mechanisms
+[14, 9]. For certain antibiotics, bacteria must obtain multiple genes to achieve full resistance.
+Thus some studies stratify the bacteria population into more than two compartments with
+diﬀerent genotypic levels corresponding to various antibiotic killing rates [4, 6, 31].
+Many studies have explored the impacts of treatment protocols on infection clearance
+eﬃcacy and resistance development potential, focusing on speciﬁc resistance development
+mechanisms. However, there is a lack of research examining these impacts in the reverse
+direction, which could provide valuable insights for the theoretical guideline for drug-bug
+speciﬁc antibiotic treatments. For example, vancomycin and ciproﬂoxacin are both used to
+treat Methicillin-resistant Staphylococcus aureus (MRSA) infections, where vancomycin has
+been discovered decades earlier than ciproﬂoxacin. While it might be reasonable to assume
+that MRSA is more resistant to the older antibiotic due to longer exposure, MRSA is, in fact,
+more resistant to ciproﬂoxacin than vancomycin. Knowing that MRSA develops resistance
+to these drugs through diﬀerent mechanisms — chromosomal mutations for ciproﬂoxacin
+and horizontal gene transfer for vancomycin — it is natural to ask how these mechanisms
+contribute to the observed discrepancy in resistance rates.
+In this study, we develop and analyze two periodic ODE models of antibiotic treatment,
+distinguished by how bacteria acquire resistance: either through plasmid transmission or
+spontaneous chromosomal mutation. We examine the long-term dynamics of each model
+by deriving the basic reproduction number, R0, which characterizes infection clearance, and
+conducting uniform persistence analysis to identify conditions of treatment failure. Numer-
+ical simulations parameterized for MRSA infections treated with moxiﬂoxacin, a fourth-
+generation ﬂuoroquinolone, reveal three key ﬁndings: (1) conventional concepts such as the
+mutation selection window (MSW) and minimum inhibitory concentration (MIC) are insuf-
+ﬁcient to reliably predict treatment outcomes across resistance mechanisms; (2) treatment
+2
+
+[Page 3]
+is more likely to succeed when resistance arises via plasmid transmission; and (3) under
+failed treatments, spontaneous mutation-driven resistance can lead to the selection of fully
+resistant strains.
+The remainder of this paper is organized as follows. Section 2 introduces the baseline
+model without genetic alteration, followed by models in which bacteria acquire resistance
+through plasmid transmission and spontaneous mutation. For the latter two cases, we es-
+tablish the existence and stability of periodic solutions. In Section 3, we parameterize the
+time-dependent bacterial killing rate and antibiotic concentration functions, as well as the
+concentration-dependent killing rate function. Section 4 presents numerical simulations, and
+Section 5 provides concluding discussions.
+2
+Models
+2.1
+Baseline model with no genetic alteration
+Without the consideration of genetic alteration, the bacterial population can be modeled
+as one single compartment adopting a logistic growth model. Denote B(t) as the bacterial
+population at time t, we have
+˙B(t) = rB(t)
+
+1 −B(t)
+K
+
+−µ(t)B(t),
+(M1)
+where r is the intrinsic bacterial growth rate. K represents the carrying capacity of the
+bacterial population, which, in a within-host setting, refers to the maximum bacterial load
+that can be sustained in the human body. µ(t) denotes the bacterial killing rate induced by
+antibiotic treatment, which we model as a periodic function. Since we track the bacterial
+population and antibiotic treatment on a daily basis, we assume µ(t) to be a 1-periodic
+function.
+Assumption 2.1. µ(t) is a non-negative, continuous, and 1-periodic function.
+Proposition 2.1. For any initial value B(0) ≥0, there exists a unique global solution B(t)
+to (M1) that is non-negative for all t ≥0.
+Next, we deﬁne the basic reproductive number as
+R0 = er−
+R 1
+0 µ(t)dt,
+3
+
+[Page 4]
+and obtain the following results which are useful for the analysis of the models with resistance
+development.
+Theorem 2.1. If R0 > 1, then for any initial value B(0) > 0, system (M1) has a unique, non-
+constant, and 1-periodic solution Φ(t), which is globally asymptotically stable. If R0 < 1,
+then the zero solution B(t) ≡0 is globally stable.
+2.2
+Resistance acquired through plasmid transmission
+We consider the case where bacteria acquire resistance through a single mutation gene
+carried by a plasmid, which is transmitted between bacteria via horizontal gene transfer
+(HGT). One example of this mechanism is the resistance development in MRSA against
+vancomycin. HGT has been considered as a nonlinear process that is quite similar to the
+transmission of infectious diseases. Prior studies modeled this process by either a mass action
+[6, 14] or a mix of density- and frequency- dependent functions [9]. We here adopt the density-
+and frequency- dependent functional response transmission rate due to its generalizability.
+Denote Bp and Bs as the plasmid-bearing and plasmid-free bacterial population, respectively,
+and B as the total population, we have
+˙Bs(t) = rsBs(t)(1 −B(t)
+K ) −µs(t)Bs(t) −βBs(t)Bp(t)
+a + bB(t)
++ p
+2rpBp(t)
+˙Bp(t) = rpBp(t)(1 −B(t)
+K ) −µp(t)Bp(t) + βBs(t)Bp(t)
+a + bB(t)
+−p
+2rpBp(t)
+(M2)
+where rs and rp refer to the intrinsic growth rate for each population, and µs(t) and µp(t)
+are the antibiotic killing rates which we assume to be 1-periodic. p is the probability that a
+plasmid is lost during the bacterial cell division - when this happens, one of the two daughter
+cells will become plasmid-free. β is the ﬂux rate of HGT.
+Notation 2.1. rmax = max{rs, rp} and rmin = min{rs, rp}.
+Assumption 2.2. µs(t) and µp(t) are non-negative, continuous, and 1-periodic functions.
+Proposition 2.2. For any initial value Bs(0), Bp(0) ≥0, (M2) has a unique and bounded
+global solution that is non-negative for all t ≥0. Furthermore, for any q > 0, there exists
+tq > 0 such that the solution of (M2) with t > tq lies in the compact set
+Dq = {(Bs, Bp) ∈R2
++ : Bs + Bp ≤rmax
+rmin
+· K + q}.
+(2.2.1)
+4
+
+[Page 5]
+Proof. Similar to the proof of Proposition 2.1, it is easy to show that the right hand side
+function f(t, ·) : R2 →R2 is locally Lipschitz continuous. We thus have the local existence
+and uniqueness of the solution. By Remark 16.3(f) in [1], we can show that R2
++ is an invariant
+region: for Bs(0) = 0 and Bp(0) > 0, we have ˙Bs(t) = p
+2rpBp(t) > 0, for t ∈[0, ϵ) with ϵ being
+suﬃciently small, then Bs(t) ≥0 for t ∈[0, ϵ); similarly, for Bs(0) > 0 and Bp(0) = 0, then
+˙Bp(t) ≡0, and we have Bp(t) ≡0 and Bs(t) > 0 for t ∈[0, ϵ) with ϵ being suﬃciently small.
+We therefore obtain the nonnegativity of the solution. The global existence of the solution
+follows from Theorem 7.6 in [1] provided with the uniform boundedness shown below.
+Let B = Bp + Bs, we have
+˙B(t) =rpBp(t) −rp
+Bp(t)B(t)
+K
++ rsBs(t) −rs
+Bs(t)B(t)
+K
+−µp(t)Bp(t) −µs(t)Bs(t)
+≤rpBp(t) + rsBs(t) −rp
+Bp(t)B(t)
+K
+−rs
+Bs(t)B(t)
+K
+≤rmaxB(t) −rmin
+B(t)2
+K
+= rmaxB(t)(1 −B(t)
+rmax
+rmin K ).
+Notice that ˆB′(t) = rmax ˆB(t)(1 −
+ˆB(t)
+rmax
+rmin K) is a logistic growth model with carrying capacity
+rmax
+rmin K. Thus under the initial condition ˆB(0) = (Bs(0), Bp(0)) ∈R2
++, for any q > 0, there
+exists tq > 0 such that ˆB(t) ≤rmax
+rmin K + q for t > tq. By the comparison principle, we obtain
+that B(t) ≤rmax
+rmin K + q for t > tq.
+Now we deﬁne the basic reproductive numbers and a periodic equilibrium below.
+Notation 2.2. Denote Rs
+0 := e
+R 1
+0 rs−µs(t)dt, which represents the multiplicative growth factor
+of plasmid-free oﬀspring over one treatment period. Deﬁne Rp
+0 := e
+R 1
+0 rp(1−p
+2 )−µp(t)dt, which
+measures the multiplicative growth factor of plasmid-bearing oﬀspring over one treatment
+period.
+Notation 2.3. Deﬁne
+Rs
+1 = e
+R 1
+0 rs(1−2B∗
+s (t)/K)−µs(t)dt
+and
+Rp
+1 = e
+R 1
+0
+βB∗s (t)
+a+bB∗s (t) +(1−p
+2 −B∗
+s (t)/K)rp−µp(t)dt
+where
+B∗
+s(t) =
+Ke
+R t
+0 rs−µs(u)du
+rs
+R t
+0 e
+R s
+0 rs−µs(u)duds +
+rs
+R 1
+0 e
+R s
+0 rs−µs(u)duds
+e
+R 1
+0 rs−µs(u)du−1
+.
+(2.2.2)
+Theorem 2.2. (1) The infection-free equilibrium (0, 0) is locally asymptotically stable if
+max{Rs
+0, Rp
+0} < 1.
+5
+
+[Page 6]
+(2) When
+R 1
+0 rs −µs(t)dt > 0 and max{Rs
+1, Rp
+1} < 1, there exists a 1-periodic plasmid-free
+equilibrium (0, B∗
+s(t)), which is locally asymptotically stable.
+Proof. (1) Linearizing model (M2) at the solution (0, 0), we have
+y′(t) =
+rs −µs(t)
+p
+2rp
+0
+rp(1 −p
+2) −µp(t)
+
+y(t).
+According to Theorem 4.2.1 in [12], we calculate the monodromy matrix:
+Rs
+0
+∗
+0
+Rp
+0
+
+. We
+thus obtain the conditions for (0, 0) being locally asymptotically stable.
+(2) We apply the method in [29] for the threshold analysis of E0 = (B∗
+s(t), 0).
+To do
+so, we regard Bs as the “susceptible” compartment, Bp as the “infectious” compartment, and
+plasmid as the transmitting pathogen in the setting of disease transmission. E0 is therefore
+the infection-free equilibrium (IFE). From the analysis of model (M1), we have the explicit
+form of E0 as in (2.2.2). We then have the matrices:
+F(t, x) =
+
+0
+βBpBs
+a+bB
+
+, V = V−−V+,
+where
+V+(t, x) =
+rsBs + p
+2rpBp
+rpBp
+
+, V−(t, x) =
+
+rprsBsB/K + µsBs + βBpBs
+a+bB
+BpB/K + µpBp + p
+2rpBp
+
+.
+Thus we have F(t) =
+βB∗
+s (t)
+a+bB∗s (t) and V (t) = µp(t) −rp(1 −p
+2 −B∗
+s(t)/K).
+Before apply Theorems 2.1 and 2.2 in [29], we verify assumptions (A1)-(A7), where (A1)-
+(A5) can be easily veriﬁed based on the expressions of F, V+, and V−.
+To satisfy (A6), E0 needs to be linearly asymptotically stable in the disease-free subspace.
+We have dy
+dt =
+
+rs(1−2B∗
+s(t)/K)−µs(t)
+
+y. From the prior analysis of model (M1), we have
+B∗
+s in (2.2.2) as a locally asymptotic stable 1-periodic solution when
+R 1
+0 rs(1 −2B∗
+s(t)/K) −
+µs(t)dt < 0.
+To meet (A7), we look at dy
+dt =
+
+rp(1 −p
+2 −B∗
+s(t)/K) −µp(t)
+
+y and calculate its mon-
+odromy matrix Y (t, 0) = e
+R t
+0 rp(1−p
+2 −B∗
+s (u)/K)−µp(u)du. Thus we require ϕ−V (1) = Y (1, 0) =
+e
+R 1
+0 rp(1−p
+2 −B∗
+s (t)/K)−µp(t)dt < 1.
+We then calculate the threshold for (B∗
+s(t), 0) being locally asymptotically stable (the R0
+6
+
+[Page 7]
+in Lemma 2.2 [29]) and get
+R 1
+0
+βB∗s (t)
+a+bB∗s (t) dt
+R 1
+0 µp(t)−rp(1−p
+2 −B∗s (t)/K)dt < 1. Thus (B∗
+s, 0) is locally asymptotic
+stable if rs >
+R 1
+0 µs(t)dt and max{Rs
+1, Rp
+1} < 1.
+Notation 2.4. µmin = min{µs(t), µp(t)}.
+Theorem 2.3. If
+R 1
+0 rmax −µmin du < 0, (0, 0) is a globally stable solution.
+Proof. Let B = Bp + Bs. From M2, B′ = rpBp −rp
+B2
+K + rsBs −rs
+B2
+K −µp(t)Bp −µs(t)Bs ≤
+(rmax −µmin)B. Thus M ≤e
+R t
+0 rmax−µmin du ≤et
+R 1
+0 rmax−µmin ddu. If
+R 1
+0 rmax −µmin du < 0, we
+have that B →0 as t →∞. Thus (0, 0) is a globally stable constant solution of M2.
+Next, we will examine the uniform persistence under the setting of density-dependent
+plasmid transformation.
+Assumption 2.3. Assume a = 1 and b = 0.
+Let D0 = {(Bs, Bp) ∈R2
++ : Bp > 0}, and let ∂D0 = R2
++ \ D0. Deﬁne the 1-periodic
+plasmid-free equilibrium as X0(t) := (B∗
+s(t), 0), the infection-free equilibrium as M1 :=
+{(0, 0)}, and the periodic orbit M2 := {(Bs, 0) ∈∂D0 : inf
+t∈[0,1) B∗
+s(t) ≤Bs ≤sup
+t∈[0,1)
+B∗
+s(t)}, as
+well as the Poincaré map P : R2
++ →R2
++ associated with system (M2) by
+P(z0) = u(1, z0)
+where z0 ∈R2
++ and u(t, z0) being the unique solution of system (M2) with z0 as the initial
+condition. Then
+P n(z0) = u(n, z0)
+for n ≥0.
+Lemma 2.4. Assume that
+R 1
+0 rs −µs(t)dt > 0 and
+Z 1
+0
+βB∗
+s(t) + rp(1 −sup
+u∈[0,1)
+B∗
+s(u)/K −p
+2) −µp(t)dt > 0,
+then there exists a σ∗> 0 such that for any z0 := (Bs(0), Bp(0)) ∈D0 we have
+lim
+n→∞sup inf
+t∈[0,1) ||P n(z0) −X0(t)|| ≥σ∗.
+Proof. Note that with
+R 1
+0 rs −µs(t)dt > 0, we have ∀Bs(0) > 0,
+˙Bs(t) = rsBs(t)(1 −Bs(t)
+K
+) −µs(t)Bs(t)
+7
+
+[Page 8]
+has a unique equilibrium B∗
+s(t) as in (2.2.2) which is globally attractive in R+. Also, the
+following system perturbed by σ > 0
+˙ˆ
+Bs(t) = rs ˆBs(t)(1 −
+ˆBs(t) + σ
+K
+) −µs(t) ˆBs(t) −βσ ˆBs(t)
+(2.2.3)
+admits a unique solution
+ˆBs(t, σ) =
+K ˆBs(0)e
+R t
+0 a(s,σ)ds
+rs ˆBs(0)
+R t
+0 e
+R s
+0 a(u,σ)duds + K
+, ∀ˆBs(0) > 0.
+(2.2.4)
+And it admits an unique 1-periodic solution
+ˆB∗
+s(t, σ) = K
+rs
+·
+e
+R t
+0 a(s,σ)ds
+R t
+0 e
+R s
+0 a(u,σ)duds +
+R 1
+0 e
+R s
+0 a(u,σ)duds
+e
+R 1
+0 a(s,σ)ds−1
+(2.2.5)
+where a(t, σ) := rs(1−σ
+K)−βσ−µs(t). Since a(t, σ) is continuous in σ, and limσ→0
+R 1
+0 a(t, σ)dt =
+R 1
+0 (rs −µs(t))dt. Then there exists a suﬃciently small δ > 0 such that for all σ ∈(0, δ),
+R 1
+0 a(t, σ) dt > 0. Similar to the proof of Theorem 2.1, for any σ ∈(0, δ) we have
+lim
+t→+∞| ˆBs(t, σ) −ˆB∗
+s(t, σ)| = 0, ∀ˆBs(0) > 0.
+(2.2.6)
+Applying the implicit function theorem, ˆB∗
+s(0, σ) depends continuously on σ, and limσ→0 ˆB∗
+s(0, σ) =
+B∗
+s(0). The solution ˆB∗
+s(t, σ) thus varies continuously with respect to both the initial condi-
+tion and the parameter. It follows that lim
+σ→0
+ˆB∗
+s(t, σ) = B∗
+s(t) for all t ∈[0, 1), equivalently,
+lim
+σ→0 sup
+t∈[0,1)
+| ˆB∗
+s(t, σ) −B∗
+s(t)| = 0.
+Then for any q1 > 0, there exists δ1 > 0 such that for each σ ∈(0, δ1) we have
+ˆB∗
+s(t, σ) > B∗
+s(t) −q1, ∀t ∈[0, 1).
+(2.2.7)
+By periodicity of both ˆB∗
+s(t, σ) and B∗
+s(t), the above inequality extends to all t ≥0.
+Together with (2.2.6) we have for a ﬁxed initial condition ˆBs(0) ∈R+ of the perturbed
+system (2.2.3), for any q1 > 0 there exists δ, δ1 > 0 so that for any 0 < σ < min{δ, δ1}, we
+have
+ˆBs(t, σ) ≥B∗
+s(t) −2q1,
+for suﬃciently large t.
+8
+
+[Page 9]
+By the continuous dependence of solutions on the initial point, for 0 < σ1 < min(δ, δ1),
+there exists a σ∗> 0 such that any z0 ∈D0 with inf
+t∈[0,1) ||z0−X0(t)|| ≤σ∗implies inf
+s∈[0,1) ||u(t, z0)−
+X0(s)|| < σ1, ∀t ∈[0, 1). We now prove that
+lim
+n→∞sup inf
+t∈[0,1) ||P n(z0) −X0(t)|| ≥σ∗.
+Assuming for contradiction that
+lim
+n→∞sup inf
+t∈[0,1) ||P n(z0) −X0(t)|| < σ∗
+for some z0 ∈D0. Without loss of generality, we assume
+inf
+s∈[0,1) ||P n(z0) −X0(s)|| < σ∗for
+some z0 ∈D0, ∀n > 0. Thus, we have
+inf
+s∈[0,1) ||u(t, P n(z0)) −X0(s)|| < σ1, ∀n ≥0, ∀t ∈[0, 1).
+Note that any t ≥0 can be expressed as t = n + ˜t with ˜t ∈[0, 1) and n ∈Z+. Therefore,
+inf
+s∈[0,1) ||u(t, z0) −X0(s)|| = inf
+s∈[0,1) ||u(˜t, P n(z0)) −X0(s)|| < σ1, ∀t ≥0.
+Substituting u(t, z0) = (Bs(t), Bp(t)) and X0(t) = (B∗
+s(t), 0), we obtain that
+Bp(t) < σ1, and Bs(t) < sup
+s∈[0,1)
+B∗
+s(s) + σ1, ∀t > 0.
+Then from the ﬁrst equation in model (M2), we obtain
+˙Bs(t) > rsBs(t)(1 −Bs(t) + σ1
+K
+) −µs(t)Bs(t) −βσ1Bs(t), ∀t ≥0.
+(2.2.8)
+With σ1 < δ, we have
+R 1
+0 a(t, σ1)dt > 0. By the Comparison Principle and the analysis of
+the perturbed system (2.2.3), we have
+Bs(t) ≥ˆBs(t, σ1) ≥B∗
+s(t) −2q1
+(2.2.9)
+for suﬃciently large t. Then we can estimate the second equation in model (M2):
+˙Bp(t) > rpBp(t)
+
+1 −sups∈[0,1) B∗
+s(s)
+K
+−σ1
+K
+
+−µp(t)Bp(t)
++ β
+B∗
+s(t) −2q1
+
+Bp(t) −p
+2rpBp(t)
+= b(t, q1, σ1) · Bp(t)
+for suﬃciently large t. Where we denote b(t, q1, σ1) := βB∗
+s(t)+rp(1−
+sups∈[0,1) B∗
+s (s)
+K
+−σ1/K −
+p
+2)−µp(t)−2q1. We can choose q1 > 0 small enough and σ1 < q1 so that
+R 1
+0 b(t, q1, σ1)dt > 0.
+9
+
+[Page 10]
+Then the auxiliary equation
+ˆB′
+p(t) = b(t, q1, σ1) ˆBp(t)
+(2.2.10)
+has solution ˆBp(t) = ˆBp(0)e
+R t
+0 b(s,q1,σ1)ds →+∞as t →+∞, ∀ˆBp(0) > 0.
+Assume we
+have ˙Bp(t) > b(t, q1, σ1)Bp(t) for t > t0 and consider the solution to equation (2.2.10) with
+initial condition ˆBp(t0) = Bp(t0) we have ˆBp(t) = Bp(t0)e
+R t
+t0 b(s,q1,σ1)ds →+∞as t →+∞.
+Then by the Comparison Principle we have Bp(t) ≥ˆBp(t) →+∞as t →+∞, which is a
+contradiction.
+Lemma 2.5. If
+R 1
+0 rs−µs(t)dt > 0, there exists a σ∗> 0 such that for any z0 = (Bp(0), Bs(0)) ∈
+D0 we have
+lim
+n→∞sup ||P n(z0) −(0, 0)|| ≥σ∗.
+Proof. We ﬁrst consider the equation
+ˆB′
+s(t) = rs ˆBs(t)(1 −2σ
+K ) −µs(t) ˆBs(t) −βσ ˆBs(t),
+(2.2.11)
+and denote a(t, σ) := rs(1 −2σ
+K ) −µs(t) −βσ. We note that there exists δ > 0 so that
+R 1
+0 a(t, σ)dt > 0 for all 0 < σ < δ. Thus the solution to (2.2.11) ˆBs(t, σ) = ˆBs(0)e
+R t
+0 a(t,σ)dt →
++∞for all ˆBs(0) > 0.
+By the continuous dependence of solutions on the initial point, for any σ1 ∈(0, δ),
+there exists a σ∗> 0 such that for any z0 ∈D0 with ||z0 −(0, 0)|| ≤σ∗we have that
+||u(t, z0) −(0, 0)|| < σ1, ∀t ∈[0, 1). We now assume for contradiction that
+lim
+n→∞sup ||P n(z0) −(0, 0)|| < σ∗
+for some z0 ∈D0. Without loss of generality, we assume that ||P n(z0) −(0, 0)|| < σ∗for
+some z0 ∈D0, ∀n > 0. Thus, we have ||u(t, P n(z0)) −(0, 0)|| < σ1, ∀n ≥0 and for t ∈[0, 1).
+Note that any t ≥0 can be expressed as t = n + ˜t with ˜t ∈[0, 1) and n ∈Z+. Therefore,
+||u(t, z0) −(0, 0)|| = ||u(˜t, P n(z0)) −(0, 0)|| < σ1 ∀t > 0
+Substituting u(t, z0) = (Bp(t), Bs(t)) , we obtain that Bp(t) < σ1 and Bs(t) < σ1 , ∀t > 0.
+Then the ﬁrst equation in model (M2) can be estimated as
+˙Bs(t) > rsBs(t)(1 −2σ1
+K ) −µs(t)Bs(t) −βσ1Bs(t), ∀t > 0.
+Then consider the auxiliary system (2.2.11) and by Comparison Principle we have Bs(t) ≥
+ˆBs(t, σ1) →+∞as t →+∞, which is a contradiction.
+10
+
+[Page 11]
+Theorem 2.6. Assume
+R 1
+0
+rs−µs(t)
+
+dt > 0 and
+and
+R 1
+0
+
+βB∗
+s(t)+rp
+
+1−
+supu∈[0,1) B∗
+s (u)
+K
+−
+p
+2
+
+−µp(t)
+
+dt > 0, then there exists a value ξ > 0 such that any solution (Bp(t), Bs(t)) of sys-
+tem (M2) with the initial value z0 ∈D0 satisﬁes lim inft→+∞Bs(t) ≥ξ
+and
+lim inft→+∞Bp(t) ≥
+ξ, and the system (M2) admits at least one positive periodic solution.
+Proof. As proved in Proposition 2.2, {P n}n≥0 admits a global attractor A. Let
+M∂:= {x ∈∂D0 : f n(x) ∈∂D0, n ≥0} = ∂D0,
+and A∂= A ∩M∂= ∂D0. The given conditions imply that (0, 0) and (B∗
+s(t), 0) are the
+only two equilibrium in A∂and both unstable. Then M1 and M2 are two isolated invariant
+sets in R2
++.
+Further, similar to the argument in Theorem 2.1 that any trajectory starts
+from ∂D0 \ M1 would converge to M2. Thus A∂admits a morse decomposition {M1, M2}.
+Lemma 2.4 and Lemma 2.5 show that W s(M1)∩D0 = ∅and W s(M2)∩D0 = ∅. By Theorem
+1.3.1 in [33], it follows that {P n}n≥0 is uniformly persistent with respect to (D0, ∂D0), and
+by Theorem 3.1.1 in [33], we have the solutions of system (M2) being uniformly persistent
+with respect to (D0, ∂D0). That is, there exists a ξ > 0 such that any solution (Bs(t), Bp(t))
+of system M2 with initial value (Bs(0), Bp(0)) ∈D0 satisﬁes
+lim inf
+t→∞Bs(t) ≥ξ,
+lim inf
+t→∞Bp(t) ≥ξ.
+Note that the ultimate boundedness implies the uniform boundedness of solutions for periodic
+systems of ODEs [32]. Thus, the Poincáre map P : R2
++ →R2
++ is compact. By Theorem 1.3.8
+in [33], P admits a ﬁxed point y0 ∈D0, such that ϕ(t, y0) is a periodic solution of (M2).
+Due to the uniform persistence and periodicity of the solution we have both components of
+ϕ(t, y0) being strictly positive for all t ≥0.
+Remark 2.1. Under the assumption of p = 0, that is, assuming no plasmid loss during
+replication, one can obtain a uniform persistence result when
+R 1
+0 rs−µs(t)dt > 0 and R0 > 1.
+Under these assumptions, we can derive an upper bound for Bs(t) as B∗
+s(t) > Bs(t) >
+B∗
+s(t)−2q1, instead of the estimation in (2.2.9), and the result follows by similar arguments.
+2.3
+Resistance gained by spontaneous mutation
+We consider the scenario where bacteria acquire resistance through a single spontaneous
+mutation on the chromosome, which is modeled as a linear rate. An example of such mech-
+anism is the resistance development of MRSA against ciproﬂoxacin. Denote Bs and Bm as
+11
+
+[Page 12]
+the wild-type and mutant bacterial population, respectively, we have
+˙Bs(t) = rsBs(t)(1 −B(t)
+K ) −µs(t)Bs(t) −εrsBs(t)
+˙Bm(t) = rmBm(t)(1 −B(t)
+K ) −µm(t)Bm(t) + εrsBs(t)
+(M3)
+where rs and rm refer to the intrinsic growth rate for each population, and µs(t) and µm(t) are
+the antibiotic killing rates which we assume to be 1-periodic. ε is the spontaneous mutation
+probability on the chromosome. In the following, we adopt the Assumption 2.3 and Notation
+2.1, and a similar assumption to Assumption 2.2.
+Notation 2.5. rmax = max{rs, rm} and rmin = min{rs, rm}.
+Assumption 2.4. µs(t) and µm(t) are non-negative, continuous, and 1-periodic functions.
+Proposition 2.3. For any initial value Bs(0), Bm(0) ≥0, (M3) has a unique global solution
+that is non-negative for all t ≥0. Furthermore, for any q > 0, there exists tq > 0 such that
+the solution of (M3) with t > tq lies in the compact set
+Dq = {(Bs, Bm) ∈R2
++ : B ≤rmax
+rmin
+· K + q}.
+(2.3.1)
+Proof. The proof is almost identical to that of Proposition 2.2.
+We deﬁne the following reproductive numbers and periodic equilibria.
+Notation 2.6. Let Rs
+0 = exp
+R 1
+0
+rs(1 −ε) −µs(t)
+
+dt
+
+, which measures the multiplicative
+growth factor of wild-type oﬀspring over one treatment period. Denote Rm
+0 = exp
+R 1
+0
+rm −µm(t)
+
+dt
+
+which measures the multiplicative growth factor of mutant oﬀspring over a treatment period.
+Notation 2.7. We further have a semitrivial periodic equilibrium (0, B∗
+m(t)) with
+B∗
+m(t) = K
+rm
+·
+e
+R t
+0 rm−µm(s)ds
+R t
+0 e
+R s
+0 rm−µm(u)duds +
+R 1
+0 e
+R s
+0 rm−µm(u)duds
+e
+R 1
+0 rm−µm(s)ds−1
+,
+(2.3.2)
+We further denote the stability threshold for (0, B∗
+m(t)) as
+Rs
+1 = e
+R 1
+0 rs(1−ε−B∗
+m(t)/K)−µs(t)dt and Rm
+1 = e
+R 1
+0 rm−2rmB∗
+m(t)/K−µm(t)dt.
+(2.3.3)
+Theorem 2.7. (1) If max{Rs
+0, Rm
+0 } < 1, then (0, 0) is locally asymptotically stable.
+(2) If rm >
+R 1
+0 µm(t)dt, max{Rs
+1, Rm
+1 } < 1, then the semitrivial 1-periodic solution (0, B∗
+m(t))
+is locally asymptotically stable.
+12
+
+[Page 13]
+Proof. (1) Linearizing the model (M3) at (0, 0) we have
+y′(t) =
+rs(1 −ε) −µs(t)
+0
+εrs
+rm −µm(t)
+
+y(t).
+The monodromy matrix is calculated as :
+ Rs
+0
+0
+Rsm
+0
+Rm
+0
+
+, with the characteristic multipliers
+being Rm
+0 and Rsm
+0 . The result follows by Theorem 4.2.1 in [12].
+(2) It is easy to check that the solution B∗
+m(t) in (2.3.2) is a 1-periodic and non-negative
+solution to (M3) when rm >
+R 1
+0 µm(t)dt. The linearized model at (0, B∗
+m(t)) is
+y′(t) =
+rs(1 −ε −B∗
+m(t)/K) −µs(t)
+0
+εrs −rmB∗
+m(t)/K
+rm −2rmB∗
+m(t)/K −µm(t)
+
+y(t).
+We then have the characteristic multipliers as Rs
+1 and Rm
+1 , and the result follows.
+Notation 2.8. µmin = min{µs(t), µm(t)}.
+Theorem 2.8. If
+R 1
+0 rmax −µmin du < 0, then (0, 0) is a globally stable solution.
+Next, we will examine the uniform persistence of Model (M3). Let D0 = {(Bs, Bm
+) ∈R2
++ : Bs > 0}, and let ∂D0 = R2
++ \ D0. At the same time, deﬁne M1 = {(0, 0)} and
+M2 = {(0, Bm) ∈∂D0 : sup
+t∈[0,1)
+B∗
+m(t) > Bm >
+inf
+t∈[0,1) B∗
+m(t)}, as well as the Poincaré map
+P : R2
++ →R2
++ associated with system (M3) by
+P(z0) = u(1, z0)
+with z0 ∈R2
++, where u(t, z0) is the unique solution of system (M3) with
+u(0, z0) = z0 =
+Bs(0), Bm(0)
+
+.
+Then
+P n(z0) = u(n, z0)
+for n ≥0.
+Lemma 2.9. If rm >
+R 1
+0 µm(t)dt and
+R 1
+0 rs(1 −supu∈[0,1) B∗
+m(u)/K −ε) −µs(t)
+dt > 0, there exists a σ∗> 0 such that for any z0 = (Bm(0), Bs(0)) ∈D0 we have that
+lim
+n→∞sup inf
+t∈[0,1) ||P n(z0) −(B∗
+m(t), 0)|| ≥σ∗.
+Proof. Consider the auxiliary equation
+ˆB′
+s(t) = a(t, σ) ˆBs(t)
+(2.3.4)
+13
+
+[Page 14]
+with a(t, σ) := rs(1 −rmax
+rmin −σ/K) −µs(t) −εrs. There exists δ > 0 so that for 0 < σ <
+δ we have
+R 1
+0 a(t, σ)dt > 0 and we have the solution to the auxiliary equation ˆBs(t) =
+e
+R 1
+0 a(t,σ)dt ˆBs(0) →+∞as t →+∞.
+By the continuous dependence of solutions on the initial point, for any σ ∈(0, δ), there
+exists a σ∗> 0 such that any z0 ∈D0 with
+inf
+s∈[0,1) ||z0 −(0, B∗
+m(s))|| ≤σ∗implies that
+inf
+s∈[0,1) ||u(t, z0) −(0, B∗
+m(s)))|| < σ, ∀t ∈[0, 1). We now assume for contradiction that
+lim
+n→∞sup inf
+t∈[0,1) ||P n(z0) −(0, B∗
+m(t))|| < σ∗
+for some z0 ∈D0. Without loss of generality, we assume that inf
+s∈[0,1) ||P n(z0)−(0, B∗
+m(t))|| < σ∗
+for some z0 ∈D0, ∀n > 0. Thus, we have
+inf
+s∈[0,1) ||u(t, P n(z0)) −(0, B∗
+m(s))|| < σ, ∀n ≥0 and
+for t ∈[0, 1). Note that any t ≥0 can be expressed as t = n + ˜t with ˜t ∈[0, 1) and n ∈Z+.
+Therefore,
+inf
+s∈[0,1) ||u(t, z0) −(0, B∗
+m(s))|| = inf
+s∈[0,1) ||u(˜t, P n(z0)) −(0, B∗
+m(s))|| < σ ∀t > 0
+Substituting u(t, z0) = (Bs(t), Bm(t)) , we obtain that
+Bs(t) < σ and Bm(t) < sup
+u∈[0,1)
+B∗
+m(u) + σ, ∀t > 0.
+Then the ﬁrst equation in model (M3) can be estimated as
+˙Bs(t) > rsBs(t)(1 −sup
+u∈[0,1)
+B∗
+m(u)/K −σ/K) −µs(t)Bs(t) −εrsBs(t),
+for t > 0. By similar arguments as in Lemma 2.4 we have Bs(t) →+∞as t →+∞, which
+is a contradiction.
+Lemma 2.10. If
+R 1
+0 rm −µm(t)dt > 0, then there exists a σ∗> 0 such that for any z0 =
+(Bm(0), Bs(0)) ∈D0 we have that
+lim
+n→∞sup ||P n(z0) −(0, 0)|| ≥σ∗.
+Proof. For the perturbed second equation in model (M3), we have
+˙ˆBm(t) = b(t, σ) · ˆBm(t),
+(2.3.5)
+where b(t, σ) = rm(1 −2σ
+K ) −µm(t). There exists a δ > 0 so that for any σ ∈(0, δ) we have
+14
+
+[Page 15]
+R 1
+0 b(t, σ)dt > 0. Then the solution to (2.3.5) ˆBm(t) = e
+R t
+0 b(s,σ)ds ˆBm(0) →+∞as t →+∞.
+By the continuous dependence of solutions on the initial point, for such σ, there exists
+a σ∗> 0 such that any z0 ∈D0 with ||z0 −(0, 0)|| ≤σ∗implies that ||u(t, z0) −(0, 0)|| <
+σ, ∀t ∈[0, 1). We now assume for contradiction that limn→∞sup ||P n(z0) −(0, 0)|| < σ∗for
+some z0 ∈D0. Without loss of generality, we assume that ||P n(z0) −(0, 0)|| < σ∗for some
+z0 ∈D0, ∀n > 0. Thus, we have ||u(t, P n(z0)) −(0, 0)|| < σ, ∀n ≥0 and for t ∈[0, 1).
+Similar to the proof of Lemma 2.9, we have
+||u(t, z0) −(0, 0)|| < σ ∀t > 0.
+And we obtain that Bm(t) < σ and Bs(t) < σ , ∀t > 0.
+Estimating the second equation in model (M3), we have
+˙Bm(t) > rmBm(t)(1 −2σ
+K ) −µs(t)Bs(t),
+By similar arguments as in Lemma 2.4 we have Bm(t) →+∞as t →+∞, which is a
+contradiction.
+Theorem 2.11. If
+R 1
+0 rm −µm(t)dt > 0 and
+R 1
+0 rs(1 −supu∈[0,1) B∗
+m(u)/K −ε) −µs(t)dt > 0,
+then there exists a value ξ > 0 such that any solution (Bs(t), Bm(t)) of system (M3) with the
+initial value z0 ∈D0 satisﬁes lim inf
+t→+∞Bm(t) ≥ξ, lim inf
+t→+∞Bs(t) ≥ξ, and system (M3) admits
+at least one positive periodic solution.
+Proof. The proof is based on Lemma 2.10 and Lemma 2.9 and similar to that in Theorem
+2.6.
+Remark 2.2. Comparing the conditions for uniform persistence in systems (M2) and (M3),
+we ﬁnd that, under similar settings for the resistant strains (that is, assume rp = rm and
+µp(·) = µm(·)), system (M2) exhibits uniform persistence over a wider range of parame-
+ters. Thus, resistance acquired through plasmid transmission is a mechanism more likely to
+promote the persistence of antibiotic resistance.
+3
+Parameterization
+We parameterize the time-dependent bacterial killing rate function, µi(t), i = s, p, m, as
+the composition of two components: the time-dependent antibiotic concentration function,
+C(t), and the concentration-dependent killing rate function, µi(C), i = s, p, m. Parameter
+15
+
+[Page 16]
+values are based on MRSA bacteria and the antibiotic moxiﬂoxacin, and are summarized in
+Table 1.
+3.1
+Concentration-dependent killing rates
+We adopt two key pharmacokinetic (PK) concepts to quantify the killing rate of bacterial
+cells under varying antibiotic concentrations. The minimum inhibitory concentration (MIC)
+is deﬁned as the lowest antibiotic concentration that inhibits the growth of a susceptible bac-
+terial population, while the mutant prevention concentration (MPC) is the lowest antibiotic
+concentration that prevents the growth of resistant mutants [11, 10, 24, 30]. For any given
+bacterial isolate and antibiotic, both MIC and MPC can be experimentally determined, with
+MPC typically greater than MIC. The interval [MIC, MPC] deﬁnes the so-called mutant
+selection window (MSW) - a “dangerous zone” in which antibiotic concentrations may sup-
+press susceptible bacteria while simultaneously favoring the selection and growth of resistant
+subpopulations.
+For each bacterial population type, the antibiotic killing rate depends on the actual drug
+concentration. Various pharmacodynamic (PD) models have been developed to capture this
+concentration-dependent killing eﬀect, with MIC and MPC values serving as key parameters
+in these functions. A comprehensive summary of such models is provided by Imran and
+Smith [17]. In this study, we illustrate this approach using the Hill function as an example:
+µi(C) :=
+µmax
+i
+· (
+C
+MICi)ki
+(
+C
+MICi)ki −1 + µmax
+i
+ri
+, i = s, p, m.
+(3.1.1)
+As an example, in the expression for µs, the MIC corresponds to the minimum inhibitory
+concentration of the susceptible bacteria (Bs). Here, rs denotes the intrinsic growth rate,
+µmax
+s
+(> rs) is the maximal drug-induced killing rate, and ks is the Hill function shape pa-
+rameter, which we set to ks = 1 for simplicity. The function µs(C) satisﬁes the following
+properties:
+• µs(MIC) = rs, reﬂecting the deﬁnition of MIC as the concentration threshold where
+drug killing balances bacterial growth;
+• µs(0) = 0, indicating zero killing in the absence of antibiotics;
+• limC→+∞µs(C) = µmax
+s
+, representing the maximal killing achievable at high concen-
+trations;
+• µ′
+s(C) > 0, ensuring that the killing rate increases monotonically with concentration.
+16
+
+[Page 17]
+Bacterial populations in Bp and Bm are antibiotic resistant, with killing rates intersect their
+respective net growth rates at higher drug concentrations (MICi, i = p, m). In particular,
+it is natural to assume that MICi for i = p, m lies within the mutant selection window
+[MIC, MPC].
+3.2
+Time-dependent antibiotic concentration
+For a precise adherence to the treatment schedule, we model the in-host antibiotic con-
+centration C(t) as a periodic function resulting from repeated dosing:
+C(t) = 1
+2(Cmax + Cmin) + 1
+2(Cmax −Cmin) sin(2π
+p t −π
+2 ).
+(3.2.1)
+Within each dosing cycle of length p, the concentration oscillates between the maximal
+level Cmax and the minimal level Cmin. The period p corresponds to the treatment duration
+between two successive doses. The area under the curve (AUC) value over a full day is then
+deﬁned as
+AUC =
+Z 1
+0
+C(t)dt.
+(3.2.2)
+We investigate the eﬀects of once-daily dosing (p = 1) and twice-daily dosing (p = 1
+2), under
+the assumption that both regimens deliver the same total daily amount of antibiotic. In
+the twice-daily protocol, the total daily dose is evenly divided between two administrations.
+For the once-daily scenario, we adopt the reported Cmax value from the moxiﬂoxacin drug
+label and calibrate Cmin to match the speciﬁed AUC value [28]. For the twice-daily scenario,
+we assume Cmax values that are proportionally reduced relative to the once-daily case and
+parameterize Cmin accordingly, ensuring that the AUC is preserved across dosing strategies.
+3.3
+Bang-bang type killing rate
+We aim to investigate strategies for managing missed doses, with the goal of identifying
+optimal responses when a scheduled administration is not taken as planned. Two intuitive
+remedial approaches are considered: (a) a catch-up strategy, in which the missed dose
+is taken immediately upon recognizing the delay, and (b) a compensatory double-dose
+strategy, in which a double dose is administered at the next scheduled dosing time. Modeling
+these scenarios using traditional PK/PD frameworks would require complex assumptions
+about how drug concentrations evolve under each remedial action. To enable a more tractable
+analysis and extract qualitative insights, we adopt a simpliﬁed framework based on a bang-
+bang control function, which approximates dosing behavior as a binary on/oﬀregime.
+17
+
+[Page 18]
+We deﬁne the eﬃcacy of each antibiotic dose, as reﬂected in the killing rate µi(t) (i =
+s, p, m) for each bacterial compartment, using a piecewise-deﬁned function:
+µi(t) =
+(
+µon
+i ,
+t ∈[0, τ)
+0,
+t ∈[τ, 1) ,
+where µon
+i
+denotes the constant killing rate during the drug eﬀective period, and τ speciﬁes
+the duration of this eﬀect within a normalized dosing cycle. The interval [0, 1) represents
+one full dosing cycle, scaled to unit length for convenience.
+For simplicity, we assume that the drug eﬀective period is shorter than the duration
+of each dosing cycle (i.e. we assume short-half-life drugs). A straightforward calculation
+shows that, in order for the bacteria-free equilibrium to remain stable, the cumulative killing
+eﬀect over a full 24-hour period must exceed the bacterial growth potential - a condition
+equivalent to requiring that the AUC be suﬃciently large.
+To illustrate, we examine a
+twice-daily regimen in which doses are scheduled at 12:00 a.m. and 12:00 p.m., with each
+administration conferring an eﬀective killing duration of six hours. In this setup, we further
+assume that any missed dose occurs at 12:00 a.m. and is recognized only at 6:00 a.m.
+In the simulations, model parameters are selected such that the bacteria-free equilibrium
+remains stable under full adherence to the dosing schedule but becomes unstable when half
+of the scheduled doses are missed. To ensure a fair comparison between the two models, we
+assign equivalent MIC values to the resistant strains in both cases.
+4
+Simulation Results
+All simulations are based on a daily oral dose of 400 mg moxiﬂoxacin. For the once-
+daily regimen, we set Cmax = 3 mg/L and use an AUC of 36.1 mg·h/L, as reported in the
+moxiﬂoxacin drug label [28]. The corresponding minimal concentration, Cmin = 0.33 mg/L,
+is calculated to be consistent with the speciﬁed AUC. For the twice-daily regimen, we assume
+that the maximal concentration Cmax is proportional to that of the once-daily regimen, with
+the proportionality factor chosen to be no less than 56% - the minimum ratio that guarantees
+a non-negative minimal concentration Cmin.
+18
+
+[Page 19]
+4.1
+MSW, Cmax, and treatment eﬃcacy
+PK/PD principles emphasize that the width of the mutant selection window (MSW)
+strongly inﬂuences treatment eﬃcacy: regimens associated with wider MSWs can suppress
+a broader range of MIC values. Under the assumption of a ﬁxed AUC across protocols,
+and using the antibiotic concentration model (3.2.1), lower Cmax values correspond to wider
+MSWs (Figure 1).
+In our framework, treatment eﬃcacy is evaluated using the threshold MIC value, deﬁned
+as the MIC level at which the basic reproductive number satisﬁes R0 = 1. At or below
+this threshold, the treatment protocol is suﬃcient to eradicate the bacterial population.
+Consequently, a higher threshold MIC value reﬂects a more eﬀective regimen.
+For the model without genetic alteration (M1), the threshold MIC under the twice-daily
+regimen decreases as the maximal antibiotic concentration Cmax increases (Figure 2(a)).
+Thus, in this simple setting, the PK/PD concept of MSW width is consistent with the
+threshold MIC–based measure of treatment eﬃcacy. However, in more complex models such
+as (M2) and (M3), this relationship no longer holds. As shown in Figure 3, the threshold MIC
+does not decrease monotonically with increasing Cmax. This indicates that the MSW concept
+alone may be insuﬃcient for evaluating treatment eﬃcacy. The quantitative behavior of the
+killing rate throughout a treatment plays a more direct role in shaping bacterial dynamics,
+particularly in systems where populations are structured by multiple resistance levels.
+4.2
+Impacts of resistance development mechanism
+We investigate the impacts of resistance development mechanism on two aspects: infec-
+tion clearance and promotion of resistant genes.
+Infection clearance. Figure 3(a) compares the threshold MIC values for resistant bac-
+terial populations under diﬀerent resistance development mechanisms. Our analysis shows
+that antibiotic treatments are more eﬀective at clearing infections when resistance arises
+through plasmid transmission. These ﬁndings provide a theoretical rationale for the use of
+fourth-generation ﬂuoroquinolones, which should further delay resistance emergence, since
+MRSA would require both a plasmid and a chromosomal mutation to achieve full resistance.
+Promotion of resistant genes. For the one-step resistance development mechanism,
+as illustrated by the simulation in Figure 3(b), both pathways facilitate the expansion of
+resistant bacterial strains, and clinical symptoms fail to improve following treatment initi-
+ation. However, the mutation-induced resistance mechanism more strongly accelerates the
+growth of resistant bacteria, allowing them to dominate the population soon after treatment
+19
+
+[Page 20]
+begins.
+4.3
+Protocol for missed doses
+We use bang-bang type functions to investigate how to deal with a missed dose during
+a 10-day antibiotic therapy, assuming short half-life drugs. We compared the eﬀects of the
+catch-up strategy and the compensatory double-dose strategy on the total bacterial load at
+the end of the treatment, relative to a standard twice-daily schedule.
+Our simulations show that, regardless of the resistance development mechanism, a catch-
+up dose would mitigate the harm of a missed dose. For infections with bacteria having low
+MIC values, the catch-up strategy would yield almost the same outcome as the baseline
+schedule. For infections triggered by bacteria with high MIC values, the catch-up strategy
+would only increase the total ﬁnal bacterial load by at most 4%. Additionally, the catch-up
+strategy would work slightly better than the baseline strategy if performed within the ﬁrst
+few days of treatment.
+On the other hand, compensatory double dosing is not recommended under any condi-
+tions. Furthermore, if the bacteria acquire resistance via spontaneous mutation, the com-
+pensatory double strategy would result in a signiﬁcantly higher bacterial load than the other
+mechanisms.
+These ﬁndings suggest that the catch-up strategy is an overall recommendation for a
+missed dose, and a missed dose should be especially avoided when nearing the end of the
+treatment. These ﬁndings align with the general advice in pharmaceutics for short half-life
+drugs, whereas double dosing may be a better choice for long half-life drugs [5].
+5
+Discussion
+In this study, we used mathematical models to demonstrate that bacterial resistance
+mechanisms against antibiotics can substantially inﬂuence treatment outcomes. Theoreti-
+cally, we found that treatment success thresholds diﬀer depending on the underlying mech-
+anism, as do the conditions for bacterial persistence. Our numerical simulations further
+showed that, under identical pharmacodynamic conditions, plasmid-mediated resistance is
+associated with higher rates of treatment success and is less likely to select for resistant
+strains during failed treatments. This observation aligns with clinical evidence, such as the
+higher population-level resistance rate to vancomycin compared with ciproﬂoxacin, despite
+vancomycin having been developed decades earlier. These ﬁndings suggest that diﬀerences in
+20
+
+[Page 21]
+resistance development mechanisms may play a crucial role in shaping resistance prevalence.
+We also showed that a twice-daily dosing schedule consistently outperforms a once-daily
+regimen for both resistance mechanisms, and that a catch-up dosing strategy is preferable
+when doses are missed. In contrast, the compensatory double-dose strategy leads to treat-
+ment failure, with particularly poor outcomes in the case of mutation-mediated resistance.
+A limitation of this study is that we did not incorporate immune system dynamics,
+which play an essential but complex role in infection clearance. As an approximation, one
+could assume that an equilibrium is bacteria-free if the total bacterial population falls below
+102, CFU/mL, which is the detection limit for bacterial load and a reasonable threshold at
+which the immune system can clear infection.
+Our parameterization was based on the fourth-generation ﬂuoroquinolone moxiﬂoxacin,
+for which bacteria must acquire two consecutive resistance determinants to achieve full resis-
+tance. To model this class of ﬂuoroquinolones more generally, one should consider scenarios
+where bacteria require two consecutive mutations. For example, in MRSA infections treated
+with moxiﬂoxacin, resistance typically requires both a plasmid-borne determinant and a
+chromosomal mutation. We refer to the constant-coeﬃcient ODE model investigated in [9]
+as a foundation for this framework.
+Although our simulations considered a simpliﬁed resistance scenario, they capture realis-
+tic features of MRSA treatment with moxiﬂoxacin. For a given MRSA isolate, microbiologists
+often presume that either the plasmid or chromosomal resistance gene is pre-existing, while
+spontaneous mutations are unlikely to occur within infections of low bacterial load. In this
+context, model (M2) represents the case where a plasmid gene is pre-existing, corresponding
+to higher MICi (i = s, p) values for the chromosomal gene when present, and lower values
+when absent. In contrast, model (M3) reﬂects the situation where no plasmid gene is initially
+present and a large bacterial load increases the probability that spontaneous mutation will
+occur during infection.
+Acknowledgements
+This research was partially supported by the National Science Foundation (DMS-2052648).
+21
+
+[Page 22]
+Conﬂict of Interest
+The authors declare no conﬂict of interest.
+22
+
+[Page 23]
+Table 1: List of Parameters and their Values
+Symbol
+Deﬁnition
+Value
+Ref.
+r
+intrinsic growth rate
+2.7726(i)/day
+[6]
+p
+plasmid loss prob. during di-
+vision
+0.4
+[6]
+K
+carrying capacity
+1
+β
+HGT ﬂux rate
+10−13/day
+[21]
+a
+HGT dependence on donor
+density
+0.5
+[9]
+b
+HGT dependence on donor
+frequency
+0.5
+[9]
+ε
+mutation rate
+10−7
+[26]
+Cmax
+max serum moxiﬂoxacin conc.
+3(ii) mg/L
+[28]
+Cmin
+min serum moxiﬂoxacin conc.
+0.33(iii) mg/L
+[28]
+µmax
+max drug killing rate
+8.7726(iv)/day
+[19]
+MICi
+min inhibitory conc.
+Varied(v)
+[2]
+k
+Hill parameter
+1
+Text
+(i) Uniform growth rate for all bacterial populations.
+(ii) Cmax refers to once-daily serum moxiﬂoxacin conc.
+(single
+oral dose) [28].
+(iii) Cmin refers to once-daily serum conc., calculated from AUC
+in moxiﬂoxacin facts [28].
+(iv) µmax estimated assuming 2–3 log10 cfu/mg reduction within
+24h [19].
+(v) Susceptible strains: MIC 0.125∼1; resistant: MIC 2∼4.
+23
+
+[Page 24]
+Figure 1: Relationship between MSW and Cmax under ﬁxed AUC. A higher Cmax sharpens
+the concentration–time proﬁle and shortens exposure within the MSW, minimizing resistance
+risk; lower Cmax prolongs MSW exposure.
+(a) R0 as a function of MIC
+(b) Maximal MIC for infection clearance
+Figure 2: Simulation of Model (M1). (a) The basic reproductive number R0 is plotted as
+a function of the MIC for once-daily and twice-daily regimens. In the ﬁgure, it is assumed
+that the maximal antibiotic concentration for the twice-daily strategy achieves 56%, 70%,
+80%, and 90% of the maximal concentration for the once-daily strategy. (b) Threshold MIC
+value for R0 = 1 under various possibilities of the maximal concentration for the twice-daily
+regimen. The horizontal axis shows the ratio of Cmax for the twice-daily regimen relative
+to the once-daily regimen.
+24
+
+[Page 25]
+(a)
+(b)
+Figure 3: Simulations for Models (M2) and (M3). (a) Threshold MIC for Infection Clearance
+under Diﬀerent Resistance Development Mechanisms. Simulations are based on models (M2)
+and (M3), where the threshold MIC values for the resistant bacterial population (MICp and
+MICm, respectively) were calculated such that R0 = 1 in each model. The horizontal axis
+shows the ratio of Cmax for the twice-daily regimen relative to the once-daily regimen. (b)
+In both models, we set MICs = 0.5 and assign identical resistant strain values, MICp =
+MICm = 3.
+(a) Missed Dose in the First Three Days
+(b) Missed Dose in the Last Three Days
+Figure 4: The Impact of Make-Up Protocols on Total Bacterial Load Following Missed Doses.
+The ﬁgure illustrates the total bacterial load over time for diﬀerent missed-dose protocols in a
+twice-daily dosing regimen, as simulated by Model (M2). The missed dose is realized midway
+between consecutive scheduled doses. Parameters were speciﬁcally chosen to demonstrate
+that a twice-daily schedule eﬀectively clears the bacterial infection, whereas a once-daily
+regimen with the same dose amount at each intake fails to do so.
+25
+
+[Page 26]
+References
+[1] H. Amann. Ordinary Diﬀerential Equations: An Introduction to Nonlinear Analysis,
+Berlin, New York: De Gruyter, 1990.
+[2] J.M. Andrews, J.P. Ashby, G.M. Jevons, and R. Wise (1999), Tentative minimum in-
+hibitory concentration and zone diameter breakpoints for moxiﬂoxacin using BSAC cri-
+teria. J. Antimicrob. Chemother., 44:819-22.
+[3] P. Ankomah and B.R. Levin (2012), Two-drug antimicrobial chemotherapy: A mathemat-
+ical model and experiments with Mycobacterium marinum, PLoS Pathog. 8(1): e1002487.
+[4] P. Ankomah and B.R. Levin (2014), Exploring the collaboration between antibiotics and
+the immune response in the treatment of acute, self-limiting infections, Proc. Natl. Acad.
+Sci. USA, 111, 8331-8338.
+[5] E.D. Counterman, and S.D. Lawley (2021), What should patients do if they miss a dose
+of medication? A theoretical approach. J. Pharmacokinet. Pharmacodyn., 48(6), pp.873-
+892.
+[6] E.M. D’Agata, M. Dupont-Rouzeyrol, P. Magal, D. Olivier, and S. Ruan (2008), The im-
+pact of diﬀerent antibiotic regimens on the emergence of antimicrobial-resistant bacteria.
+PLoS One, 3(12):e4036.
+[7] B. Dasbasi and I. Öztürk (2016), Mathematical modelling of bacterial resistance to mul-
+tiple antibiotics and immune system response, SpringerPlus 5 (1): 408.
+[8] P. De Leenheer, J. Dockery, T. Gedeon, and S.S. Pilyugin (2010), The chemostat with
+lateral gene transfer, J. Biol. Dynam., 4(6), 607-620.
+[9] R. Djidjou-Demasse, S. Alizon, and M.T. Sofonea (2021). Within-host bacterial growth
+dynamics with both mutation and horizontal gene transfer. J. Math. Biol., 82, pp.1-30.
+[10] K. Drlica, X. Zhao, J.M. Blondeau and C. Hesje (2006), Low correlation between MIC
+and mutant prevention concentration, Antimicrob. Agents Chemother., 50(1), 403-404.
+[11] K. Drlica and X. Zhao (2007), Mutant selection window hypothesis updated, Clin.
+Infect. Dis., 44(5), 681-688.
+[12] M. Farkas. Periodic Motions. Applied Mathematical Sciences, Vol. 104. Springer Science
+& Business Media, 2013.
+[13] J.K. Hale and H. Koçak. Dynamics and Bifurcations. Texts in Applied Mathematics,
+Vol. 3. Springer Science & Business Media, 2012.
+26
+
+[Page 27]
+[14] J.P.J. Hall, A. J. Wood, E. Harrison and M. A. Brockhurst (2016), Source-sink plasmid
+transfer dynamics maintain gene mobility in soil bacterial communities, Proc. Natl. Acad.
+Sci. USA 113 (29), 8260-8265.
+[15] J. P.J. Hall, M. A. Brockhurst, C. Dytham and E. Harrison (2017), The evolution of
+plasmid stability: Are infectious transmission and compensatory evolution competing
+evolutionary trajectories? Plasmid, 91, 90-95.
+[16] A. Handel, E. Margolis and B. R. Levin (2009), Exploring the role of the immune
+response in preventing antibiotic resistance, J. Theor. Biol., 256, 655-662.
+[17] M. Imran and H.L. Smith (2006), The pharmacodynamics of antibiotic treatment, Com-
+put. Math. Methods Med. 7(4), 229-263.
+[18] M. Imran and H.L. Smith (2007), The dynamics of bacterial infection, innate immune
+response and antibiotic treatment, Discrete Contin. Dyn. Syst. Ser. B, 8: 127-143.
+[19] S. Lemaire, K. Kosowska-Shick, P.C. Appelbaum, Y. Glupczynski, F. Van Bambeke, and
+P.M. Tulkens (2011), Activity of moxiﬂoxacin against intracellular community-acquired
+methicillin-resistant Staphylococcus aureus: comparison with clindamycin, linezolid and
+co-trimoxazole and attempt at deﬁning an intracellular susceptibility breakpoint. J. An-
+timicrob. Chemother., 66(3), pp.596-607.
+[20] B.R. Levin and K.I. Udekwu (2010), Population dynamics of antibiotic treatment: A
+mathematical model and hypotheses for time-kill and continuous-culture experiments,
+Antimicrob. Agents Chemother., 54(8), 3414-3426.
+[21] A.J. Lopatkin, S. Huang, R.P. Smith, J.K. Srimani, T.A. Sysoeva, S. Bewick, D.K.
+Karing, and L. You (2016) Antibiotics as a selective driver for conjugation dynamics.
+Nat. Microbiol., 1(6):16044
+[22] A.J. Lopatkin, H.R. Meredith, J.K. Srimani, C. Pfeiﬀer, R. and L. You (2017), Persis-
+tence and reversal of plasmid-mediated antibiotic resistance, Nat. Commun. 8(1): 1689.
+[23] M. Lukačišinová, S. Novak and T. Paixão (2017), Stress-induced mutagenesis: Stress
+diversity facilitates the persistence of mutator genes, PLoS Comput. Biol., 13 (7), 1-17.
+[24] K. Metzler, G.M. Hansen, P. Hedlin, E. Harding, K. Drlica and J.M. Blondeau (2004),
+Comparison of minimal inhibitory and mutant prevention drug concentrations of 4 ﬂuoro-
+quinolones against clinical isolates of methicillin-susceptible and -resistant Staphylococcus
+aureus, Intl. J. Antimicrob. Agents 24(2), 161-167.
+[25] R. Peña-Miller, D. Lähnemann, H. Schulenburg, M. Ackermann and R. Beardmore
+(2012), Selecting against antibiotic-resistant pathogens: Optimal treatments in the pres-
+ence of commensal bacteria, Bull. Math. Biol., 74 (4), 908-934.
+27
+
+[Page 28]
+[26] A.K. Szafrańska, V. Junker, M. Steglich, U. Nübel (2019). Rapid cell division of Staphy-
+lococcus aureus during colonization of the human nose. BMC Genomics, 20(1):229.
+[27] L. Ternent, R.J. Dyson, A. Marie Krachler and S. Jabbari (2015), Bacterial ﬁtness
+shapes the population dynamics of antibiotic -resistant and -susceptible bacteria in a
+model of combined antibiotic and anti-virulence treatment, J. Theor. Biol., 372, 1-11.
+[28] U.S. Food and Drug Administration. Drug Approval Package: Avelox (moxiﬂoxacin
+hydrochloride). Accessed 22 Oct. 2024. https://www.accessdata.fda.gov/scripts/
+cder/daf/index.cfm
+[29] W. Wang and X.-Q. Zhao (2008). Threshold dynamics for compartmental epidemic
+models in periodic environments, J. Dyn. Diﬀer. Equ. 20(3), pp. 699–717.
+[30] X. Zhao and K. Drlica (2001), Restricting the selection of antibiotic-resistant mutants:
+A general strategy derived from ﬂuoroquinolone studies, Clin. Infect. Dis. 33 (Supp 3),
+S147-S156.
+[31] X. Zhong, J. Droesch, R. Fox, E.M. Top and S.M. Krone (2012), On the meaning
+and estimation of plasmid transfer rates for surface-associated and well-mixed bacterial
+populations, J. Theor. Biol., 294, 144-152.
+[32] T. Yoshizawa, Stability Theory and the Existence of Periodic Solutions and Almost
+Periodic Solutions, Applied Mathematical Sciences, vol. 14 (Springer, New York, 1975).
+[33] X.-Q. Zhao, Dynamical Systems in Population Biology, Springer, New York, 2003.
+28
+
+[Page 29]
+Impact of Resistance Development Mechanisms on
+Antibiotic Treatment Outcomes
+Ailin Zhang, Shigui Ruan, Xi Huo
+November 6, 2025
+1
+Proof of Proposition 2.1
+Proof. By Theorem 7.4 in [1], the local existence and uniqueness of the solution is guaranteed
+if f(t, B) = rB(1 −B/K) −µ(t)B is continuous for t ∈R+ and Lipschitz continuous for
+B ∈R+. The continuity of f(·, B) is obvious under Assumption 2.1. For any t ∈R+, we
+have
+|f(t, B1) −f(t, B2)| ≤
+r + |B1 + B2| + max
+0≤t<1 µ(t)
+
+· |B1 −B2| ,
+hence the local Lipschitz continuity of f(t, ·).
+By Remark 16.3(f) in [1], the solution B(t) with B(0) ≥0 will stay non-negative since
+B(t) ≡0 is the unique global solution with B(0) = 0.
+In (M1), we have that ˙B ≤rB(1 −B
+K). By the Comparison Principle we have B(t) ≤
+max{K, B(0)}. We thus have the global existence and uniqueness of the solution following
+Theorem 7.6 in [1].
+2
+Proof of Theorem 2.1
+Proof. It is easy to verify that
+φ(t, B(0)) =
+KB(0)e
+R t
+0 r−µ(s)ds
+rB(0)
+R t
+0 e
+R s
+0 r−µ(u)duds + K
+(1)
+is a solution to (M1). Let
+φ(1, B∗
+0) =
+KB∗
+0e
+R 1
+0 r−µ(s)ds
+rB∗
+0
+R 1
+0 e
+R s
+0 r−µ(u)duds + K
+= B∗
+0,
+1
+
+[Page 30]
+we get
+B∗
+0 = K
+r · e
+R 1
+0 r−µ(s)ds −1
+R 1
+0 e
+R s
+0 r−µ(u)duds
+.
+Thus
+Φ(t) = φ(t, 0, x∗
+0) = K
+r ·
+e
+R t
+0 r−µ(s)ds
+R t
+0 e
+R s
+0 r−µ(u)duds +
+R 1
+0 e
+R s
+0 r−µ(u)duds
+e
+R 1
+0 r−µ(s)ds−1
+(2)
+is the unique, non-constant, and 1-periodic solution when r >
+R 1
+0 µ(s)ds. By Theorem 4.22
+in [2], the local stability of Φ(t) is guaranteed when the Poincare map π(B0) := ϕ(1, B0)
+satisﬁes π′(B0∗) < 1, which is a condition equivalent to r >
+R 1
+0 µ(s)ds.
+Next we show the global stability of Φ(t). Given another initial value y0 > 0, we have
+
+1
+φ(t, 0, x∗
+0) −
+1
+φ(t, 0, y0)
+
+=e
+R t
+0 µ(u)−rdu ·
+r
+R t
+0 e
+R s
+0 r−µ(u)duds + K
+x∗
+0
+K
+−e
+R t
+0 µ(u)−rdu ·
+r
+R t
+0 e
+R s
+0 r−µ(u)duds + K
+y∗
+0
+K
+=e
+R t
+0 µ(u)−rdu
+
+ 1
+x∗
+0
+−1
+y∗
+0
+
+≤et
+R 1
+0 µ(u)−rdu
+
+ 1
+x∗
+0
+−1
+y∗
+0
+
+If
+R 1
+0 r −µ(u)du > 0, we have that e
+R 1
+0 µ(u)−rdu < 1, thus, lim
+t→∞
+
+1
+φ(t,0,x∗
+0) −
+1
+φ(t,0,y0)
+
+ = 0.
+Notice that
+
+φ(t, 0, x∗
+0) −φ(t, 0, y∗
+0)
+
+ =
+
+1
+φ(t, 0, x∗
+0) −
+1
+φ(t, 0, y0)
+
+ ·
+
+φ(t, 0, y0)φ(t, 0, x∗
+0)
+
+Thus, with lim
+t→∞|φ(t, 0, x∗
+0)| = lim
+t→∞φ(t, 0, y0)| = K, we have that lim
+t→∞|φ(t, 0, x∗
+0)−φ(t, 0, y0)| =
+0 and obtain the global stability of Φ(t) under the condition that
+R 1
+0 r −µ(u)du > 0.
+If r <
+R 1
+0 µ(s)ds, with B(0) > 0, we have ϕ(t, B(0)) ≥0 and
+ϕ(t, B(0)) ≤B(0)e
+R ⌊t⌋
+0
+r−µ(s)ds · e
+R t−⌊t⌋
+0
+r−µ(s)ds
+≤B(0)
+e
+R 1
+0 r−µ(s)ds⌊t⌋→0.
+Thus the zero solution is globally asymptotically stable.
+2
+
+[Page 31]
+(a) Mutation-induced Resistance
+(b) Plasmid-induced Resistance
+(c) Mutation-induced Resistance
+(d) Plasmid-induced Resistance
+(e) Mutation-induced Resistance
+(f) Plasmid-induced Resistance
+Figure 1: The Impact of Make-Up Protocols on Final Bacterial Load Following Missed
+Doses. The ﬁgures present the diﬀerence in ﬁnal total bacterial load between various make-
+up protocols and a twice-daily baseline strategy. Results are shown for both Model M2
+and M3, and are evaluated for missed doses occurring either early or late in the treatment
+regimen.
+3
+
+[Page 32]
+3
+More Simulation Results
+References
+[1] H. Amann. Ordinary Diﬀerential Equations: An Introduction to Nonlinear Analysis,
+Berlin, New York: De Gruyter, 1990.
+[2] J.K. Hale and H. Koçak. Dynamics and Bifurcations. Texts in Applied Mathematics, Vol.
+3. Springer Science & Business Media, 2012.
+4

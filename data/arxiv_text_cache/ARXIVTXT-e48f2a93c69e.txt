@@ -1,0 +1,3091 @@
+[Page 1]
+Antibody-mediated cross-linking of gut bacteria hinders
+the spread of antibiotic resistance
+Florence Bansept1,2, Lo¨ıc Marrec1,2, Anne-Florence Bitbol1,3, and Claude
+Loverdo1,3
+1Sorbonne Universit´e, CNRS, Laboratoire Jean Perrin (UMR 8237), F-75005
+Paris, France
+2These authors contributed equally.
+3Corresponding authors: anne-ﬂorence.bitbol@sorbonne-universite.fr;
+claude.loverdo@sorbonne-universite.fr
+March 15, 2019
+Abstract
+The body is home to a diverse microbiota, mainly in the gut. Resistant bacteria are selected
+for by antibiotic treatments, and once resistance becomes widespread in a population of hosts,
+antibiotics become useless. Here, we develop a multiscale model of the interaction between
+antibiotic use and resistance spread in a host population, focusing on an important aspect of
+within-host immunity. Antibodies secreted in the gut enchain bacteria upon division, yielding
+clonal clusters of bacteria. We demonstrate that immunity-driven bacteria clustering can hinder
+the spread of a novel resistant bacterial strain in a host population. We quantify this eﬀect
+both in the case where resistance pre-exists and in the case where acquiring a new resistance
+mutation is necessary for the bacteria to spread. We further show that the reduction of spread
+by clustering can be countered when immune hosts are silent carriers, and are less likely to get
+treated, and/or have more contacts. We demonstrate the robustness of our ﬁndings to including
+stochastic within-host bacterial growth, a ﬁtness cost of resistance, and its compensation. Our
+results highlight the importance of interactions between immunity and the spread of antibiotic
+resistance, and argue in the favor of vaccine-based strategies to combat antibiotic resistance.
+Introduction
+Ever since the discovery of penicillin, every release of a new antibiotic has been followed a
+few years later by the emergence of bacteria resistant to it (McClure and Day, 2014). Given
+the medical importance of antibiotics, resistance is a major public health issue. Treatment
+can eliminate antibiotic-sensitive bacteria eﬃciently. But if some bacteria are resistant, then
+antibiotic treatment will instead select for resistance and increase the proportion of resistant
+1
+arXiv:1903.05723v1  [q-bio.PE]  13 Mar 2019
+
+[Page 2]
+bacteria in the host. Furthermore, the body is home to a numerous and diverse microbiota,
+mainly in the gut (Sender et al., 2016), which plays several crucial functional roles (Donaldson
+et al., 2016; Stecher and Hardt, 2008). Taking an antibiotic treatment against one pathogenic
+bacterial strain can favor the emergence of drug resistance in other bacteria, in particular in
+the gut, and these resistant bacteria can then be transmitted, e.g. via the fecal-oral route. This
+is an important concern because antibiotic use is widespread: for instance, about a quarter of
+French people are treated with antibiotics every given year (Carlet and Le Coz, 2015; S´ecurit´e
+Sociale, 2014). Besides, antibiotics are often routinely given to farm animals, and the drug
+resistance in bacteria they harbor may spread to humans (Dahms et al., 2014; Landers et al.,
+2012), though the magnitude of this eﬀect is disputed (Harrison et al., 2017). Here, we develop
+a multiscale model of the interaction between antibiotic use and resistance spread in a host
+population, focusing on an important aspect of within-host immunity.
+Immunity could interfere with resistance spread in many ways. If the immune system in the
+gut just massively killed bacteria, it could destabilize the microbiota. Thus, it has to resort to
+other strategies. Immunoglobulin A (IgA), an antibody isotype which is the main eﬀector of
+the adaptive immune response secreted in the gut, neither kills its target bacteria nor prevents
+them from reproducing. It was recently shown in mice that the main eﬀect of IgA is actually to
+enchain daughter bacteria upon division (Moor et al., 2017). Importantly, clusters of bacteria
+cannot come close to epithelial cells, which prevents systemic infection and protects the host.
+Besides, interaction of pathogenic bacteria with epithelial cells can trigger inﬂammation, which
+can turn on the bacteria SOS response, increasing horizontal gene transfer between bacteria.
+Enchained growth thus constitutes a possible mechanism for acquired immunity to dampen
+horizontal transfer in the gut (Diard et al., 2017). Furthermore, since IgA-mediated clusters
+of bacteria are mostly clonal, horizontal transfer would most likely occur between very closely
+related neighboring bacteria, which makes it ineﬃcient at providing new genes. These eﬀects
+will unequivocally work towards reducing the emergence of antibiotic resistance within the host.
+In this article, we investigate another, subtler eﬀect. Bacteria being in clonal clusters decreases
+the eﬀective genetic diversity within the host, and transmitted bacteria are less diverse too.
+We demonstrate that this can hinder the spread of antibiotic resistance at the scale of the host
+population.
+New mutations occur upon bacterial replication within a host, but what is crucial for public
+health is whether these mutant resistant bacteria can spread among the host population. We
+thus propose a multiscale model, combining within-host dynamics with a stochastic branching
+process at the between-host scale. Such a description is appropriate at the beginning of epidemic
+spread, when very few hosts are infected. For instance, a host may be infected with a novel
+bacterial strain, which can acquire antibiotic resistance by mutation, and which is suﬃciently
+similar to other circulating strains for a portion of the host population to be immune against
+it. We will consider two types of hosts: “immune” hosts secrete IgA antibodies against this
+novel strain of bacteria in their gut, thus clustering them upon division, while “naive” hosts do
+not. What is the probability that, starting from one infected individual, this novel bacterial
+strain invades the host population? First, focusing on the case where the ﬁrst host is infected
+with a mix of sensitive and resistant bacteria, we demonstrate that immunity-driven bacteria
+clustering then decreases the spread probability of the novel strain. We then show that this
+eﬀect can be reversed if immune and naive hosts have a diﬀerent number of contacts with other
+hosts, and a diﬀerent probability of treatment, which may happen if immune hosts are silent
+carriers. We further demonstrate the robustness of our ﬁndings to more realistic models of the
+2
+
+[Page 3]
+within-host bacterial population dynamics, including mutations, stochasticity, a ﬁtness cost of
+resistance, and its compensation. Next, we develop analytical approximations of the magnitude
+of the immunity-driven decrease of spread probability in the case where only sensitive bacteria
+are initially present, and where the bacterial strain needs to acquire a resistance mutation to
+spread. Finally, we discuss the implications of our results, notably on the interplay between
+vaccination and antibiotics.
+Model and methods
+Here, we describe the multiscale model we developed to demonstrate the impact of antibody-
+mediated clustering of bacteria on the spread of resistance. Fig. 1 illustrates this eﬀect and the
+key ingredients of our model.
+Figure 1: Sketch illustrating the impact of bacteria clustering on the spread of re-
+sistance.
+Consider hosts infected by sensitive (blue) and resistant (red) bacteria. Within
+immune hosts, bacteria form IgA-mediated clonal clusters. This strongly impacts the composi-
+tion of the set of transmitted bacteria, which is more likely to contain both types of bacteria if
+the donor host is naive than if it is immune. Antibiotic treatment (yellow) is eﬃcient against
+sensitive bacteria, but selects for preexisting resistance, which is more likely to exist if the donor
+host was naive.
+Within-host dynamics and transmission step
+There is often a typical number of bacteria transmitted from one host to the next for successful
+infection, called the bottleneck size Nb.
+For instance, Nb = 105 is the typical number of
+Salmonella that starts food poisoning in humans (World Health Organization & Food and
+Agriculture Organization, 2002). Here, we will assume that infections always start with the
+same number Nb of infecting bacteria.
+3
+
+[Page 4]
+Within the host, the number of bacteria is typically very large. For instance, in a Salmonella
+infection, its density can reach 1010 bacteria per gram of gut content (Moor et al., 2017). Then,
+the impact of stochastic ﬂuctuations is likely to be small. Hence, we ﬁrst use a deterministic
+model for within-host bacterial population dynamics. We subsequently assess the impact of
+within-host stochasticity.
+We consider two types of bacteria, a sensitive type, and a resistant type. We ﬁrst assume
+that they have the same growth rate, and neglect de novo mutations. Then, the proportion of
+resistant bacteria within a non-treated host remains constant during the infection. Next, we
+investigate the eﬀects of mutations, of a ﬁtness cost of resistance (see Supporting Information,
+section 2), and of the compensation of this cost, for which we use a generalized model with
+three types of bacteria (see Supporting Information, section 4).
+When the host is treated with antibiotics, we assume that if it was initially infected only
+with sensitive bacteria, the treatment is very eﬃcient and kills all bacteria, before resistance
+appears via mutations, and before any transmission to other hosts. Conversely, if at least one
+resistant bacteria was present in the inoculum, then the resistant strain takes over.
+In our analytical calculations, we consider that transmitted bacteria are chosen from the
+donor host using the proportion of resistant bacteria computed from the deterministic model,
+without correlation between two transmissions from the same host. In particular, we make
+the approximation that selections of transmitted bacteria are done with replacement. In sim-
+ulations, we perform selections without replacement, allowing us to check the validity of the
+approximation.
+Impact of clustering on transmission
+Within naive hosts, bacteria remain independent from each other, whereas within immune hosts,
+they are bound together by the secreted IgA. However, these clusters can break (Bansept et al.,
+2018; Evans and Calderwood, 2007; McGrady and Ziﬀ, 1987; Odell and Keller, 1986; Tees et al.,
+1993). Thus, at the end of the infection, clusters will be of a typical size Nc. For simplicity, we
+will assume that cluster size equals bottleneck size, i.e. Nc = Nb = N, meaning that exactly one
+cluster is transmitted at each infection event. The case where multiple clusters are transmitted
+to a host (Nc < Nb) may also be realistic, but it would be more complex. We wish to focus on
+the eﬀect of clustering, and the present case Nc = Nb = N will provide an upper bound of the
+eﬀect of clustering.
+We assume that the concentration of the bacteria studied remains small in the gut, so that
+the typical encounter time between bacteria or clusters is large. Then, the existing clusters
+comprise bacteria from the same lineage, since bacteria get enchained by IgA upon replica-
+tion (Moor et al., 2017). Then, in the absence of mutations, or when their impact is negligible
+(e.g. when the initial inoculum already contained non-negligible proportions of both sensitive
+and resistant bacteria), clusters contain bacteria of the same type, either all sensitive or all
+resistant. We start by assuming that all clusters are clonal, and then we assess the impact of
+mixed clusters (see Supporting Information, section 3).
+We focus on fecal-oral transmissions, and assume that the clusters formed in the gut of a
+donor immune host are transmitted as clusters. In practice, even if they could break afterwards,
+bacteria are likely to remain colocalized in the feces.
+4
+
+[Page 5]
+Between-host dynamics
+We assume that the number of transmissions to recipient hosts from one donor host is Poisson
+distributed (Andr´e and Day, 2005; Antia et al., 2003; Iwasa et al., 2004; Orr and Unckless,
+2008; Schreiber et al., 2016) with mean λN for naive hosts and λI for immune ones.
+We consider that each host has a probability ω to be immune to the bacteria studied (and
+thus 1 −ω of being naive). The rationale is that we are interested in the spread of a strain
+at risk to develop resistance, and, while this strain is new, it is similar enough to other strains
+present in the population for some cross-immunity to exist. We focus on the beginning of the
+spread of this strain, and thus we neglect the fact that over time, ω will increase, as infected
+hosts become immune to this new strain.
+Finally, we assume that hosts receive antibiotic treatment with a probability denoted by
+qN (resp. qI) for naive (resp. immune) hosts. We initially assume that qN = qI, which is
+appropriate if antibiotics are given for a reason independent from the bacteria we focus on (e.g.
+to ﬁght other bacteria, or for growth enhancement in farm animals). We then consider qN̸ = qI.
+Analytical methods
+Since we focus on the beginning of the spread of a bacterial strain, we use the framework of
+branching processes (Harris, 1963; Kendall, 1948; Lange, 2010). We denote by ℘i(n0, n1, ..., nN)
+the probability for a host initially infected by i resistant and N −i sensitive bacteria to infect
+n0 hosts with 0 resistant and N sensitive bacteria, n1 hosts with 1 resistant and N −1 sensitive
+bacteria, and so on. Let us consider the generating functions gi of the branching process, for
+all i between 0 and N:
+gi(z0, z1, ..., zN) =
+X
+n0,n1,...,nN
+℘i(n0, n1, ..., nN)zn0
+0 zn1
+1 ...znN
+N ,
+(1)
+where each ni is summed from 0 to inﬁnity. As we consider no correlation between transmissions,
+and as the number of transmissions is Poisson distributed, of mean ˜λ (with ˜λ = λN for naive
+hosts and λI for immune ones), we obtain:
+gi(z0, z1, ..., zN) =
+∞
+X
+k=0
+˜λke−˜λ
+k!
+ N
+X
+j=0
+Ti,jzj
+!k
+= exp
+
+−˜λ
+N
+X
+j=0
+Ti,j(1 −zj)
+!
+,
+(2)
+where Ti,j denotes the probability that when a host, initially infected with i resistant bacteria
+and N −i sensitive ones, infects another host, it transmits to this other host j resistant bacteria
+and N −j sensitive ones. Note that PN
+j=0 Ti,j = 1.
+Either the new bacterial strain will go extinct, or it will spread to an ever increasing number
+of hosts, acquiring resistance on the way. The extinction probability ei, starting from one host
+initially infected with i resistant and N −i sensitive bacteria, is the ﬁxed point of the generating
+function gi (Harris, 1963). Hence, it satisﬁes
+ei = exp
+
+−˜λ
+N
+X
+j=0
+Ti,j (1 −ej)
+!
+.
+(3)
+The spread probability is 1 −ei.
+5
+
+[Page 6]
+We will start from these equations for the extinction probabilities, and write them by
+summing over the cases where hosts are immune or naive, and treated or not. Simpliﬁcations
+are allowed by our assumption that when a host is treated, it does not transmit anything if it was
+initially infected with no resistant bacteria, and it transmits only resistant bacteria otherwise.
+Hence, the general equations giving the extinction probabilities read, for all i between 0 and
+N:
+ei =(1 −ω)(1 −qN)gN
+i (e0, e1, ..., eN)
+}naive non-treated host
++ ω(1 −qI)gI
+i (e0, e1, ..., eN)
+}immune non-treated host
++ (1 −ω)qN [δi0 + (1 −δi0) exp(−λN(1 −eN))]
+}naive treated host
++ ωqI [δi0 + (1 −δi0) exp(−λI(1 −eN))] ,
+}immune treated host
+(4)
+where δi0 is 1 if i = 0, and 0 otherwise. Recall that ω represents the fraction of immune hosts,
+while qN (resp. qI) is the fraction of treated hosts among the naive (resp. immune) ones.
+The generating functions gI
+i and gN
+i , in the immune non-treated and naive non-treated cases,
+respectively, will be expressed in each case studied.
+Numerical methods
+We solve numerically the system of equations Eq. (4) giving the values of the extinction prob-
+abilities ei.
+We also perform direct numerical simulations of branching processes, both as a test of our
+analytical descriptions, and because it allows for explicit integration of within-host stochastic-
+ity. In our simulations, at each generation of infected hosts, we randomly choose whether each
+host is immune or not, and treated or not. Next, we simulate within-host growth, either in a
+deterministic or in a stochastic way. Finally, we perform stochastic transmission of bacteria
+to the next generation of hosts, with or without clusters, depending whether the transmitting
+host is immune or not. The process is then iterated. A detailed description of the simula-
+tions is provided in the Supporting Information, section 5.
+Our code is freely available at
+https://doi.org/10.5281/zenodo.2592323.
+Results
+Clustering hinders spread in the presence of pre-existing resistance
+What is the impact of IgA-mediated clustering on the probability that a bacterial strain spreads
+in the host population? To address this question, we ﬁrst consider the simplest case, with a
+deterministic within-host growth of the bacterial population, and without mutations or ﬁtness
+costs of resistance. Then, the proportion of resistant bacteria within a non-treated host remains
+constant during the infection, equal to i/N if this host was initially infected with i resistant
+bacteria and N −i sensitive ones. This simpliﬁcation will allow us to gain insight in the impact
+of clustering on spread. Next, we will build on this minimal model to address more realistic
+cases, including within-host growth stochasticity, mutations and ﬁtness costs of resistance. The
+generating function gN
+i
+for naive non-treated hosts is then given by Eq. (2) with ˜λ = λN, and
+where the probability Ti,j that a transmission from a host initially infected with i resistant
+6
+
+[Page 7]
+bacteria contains j resistant bacteria follows a binomial law of parameters N and i/N:
+Ti,j =
+N
+j
+  i
+N
+j N −i
+N
+N−j
+.
+(5)
+Besides, the generating function of the process for immune non-treated hosts reads:
+gI
+i (z0, . . . , zN) = exp
+
+−λIi
+N (1 −zN)
+
+exp
+
+−λI(N −i)
+N
+(1 −z0)
+
+.
+(6)
+Using these expressions for the generating functions together with Eq. (4) for 0 ≤i ≤N yields
+a complete system of equations that allows to solve for the extinction probabilities.
+0
+20
+40
+60
+80
+100
+Initial number i of resistant bacteria
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1
+Extinction probability ei
+100
+101
+102
+0.2
+0.4
+0.6
+=1
+=0.8
+=0.6
+=0.4
+=0.2
+=0
+All immune
+All naive
+Figure 2: Bacterial clustering hinders the spread of a resistant strain in the presence
+of preexisting resistance. Extinction probabilities ei are shown versus initial number i of
+resistant bacteria in the ﬁrst infected host, for diﬀerent fractions ω of immune individuals in the
+host population. Naive and immune hosts diﬀer only through bacterial clustering. Each host is
+treated with probability q = 0.55 and transmits N = 100 bacteria to an average of λ = 2 other
+hosts (unless it was infected with no resistant bacteria and treated). Solid lines: numerical
+resolution of Eq. (4); symbols: simulation results (over 104 realizations). Numerical resolution
+and simulation are in excellent agreement with each other. Black dotted line: approximation
+from Eq. (14) for ω = 1 and 0 < i ≪N. Main panel: linear scale; inset: semi-logarithmic scale.
+A broad range of values for the initial proportion i/N of antibiotic resistance are realistic,
+from zero or less than a percent to more than half (Rhomberg and Jones, 2009). Here, we
+focus on the case with pre-existing mutations. The case without pre-existing mutations will be
+addressed in the last part of Results. Fig. 2 shows that whenever the ﬁrst host is infected by a
+mixed inoculum containing both resistant and sensitive bacteria, i.e. 0 < i < N, the extinction
+probability ei increases with the proportion ω of immune hosts, assuming that naive and immune
+hosts only diﬀer through bacterial clustering. Therefore, bacterial clustering hinders the spread
+of the strain and of resistance. This eﬀect is strongest for small values of i.
+Clustering increases extinction probabilities because transmission of resistance is less likely
+with clustering than without clustering.
+For a given proportion i/N of resistant bacteria,
+the probability that a clonal cluster contains no resistant bacteria is 1 −
+i
+N , while a random
+assortment of N bacteria has a smaller probability (1−i
+N )N of containing no resistant bacteria.
+7
+
+[Page 8]
+To understand the eﬀect of clustering quantitatively, consider the equations giving the
+extinction probabilities if all hosts are naive (denoted by eN
+i ) or all hosts are immune (eI
+i ). If
+all hosts are naive, Eqs. (4) and (1) yield:
+eN
+0 = qN + (1 −qN) exp
+
+−λN(1 −eN
+0 )
+
+,
+(7)
+eN
+i = qN exp
+
+−λN(1 −eN
+N )
+
++ (1 −qN) exp
+"
+−λN
+N
+X
+j=0
+Ti,j(1 −eN
+j )
+#
+∀i ∈[1, N −1],
+(8)
+eN
+N = exp
+
+−λN(1 −eN
+N )
+
+,
+(9)
+where Ti,j is given in Eq. (5). Conversely, if all hosts are immune, eI
+0 and eI
+N are solutions of
+eI
+0 = qI + (1 −qI) exp
+
+−λI(1 −eI
+0)
+
+,
+(10)
+eI
+N = exp
+
+−λI(1 −eI
+N)
+
+,
+(11)
+and eI
+i can be obtained from eI
+0 and eI
+N via
+eI
+i = qIeI
+N +
+
+(1 −qI)eI
+N
+ i
+N (eI
+0 −qI)1−i
+N .
+(12)
+These equations show that if naive and immune hosts diﬀer only through bacterial clustering,
+i.e. λN = λI = λ and qN = qI = q, then eN
+N = eI
+N = eN and eN
+0 = eI
+0 = e0. Hence, clustering
+is irrelevant if all bacteria are identical. In addition, e0 > eN if q > 0 and λ > 1 (see Eqs. (7)
+and (9)): in the presence of treatment, resistance decreases the extinction probability.
+Consider now a ﬁrst host infected with both resistant and sensitive bacteria (0 < i < N). If
+this host is treated, its infection becomes fully resistant, leading to an extinction probability eN
+N
+or eI
+N, depending whether the host population is fully naive or fully immune. In a fully naive
+host population, if the ﬁrst host is not treated, its probability of not transmitting resistance
+to a given new host is (1 −
+i
+N )N. For N ≫1 and 0 < i ≪N, (1 −
+i
+N )N ≈exp(−i), which is
+smaller than 5% for i > 2: then, transmission of resistance is almost certain, and
+eN
+i ≈eN
+N .
+(13)
+In a fully immune population, if the ﬁrst host is not treated, and if (1 −qI)λI < 1, spread is
+possible only if it transmits a resistant cluster (probability i/N) to one of the recipient hosts
+(which are on average λI), and this leads to spread (probability 1 −eI
+N), yielding an extinction
+probability ≈1−(1−eI
+N)λIi/N. This approximation neglects the case where multiple recipient
+hosts receive resistant bacteria, which is appropriate if λIi/N ≪1. Hence, if 0 < i < N and
+λIi/N ≪1 and (1 −qI)λI < 1,
+eI
+i ≈qIeI
+N + (1 −qI)
+
+1 −(1 −eI
+N)λI
+i
+N
+
+,
+(14)
+which is consistent with Eq. (12) for i/N →0 and eI
+0 = 1. In Fig. 2, for ω = 0, we observe an
+early plateau as i increases, as predicted by Eq. (13), and for ω = 1, our complete results are
+well approximated by Eq. (14) when 0 < i ≪N.
+Importantly, in the present case where naive and immune hosts diﬀer only through bacterial
+clustering, i.e. λN = λI = λ and qN = qI = q, we have eN
+N = eI
+N, and thus Eqs. (13) and (14)
+yield 1 −eI
+i ≈(q + (1 −q)λi/N)(1 −eN
+i ). Hence, immunity reduces the spread probability by
+a factor up to 1/q.
+8
+
+[Page 9]
+The reduction of spread can be countered by silent carrier eﬀects
+So far, we assumed that immune and naive hosts diﬀer only through IgA-mediated bacterial
+clustering. However, considering pathogenic bacteria, immune hosts may feel less sick than
+naive ones, because clustering prevents direct interaction with epithelial cells, and thus systemic
+infection. Immune hosts may still shed bacteria: they are silent carriers. Sick naive hosts may
+have fewer contacts than immune ones (e.g. if sick hosts stay at home), i.e. λN < λI. Note that
+one might also imagine the opposite eﬀect, e.g. because the infection is cleared faster in immune
+hosts, but λN > λI would reinforce the reduction of resistance spread due to immunity. Hence,
+we focus on λN < λI, which might counter this eﬀect. In addition, if antibiotic treatment is
+given in response to infection by the bacterial strain considered, silent carrier immune hosts
+might be treated less often, i.e. qI ≤qN. Immune hosts then become reservoirs of sensitive
+bacteria, which can either favor the emergence of resistance by enabling more spread, or hinder
+it, because a reduced use of antibiotics decreases the competitive advantage of resistant bacteria.
+Here, we investigate the interplay of clustering with these silent carrier eﬀects.
+Fig. 3A shows the extinction probability ei as a function of the initial number i of resistant
+bacteria in the ﬁrst infected host, as in Fig. 2, but for λN < λI. Other parameters are the
+same, and we remain in the regime where extinction is not certain with only resistant bacteria,
+but certain without resistance, i.e. 1 < λN < λI, while λN(1 −qN) < 1 and λI(1 −qI) < 1.
+Fig. 3A shows that when 0 < i ≪N, the extinction probability increases with the proportion
+ω of immune hosts, as in Fig. 2. But strikingly, this eﬀect is reversed for larger values of i.
+Therefore, the reduction of resistance spread by bacterial clustering can be countered by silent
+carrier eﬀects.
+Let us analyze this trade-oﬀby comparing a fully immune population with a fully naive
+one. If 1 < λN < λI, Eqs. (9) and (11) yield eI
+N < eN
+N < 1. If in addition qI ≤qN, then
+λI(1−qI) > λN(1−qN), and either eI
+0 = eN
+0 = 1 if λI(1−qI) < 1, or eI
+0 < eN
+0 if λI(1−qI) > 1
+(see Eqs.
+(7) and (10)).
+Hence, if all bacteria are resistant, immunity actually favors the
+spread, because of the associated increased transmission. If all bacteria are sensitive, the same
+conclusion holds if λI(1−qI) > 1. Let us now consider intermediate initial numbers of resistant
+bacteria. If 0 < λIi/N ≪1 and λI(1 −qI) < 1, then eI
+i satisﬁes Eq. (14), which simpliﬁes into
+eI
+i ≈1 −qI(1 −eI
+N) to zeroth order in λIi/N. Besides, eN
+i
+satisﬁes Eq. (13) for 2 < i ≪N.
+Employing these approximations, the condition eI
+i > eN
+i
+becomes
+qI < 1 −eN
+N
+1 −eI
+N
+.
+(15)
+If 1 < λN < λI, then eI
+N < eN
+N < 1, so Eq. (15) can hold or not depending on qI, which
+means that immunity can hinder the spread of resistance or not. Fig. 3A is in the regime where
+immunity increases extinction probabilities for 2 < i ≪N (Eq. (15) holds), but decreases them
+for i = N.
+Fig. 3B shows a heatmap of eI
+3/eN
+3 , for λI and qI satisfying 1 < λN ≤λI and qI ≤qN. We
+observe that increasing λI decreases eI
+3/eN
+3 , but that the impact of decreasing qI is subtler, since
+it can both enable more spread, and decrease the competitive advantage of resistant bacteria.
+Moreover, as predicted, if λI(1 −qI) < 1 and Eq. (15) both hold, then eI
+3/eN
+3
+> 1, and
+immunity hinders the spread of resistance. Fig. 3B also features a region where λI(1 −qI) > 1
+(thus eI
+0 < eN
+0 ) but eI
+3/eN
+3 > 1. Elsewhere, the reduction of resistance spread by immunity is
+countered by silent carrier eﬀects, and eI
+3/eN
+3 < 1.
+9
+
+[Page 10]
+0
+20
+40
+60
+80
+100
+Initial number i of resistant bacteria
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1
+Extinction probability ei
+=1
+=0.8
+=0.6
+=0.4
+=0.2
+=0
+100
+101
+102
+0.2
+0.4
+0.6
+All immune
+All naive
+1.2
+1.4
+1.6
+1.8
+0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.4
+0.6
+0.8
+1
+1.2
+Average number of transmissions
+per immune host
+Treatment probability
+for immune hosts
+Immune-to-naive ratio
+of extinction probabilities
+Decrease
+Increase
+of extinction due to immunity
+B
+A
+Figure 3: Silent carrier eﬀects can counter the clustering-driven reduction of spread.
+A: Extinction probabilities ei versus initial number i of resistant bacteria in the ﬁrst infected
+host, for diﬀerent fractions ω of immune individuals in the host population. Parameters are
+the same as in Fig. 2, except that each naive (resp. immune) host transmits to an average of
+λN = 1.5 (resp. λI = 2) other hosts. Solid lines: numerical resolution of Eq. (4); symbols:
+simulation results (over 104 realizations). Black dotted line: approximation from Eq. (14) for
+ω = 1 and 0 < i ≪N. B: Heatmap: the ratio eI
+3/eN
+3 of the extinction probabilities in a
+fully immune versus a fully naive population, starting from i = 3, is shown for λI ≥λN = 1.2
+and qI ≤qN = 0.55. Values (λN, qN) for naive hosts are indicated by a dot labeled “N”.
+Parameters are the same as in Fig. 2, except λI, λN and qI. Solid curve: eI
+3/eN
+3 = 1. Dashed
+curve: λI(1 −qI) = 1. Dotted curve: qI = (1 −eN
+N )/(1 −eI
+N) (Eq. (15)). Heatmap interpolated
+from numerical resolutions of Eq. (4); logarithmic color scale.
+Results are robust to including mutations, within-host growth stochas-
+ticity, and a cost of resistance
+So far, we considered the simple case where the within-host growth simply preserves the pro-
+portion of resistant bacteria. We now include more realistic within-host population dynamics.
+First, what is the impact of mutations on the spread of resistance in the presence of immu-
+nity? Typical mutation rates for bacteria are ∼10−10 −4 × 10−9 per base pair per replication
+(Lynch, 2010). There are often several mutations conferring resistance, yielding an eﬀective
+total mutation probability µ1 ∼10−10 −10−6 from sensitive to resistant at each replication (zur
+Wiesch et al., 2011). The back-mutation probability µ−1 from resistant to sensitive is gener-
+ally substantially smaller, as the exact same mutation has to be reverted (Levin et al., 2000).
+Hence, while developing a complete model that includes back-mutations, we will often present
+cases where they are neglected. The total number of bacterial generations G within a host can
+vary. For instance, in experimental infection of mice by Salmonella starting at diﬀerent inocu-
+lum sizes, G is typically 10 (inoculum of 107 bacteria) to 35 (inoculum of 103 bacteria) after
+24h (Moor et al., 2017). Assuming deterministic exponential within-host growth, we employ
+diﬀerential equations to compute the fraction of resistant bacteria at the end of the incubation
+time, and we write the corresponding generating functions (see Supporting Information, section
+2).
+Fig. 4A compares results obtained with and without mutations. Overall, accounting for
+10
+
+[Page 11]
+mutations from sensitive to resistant slightly decreases the extinction probabilities ei, especially
+for small values of i, including i = 0, where extinction is no longer certain. Indeed, mutations
+tend to increase the fraction of resistant bacteria, with a stronger eﬀect if this fraction is
+initially small. Fig. 4A further shows that the impact of mutations is small for a fully immune
+population. Then, for the small proportions of resistant bacteria such that mutations matter,
+the probability that a non-treated host transmits resistant bacteria is small anyway because
+of clustering.
+Interestingly, Fig. 4A shows that the impact of mutations is stronger for an
+intermediate fraction ω of immune hosts than for a fully naive host population. This is due
+to cross-transmission events: for small i, if an immune host infects a naive host, it very likely
+transmits only sensitive bacteria. But if the naive recipient host is not treated, mutations can
+induce de novo resistance, which is then likely to be transmitted. Hence, the propagation of
+resistance is less likely to be stopped by immune hosts with mutations than without mutations.
+0
+20
+40
+60
+80
+100
+Initial number i of resistant bacteria
+0.2
+0.4
+0.6
+0.8
+Extinction probability ei
+1
+=1
+=0.4
+=0
+10 0
+10 1
+10 2
+0.2
+0.4
+0.6
+Cost
+No cost
+All immune
+All naive
+0
+20
+40
+60
+80
+100
+Initial number i of resistant bacteria
+0.2
+0.4
+0.6
+0.8
+1
+Extinction probability ei
+Mutations
+No mutation
+=1
+=0.4
+=0
+10 0
+10 1
+10 2
+0.2
+0.4
+0.6
+All immune
+All naive
+A
+B
+Figure 4: Impact of mutations and of a ﬁtness cost of resistance. Extinction prob-
+abilities ei versus initial number i of resistant bacteria in the ﬁrst infected host, for diﬀerent
+fractions ω of immune individuals in the host population. A: Results with mutations are shown
+in dark shades. Results without mutation (identical to Fig. 2) are shown in light shades for
+comparison. B: Results with a ﬁtness cost δ = 0.1 of resistance are shown in dark shades. Re-
+sults without ﬁtness cost (same as dark-shaded results in panel A) are shown in light shades for
+comparison. In both panels, within-host evolution is deterministic, µ1 = 7 × 10−5 and µ−1 = 0,
+and incubation time is G = 10 generations. As in Fig. 2, N = 100, λ = 2 and q = 0.55. Solid
+lines: numerical resolution of Eq. (4); symbols: simulation results (over 104 realizations).
+So far, we considered deterministic within-host growth. To assess the impact of within-host
+growth stochasticity on the spread of resistance in the presence of immunity, we performed
+simulations with stochastic exponential within-host growth but without bacterial death or
+loss (see Supporting Information, section 5). In the absence of mutations (Fig. S2), the only
+diﬀerence with our deterministic model is the stochasticity of growth, while with mutations
+(Fig. S3), an additional diﬀerence is that mutations are treated in a stochastic way, which
+is more realistic since mutations are rare events. We found that stochasticity matters most
+for naive hosts and small initial numbers i of resistant bacteria, but overall, its impact is
+small, which validates our use of a deterministic model (Supporting Information, section 3.3).
+We further showed that including small loss rates of bacteria does not aﬀect our conclusions
+11
+
+[Page 12]
+(Supporting Information, section 3.4), and that our assumption of neglecting mixed clusters is
+valid when the inoculum is mixed (Fig. S4).
+Mutations conferring resistance often carry a ﬁtness cost. Denoting by f the growth rate of
+sensitive bacteria without antibiotics, and by f(1 −δ) that of resistant bacteria, typical values
+for δ range from 0.005 to 0.3 (Andersson and Hughes, 2010; Levin et al., 2000; Moura de Sousa
+et al., 2015; zur Wiesch et al., 2011) (but can be even larger (Paulander et al., 2007)). Here,
+we assume that this ﬁtness cost only aﬀects within-host growth, and not transmissibility (Park
+et al., 2013; Schreiber et al., 2016). Fig. 4B shows that extinction probabilities are increased by
+a ﬁtness cost, taken equal to 0.1. Indeed, the fraction of resistant bacteria after deterministic
+within-host growth, starting from a given inoculum, is smaller with a cost than without one. In
+a fully immune population, the cost has less impact for small values of the initial number i of
+resistant bacteria, because transmission of resistance is then very unlikely anyway (Eq. (14)).
+In contrast, in a fully naive population, the ﬁtness cost has a substantial impact for small i, but
+very little impact for larger i, because transmission of resistance is then very likely (Eq. (13)).
+The ﬁtness cost of many resistance mutations can be compensated by subsequent mutations
+(Hughes and Andersson, 2015; Levin et al., 2000; Maisnier-Patin and Andersson, 2004; Marrec
+and Bitbol, 2018; Paulander et al., 2007; Schrag et al., 1997; Moura de Sousa et al., 2015).
+Hence, we generalized our model to include compensation (see Supporting Information, sec-
+tion 4). While compensation would determine long-term survival of resistance if the treatment
+was stopped or became less frequent, our results (Figs. S5 and S6) show that it does not have
+a major impact on the initial steps of the propagation studied here.
+Overall, our ﬁnding that clustering hinders the spread of resistance is robust to including
+mutations, within-host stochasticity, as well as a ﬁtness cost and its compensation.
+Spread probability without pre-existing resistance
+We now develop analytical approximations to better characterize the impact of antibody-
+mediated clustering on the spread of resistance, starting without pre-existing resistant mutants
+(i = 0).
+Here, we take into account mutations and the ﬁtness cost of resistance, but not
+its compensation. We use the deterministic description of the within-host growth, and take
+λN = λI = λ, as well as qN = qI = q.
+Let us focus on the case where the bacterial strain would certainly go extinct without
+mutations, i.e. λ(1 −q) < 1 (otherwise, immunity has little impact on its spread). Then, the
+spread probability, starting from a host infected with only sensitive bacteria, is proportional
+to µ1, and thus very small. Hence, we assume that at most one event leads to spread. In the
+absence of mutations, the mean number of infected hosts is 1 + λ(1 −q) + (λ(1 −q))2 + ... =
+1/(1 −λ(1 −q)), both for naive and immune hosts. We will express the probability that each
+transmission from an infected host contains resistant bacteria, and that this leads to spread,
+comparing fully immune and fully naive host populations.
+So far, we have considered that antibody-mediated bacterial clusters are either fully sensi-
+tive, or fully resistant, which is appropriate when most mutants are descendants of a pre-existing
+mutant transmitted to the host, as conﬁrmed by Fig. S4. However, in a host initially infected
+with only sensitive bacteria, mixed clusters may matter. A simpliﬁed view of the process of
+cluster growth and breaking is that clusters grow in linear chains and break in two once a
+certain size is attained, then grow and break again, and so on. As bacteria are enchained
+upon division, the subclusters formed upon breaking comprise closely related bacteria. Assume
+12
+
+[Page 13]
+that the maximal cluster size is 2g = N: it is attained in g ≤G generations, where G is the
+number of generations within a host. When a mutation occurs, the cluster comprises mixed
+bacterial types until g generations after (see Fig. S1, Supporting Information section 3). In the
+limit of a small mutation rate, the ﬁnal proportion of fully mutant clusters corresponds to the
+proportion of mutant bacteria at generation G −g, seeding the ﬁnal clusters. Meanwhile, ne-
+glecting selection during cluster growth, which is valid for gδ ≪1, the ﬁnal proportion of mixed
+clusters is equal to the probability that a mutation occurs during the ﬁnal cluster growth, i.e.
+2µ1(2g −1) = 2µ1(N −1). Let us now consider in more detail two extreme regimes, depending
+on the number of generations G within a host.
+Small G.
+Assume that δG ≪1: selection weakly impacts the proportions of bacterial
+types, and thus, the ﬁnal proportion of fully mutant clusters is ≈µ1(G −g). Assume also that
+(G −g) ≪2(N −1): starting with a fully sensitive infection, most transmissions of mutant
+bacteria happen through mixed clusters.
+In this regime, if at least one resistant mutant is transmitted, the probability of extinction
+is similar for an immune and a naive host population (see Supporting Information section 6.2).
+Besides, in a fully naive population, the probability that a host infected with only sensitive
+bacteria transmits at least one resistant bacteria is ≈µ1GN (the proportion of resistant bacteria
+multiplied by the bottleneck size). Conversely, in a fully immune population, this probability is
+≈2µ1(N −1) (the proportion of mixed clusters). Thus, the ratio of spread probabilities reads
+R = 1 −eN
+0
+1 −eI
+0
+≈G
+2 .
+(16)
+Large G.
+Assume that δG > 1: the proportion of resistant bacteria in infections started
+with a mixed inoculum end up close to the mutation-selection balance.
+Assume also that
+the number of mixed clusters, 2µ1(N −1), is small compared to the number of fully mutant
+clusters, (1 −exp(−(G −g)δ))µ1/δ (see Supporting Information section 6.1): this condition
+can be expressed as 2Nδ ≪1. Assume that G ≫g: the proportion of resistant bacteria at
+G −g is well approximated by its value r0 at G. Finally, assume that Nµ−1(1 + δ)G ≪1, i.e.
+back-mutations can be neglected: hosts infected with only resistant bacteria generally transmit
+only resistant bacteria. Thus, a host infected with only resistant bacteria leads to an spread
+probability 1 −eN similar for naive and immune hosts.
+In this regime, how can spread occur, starting from a host infected with only sensitive
+bacteria? In a fully naive host population, spread occurs if the following three events happen.
+First, a resistant bacterium is transmitted (probability ≈r0N, the ﬁnal proportion of resistant
+bacteria multiplied by the bottleneck size). Second, the recipient host is treated (probability q;
+else, the ﬁnal proportion of resistant bacteria is close to the mutation-selection balance, leading
+to negligible spread probability). Third, the resulting fully resistant infection spreads with
+probability 1 −eN. Hence, the spread probability per host infected with only sensitive bacteria
+is ≈r0Nq(1 −eN). Besides, in a fully immune host population, spread occurs if a cluster of
+resistant bacteria is transmitted (probability ≈r0), and emerges (probability 1 −eN). Thus,
+the spread probability per host infected with only sensitive bacteria is ≈r0(1 −eN). The ratio
+of spread probabilities then reads
+R = 1 −eN
+0
+1 −eI
+0
+≈qN .
+(17)
+13
+
+[Page 14]
+Fig. 5 demonstrates that the simple expressions in Eqs. (16) and (17) are valid. In conclu-
+sion, without pre-existing resistance, and when mutations are necessary for spread, immunity
+can substantially decrease the spread probability.
+10
+20
+30
+40
+50
+Number of generations G within a host
+2
+4
+6
+8
+10
+12
+14
+16
+Variants
+Naive-to-immune ratio
+of spread probabilities
+Base
+2
+4
+8
+16
+32
+64
+128
+Cluster size and bottleneck size N
+2
+4
+8
+16
+32
+64
+1
+Variants
+Base
+Naive-to-immune ratio
+of spread probabilities
+A
+B
+Figure 5: Ratio R of the spread probabilities in a fully naive population relative to
+a fully immune population, without pre-existing resistance. A: R versus the number
+of within-host generations G. B: R versus the cluster and bottleneck size N. Markers joined
+with lines (both panels): exact values of R obtained by numerical resolution of the full system
+of equations yielding extinction probabilities (see Supporting Information section 2.3). Results
+with base parameters are plotted in black, and variants showing the impact of changing each
+single parameter are plotted in colors. Dashed lines: analytical approximation Eq. (17) of R
+for large G. Black dotted line (panel A): analytical approximation Eq. (16) of R for small G.
+This ﬁgure shows that the simple expressions in Eqs. (16) and (17) are robust and capture well
+the dependence of R on the various parameters.
+Discussion
+At the scale of a population of hosts, bacterial adaptation via evolution, for instance the spread
+of antibiotic resistant mutations, could be aﬀected by host immunity. In particular, IgA, an
+antibody isotype which is the main eﬀector of the adaptive immune response in the gut, could
+have important impacts in the case of fecal-oral transmission, although it neither kills bacteria
+nor prevents them from reproducing. It was shown recently (Moor et al., 2017) that its main
+eﬀect is to enchain bacteria: bacteria recognized by IgA remain stuck together after replication.
+This clustering may reduce inﬂammation and horizontal gene transfer (Diard et al., 2017). Here,
+we shed light on another original eﬀect of clustering: the reduced bacterial diversity resulting
+from this clustering could hinder the spread of adaptive mutations in a population of hosts,
+even if the total number of bacteria in a host remains the same. In practice, this direct eﬀect
+of clustering could work in synergy with the reduction of horizontal gene transfer (Diard et al.,
+2017) to reduce the spread of antibiotic resistance.
+To assess how antibody-mediated bacteria clustering impacts the spread of antibiotic re-
+sistance, we developed a multi-scale model, with a deterministic description of within-host
+evolution, and a stochastic description of between-host transmission, assuming a probability q
+14
+
+[Page 15]
+for host treatment, and a ﬁxed bottleneck size N at transmission (taken equal to the bacterial
+cluster size; this case gives an upper bound to the eﬀect of clustering). We showed that if the
+ﬁrst host is infected by a mix of sensitive and resistant bacteria, immunity decreases the spread
+probability of the bacterial strain by a factor up to 1/q, assuming that infection in naive and
+immune hosts diﬀers only through bacterial clustering. We demonstrated that this eﬀect can be
+countered when an immune host is a silent carrier, and is less likely to get treated, and/or has
+more contacts. Our results proved robust to the introduction of mutations and stochasticity
+in the within-host dynamics. We also showed that if resistance comes at a cost, extinction
+probabilities are increased, while compensation of this cost has little impact, except for long
+incubation periods. However, compensation would matter for the long-term maintenance of
+resistance, e.g. if treatment was stopped. Finally, we showed that if only sensitive bacteria are
+initially present, and if the bacterial strain needs to acquire a resistance mutation to spread,
+immunity decreases the spread probability by a factor approximately G/2 when the number G
+of within-host generations is small, and approximately qN when G is large.
+Immunity hinders the spread of drug resistance because immune hosts mostly transmit
+bacteria of the same type, due to the antibody-mediated clonal clusters they carry. The disad-
+vantage of a higher variance (here, in the number of resistant bacteria transmitted) is a classic
+theme in population genetics (Frank and Slatkin, 1990; Gillespie, 1974), and also appears in
+analyses of viral adaptation (Loverdo et al., 2012). For a given average number of transmitted
+resistant bacteria, the proportion of transmissions comprising at least one resistant bacteria is
+smaller for immune donor hosts than for naive ones. In a sense, transmissions from immune
+hosts “put all their eggs in one basket”, and prevent bacteria from hedging their bets.
+Microbial populations infecting a host often grow to very large numbers, so that even with
+realistic small mutation rates, many mutants may be produced. Single point mutations can
+suﬃce to confer resistance (Andersson and Hughes, 2010), implying that resistance-carrying
+mutants might exist in most infected hosts. Nevertheless, the spread of drug resistance in a
+host population typically takes years (McClure and Day, 2014). One reason is that only a small
+proportion of the large within-host microbial population is transmitted to the next host. This
+bottleneck decreases diversity, and most mutants are not transmitted, because they are rare.
+Because of this sampling eﬀect, the immunity-mediated clustering of clonal bacteria can hinder
+the spread of antibiotic resistance, and more generally of any type of adaptive mutations.
+Note that using a deterministic description of within-host growth, and excluding bacterial
+death or loss, transmission from naive hosts involving one cluster is eﬀectively equivalent to
+a bottleneck size of one single bacterium. However, for such small bottlenecks, stochasticity
+would signiﬁcantly matter. Reducing the bottleneck size has been shown to generally increase
+the extinction probability in other contexts, but sometimes has the opposite eﬀect (LeClair and
+Wahl, 2018; Schreiber et al., 2016). The details of transmission play an important part in this
+eﬀect. Our multi-scale description integrating realistic aspects of the within-host dynamics, in
+particular immunity, thus allowed us to gain important insight into the spread of a pathogen
+in a host population.
+While our study was motivated by IgA-induced bacterial clustering,
+our results would extend to other mechanisms yielding clonal clusters. There are other host
+eﬀectors besides IgA that cluster bacteria together, for instance neutrophil extracellular traps
+(Fournier and Parkos, 2012).
+Our work highlights the importance of interactions between immunity and the spread of
+antibiotic resistance. In particular, antibiotic treatment and vaccines inducing IgA production
+might have non-trivial interplays. In practice, vaccines protect the host, but may or may not
+15
+
+[Page 16]
+reduce shedding of bacteria (Desin et al., 2013; Sharma et al., 2018). Reduction of shedding
+clearly hinders pathogen propagation. However, our results demonstrate that even a vaccine
+that does not reduce shedding can protect the host population. Indeed, it can increase the
+eﬃciency of antibiotic treatment, by hindering the spread of resistance in the host population.
+Our results thus constitute an additional argument in the favor of vaccine-based strategies
+to combat antibiotic resistance, which are the focus of renewed interest (Jansen et al., 2018;
+chaired by Jim O’Neill, 2016; Lipsitch and Siber, 2016).
+Acknowledgments
+All authors thank Rapha¨el Voituriez both for stimulating scientiﬁc discussions and for unfailing
+ﬁnancial support. FB and LM acknowledge funding by graduate fellowships from EDPIF.
+16
+
+[Page 17]
+Supporting Information
+Contents
+1
+Table of the symbols used
+2
+2
+Within-host growth equations and generating function
+3
+2.1
+Discrete vs. continuous time representation . . . . . . . . . . . . . . . . . . . . .
+3
+2.2
+Resolution of the continuous-time system . . . . . . . . . . . . . . . . . . . . . .
+4
+2.3
+Expression of the generating functions using within-host growth results . . . . .
+5
+2.3.1
+Naive hosts
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+6
+2.3.2
+Immune hosts . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+6
+3
+Dynamics of clusters including mixed clusters, and probability to transmit
+at least one mutant
+7
+3.1
+A simple view of cluster growth . . . . . . . . . . . . . . . . . . . . . . . . . . .
+7
+3.2
+Probability to transmit at least one mutant
+. . . . . . . . . . . . . . . . . . . .
+7
+3.2.1
+Exponential growth . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+9
+3.2.2
+Constant population size . . . . . . . . . . . . . . . . . . . . . . . . . . .
+11
+3.2.3
+Conclusion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+11
+3.3
+Stochastic simulations
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+12
+3.4
+Impact of clustering on bacterial loss within a host
+. . . . . . . . . . . . . . . .
+16
+4
+Model with three bacterial types, including compensation
+16
+4.1
+Within-host growth . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+17
+4.2
+Generating function . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+17
+4.2.1
+Immune and treated hosts . . . . . . . . . . . . . . . . . . . . . . . . . .
+18
+4.2.2
+Naive and treated hosts
+. . . . . . . . . . . . . . . . . . . . . . . . . . .
+19
+4.2.3
+Immune and non-treated hosts . . . . . . . . . . . . . . . . . . . . . . . .
+20
+4.2.4
+Naive and non-treated hosts . . . . . . . . . . . . . . . . . . . . . . . . .
+21
+4.2.5
+Conclusion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+21
+4.3
+Results with three bacterial types . . . . . . . . . . . . . . . . . . . . . . . . . .
+22
+5
+Detailed simulation methods
+24
+5.1
+Initialization (ﬁrst host)
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+24
+5.2
+Loop over successive generations of hosts . . . . . . . . . . . . . . . . . . . . . .
+24
+5.2.1
+Naive hosts
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+24
+5.2.2
+Immune hosts . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+25
+5.3
+End of the simulation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+26
+5.4
+Within-host growth . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+26
+5.4.1
+Deterministic model
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+26
+5.4.2
+Stochastic model . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+26
+6
+Analytical approximations for the spread probability without pre-existing
+resistance
+27
+6.1
+Proportion of resistant bacteria . . . . . . . . . . . . . . . . . . . . . . . . . . .
+27
+6.2
+Approximation for a small number of generations
+. . . . . . . . . . . . . . . . .
+27
+1
+
+[Page 18]
+1
+Table of the symbols used
+Parameters speciﬁc to the infection
+G
+Duration in number of replications of the within-host infection
+Nb
+Typical bottleneck size, i.e.
+the number of bacteria seeding the
+infection in a new host
+Nc
+= 2g Maximum cluster size (when they reach it, they break in half
+before the next replication). In general we take Nc = Nb = N = 2g
+Within-host dynamics
+S(t)
+Number of sensitive bacteria within a speciﬁc host at time t
+R(t)
+Number of resistant bacteria within a speciﬁc host at time t
+f
+Division rate of sensitive bacteria
+δ
+Fitness cost of resistance, such that f(1 −δ) is the division rate of
+resistant bacteria
+µ1
+Probability for each of the two daughter bacteria of a sensitive bac-
+terium to become resistant because of a mutation during replication
+µ−1
+Probability for each of the two daughter bacteria of a resistant bac-
+terium to become sensitive because of a mutation during replication
+µ2
+In the model with three bacterial types, probability for each of the
+two daughter bacteria of a resistant bacterium to become resistant-
+compensated because of a mutation during replication
+ri
+Proportion at transmission of resistant bacteria within a host that
+was initially infected with i resistant and N −i sensitive
+Immune vs. Naive hosts
+ω
+Proportion of immune individuals in the host population
+qN
+Proportion of naive individuals in the host population who are
+antibiotic-treated
+qI
+Proportion of immune individuals in the host population who are
+antibiotic-treated
+λN
+Mean number of contacts a naive host transmits the infection to
+λI
+Mean number of contacts an immune host transmits the infection
+to
+Systems of equations
+ei
+Probability of extinction for an infection that was seeded in patient
+zero by i resistant bacteria and N −i sensitive bacteria
+Ti,j
+Probability that when a host, initially infected with i resistant and
+N −i sensitive bacteria, infects another host, it transmits j resistant
+bacteria and N −j sensitive ones.
+2
+
+[Page 19]
+2
+Within-host growth equations and generating function
+Below, we present the deterministic diﬀerential equations on the numbers of sensitive and
+resistant bacteria within a non-treated infected host including mutations and a ﬁtness cost of
+resistance. We assume exponential growth, and we simplify using µ1, µ−1 ≪δ ≪1. We denote
+by G the total number of replications within a host, corresponding to the incubation time. We
+also denote by ri the proportion of resistant bacteria in a host at the end of incubation, for a
+host that was initially infected with i resistant bacteria and Nb −i sensitive ones (recall that
+each host is infected by a total of Nb bacteria). Here Nb is the bottleneck size, in practice we
+generally take it equal to the cluster size Nc and denote both by N.
+2.1
+Discrete vs. continuous time representation
+Let us ﬁrst consider the case without mutations, with S the number of sensitive bacteria, R
+the number of resistant bacteria, and δ the ﬁtness cost of resistance. If there are G generations
+for the sensitive strain, there are G(1 −δ) generations for the resistant strain. Denoting by f
+the growth rate of sensitive bacteria, the ordinary diﬀerential equations governing the growth
+of the bacterial population read:
+dS
+dt = fS
+(S1)
+dR
+dt = f(1 −δ)R
+(S2)
+The solutions of these equations are S(t) = S0 exp(ft), R(t) = R0 exp(f(1 −δ)t). If we start
+from one bacteria of each type, after a time τ corresponding to G generations of the sensitive
+bacteria, there are 2G = exp(fτ) sensitive bacteria, and 2G(1−δ) = exp(f(1 −δ)τ) resistant
+bacteria. Thus:
+G log(2) = fτ.
+(S3)
+Next, let us consider the case with mutations. When a sensitive bacteria divides, each of the
+daughter bacteria has a probability µ1 to be mutant (and thus to have become resistant in our
+model). When a resistant bacterium divides, each of the daughter bacteria has a probability
+µ−1 to have mutated (and thus to have become sensitive in our model). Let us denote ˜µ1 and
+˜µ−1 the mutation rates for the system of diﬀerential equations, such that:
+dS
+dt = f(1 −˜µ1)S + ˜µ−1f(1 −δ)R
+(S4)
+dR
+dt = f(1 −δ)(1 −˜µ−1)R + ˜µ1fS
+(S5)
+We then look for the relation between µi (discrete model) and ˜µi (continuous model). The
+accumulation of mutants in the early dynamics has to be the same. Let us start from sen-
+sitive bacteria only, neglect back mutations, and take the limit of very small δ. Then, when
+considering a bacteria after G generations, there have been G opportunities for mutation, i.e.
+the proportion of resistant bacteria is Gµ1. In our continuous description, if there were S0
+sensitive bacteria (and no resistant bacteria) at t = 0, and still neglecting back mutations,
+S(t) = S0 exp(f(1 −˜µ1)t), and, replacing S(t) by this expression in (S5), and solving for R(t)
+3
+
+[Page 20]
+with R(0) = 0:
+R(t) = S0˜µ1 exp(f(1 −˜µ1)t)exp(f(˜µ1 + ˜µ−1(−1 + δ) −δ)t) −1
+˜µ1 + ˜µ−1(−1 + δ) −δ
+.
+(S6)
+In the limit of small t,
+R(t) ≈S0˜µ1ft exp(f(1 −˜µ1)t)
+(S7)
+and the proportion of resistant bacteria then reads:
+r(t) =
+R(t)
+R(t) + S(t) ≈R(t)
+S(t) = ˜µ1ft
+(S8)
+Thus Gµ1 = ˜µ1fτ = ˜µ1G log(2) (where we used Eq. (S3)), and consequently we have to take
+˜µ1 = µ1/ log(2) for consistency.
+2.2
+Resolution of the continuous-time system
+When the host is not treated, the within-host dynamics can be complex. The growth could be
+limited by some carrying capacity and taken as logistic, there could be a loss term, etc. As we
+want to calculate the proportions of sensitive and resistant bacteria, the following equations
+will give similar results as equations with a carrying capacity:
+dS
+dtg
+= (1 −µ1/ log(2))S + (1 −δ)µ−1R/ log(2),
+(S9)
+dR
+dtg
+= (1 −δ)(1 −µ−1/ log(2))R + µ1S/ log(2),
+(S10)
+with tg the time in numbers of generations. The aim is to obtain the proportion of sensitive
+and resistant bacteria at the end of the infection within a host, depending on the composition
+of the inoculum.
+The total number of replications within a host G can vary. The typical minimal doubling
+time for bacteria is half an hour (Mason, 1935). Bacterial carriage can last several days or
+even more, but when close to carrying capacity, the growth rate decreases. As a portion of the
+bacteria will be lost in feces, there will be ongoing replication, though at a lower rate. Thus G
+can take a wide range of values. For instance, in experimental infection of mice by Salmonella
+starting at diﬀerent inoculum sizes, the number of replications is typically 10 (inoculum of 107
+bacteria) to 35 (inoculum of 103 bacteria) after 24h (Moor et al., 2017).
+Solving Eqs. (S9) and (S10) with the initial conditions S(0) = N −i and R(0) = i, we ﬁnd
+for all i between 0 and N the following exact expression for the proportion ri =
+R
+R+S of resistant
+bacteria after G generations, knowing that the infection was seeded with i resistant and N −i
+sensitive bacteria at time t = 0:
+ri =
+(2∆G −1)(2µ1N + i(−µ1 −µ−1 −δ log(2) + µ−1δ)) + i∆log(2)(2∆G + 1)
+N((2∆G −1)(µ1 + µ−1 + δ log(2) −2iδ log(2)/N −µ−1δ) + log(2)∆(2∆G + 1))
+(S11)
+4
+
+[Page 21]
+with
+∆=
+r
+δ2
+
+1 −
+µ−1
+log(2)
+2
++ 2δ
+
+−
+µ1
+log(2) +
+µ−1
+log(2) −µ1µ−1
+log2(2) −
+µ2
+−1
+log2(2)
+
++ (µ1+µ−1)2
+log2(2) .
+(S12)
+Let us look at particular cases in more detail.
+Case with only sensitive bacteria initially:
+In this case, as 1 ≫δ ≫µ1, µ−1, the ﬁnal
+proportion of resistant bacteria can be approximated to:
+r0 ≈µ1
+1 −2−δG
+δ log(2) .
+(S13)
+Case with mixed inoculum:
+Let us distinguish two cases:
+• If δG ≪1, when starting with both strains, their relative proportion will have little time
+to change. If there is one resistant bacteria initially, then let us neglect mutations in both
+ways, as the mutation rate is small, and then the ﬁnal proportion of resistant bacteria is:
+r1 ≈
+1
+1 + (Nb −1)(1 + G log(2)δ)
+(S14)
+• If δG ≫1, then if there was at least one resistant and one sensitive bacteria initially,
+the mutation-selection balance is reached within the infected host. The ﬁnal proportion
+of resistant bacteria rMSB is obtained by writing the diﬀerential equation on
+R
+R+S and
+looking for its equilibrium. In the limits we are considering, rMSB tends to µ1/(δ log(2)).
+Case starting from resistant bacteria only:
+In this case, the ﬁnal proportion of re-
+sistant bacteria will be:
+rN = 1 −
+2(2∆G −1)µ−1(1 −δ)
+(2∆G −1)(µ1 + µ−1 −δ log(2) −δµ−1) + (1 + 2∆G)∆log(2)
+(S15)
+with ∆deﬁned in Eq. (S12). For G not too large, since 1 ≫δ ≫µ1, µ−1, then ∆≈δ.
+Consequently:
+rN ≈1 −
+(2δG −1)µ−1(1 −δ)
+2δGµ−1(1 −δ) + δ log(2).
+(S16)
+2.3
+Expression of the generating functions using within-host growth
+results
+In all the expressions below, we consider a host which is not treated.
+5
+
+[Page 22]
+2.3.1
+Naive hosts
+In naive hosts initially infected with i mutant bacteria, when there is transmission, the proba-
+bility to transmit j resistant bacteria and N −j sensitive ones reads:
+Ti,j =
+N
+j
+
+rj
+i (1 −ri)N−j.
+(S17)
+Then, for all i between 0 and N:
+gN
+i (e0, e1, ..., eN) = exp
+
+−λN
+ N
+X
+j=0
+N
+j
+
+rj
+i (1 −ri)N−j(1 −ej)
+!!
+.
+(S18)
+2.3.2
+Immune hosts
+In immune hosts, let us address the question of whether the clusters comprise bacteria of a single
+type, or are mixed. As mentioned in the main text and detailed in Supporting Information
+section 3, a simpliﬁed view of the process of cluster growth and breaking is that clusters break
+in two once a certain size is attained, then grow and break again, and so on. As bacteria
+are enchained upon division, the subclusters formed upon breaking comprise closely related
+bacteria. Assume that the maximal cluster size is 2g = N: it is attained in g ≤G generations,
+where G is the number of generations within a host.
+Mixed inoculum.
+As explained in section 3, the clusters are made of daughter cells enchained
+together. Thus, in the absence of mutations, clusters will comprise bacteria of one type only.
+As mutation rates are very small, when the initial inoculum is mixed, the proportion of mixed
+clusters is very small compared to the proportion of clusters comprising bacteria of one type
+only. Therefore, we neglect mixed clusters when the initial inoculum is mixed. Thus for all i
+between 1 and N −1,
+gI
+i (e0, e1, ..., eN) = exp (−λI ((1 −ri)(1 −e0) + ri(1 −eN))) .
+(S19)
+Inoculum of only one bacterial type.
+To be fully mutant at generation G, the clusters
+need to be seeded by a bacteria which was mutant at generation G −g. This happens with
+probability r′
+0 when the inoculum is fully sensitive and 1 −r′
+N when the inoculum is fully
+resistant (with r′
+i denoting the proportion of resistant bacteria at generation G −g while ri is
+the one at generation G).
+For mixed clusters (see section 3.2.1), we assume δg ≪1, so that diﬀerences in growth time
+between the diﬀerent types of clusters can be neglected. A cluster at generation G was founded
+by one bacteria at generation G −g. A mutation occurs at its ﬁrst replication with probability
+2µ, resulting in a cluster of size 2g containing 2g−1 mutants. The probability for mutation will
+be 22µ at the next replication, and so on. Thus, the probability for a cluster to include one
+mutant is 2gµ = Nµ, that to include 2 mutants is 2g−1µ = Nµ/2, that to include 4 mutants is
+2g−2µ = Nµ/22, ... , and ﬁnally, that to include 2g−1 mutants is 2µ. This yields:
+6
+
+[Page 23]
+gI
+0 (e0, e1, ..., eN) = exp
+"
+−λI
+
+(1 −2µ1(N −1) −r′
+0)(1 −e0) +
+g−1
+X
+j=0
+Nµ1
+1 −e2j
+2j
++ r′
+0(1 −eN)
+!#
+(S20)
+gI
+N(e0, e1, ..., eN) = exp
+
+−λI
+
+(r′
+N −2µ−1(N −1))(1 −eN) +
+g−1
+X
+j=0
+Nµ−1
+1 −eN−2j
+2j
++ (1 −r′
+N)(1 −e0)
+
+
+
+
+(S21)
+3
+Dynamics of clusters including mixed clusters, and
+probability to transmit at least one mutant
+3.1
+A simple view of cluster growth
+As mentioned in the main text, a simpliﬁed view of the process of cluster growth and breaking
+is that clusters break in two once a certain size is attained, then grow and break again, and
+so on. As daughter bacteria are physically close in the clusters formed through IgA-mediated
+enchained growth, the subclusters formed after a larger cluster breaks will comprise closely
+related bacteria. Let us assume that a host infection lasts for G generations total, and that the
+maximal cluster size is 2g = Nc (see schematic in Fig. S1): this size is attained in g generations
+(2g = Nc), with g ≤G. We here assume that Nc, the cluster size, is equal to Nb, the bottleneck
+size, and we denote them both as N. When a mutation occurs, the cluster comprises mixed
+bacterial types until g generations after (see Fig. S1). In the limit of a small mutation rate,
+the ﬁnal proportion of fully mutant clusters corresponds to the proportion of mutant bacteria
+at generation G −g, seeding the ﬁnal clusters.
+3.2
+Probability to transmit at least one mutant
+Here, we consider a host, initially infected with only one type of bacteria, with a mutation
+rate µ, and no ﬁtness cost for the mutation. We look at the probability to transmit at least
+one mutant, and ask how our simple model could diﬀer from a more realistic one. Note that
+here, we do not consider hosts infected with a mixed inoculum, because in this case, as loss of
+bacteria is rare at the beginning of the infection, and as the population of bacteria grows to
+large numbers in the infected host, the number of both sensitive and resistant bacteria is then
+expected to be large, so that mutations and ﬂuctuations are not expected to play a big role.
+In our model, we eﬀectively assume that the proportion of resistant bacteria at the end
+of the infection can be considered equal to its mean expected value (the average being over
+several realizations of the within-host dynamics), which is given by the deterministic ordinary
+diﬀerential equations. However, ﬂuctuations could be important. For instance, if the infection
+starts from a small number of bacteria of the same type, a mutant appearing during the ﬁrst
+replication will give rise to an important share of mutants in the population at the end of
+the infection. As explained in section 2.3, we also usually assume that in immune individuals,
+except if the infection starts with only sensitive bacteria, clusters comprise only one type of
+7
+
+[Page 24]
+Figure S1: Schematic showing the outcome of mutations in clusters.
+Represented
+here is the case of simple linear clusters. For more complex clusters, it will remain true that
+closely related bacteria are located close to one another, since daughter bacteria remain bound
+together after replication.
+bacteria, either all sensitive or all resistant. In this section, we explore how realistic these
+assumptions are.
+Let us consider two extreme cases of population dynamics, starting with only sensitive
+bacteria:
+• Exponential growth: starting from size N, bacteria divide G times, leading to a ﬁnal
+population size N2G. At each replication, each daughter bacteria has a probability µ of
+mutating. This is the case considered in the main text and above.
+• Constant population size: let us assume that very quickly, the population grows to size
+Npop (we neglect mutations in this phase, and consider than we start with Npop sensitive
+bacteria, and then at each of the G steps, the bacteria all replicate (with a probability of
+mutation µ for each daughter bacteria), and then half of the bacteria are removed, so the
+population size remains constant.
+In both cases, on average, taking bacteria at the end of the infection, they went through G
+replications from the start of the infection, so they have a probability µG of being mutant.
+When transmitting N bacteria (and assuming that N is very small compared to the ﬁnal
+population size, and that NµG ≪1), the probability to transmit one mutant is ≈NµG from
+a naive host. From an immune host, we assume that mutants are transmitted only in fully
+mutant clusters, with probability µG. Here we will study the validity of these assumptions.
+8
+
+[Page 25]
+Henceforth, we will consider the case of a very small mutation rate µ so that at most one
+mutation occurs during the infection of a host.
+3.2.1
+Exponential growth
+Recall that in this regime, starting from size N, the bacteria divide G times, leading to a
+ﬁnal population size N2G. At each replication, each daughter bacteria has a probability µ of
+mutating.
+Naive host.
+Consider the lineage of one bacteria: it involves G steps of replication. At step
+j, this bacteria has 2j descendants, and there is a probability µ2j that one mutation occurs at
+this step, in which case 2G−j bacteria will carry the mutation in the ﬁnal population. This will
+correspond to a proportion ρj = 2G−j/(2GN) = 1/(N2j) in the ﬁnal population.
+Assuming that 2G ≫1, we can neglect the diﬀerence between taking a sample with or
+without replacement, so the probability for a transmission from a naive host to contain at least
+one mutant will be 1 −(1 −ρj)N if the mutation occurs at step j (probability 1 −ρj for one
+bacteria to be of the initial type, probability (1−ρj)N that all bacteria chosen are of the initial
+type). So, multiplying by the initial N bacteria, and summing over the G replication steps, the
+probability that a transmission from a naive host includes at least one mutant is:
+mN
+1 =
+G
+X
+j=1
+Nµ2j
+
+1 −
+
+1 −
+1
+N2j
+N!
+(S22)
+In the limit of j large, (1 −
+1
+N2j )N ≈1 −1/2j, so Eq. (S22) yields mN
+1,exp ≈NµG. Hence,
+the result from our simple model employing ordinary diﬀerential equations is recovered. We
+know that this result is an upper bound of the real value: an early mutation will lead to a
+higher proportion of mutants in an individual, and thus the probability that several mutants
+are transmitted at the same time will be higher.
+But, because when we average over all
+possible transmissions, the mean number of mutants does not change, a higher probability of
+transmitting several mutants at a time leads to a lower probability of transmitting at least one
+mutant.
+In the limit of N large enough for 1 −exp(N log(1 −1/(N2j))) ≥1 −exp(−1/2j) to hold
+(note that this does not require N to be extremely large as N2j ≫1 is suﬃcient), Eq. (S22)
+9
+
+[Page 26]
+yields:
+mN
+1 ≥
+G
+X
+j=1
+Nµ2j 1 −exp(−1/2j)
+
+≥
+G
+X
+j=1
+Nµ2j 1/2j −1/(22j+1)
+
+=
+G
+X
+j=1
+Nµ
+1 −1/(2j+1)
+
+= Nµ
+
+G −1
+22
+G
+X
+j=1
+1
+2j−1
+!
+= Nµ
+
+G −1
+2
+
+1 −1
+2G
+
+(S23)
+Thus, we have shown that:
+NµG ≥mN
+1,exp ≥Nµ(G −1/2).
+(S24)
+Immune host.
+In the immune case, we assume that one cluster is transmitted.
+Let us
+estimate the probability that the cluster transmitted is fully mutant (mI
+N) and the probability
+that the cluster transmitted is mixed (mI
+mixed). If a mutation occurs at a step j (probability
+Nµ2j) between the ﬁrst step and the (G −g)th step, then there will be 2G−g−j mutant bacteria
+at the (G−g)th step, yielding 2G−g−j fully mutant clusters at the ﬁnal Gth step. They will then
+be in proportion 1/(N2j) among the N2G−g clusters. Thus:
+mI
+N =
+G−g
+X
+j=1
+Nµ2j
+1
+N2j = µ(G −g).
+(S25)
+If a mutation occurs at step j between the (G −g + 1)-th step and the G-th step, then it will
+give one mixed cluster. Thus:
+mI
+mixed,exp =
+G
+X
+j=G−g+1
+Nµ2j
+1
+N2G−g =
+g
+X
+j=1
+µ2j = µ2(2g −1) = 2µ(N −1)
+(S26)
+Conclusion.
+Interestingly, when the host is naive, the result is very close to the mean-
+ﬁeld case. Indeed, we showed that the probability to transmit at least one mutant is bounded
+between 2Nµ(G−1/2) and 2NµG (the mean ﬁeld result) (see Eq. (S24)). The total probability
+for a transmission from an immune host to include at least one mutant is mI
+tot = mI
+N +mI
+mixed =
+µ(G −g + 2(2g −1)) = µ(G −log2(N) + 2(N −1)) (see Eqs. (S25) and (S26)). If N ≫G, then
+it gives mI
+tot,exp ≈2Nµ, which is G/2 times smaller than for the naive case. However in this
+case most transmissions will be of mixed clusters rather than fully mutant clusters. If N ≪G,
+then mI
+tot,exp ≈µG, which is N times smaller than for a naive host, and will be mostly of fully
+mutant clusters.
+10
+
+[Page 27]
+3.2.2
+Constant population size
+Recall that in this regime, we assume that very quickly, the population grows to size Npop (we
+neglect the mutations at the beginning, so that we consider that we start with Npop bacteria of
+the initial type), and then at each of the G steps, the bacteria all replicate (with a probability of
+mutation µ for each daughter bacteria), then half of the bacteria are removed, so the population
+remains constant.
+Naive host.
+When a mutation appears, its average proportion at the end will remain at
+1/Npop (recall that the mutation is assumed to be neutral). In each realization, in the very long
+time, the mutation will be either lost of ﬁxed. But the typical time for ﬁxation will be of the
+order of Npop (Ewens, 2012). So for a large Npop, the mutations will stay a long time at a 0 or
+a small frequency. Thus, we will neglect the probability for a naive host to transmit more than
+one mutant. The probability to transmit a mutant will then be NµG, as in the mean ﬁeld case.
+Immune host.
+In the case of an immune host, as in our model only one cluster is transmitted,
+we do not need to consider correlations between clusters. A cluster at generation G was founded
+by one bacteria at generation G −g (this bacteria may have been in a cluster at this point,
+but what matters is that at time G, all the bacteria in the cluster considered descend from this
+bacteria). Then, this cluster is fully mutant with probability µ(G −g), as G −g is the number
+of replications between a bacteria in the inoculum and this founding bacteria. Besides, there is
+a probability 2µ that a mutation occurred when this founding bacteria duplicated, 22µ at next
+round... and 2gµ at the last round, and thus a probability µ(2 + 22 + ... + 2g) = µ2(2g −1) that
+a cluster is mixed. These are actually the same results as for the exponential case.
+Conclusion.
+To conclude, in the constant population size case, a transmission from a naive
+host will contain one mutant with probability NµG, as in the mean ﬁeld case. A transmission
+from an immune host will involve a fully mutant cluster with probability µ(G−g), and a mixed
+cluster with probability 2(N −1)), exactly the same as for exponential growth.
+3.2.3
+Conclusion
+In all cases, for naive donor hosts, we assume that the N transmitted bacteria are of types
+taken randomly and independently.
+In particular, when the initial bacteria are all of one
+type, if the average ﬁnal proportion of mutants is ρ (proportional to the mutation rate µ, and
+thus very small), then the probability of transmitting one mutant bacteria among N will be
+N
+1
+
+ρ(1 −ρ)N−1 ≈Nρ, with very little chance of transmitting more than one mutant bacteria.
+For immune donor hosts, if the infection starts with a mixed inoculum, we assume that
+all bacteria in a cluster transmitted to another host are of the same type. Conversely, if the
+infection starts with an inoculum of bacteria that are all of the same type, then other bacterial
+types are produced only by mutations. With G the number of generations within the host and
+N the bottleneck size and cluster size, if G ≫N, then most clusters will be of one bacterial type
+only, and the probability to transmit a fully mutant cluster will simply be the proportion of
+mutant bacteria, and a negligible amount of mixed clusters will be transmitted. If G ≪N, there
+are many more mixed clusters than clusters made of mutant bacteria only, and the proportion
+of mixed clusters is of the order of 2Nµ.
+11
+
+[Page 28]
+3.3
+Stochastic simulations
+Given our analytical arguments in section 3.2 (and in particular in section 3.2.1 which deals
+with the exponential growth assumed in our model), we expect the probability that a naive
+host initially infected by bacteria of a single type transmits at least one mutant to be very little
+modiﬁed by the fact that some mutations happen earlier than others due to the stochasticity
+of within-host growth. There could still be correlations between transmissions from the same
+host (if a mutation happened early within this host, then it transmits more mutants to all its
+contacts).
+To address this question, we performed simulations with stochastic exponential within-
+host growth with no bacterial death (see Supporting Information, section 5). In this model
+without death, genotypes cannot ﬁx inside a host (in contrast with models at ﬁxed population
+size (Ewens, 1979; Marrec and Bitbol, 2018)).
+Nevertheless, stochastic exponential growth
+induces variability in the composition of bacterial populations growing from a given mixed
+inoculum, especially if it is small (Wienand et al., 2015). Fig. S2 compares results obtained
+with stochastic and deterministic within-host growth, without mutations. Overall, the impact
+of stochasticity is small, which validates our use of a deterministic model. Besides, the impact of
+stochasticity is strongest for naive hosts and small initial numbers i of resistant bacteria. Again,
+non-treated immune hosts then transmit resistance very rarely anyway because of clustering.
+Conversely, for non-treated naive hosts with small i, exact population composition matters
+because it substantially aﬀects the probability of transmitting resistance. Stochasticity can
+increase or decrease the resistant fraction, but decreasing it has more impact than increasing it,
+because beyond some small fraction, transmission of resistance is almost certain (see Eq. (13)).
+Hence, stochasticity yields a slight increase of extinction probabilities in this case, as seen on
+Fig. S2.
+Since mutations are rare events, it is also important to treat them in a stochastic way. As
+shown in Fig. S3, the previous conclusions hold in this case, both with and without a ﬁtness
+cost of resistance. In particular, the overall impact of stochasticity is small.
+12
+
+[Page 29]
+0
+20
+40
+60
+80
+100
+Initial number i of resistant bacteria
+0.2
+0.4
+0.6
+0.8
+Extinction probability ei
+1
+=1
+=0.8
+=0.6
+=0.4
+=0.2
+=0
+Stochastic
+Deterministic
+10 0
+10 1
+10 2
+0.2
+0.4
+0.6
+All immune
+All naive
+Figure S2: Stochastic within-host growth without mutations or a ﬁtness cost of re-
+sistance. Extinction probabilities ei versus initial number i of resistant bacteria in the ﬁrst in-
+fected host, for diﬀerent fractions ω of immune individuals in the host population. Dark shades:
+results from simulations with stochastic mutation-free within-host growth. Light shades: re-
+sults with deterministic mutation-free within-host growth (identical to Fig. 2). As in Fig. 2,
+N = 100, λ = 2, q = 0.55, and resistance carries no cost. Solid lines: numerical resolution of
+Eq. (4); symbols: simulation results (over 104 realizations).
+13
+
+[Page 30]
+0
+20
+40
+60
+80
+100
+Initial number i of resistant bacteria
+0.2
+0.4
+0.6
+0.8
+Extinction probability ei
+1
+=1
+=0.8
+=0.6
+=0.4
+=0.2
+=0
+Stochastic
+Deterministic
+10 0
+10 1
+10 2
+0.2
+0.4
+0.6
+All immune
+All naive
+A
+0
+20
+40
+60
+80
+100
+Initial number i of resistant bacteria
+0.2
+0.4
+0.6
+0.8
+1
+Extinction probability ei
+1
+=1
+=0.8
+=0.6
+=0.4
+=0.2
+=0
+Stochastic
+Deterministic
+10 0
+10 1
+10 2
+0.2
+0.4
+0.6
+All immune
+All naive
+B
+Figure S3: Stochastic within-host growth with mutations and a ﬁtness cost of resis-
+tance. The extinction probability ei is shown as a function of the initial number i of resistant
+bacteria in the ﬁrst infected individual, for diﬀerent values of the fraction ω of immune indi-
+viduals in the host population. A: Case with mutations but no ﬁtness cost. B: Case with
+mutations and a ﬁtness cost δ = 0.1. In both panels, results from simulations with stochastic
+exponential within-host growth are shown in dark shades, and results with deterministic expo-
+nential within-host growth are shown in light shades for comparison (similarly to Fig. S2). As in
+Fig. 2, we take a bottleneck size N = 100, and each individual transmits bacteria to an average
+of λN = λI = λ = 2 new hosts and is treated with probability qN = qI = q = 0.55, irrespec-
+tive of whether it is naive or immune. Here, we take mutation probabilities µ1 = 5 × 10−5 and
+µ−1 = 0, and incubation time corresponding to 10 generations of bacteria within the host. Solid
+lines correspond to numerical resolution of Eq. (4), while symbols show results from numerical
+simulations of the branching process, computed over 104 realizations. Main panel: linear scale;
+inset: semi-logarithmic scale.
+14
+
+[Page 31]
+We have also generally assumed that immune hosts transmit clusters comprising a single
+type of bacteria, except in our discussion of spread without any pre-existing resistance. As
+discussed above, immune hosts may also transmit mixed clusters.
+Fig. S4 shows that the
+inﬂuence of these mixed clusters is indeed often very small, especially for small cluster sizes
+(see Fig. S4B).
+0
+20
+40
+60
+Initial number i of resistant bacteria
+0.2
+0.4
+0.6
+0.8
+Extinction probability ei
+Clonal clusters
+Mixed clusters
+=1
+=0.8
+=0.6
+=0.4
+=0.2
+=0
+1
+10 0
+10 1
+0.2
+0.4
+0.6
+All immune
+All naive
+A
+0
+2
+4
+6
+8
+Initial number i of resistant bacteria
+0.2
+0.4
+0.6
+0.8
+Extinction probability ei
+1
+Mixed clusters
+Clonal clusters
+=1
+=0.8
+=0.6
+=0.4
+=0.2
+=0
+2
+4
+6
+8
+0.2
+0.4
+0.6
+All immune
+All naive
+B
+Figure S4: Impact of mixed clusters. The extinction probability ei is shown as a function
+of the initial number i of resistant bacteria in the ﬁrst infected individual, for diﬀerent values
+of the fraction ω of immune individuals in the host population.
+A: Cluster size N = 64.
+B: Cluster size N = 8. In both panels, results from simulations with stochastic exponential
+within-host growth including an explicit construction of clusters that allows for mixed clusters
+are shown in dark shades, and results with stochastic exponential within-host growth but with
+only clonal clusters (as in previous ﬁgures) are shown in light shades for comparison. As in
+Fig. 2, each individual transmits bacteria to an average of λN = λI = λ = 2 new hosts and
+is treated with probability qN = qI = q = 0.55, irrespective of whether it is naive or immune.
+Here, we take mutation probabilities µ1 = 5 × 10−5 and µ−1 = 0, and a total incubation time
+corresponding to G = 10 generations of bacteria within the host. Symbols show results from
+numerical simulations of the branching process, computed over 104 realizations. Main panel:
+linear scale; inset: semi-logarithmic scale.
+15
+
+[Page 32]
+3.4
+Impact of clustering on bacterial loss within a host
+Throughout, we have considered no bacterial loss within a host, except in the section where we
+consider a population of constant size (section 3.2.2). Actually, some bacteria may be killed
+(for instance by bacteriophages, in which case bacteria in clusters, because they are very close
+in space, are very likely to be attacked together), or be lost in the feces (which would happen
+by clusters and not independently if bacteria are attached together). Let us look at the impact
+of including a small loss rate in the case where the proportion of resistant bacteria is initially
+small (i ≪N resistant bacteria in the inoculum), and let us reason along the same lines as
+when deriving Eq. (14) of the main text.
+For a naive host, as we consider a small loss rate, it will be unlikely for the resistant bacteria
+to be lost before they replicate, and the more they are, the less likely it is that they will all be
+lost. Consequently, we expect very little inﬂuence of loss in a fully naive host population.
+In a fully immune population, let us start with a host infected with i resistant bacteria. If
+this host is treated (probability qI), the infection becomes fully resistant, and leads to spread
+with probability 1 −eI
+N. If this host is not treated, there is some probability that the resistant
+bacteria are lost. Because of clustering, this probability is higher than in the naive case; let
+us denote this probability pi,loss. Then, if (1 −qI)λI < 1, spread is possible only if resistant
+bacteria are not lost (probability 1 −pi,loss), and when they are transmitted, they may lead
+to spread. This last term of spread is 1 −exp(−λI(1 −eeach)), with eeach the probability of
+extinction following each transmission. Here, we do not consider mutations, so there are no
+mixed clusters, and if a cluster of sensitive bacteria is transmitted, extinction is certain, because
+we assume (1 −qI)λI < 1. If a cluster of resistant bacteria is transmitted, then it still leads
+to extinction with probability eI
+N. The probability that the cluster transmitted is resistant is
+equal to the proportion of resistant bacteria, which is on average i/N (unaﬀected by losses).
+Because in a proportion pi,loss of the cases, there is no resistant bacteria, then the proportion
+of resistant bacteria in the case that they are not lost will be i/(N(1 −pi,loss)). Then overall:
+1 −eI
+i ≈qI(1 −eI
+N) + (1 −qI)(1 −pi,loss)(1 −exp(−λI(1 −eI
+N)i/(N(1 −pi,loss))))
+(S27)
+We are in the regime i ≪N, thus, assuming that 1−pi,loss is not too small, λI(1−eI
+N)i/(N(1−
+pi,loss)) ≪1, and consequently,
+1−eI
+i ≈qI(1−eI
+N)+(1−qI)(1−pi,loss)(λI(1−eI
+N)i/(N(1−pi,loss)))) ≈qI(1−eI
+N)+(1−qI)λI(1−eI
+N)i/N .
+(S28)
+We thus recover Eq. (14) of the main text. Therefore, provided that pi,loss is not too large (i.e.
+1 −pi,loss ≫λ(1 −eI
+N)i/N), including loss does not change our conclusions.
+4
+Model with three bacterial types, including compen-
+sation
+Here, we extend our model to include the possibility of compensation of the ﬁtness cost of
+resistance. This description involves three types of bacteria, sensitive ones (S) with division
+rate f without antimicrobial, resistant ones (R) with division rate f(1 −δ), and resistant-
+compensated ones (C) with division rate f.
+16
+
+[Page 33]
+4.1
+Within-host growth
+Let us ﬁrst write the within-host growth equations. For simplicity, we assume that there are no
+back-mutations. As in section 2, we present here the deterministic description of the within-host
+growth using ordinary diﬀerential equations, and assuming exponential growth. This yields the
+following system of linear diﬀerential equations:
+
+
+
+
+
+˙S = f(1 −˜µ1)S
+˙R = f(1 −δ)(1 −˜µ2)R + f ˜µ1 S
+˙C = f C + f(1 −δ) ˜µ2 R ,
+(S29)
+where S, R and C are the numbers of sensitive (S), resistant (R) and resistant-compensated
+(C) microorganisms, respectively, and f denotes the division rate of S bacteria in the absence of
+antibiotic, while dots denote time derivatives. Recall that R bacteria experience a ﬁtness cost
+δ, but C bacteria do not experience any cost. Also note that the mutation rates ˜µi = µi/ log(2)
+for i = 1, 2 are corrected to give agreement with the discrete model (see section 2).
+Note that the population fractions s = S/(S + R + C), r = R/(S + R + C) and c =
+C/(S + R + C) satisfy the following equations:
+
+
+
+
+
+˙s = f(1 −˜µ1)s −fs
+˙r = f(1 −δ)(1 −˜µ2)r + f ˜µ1 s −f r
+s + r + c = 1 ,
+(S30)
+where f = f s + f(1 −δ) r + f c denotes the average ﬁtness. Such equations are often taken
+as a starting point to describe large populations, and are known as replicator-mutator equa-
+tions (Traulsen and Hauert, 2009).
+Being linear, the system in Eq. (S29) is straightforward to solve analytically:
+
+
+S
+R
+C
+
+=
+
+
+
+0
+0
+1
+0
+1
+˜µ1
+δ−˜µ1+(1−δ)˜µ2
+1
+−(1−δ) ˜µ2
+δ+(1−δ)˜µ2
+−
+(1−δ) ˜µ2
+δ−˜µ1+(1−δ)˜µ2
+
+
+
+
+
+α1 ef t
+α2 ef(1−δ)(1−˜µ2)t
+α3 ef(1−˜µ1)t
+
+,
+(S31)
+where α1, α2 and α3 can be expressed from the initial conditions S(0), R(0) and C(0). The
+fractions s, r and c can then be obtained from this solution, e.g. through s = S/(S + R + C).
+4.2
+Generating function
+Here, we present a full derivation of the generating function of the branching process in the case
+including three types of bacteria. For simplicity, we assume that there are no back-mutations
+and that all IgA-mediated clusters of bacteria are clonal.
+Let ℘ij({nkl}) be the probability that the ﬁrst infected host, which is initially infected with
+i R bacteria, j C bacteria and N −i −j S bacteria, transmits:
+- 0 R bacteria, 0 C bacteria and N S bacteria to n00 hosts
+- ...
+- k R bacteria, l C bacteria and N −k −l S bacteria to nkl hosts
+- ...
+17
+
+[Page 34]
+Note that 0 ≤k, l ≤N and 0 ≤k + l ≤N, where N is the bottleneck size. Thus, (N + 1)(N +
+2)/2 ordered pairs (k, l) are possible, and we will denote by S the set containing all of them.
+As in Eq. (4), we distinguish four diﬀerent cases, immune (I) and naive (N), treated (t) or
+non-treated (nt), so that:
+℘ij({nkl}) = ω qI ℘I,t
+ij ({nkl})
+|
+{z
+}
+Immune and treated
++ (1 −ω) qN ℘N,t
+ij ({nkl})
+|
+{z
+}
+Naive and treated
++ ω (1 −qI) ℘I,nt
+ij
+({nkl})
+|
+{z
+}
+Immune and untreated
++ (1 −ω) (1 −qN) ℘N,nt
+ij
+({nkl})
+|
+{z
+}
+Naive and untreated
+,
+(S32)
+where ω is the proportion of immune hosts in the population, and qI and qN are the probabilities
+of treatment for immune and naive hosts, respectively.
+The generating function of the branching process
+gij({zkl}) =
++∞
+X
+{nkl/(k,l)∈S}
+℘ij({nkl})
+Y
+(k,l)∈S
+znkl
+kl
+(S33)
+can thus be expressed as
+gij({zkl}) = ω qI gI,t
+ij ({zkl})
+|
+{z
+}
+Immune and treated
++ (1 −ω) qN gN,t
+ij ({zkl})
+|
+{z
+}
+Naive and treated
++ ω (1 −qI) gI,nt
+ij
+({zkl})
+|
+{z
+}
+Immune and untreated
++ (1 −ω) (1 −qN) gN,nt
+ij
+({zkl})
+|
+{z
+}
+Naive and untreated
+.
+(S34)
+Let us now present a derivation of the explicit form of the generating function in each of the
+four cases involved in this equation. Taken together, they will thus yield the complete form of
+the generating function, needed to compute the extinction probabilities.
+4.2.1
+Immune and treated hosts
+Case i = 0, j = 0.
+In this case, we start with only sensitive bacteria, which are killed by the
+treatment. Thus, no bacteria can be transmitted. It follows that ℘I,t
+00 ({nkl}) =
+Y
+(k,l)∈S
+δnkl,0 and
+that gI,t
+00 ({zkl}) = 1.
+Case i = 0, j > 0.
+Since we assume that there are no back-mutations, the host will only
+harbor C bacteria and will transmit a cluster of N C bacteria to each recipient host. Hence,
+℘I,t
+0j ({nkl}) = λn0N
+I
+n0N!e−λI
+Y
+(k,l)∈S\{(0,N)}
+δnkl,0 and gI,t
+0j ({zkl}) = exp (−λI(1 −z0N)).
+Case i > 0, j ≥0.
+In this case, we have two types of bacteria (R and C). Even if initially j = 0,
+C bacteria may appear by mutation, and their number may be nonzero after the incubation
+time τ. Because there are no back-mutations, S bacteria cannot reappear after being killed by
+the antimicrobial. Since we neglect mixed clusters, recipient hosts can be contaminated only
+by clonal clusters of N R bacteria or N C bacteria. The probability that nN0 clusters of R
+18
+
+[Page 35]
+bacteria only are transmitted, given that n clusters are transmitted, reads
+p(nN0|n) =
+ n
+nN0
+
+(ri+j
+i,j )nN0(1 −ri+j
+i,j )n−nN0 .
+(S35)
+where ri+j
+i,j (resp. ci+j
+i,j = 1−ri+j
+i,j ) represents the fraction of R bacteria (resp. C bacteria) at the
+end of the incubation period, starting from an initial total number of bacteria i + j, an initial
+number of R bacteria i and an initial number j of C bacteria. Using the law of total probability,
+we then obtain the probability that nN0 clusters of R bacteria only are transmitted:
+p(nN0) =
++∞
+X
+n=nN0
+p(nN0|n)p(n) = (λI ri+j
+i,j )nN0
+nN0!
+exp
+−λI ri+j
+i,j
+
+,
+(S36)
+where we have used p(n) = λn
+Ie−λI/n! since transmission is assumed to be Poissonian. Similarly,
+we obtain the probability that n0N clusters of C bacteria only are transmitted:
+p(n0N) = (λI(1 −ri+j
+i,j ))n0N
+n0N!
+exp
+−λI(1 −ri+j
+i,j )
+
+.
+(S37)
+We can then write ℘I,t
+ij ({nkl}) = p(nN0)p(n0N)
+Y
+(k,l)∈S\{(0,N),(N,0)}
+δnkl,0, and thus
+gI,t
+ij ({zkl}) = exp
+−λI ri+j
+i,j (1 −zN0)
+
+exp
+−λI(1 −ri+j
+i,j )(1 −z0N)
+
+.
+(S38)
+4.2.2
+Naive and treated hosts
+Case i = 0, j = 0.
+This case is identical to that of immune and treated hosts (see above)
+and gN,t
+00 ({zkl}) = 1.
+Case i = 0, j > 0.
+This case is identical to that of immune and treated hosts (see above), ex-
+cept that the host transmits to an average of λN new hosts (instead of λI). Hence gN,t
+0j ({zkl}) =
+exp (−λN(1 −z0N)).
+Case i > 0, j ≥0.
+As explained for immune and treated hosts, in this case, we have two types
+of bacteria (R and C). Even if initially j = 0, C bacteria may appear by mutation, and their
+number may be nonzero after the incubation time τ. Because there are no back-mutations, S
+bacteria cannot reappear after being killed by the antimicrobial.
+Let us denote by n the total number of new hosts that will be infected by the host considered.
+In principle, we should draw n samples of N bacteria without replacement out of the N 2 bacteria
+assumed to be present at the end of the incubation time. The composition of each sample will
+potentially impact the others. However, this eﬀect will be negligible if N ≫n, in which case
+we can consider for simplicity that each of the n samples is drawn with replacement from the
+set of N 2 bacteria. Within this approximation, the probability that there are k R bacteria in
+a packet of N bacteria follows a binomial law:
+Bi,j(k) =
+N
+i
+
+(ri+j
+i,j )k(1 −ri+j
+i,j )N−k .
+(S39)
+19
+
+[Page 36]
+where we have used ci+j
+i,j = 1−ri+j
+i,j . The probability that nk N−k clusters including k R bacteria
+and N −k C bacteria are transmitted, given that n clusters are transmitted reads:
+p(nk N−k|n) =
+
+n
+nk N−k
+
+(Bi,j(k))nk N−k(1 −Bi,j(k))n−nk N−k .
+(S40)
+Using the law of total probability (see Eq. (S36)), we then obtain the probability that nk N−k
+clusters including k R bacteria and N −k C bacteria are transmitted:
+p(nk N−k) = (λNBi,j(k))nk N−k
+nk N−k!
+exp (−λNBi,j(k)) .
+(S41)
+Since ℘ij({nkl}) =
+N
+Y
+k=0
+p(nk N−k), we obtain:
+gN,t
+ij ({(zkl)}) =
+X
+nkl
+ N
+Y
+k=0
+p(nk N−k)
+! 
+
+Y
+(k,l)∈S\{(k,l)/k+l=N}
+δnkl,0
+
+
+
+Y
+(k,l)∈S
+znkl
+kl
+
+
+=
+N
+Y
+k=0
+
+X
+nk N−k
+p(nk N−k)znk N−k
+k N−k
+
+
+=
+N
+Y
+k=0
+
+X
+nk N−k
+(λNBi,j(k))nk N−k
+nk N−k!
+exp (−λNBi,j(k)) znk N−k
+k N−k
+
+
+= exp
+
+−λN
+N
+X
+k=0
+Bi,j(k)(1 −zk N−k)
+!
+.
+(S42)
+4.2.3
+Immune and non-treated hosts
+Here, transmission involves clusters of N identical bacteria of type S, R or C. Let us express the
+probability that nN0 clusters of R bacteria, n0N clusters of C bacteria and n00 = n −nN0 −n0N
+of S bacteria are transmitted, given that n clusters are transmitted:
+p(nN0, n0N|n) =
+n!
+nN0!n0N!(n −nN0 −n0N)!(rN
+i,j)nN0(cN
+i,j)n0N(1 −rN
+i,j −cN
+i,j)n−nN0−n0N ,
+(S43)
+which is a trinomial distribution. Then it follows:
+p(nN0|n) =
+n−nN0
+X
+n0N=0
+p(nN0, n0N|n) =
+n!
+(n −nN0)!nN0!(rN
+i,j)nN0(1 −rN
+i,j)n−nN0 .
+(S44)
+Using the law of total probability (see Eq. (S36)) yields
+p(nN0) =
+λI rN
+i,j
+nN0
+nN0!
+exp
+−λI rN
+i,j
+
+.
+(S45)
+20
+
+[Page 37]
+Similarly,
+p(n0N) =
+1
+n0N!
+λI cN
+i,j
+n0N exp
+−λI cN
+i,j
+
+,
+(S46)
+p(n00) =
+1
+n00!
+λI(1 −rN
+i,j −cN
+i,j)
+n00 exp
+−λI(1 −rN
+i,j −cN
+i,j)
+
+.
+(S47)
+Since ℘I,nt
+ij
+({nkl}) = p(n00)p(nN0)p(n0N)
+Y
+(k,l)∈S\{(0,0),(N,0),(0,N)}
+δnkl,0 , we ﬁnally obtain
+gI,nt
+ij
+({zkl}) = exp
+−λI(1 −rN
+i,j −cN
+i,j)(1 −z00)
+
+× exp
+−λI rN
+i,j(1 −zN0)
+
+× exp
+−λI cN
+i,j(1 −z0N)
+
+.
+(S48)
+4.2.4
+Naive and non-treated hosts
+Here, transmission involves random assortments of N bacteria that may potentially contain all
+three diﬀerent types of bacteria. The probability of having k R bacteria and l C bacteria in an
+assortment reads
+Ti,j(k, l) =
+N!
+k! l! (N −k −l)!(rN
+i,j)k(cN
+i,j)l(1 −rN
+i,j −cN
+i,j)N−k−l .
+(S49)
+Then we can express the probability of transmitting nkl packets with k R bacteria and l C
+bacteria, given that n packets are transmitted:
+p(nkl|n) =
+ n
+nkl
+
+(Ti,j(k, l))nkl(1 −Ti,j(k, l))n−nkl .
+(S50)
+Using the law of total probability (see Eq. (S36)) yields
+p(nkl) = (λNTi,j(k, l))nkl
+nkl!
+exp (−λNTi,j(k, l)) .
+(S51)
+Since ℘N,nt
+ij
+({nkl}) =
+Y
+(k,l)∈S
+p(nkl), we ﬁnally obtain
+gN,nt
+ij
+({zkl}) = exp
+
+−λN
+X
+(k,l)∈S
+Ti,j(k, l)(1 −zkl)
+
+.
+(S52)
+4.2.5
+Conclusion
+Combining the above results for the generating function in the various cases studied, we can
+explicitly rewrite Eq. (S34). This allows us to compute the extinction probabilities of epidemics
+eij, which are the ﬁxed points of the generating function gij({zkl}), where the ﬁrst host is initially
+infected by i R bacteria, j C bacteria and N −i −j S bacteria.
+21
+
+[Page 38]
+4.3
+Results with three bacterial types
+Because multiple mutations can compensate for the initial cost of resistance (Hughes and An-
+dersson, 2015; Levin et al., 2000; Paulander et al., 2007), the probability µ2 of compensatory
+mutations often satisﬁes µ2 ≫µ1 (Levin et al., 2000; Poon et al., 2005). In Fig. S5, compen-
+sation has a negligible impact. Indeed, the proportion of compensated bacteria then remains
+small. However, for longer incubation times, compensation decreases extinction probabilities,
+which become intermediate between those with a cost and those without a cost (see Fig. S6).
+Overall, compensation does not have a major impact on the initial steps of the propagation
+studied here.
+0
+20
+40
+60
+80
+100
+Initial number i of resistant bacteria
+0.2
+0.4
+0.6
+0.8
+Extinction probability ei
+Compensation
+No compensation
+=1
+=0.8
+=0.6
+=0.4
+=0.2
+=0
+10 0
+10 1
+10 2
+0.2
+0.4
+0.6
+1
+All immune
+All naive
+Figure S5:
+Impact of compensation. Extinction probabilities ei versus initial number i of
+resistant bacteria in the ﬁrst infected host, for diﬀerent fractions ω of immune individuals in
+the host population. Dark shades: results with a ﬁtness cost δ = 0.1 and compensation with
+µ2 = 7 × 10−3. Light shades: results with δ = 0.1 but no compensation (same as dark-shaded
+results in Fig. 4B). Within-host evolution is deterministic, µ1 = 7 × 10−5 and µ−1 = 0, and
+incubation time is G = 10 generations. As in Fig. 2, N = 100, λ = 2 and q = 0.55. Solid lines:
+numerical resolution of Eq. (4); symbols: simulation results (over 104 realizations).
+22
+
+[Page 39]
+0
+20
+40
+60
+80
+100
+Initial number i of resistant bacteria
+0.2
+0.4
+0.6
+0.8
+Extinction probability ei
+1
+=1
+=0.8
+=0.6
+=0.4
+=0.2
+=0
+Cost
+No cost
+10 0
+10 1
+10 2
+0.2
+0.4
+0.6
+All immune
+All naive
+A
+0
+20
+40
+60
+80
+100
+Initial number i of resistant bacteria
+0.2
+0.4
+0.6
+0.8
+Extinction probability ei
+1
+=1
+=0.8
+=0.6
+=0.4
+=0.2
+=0
+Comp.
+No comp.
+10 0
+10 1
+10 2
+0.2
+0.4
+0.6
+All immune
+All naive
+B
+Figure S6: Impact of a ﬁtness cost of resistance and of compensation for long incu-
+bation times. The extinction probability ei is shown as a function of the initial number i of
+resistant bacteria in the ﬁrst infected individual, for diﬀerent values of the fraction ω of immune
+individuals in the host population. A: Results with a ﬁtness cost δ = 0.1 of resistance are shown
+in dark shades. Results without ﬁtness cost (identical to the dark-shaded results in Fig. 4A)
+are shown in light shades for comparison. B: Results with a ﬁtness cost δ = 0.1 of resistance
+and with a possible compensatory mutation with mutation probabilities µ2 = 7 × 10−3 and
+µ−2 = 0 are shown in dark shades. Results with the same ﬁtness cost but without compensa-
+tion (identical to the dark-shaded results in panel A) are shown in light shades for comparison.
+In both panels, within-host evolution is deterministic, mutation probabilities are µ1 = 7 × 10−5
+and µ−1 = 0, and incubation time corresponds to 50 generations of bacteria within the host
+(instead of 10 generations in Figs. 4 and S5). In addition, as in Fig. 2, we take a bottleneck
+size N = 100, and each individual transmits bacteria to an average of λN = λI = λ = 2 new
+hosts and is treated with probability qN = qI = q = 0.55, irrespective of whether it is naive
+or immune. Solid lines correspond to numerical resolution of Eq. (4) (not shown with com-
+pensation), while symbols show results from numerical simulations of the branching process,
+computed over 104 realizations. Main panel: linear scale; inset: semi-logarithmic scale.
+23
+
+[Page 40]
+5
+Detailed simulation methods
+Our code is freely available at https://doi.org/10.5281/zenodo.2592323.
+Our simulations were coded in Matlab. Here, we present in detail our simulation scheme,
+which is outlined in the Methods section of the main text. We perform stochastic simulations of
+the branching process modeling the propagation of the bacterial strain considered. The within-
+host growth can be treated either deterministically or stochastically, and in the latter case, it
+can either allow mixed clusters or not (see below). We consider “generations” of hosts, the ﬁrst
+one corresponding to the ﬁrst infected host, the second one to the hosts directly infected by
+this ﬁrst host, etc. Throughout this section, as in our simulations, we assume that there are no
+back-mutations.
+5.1
+Initialization (ﬁrst host)
+We start with a ﬁrst generation where there is a single host infected by an inoculum containing
+i R bacteria, j C bacteria and N −i −j S bacteria.
+5.2
+Loop over successive generations of hosts
+For each host in the generation considered, we ﬁrst randomly choose whether it is immune or
+naive, according to the probability ω of being immune.
+5.2.1
+Naive hosts
+For each naive host in the generation considered, we randomly choose whether it is treated or
+not, according to the probability qN of being treated.
+• If the naive host is treated:
+– Treatment: All sensitive (S) bacteria are eliminated from the inoculum.
+– If the inoculum contained at least one resistant (R) or compensated (C) bacterium:
+1. Within-host growth: In the absence of compensation, since all S bacteria
+were eliminated and since we consider no back-mutation, only R bacteria will
+exist within the host. If compensation is accounted for, the fractions of R and C
+bacteria at the end of the incubation period are computed using either a deter-
+ministic or a stochastic approach (see below). Then, we compute the numbers
+of R and C bacteria by randomly sampling them in a binomial distribution with
+parameters N 2 (number of bacteria after the within-host growth) and r (fraction
+of R bacteria after the within-host growth).
+2. Transmission to the next generation of hosts: The number of hosts in-
+fected by the present host is computed by a random draw from a Poisson dis-
+tribution with average λN. Each new infected host receives a set of N microor-
+ganisms, randomly drawn without replacement from the N 2 bacteria infecting
+the transmitting host at the end of the incubation time.
+– If the inoculum only contained S bacteria, no transmission occurs, since the treat-
+ment eliminated all bacteria.
+24
+
+[Page 41]
+• If the naive host is not treated:
+1. Within-host growth: The proportions of S and R bacteria (and C if compensation
+is accounted for) at the end of the incubation period are computed using either a
+deterministic or a stochastic approach (see below). Then, in the absence of compen-
+sation, we compute the numbers of S and R bacteria by randomly sampling them
+in a binomial distribution with parameters N 2 and s. If compensation is accounted
+for, we instead use a trinomial distribution with parameters N 2, s and r.
+2. Transmission to the next generation of hosts is performed as in the naive-
+treated case presented above.
+5.2.2
+Immune hosts
+For each immune host in the generation considered, we randomly choose whether it is treated
+or not, according to the probability qI of being treated.
+• If the immune host is treated:
+– Treatment: All sensitive (S) bacteria are eliminated from the inoculum.
+– If the inoculum contained at least one R mutant or one C bacterium:
+1. Within-host growth: Again, in the absence of compensation, only R bacteria
+will exist. With compensation, the fractions of R and C bacteria at the end
+of the incubation period are computed as in the naive-treated case.
+If only
+clonal clusters are considered, N clonal clusters of N bacteria are constructed by
+randomly drawing the number of R and C bacteria seeding clusters in a binomial
+distribution with parameters N and r. If mixed clusters are considered, they
+are explicitly constructed at the end of the within-host growth (see below).
+2. Transmission to the next generation of hosts: The number of hosts in-
+fected by the present host is computed by a random draw from a Poisson distri-
+bution with average λI. Each newly infected host receives one random cluster
+among the N clusters formed at the end of the within-host growth.
+– If the inoculum only contained S bacteria, no transmission occurs as the treatment
+eliminated all bacteria.
+• If the immune host is not treated:
+1. Within-host growth: The proportions of S and R bacteria (and C if compen-
+sation is accounted for) at the end of the incubation period are computed as in
+the naive-non treated case. If only clonal clusters are considered, in the absence of
+compensation, we compute the numbers of S and R bacteria seeding clusters by ran-
+domly sampling them in a binomial distribution with parameters N and s. If only
+clonal clusters are considered, but compensation is accounted for, we instead use a
+trinomial distribution with parameters N, s and r. If mixed clusters are considered,
+they are explicitly constructed at the end of the within-host growth (see below).
+2. Transmission to the next generation of hosts is performed as in the immune-
+treated case.
+25
+
+[Page 42]
+5.3
+End of the simulation
+The simulation is stopped when one of the following conditions is met:
+• Extinction, i.e. no more infected hosts at a given generation.
+• The number of infected hosts at the current generation of hosts is larger than a threshold
+(100 in practice).
+• The number of generations of infected hosts is larger than a threshold (100 in practice).
+We approximate the last two cases as meaning that no extinction will occur. We have checked
+that increasing the threshold values above 100 does not signiﬁcantly aﬀect our results, which
+conﬁrms that this approximation is valid.
+5.4
+Within-host growth
+5.4.1
+Deterministic model
+If the within-host growth is treated deterministically, in the absence of mutations and ﬁtness
+cost, the proportion of resistant bacteria just remains the same upon growth.
+With mutations and/or ﬁtness cost, we compute the fractions of sensitive and resistant
+bacteria (and compensated ones, if compensation is accounted for) at a time τ = G log(2) (see
+Eq. (S3) with f = 1) equivalent to the total number of generations G of the incubation period,
+using the solution of our ODE model (see section 2, especially Eqs. (S4) and (S5) for the case
+without compensation and section 4, especially Eq. (S29) for the case with compensation).
+Note that even though the within-host growth is treated deterministically, the sampling of
+transmitted bacteria and the branching process are stochastic.
+5.4.2
+Stochastic model
+If the within-host growth is treated stochastically, we implement an exact Gillespie simulation
+scheme (Gillespie, 1976; Marrec and Bitbol, 2018) for a ﬁxed number Ndiv = N(2G −1) of
+single bacterial divisions, corresponding to the number of divisions that take place during the
+G generations of the incubation period. In our Gillespie algorithm, each bacterium can divide
+randomly with a rate equal to its ﬁtness, and each daughter cell can then mutate randomly with
+a given probability (µ1 for S →R and µ2 for R →C if compensation is accounted for, assuming
+no back-mutations).
+This yields a complete agent-based model of a stochastic exponential
+growth.
+Finally, in some simulations (see Fig. S4), we explicitly took into account the possibility that
+mixed clusters form within immune hosts. For this, we employed our usual stochastic within-
+host growth scheme for the ﬁrst G −g generations of incubation, and we then switched to an
+explicit model of cluster formation for the last g generations, where the cluster size (assumed
+to be equal to the bottleneck size) satisﬁes N = 2g.
+The last g generations of incubation
+correspond to the formation of the transmitted clusters. We then formed clusters from each
+single bacterium present after G−g generations of incubation. For these last g generations, we
+assumed that bacteria have a ﬁxed division time (and not a ﬁxed division rate). As usual, at
+each division, daughter cells can mutate randomly with a given probability. We implemented
+this explicit construction of clusters only in the case where resistance has no cost (δ = 0), which
+is simpler because divisions within the ﬁxed division time model are then synchronous.
+26
+
+[Page 43]
+6
+Analytical approximations for the spread probability
+without pre-existing resistance
+6.1
+Proportion of resistant bacteria
+When starting with only sensitive bacteria, at the ﬁrst round of replication, an average pro-
+portion µ1 of resistant bacteria is produced. At the second round, neglecting back-mutations,
+and in the limit µ1 ≪1, so that the proportion of mutant bacteria remains negligible, the
+proportion of mutant bacteria will be µ1(1 −δ) (the resistant bacteria produced at the ﬁrst
+round, which reproduce more slowly than the sensitive ones), plus µ1 (the resistant bacteria
+newly produced). A similar reasoning can be applied for subsequent rounds of replication.
+Thus, after G generations, the average proportion of resistant bacteria is
+µ1
+(1 −δ)G−1 + (1 −δ)G−2 + ... + (1 −δ) + 1
+
+= µ1
+δ (1 −(1 −δ)G).
+(S53)
+Note that Eq. (S53) was obtained within a discrete description. Our continuous time model
+similarly yields (1 −exp(−Gδ))µ1/δ. In particular, if Gδ ≪1, this yields a mutant proportion
+of µ1G, while if Gδ ≫1, this yields the mutation-selection balance proportion µ1/δ.
+6.2
+Approximation for a small number of generations
+Regime considered
+As mentioned in the main text section titled “Analytical approximations for the spread
+probability without pre-existing resistance”, here, we take into account mutations and the
+ﬁtness cost of resistance, but not its compensation. We use the deterministic description of the
+within-host growth, and take λN = λI = λ, as well as qN = qI = q. In addition, the present
+case of a small number G of generations corresponds to δG ≪1 and (G−g) ≪2(N −1). Below,
+we explicitly demonstrate that if at least one resistant mutant is transmitted, the probability of
+extinction is similar for an immune and a naive host population. This is necessary to calculate
+the impact of clustering on spread probabilities in this regime (Eq. (16)).
+eN
+N vs.
+eI
+N
+Let us ﬁrst compare the extinction probabilities starting from a host infected with only
+resistant bacteria in a fully naive host population eN
+N and in a fully immune one eI
+N. In the
+limit of a small number of generations G, a host initially infected with only resistant bacteria
+will have a very small proportion of sensitive bacteria at the transmission time even in the
+absence of treatment. Thus eN
+N ≈eI
+N ≈eN.
+eN
+1 vs.
+eI
+1
+Next, let us compare the extinction probabilities starting from a host initially infected with
+one resistant bacteria and N−1 sensitive ones, in a fully naive and in a fully immune population,
+i.e. eN
+1 and eI
+1. Because δG ≪1, the proportion of resistant bacteria at transmission is close
+to 1/N. Let us assume that N ≫1.
+eN
+1
+Let us ﬁrst consider a fully naive population. For a non-treated host, the probability that
+no resistant bacteria is present among N bacteria transmitted is (1 −1/N)N = exp(N log(1 −
+27
+
+[Page 44]
+1/N)) ≈exp(−1).
+The probability that one resistant bacteria among N is transmitted is
+N(1/N)(1 −1/N)N−1 = exp((N −1) log(1 −1/N)) ≈exp(−1) exp(1/N) ≈exp(−1). The
+probability to transmit 2 resistant bacteria among N is N(N −1)/2(1/N)2(1 −1/N)N−2 =
+(1 −1/N)/2 exp((N −2) log(1 −1/N)) ≈exp(−1) exp(2/N)(1 −1/N)/2 ≈exp(−1)/2. Thus
+the probability that more than 2 resistant bacteria are transmitted is smaller than 10%: most
+cases in which more than 1 resistant bacteria are transmitted are cases in which few, and mainly
+2 resistant bacteria are transmitted. Since the outcome is not very diﬀerent whether 1 or 2
+resistant bacteria are transmitted, let us assume that eN
+1 ≈eN
+2 and let us neglect transmission
+of more resistant bacteria. Under these assumptions, when a host is initially infected with 1
+resistant bacteria and N −1 sensitive ones, then with probability q, this host is treated, leading
+to a fully resistant infection, and with probability 1−q, it is not treated, in which case for each
+of the transmissions (whose number is Poisson distributed with average λ), it has a probability
+close to exp(−1) to transmit only sensitive bacteria, which leads to extinction with a probability
+close to 1 (more precisely, 1 minus a small spread probability arising from mutations of the
+order of µ1, see section 6.1), and a probability close to (1 −exp(−1)) to transmit at least one
+resistant bacteria, which leads to extinction with a probability close to eN
+1 . This results in:
+eN
+1 ≈qeN + (1 −q) exp(−λ(1 −exp(−1))(1 −eN
+1 ))
+(S54)
+eI
+1
+Let us now turn to a fully immune population, and assume that clusters comprise a single
+type of bacteria since here the inoculum is mixed. When an immune host is initially infected
+with 1 resistant bacteria and N −1 sensitive bacteria, then with probability q, this host is
+treated, leading to a fully resistant infection, and with probability 1 −q, it is not treated, in
+which case for each of the transmissions (whose number is Poisson distributed with average λ),
+it has a probability 1 −1/N to transmit only sensitive bacteria, which leads to an extinction
+probability close to 1 (more precisely, 1 minus a small spread probability arising from mutations
+of the order of µ1, see section 6.1), and a probability 1/N to transmit resistant bacteria only,
+leading to extinction with probability eN. This results in:
+eI
+1 ≈qeN + (1 −q) exp(−λ(1 −eN)/N)
+(S55)
+Conclusion on eN
+1 vs.
+eI
+1
+Since we assumed N ≫1, exp(−λ(1 −eN)/N) will be of the order of 1, so Eqs. (S54)
+and (S55) entail eN
+1 < eI
+1. Note that numerically, they remain of the same order of magnitude.
+For instance, in the limit of large N, the ratio of extinction probabilities eI
+1/eN
+1 is at most 2 for
+λ = 2. For instance in Fig. 2, this ratio is close to 2.
+Conclusion on eN
+0 vs.
+eI
+0
+As explained in the main text, in a fully naive population, starting from a host infected with
+only sensitive bacteria, the probability for this host to transmit at least one resistant bacteria
+is ≈µ1GN (the proportion of resistant bacteria multiplied by the bottleneck size). Then the
+associated spread probability is 1−eN
+1 . In contrast, in a fully immune population, starting from
+a host infected with only sensitive bacteria, the probability to transmit at least one resistant
+bacteria is approximately 2µ1(N −1), the proportion of mixed clusters. Half of these mixed
+clusters bear only one resistant bacteria. A quarter of them comprise 2 resistant bacteria, and
+so on, so we can approximate that the corresponding spread probability by 1 −eI
+1.
+28
+
+[Page 45]
+Combining our results yields:
+R = 1 −eN
+0
+1 −eI
+0
+≈G
+2
+1 −eN
+1
+1 −eI
+1
+≳G
+2 .
+(S56)
+This quantiﬁes the impact of clustering on the spread of resistance in the case of a short
+incubation time. Note that in this regime, G is not very large, but it can still be much larger
+than 2, in which case Eq. (S56) shows that the impact of clustering can be large.
+29
+
+[Page 46]
+References
+Andersson, D. I. and D. Hughes, 2010. Antibiotic resistance and its cost: is it possible to
+reverse resistance? Nat. Rev. Microbiol. 8:260–271.
+Andr´e, J.-B. and T. Day, 2005. The Eﬀect of Disease Life History on the Evolutionary Emer-
+gence of Novel Pathogens. Proceedings of the Royal Society B: Biological Sciences 272:1949–
+1956.
+Antia, R., R. R. Regoes, J. C. Koella, and C. T. Bergstrom, 2003. The role of evolution in the
+emergence of infectious diseases. Nature 426:658–661.
+Bansept, F., K. Moor-Schumann, M. Diard, W.-D. Hardt, E. Slack, and C. Loverdo, 2018.
+Enchained growth and cluster dislocation: a possible mechanism for microbiota homeostasis.
+bioRxiv P. 298059.
+Carlet, J. and P. Le Coz, 2015. Rapport du groupe de travail sp´ecial pour la pr´eservation des
+antibiotiques. Tech. rep., Minist`ere des Aﬀaires sociales, de la Sant´e et des Droits des femmes.
+URL http://solidarites-sante.gouv.fr/IMG/pdf/rapport_antibiotiques.pdf.
+Dahms, C., N.-O. H¨ubner, F. Wilke, and A. Kramer, 2014. Mini-review: Epidemiology and
+zoonotic potential of multiresistant bacteria and clostridium diﬃcile in livestock and food.
+GMS hygiene and infection control 9.
+Desin, T. S., W. K¨oster, and A. A. Potter, 2013. Salmonella vaccines in poultry: past, present
+and future. Expert review of vaccines 12:87–96.
+Diard, M., E. Bakkeren, J. K. Cornuault, K. Moor, A. Hausmann, M. E. Sellin, C. Loverdo,
+A. Aertsen, M. Ackermann, M. De Paepe, E. Slack, and W.-D. Hardt, 2017. Inﬂammation
+boosts bacteriophage transfer between salmonella spp. Science 355:1211–1215.
+Donaldson, G. P., S. M. Lee, and S. K. Mazmanian, 2016. Gut biogeography of the bacterial
+microbiota. Nature Reviews Microbiology 14:20.
+Evans, E. A. and D. A. Calderwood, 2007. Forces and bond dynamics in cell adhesion. Science
+316:1148–1153.
+Ewens, W. J., 1979. Mathematical Population Genetics. Springer-Verlag.
+———, 2012. Mathematical population genetics 1: theoretical introduction, vol. 27. Springer
+Science & Business Media.
+Fournier, B. and C. Parkos, 2012.
+The role of neutrophils during intestinal inﬂammation.
+Mucosal immunology 5:354.
+Frank, S. A. and M. Slatkin, 1990.
+Evolution in a variable environment.
+The American
+Naturalist 136:244–260.
+Gillespie, D. T., 1976. A general method for numerically simulating the stochastic time evolution
+of coupled chemical reactions. J. Comput. Phys. 22:403–434.
+30
+
+[Page 47]
+Gillespie, J. H., 1974. Natural selection for within-generation variance in oﬀspring number.
+Genetics 76:601–606.
+Harris, T. E., 1963. The Theory of Branching Processes.
+Harrison, E. M., F. Coll, M. S. Toleman, B. Blane, N. M. Brown, M. E. T¨or¨ok, J. Parkhill,
+and S. J. Peacock, 2017. Genomic surveillance reveals low prevalence of livestock-associated
+methicillin-resistant staphylococcus aureus in the east of england. Scientiﬁc reports 7:7406.
+Hughes, D. and D. I. Andersson, 2015. Evolutionary consequences of drug resistance: shared
+principles across diverse targets and organisms. Nat. Rev. Genet. 16:459–471.
+Iwasa, Y., F. Michor, and M. A. Nowak, 2004. Evolutionary dynamics of invasion and escape.
+Journal of Theoretical Biology 226:205–214.
+Jansen, K. U., C. Knirsch, and A. S. Anderson, 2018.
+The role of vaccines in preventing
+bacterial antimicrobial resistance. Nat. Med. 24:10–19.
+chaired by Jim O’Neill, ., 2016. UK Review on Antimicrobial Resistance.
+Kendall, D. G., 1948. On the generalized ”birth-and-death” process. The annals of mathemat-
+ical statistics 19:1–15.
+Landers, T. F., B. Cohen, T. E. Wittum, and E. L. Larson, 2012. A review of antibiotic use in
+food animals: perspective, policy, and potential. Public health reports 127:4–22.
+Lange, K., 2010. Applied probability. Springer Science & Business Media.
+LeClair, J. S. and L. M. Wahl, 2018.
+The impact of population bottlenecks on microbial
+adaptation. Journal of Statistical Physics 172:114–125.
+Levin, B. R., V. Perrot, and N. Walker, 2000. Compensatory mutations, antibiotic resistance
+and the population genetics of adaptive evolution in bacteria. Genetics 154:985–997.
+Lipsitch, M. and G. R. Siber, 2016. How Can Vaccines Contribute to Solving the Antimicrobial
+Resistance Problem? MBio 7.
+Loverdo, C., M. Park, S. Schreiber, and J. O. Lloyd-Smith, 2012. Inﬂuence of viral replication
+mechanisms on within-host evolutionary dynamics. Evolution 66:3462–3471.
+Lynch, M., 2010. Evolution of the mutation rate. TRENDS in Genetics 26:345–352.
+Maisnier-Patin, S. and D. I. Andersson, 2004.
+Adaptation to the deleterious eﬀects of an-
+timicrobial drug resistance mutations by compensatory evolution. Research in microbiology
+155:360–369.
+Marrec, L. and A. F. Bitbol, 2018. Quantifying the impact of a periodic presence of antimicrobial
+on resistance evolution in a homogeneous microbial population of ﬁxed size. J. Theor. Biol.
+457:190–198.
+Mason, M. M., 1935. A comparison of the maximal growth rates of various bacteria under
+optimal conditions. Journal of bacteriology 29:103.
+31
+
+[Page 48]
+McClure, N. S. and T. Day, 2014. A theoretical examination of the relative importance of
+evolution management and drug development for managing resistance. Proceedings of the
+Royal Society of London B: Biological Sciences 281:20141861.
+McGrady, E. D. and R. M. Ziﬀ, 1987. “shattering”transition in fragmentation. Physical review
+letters 58:892.
+Moor, K., M. Diard, M. E. Sellin, B. Felmy, S. Y. Wotzka, A. Toska, E. Bakkeren, M. Arnoldini,
+F. Bansept, A. Dal Co, T. V¨oller, A. Minola, B. Fernandez-Rodriguez, G. Agatic, S. Barbieri,
+L. Piccoli, C. Casiraghi, D. Corti, A. Lanzavecchia, R. R. Regoes, C. Loverdo, R. Stocker,
+D. R. Brumley, W.-D. Hardt, and E. Slack, 2017. High-avidity IgA protects the intestine by
+enchaining growing bacteria. Nature 544:498–502.
+Odell, J. A. and A. Keller, 1986. Flow-induced chain fracture of isolated linear macromolecules
+in solution. Journal of Polymer Science Part B: Polymer Physics 24:1889–1916.
+Orr, H. A. and R. L. Unckless, 2008. Population extinction and the genetics of adaptation.
+The American Naturalist 172:160–9.
+Park, M., C. Loverdo, S. J. Schreiber, and J. O. Lloyd-Smith, 2013. Multiple scales of selection
+inﬂuence the evolutionary emergence of novel pathogens. Philosophical Transactions B P.
+20120333.
+Paulander, W., S. Maisnier-Patin, and D. I. Andersson, 2007. Multiple mechanisms to amelio-
+rate the ﬁtness burden of mupirocin resistance in Salmonella typhimurium. Mol. Microbiol.
+64:1038–1048.
+Poon, A., B. H. Davis, and L. Chao, 2005. The coupon collector and the suppressor muta-
+tion: estimating the number of compensatory mutations by maximum likelihood. Genetics
+170:1323–1332.
+Rhomberg, P. R. and R. N. Jones, 2009.
+Summary trends for the meropenem yearly sus-
+ceptibility test information collection program: a 10-year experience in the united states
+(1999–2008). Diagnostic microbiology and infectious disease 65:414–426.
+Schrag, S. J., V. Perrot, and B. R. Levin, 1997. Adaptation to the ﬁtness cost of antibiotic
+resistance in E. coli. Proc. R. Soc. Lond. B 264:1287–1291.
+Schreiber, S. J., R. Ke, C. Loverdo, M. Park, P. Ahsan, and J. O. Lloyd-Smith, 2016. Crossscale
+dynamics and the evolutionary emergence of infectious diseases. biorxiv .
+Sender, R., S. Fuchs, and R. Milo, 2016. Revised estimates for the number of human and
+bacteria cells in the body. PLoS biology 14:e1002533.
+Sharma, P., C. Caraguel, M. Sexton, A. McWhorter, G. Underwood, K. Holden, and
+K. Chousalkar, 2018. Shedding of salmonella typhimurium in vaccinated and unvaccinated
+hens during early lay in ﬁeld conditions: a randomised controlled trial. BMC microbiology
+18:78.
+Moura de Sousa, J., A. Sousa, C. Bourgard, and I. Gordo, 2015. Potential for adaptation
+overrides cost of resistance. Future Microbiol 10:1415–1431.
+32
+
+[Page 49]
+Stecher, B. and W.-D. Hardt, 2008. The role of microbiota in infectious disease. Trends in
+microbiology 16:107–114.
+S´ecurit´e Sociale, 2014. Projet de loi de ﬁnancement de la s´ecurit´e sociale - annexe 1 : Pro-
+grammes de qualit´e et d’eﬃcience - programme de qualit´e et d’eﬃcience ≪maladie ≫- sous-
+indicateur num´ero 9-2. Tech. rep., S´ecurit´e sociale. URL http://www.securite-sociale.
+fr/IMG/pdf/plfss14_annexe1_pqe_maladie_indicateur9.pdf.
+Tees, D. F., O. Coenen, and H. L. Goldsmith, 1993.
+Interaction forces between red cells
+agglutinated by antibody. IV. Time and force dependence of break-up. Biophysical Journal
+65:1318–1334.
+Traulsen, A. and C. Hauert, 2009. Stochastic evolutionary game dynamics. in H.-G. Schuster,
+ed. Reviews of Nonlinear Dynamics and Complexity, vol. II. Wiley-VCH.
+Wienand, K., M. Lechner, F. Becker, H. Jung, and E. Frey, 2015. Non-Selective Evolution of
+Growing Populations. PLoS ONE 10:e0134300.
+zur Wiesch, P. A., R. Kouyos, J. Engelstadter, R. R. Regoes, and S. Bonhoeﬀer, 2011. Popu-
+lation biological principles of drug-resistance evolution in infectious diseases. Lancet Infect
+Dis 11:236–247.
+World
+Health
+Organization
+&
+Food
+and
+Agriculture
+Organization,
+2002.
+Risk
+assessments
+of
+Salmonella
+in
+eggs
+and
+broiler
+chickens,
+vol.
+http://www.who.int/foodsafety/publications/micro/salmonella/en/.
+33
