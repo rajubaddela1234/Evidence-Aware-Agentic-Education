@@ -21,3 +21,4 @@ outputs_pilot_10q/
 data/reference_pools_pilot_10q/
 
 *.egg-info/
+!.env.example
