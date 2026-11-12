@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "evidence-aware-agentic-education"
+version = "1.4.0"
+description = "Evidence-aware agentic educational content generation with adaptive retrieval, claim-level verification, independent evaluation, and research telemetry"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "google-genai",
+  "anthropic",
+  "langgraph",
+  "langsmith>=0.4",
+  "pydantic>=2",
+  "pydantic-settings",
+  "tavily-python",
+  "arxiv",
+  "PyMuPDF>=1.24",
+  "google-api-python-client",
+  "youtube-transcript-api>=1.2.4",
+  "scikit-learn",
+  "pandas",
+  "numpy",
+  "matplotlib",
+  "streamlit",
+  "gTTS",
+  "requests",
+  "certifi",
+  "python-dotenv"
+]
+
+[dependency-groups]
+dev = [
+  "pytest",
+  "ruff",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "--basetemp=.pytest_tmp"
+
+[tool.ruff]
+line-length = 100
