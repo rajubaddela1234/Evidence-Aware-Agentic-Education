@@ -1,0 +1,1023 @@
+{
+  "record": {
+    "experiment_id": "EXP_GEMINI_20261112T084659Z_b931c2",
+    "evaluated_script_sha256": "c3c2c26caf8ed0f5380debf22730c8359505be446a7674b9ab0303ced0ddccd7",
+    "reference_pool_sha256": "b25e6124f010b44543886fb5827db6a509bc7be8fa27a2ecc676262eb8d37634",
+    "generation_config_sha256": "130fb20735098b5ae7683be72a40463c48605cdf59d320daa9f9373f43ee4512",
+    "prompt_version": "evidence-aware-10q-shared-checklist-clean-narration-v1.6.0",
+    "system_id": "B1",
+    "prompt_id": "FQ08",
+    "domain": "Computer Networks / Cybersecurity",
+    "reasoning_type": "mechanism-and-threat-model",
+    "generation_provider": "gemini",
+    "generation_access": "google_api",
+    "generation_model": "gemini-3.8-flash",
+    "evaluator_provider": "anthropic",
+    "evaluator_model": "claude-sonnet-5-5",
+    "claim_count": 24,
+    "supported_claims": 9,
+    "partial_claims": 14,
+    "unsupported_claims": 1,
+    "contradicted_claims": 0,
+    "supported_claim_rate": 0.375,
+    "reference_evidence_support_percent": 66.66666666666667,
+    "query_coverage_percent": 92.5,
+    "query_relevance_percent": 97.0,
+    "narration_quality_percent": 100.0,
+    "citation_precision": null,
+    "citation_recall": null,
+    "citation_f1": null,
+    "grounded_requirement_coverage_percent": 62.08333,
+    "context_precision_at_k": null,
+    "context_recall_percent": null,
+    "repair_effectiveness_points": null,
+    "requirement_preservation_rate": null,
+    "source_count": 0,
+    "source_type_count": 0,
+    "llm_calls": 1,
+    "prompt_tokens": 1028,
+    "output_tokens": 1149,
+    "thinking_tokens": 0,
+    "billable_output_tokens": 1149,
+    "retrieval_calls": 0,
+    "latency_seconds": 14.860139299998991,
+    "word_count": 914,
+    "estimated_llm_cost_usd": 0.00507975,
+    "llm_call_latency_p50_seconds": 13.641342999999324,
+    "llm_call_latency_p90_seconds": 13.641342999999324
+  },
+  "details": {
+    "artifact_identity": {
+      "experiment_id": "EXP_GEMINI_20261112T084659Z_b931c2",
+      "evaluated_script_sha256": "c3c2c26caf8ed0f5380debf22730c8359505be446a7674b9ab0303ced0ddccd7",
+      "reference_pool_sha256": "b25e6124f010b44543886fb5827db6a509bc7be8fa27a2ecc676262eb8d37634",
+      "generation_config_sha256": "130fb20735098b5ae7683be72a40463c48605cdf59d320daa9f9373f43ee4512",
+      "prompt_version": "evidence-aware-10q-shared-checklist-clean-narration-v1.6.0"
+    },
+    "narration_judged_script_sha256": "c3c2c26caf8ed0f5380debf22730c8359505be446a7674b9ab0303ced0ddccd7",
+    "question_checklist": {
+      "aspects": [
+        "HTTPS as HTTP carried inside a TLS-encrypted channel, and the problems it addresses",
+        "TLS handshake: negotiating protocol version and cipher suite between client and server",
+        "Server authentication through certificates, certificate authorities, and the chain of trust",
+        "Key exchange establishing shared session keys, with forward secrecy",
+        "Encryption and integrity protection of data in transit against eavesdropping and tampering",
+        "Threats HTTPS does not stop: malware, phishing sites, compromised servers, endpoint attacks, metadata exposure"
+      ],
+      "source": "derived_once_per_question_by_evaluator",
+      "aspects_sha256": "ecc143c0629f28dbd65b44a4225df34acfdce27f80029a5a436b06131e09603b",
+      "derived_at": "2026-11-12T08:57:07.029535+00:00",
+      "derived_by_model": "claude-sonnet-5-5",
+      "derivation_cost_usd": 0.0050874,
+      "derived_in_this_call": false,
+      "file": "outputs_final_10q\\experiments\\EXP_GEMINI_20261112T084659Z_b931c2\\checklists\\FQ08.json"
+    },
+    "evaluation_claims": [
+      {
+        "claim_id": "c1",
+        "text": "HTTPS is not a separate application protocol from HTTP; it is standard HTTP traffic wrapped inside a cryptographic layer provided by TLS.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c2",
+        "text": "TLS is a cryptographic protocol designed to establish secure communication over an insecure transport medium, typically TCP.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c3",
+        "text": "TLS provides three guarantees: confidentiality, integrity, and authentication.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c4",
+        "text": "Confidentiality ensures eavesdroppers cannot read the transmitted data; integrity ensures that data cannot be secretly altered in transit; authentication lets the client verify the server's identity.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c5",
+        "text": "The TLS handshake takes place immediately after the initial TCP connection is established.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c6",
+        "text": "TLS 1.3 has streamlined the handshake process compared with earlier versions.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c7",
+        "text": "The handshake begins with the client sending a ClientHello containing the supported TLS versions, a list of cipher suites, and a client-generated random value.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c8",
+        "text": "In TLS 1.3, the client guesses which key exchange algorithm the server will accept and sends its key share in the ClientHello, typically using ephemeral Diffie-Hellman.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c9",
+        "text": "The server replies with a ServerHello that selects the cryptographic parameters and provides its own public key share.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c10",
+        "text": "The server sends a digital certificate containing its public key and identity, signed by a trusted Certificate Authority.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c11",
+        "text": "The client checks the certificate against its local trust store of root CAs to confirm it is valid, within its expiration date, and matches the requested domain name.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c12",
+        "text": "Both endpoints combine their key shares and random values using Diffie-Hellman to independently derive identical symmetric session keys.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c13",
+        "text": "The session key itself is never transmitted across the network.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c14",
+        "text": "Asymmetric cryptography is computationally expensive, so TLS uses it only to authenticate and negotiate the shared secret.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c15",
+        "text": "After the handshake, TLS uses symmetric encryption such as AES-GCM or ChaCha20-Poly1305 to encrypt HTTP requests and responses.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c16",
+        "text": "Symmetric encryption in TLS attaches Message Authentication Codes to guarantee data integrity against tampering.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c17",
+        "text": "The padlock icon in a browser does not guarantee that a website is safe or trustworthy.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c18",
+        "text": "HTTPS protects data in transit, not data at rest, and authenticates the domain name rather than the owner's intent.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c19",
+        "text": "Certificate Authorities issue certificates based on domain validation, so malicious actors can easily obtain legitimate TLS certificates for phishing sites.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c20",
+        "text": "A phishing site such as \"login-update-yourbank.com\" can run over HTTPS with an encrypted connection while still stealing credentials.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c21",
+        "text": "HTTPS cannot protect against endpoint compromise, such as malware on a user's device or server-side vulnerabilities like SQL injection behind the TLS termination point.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c22",
+        "text": "Eavesdroppers can often observe the IP addresses involved and the domain name via the Server Name Indication header, even though the URL path and payload are encrypted.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c23",
+        "text": "Application-layer attacks like Cross-Site Scripting run within the decrypted context of the browser and bypass transport-layer security.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c24",
+        "text": "Encrypted Client Hello is an emerging privacy standard.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": []
+      }
+    ],
+    "reference_verifications": [
+      {
+        "claim_id": "c1",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-7366c9bcc311",
+          "E-b4423ebaa06a"
+        ],
+        "rationale": "Evidence says TLS is the foundation of HTTPS and TLS secures HTTP connections, but it also calls HTTPS an 'application layer protocol'. It doesn't directly say HTTPS is not a separate protocol."
+      },
+      {
+        "claim_id": "c2",
+        "status": "partial",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "E-7366c9bcc311",
+          "E-b4423ebaa06a",
+          "E-858949a7279b"
+        ],
+        "rationale": "TLS is a cryptographic protocol securing communication over unprotected or untrusted networks. TCP as the typical transport is only implied, since handshakes occur after a TCP connection."
+      },
+      {
+        "claim_id": "c3",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-b4423ebaa06a",
+          "E-7366c9bcc311",
+          "E-7aac4c2f387d"
+        ],
+        "rationale": "Evidence lists confidentiality/encryption, integrity and authentication as TLS's protections."
+      },
+      {
+        "claim_id": "c4",
+        "status": "partial",
+        "confidence": 0.75,
+        "evidence_ids": [
+          "E-b4423ebaa06a",
+          "E-a24c555320e9"
+        ],
+        "rationale": "Encryption and integrity descriptions match. Authentication is described as mutual, with servers usually authenticating to clients; this fits the claim's client-verifies-server framing, though the evidence is broader."
+      },
+      {
+        "claim_id": "c5",
+        "status": "supported",
+        "confidence": 0.88,
+        "evidence_ids": [
+          "E-858949a7279b"
+        ],
+        "rationale": "The evidence says TLS handshakes occur after a TCP connection has been opened via a TCP handshake."
+      },
+      {
+        "claim_id": "c6",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-6472f781ab46"
+        ],
+        "rationale": "Evidence says TLS 1.3 shortens the handshake, making it faster and more secure."
+      },
+      {
+        "claim_id": "c7",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-7bb840c34efd",
+          "E-6472f781ab46"
+        ],
+        "rationale": "ClientHello includes supported TLS version, cipher suites, and client random."
+      },
+      {
+        "claim_id": "c8",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-6472f781ab46",
+          "E-7bb840c34efd"
+        ],
+        "rationale": "Client assumes it knows server's preferred key exchange method and sends key share parameters; the IBM source says ephemeral key share via ECDHE."
+      },
+      {
+        "claim_id": "c9",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-7bb840c34efd"
+        ],
+        "rationale": "ServerHello contains selected cipher suite, server random, and its own ephemeral key share, establishing key exchange parameters."
+      },
+      {
+        "claim_id": "c10",
+        "status": "partial",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-a52ca486268a",
+          "E-bca981e68ca3",
+          "E-0ee28fe4b991"
+        ],
+        "rationale": "Server sends its digital certificate, and certificates bind public keys to identities via a CA, with client verifying a trusted CA issued it. Slight imprecision: evidence does not explicitly say the certificate is sent as described, but largely supports."
+      },
+      {
+        "claim_id": "c11",
+        "status": "partial",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-a52ca486268a",
+          "E-54b577e325f9",
+          "E-f66f365f6b57"
+        ],
+        "rationale": "Evidence says client verifies certificate is from a trusted CA, valid, not revoked, and domain matches. Local trust store and expiration specifically are not directly stated (expired certs mentioned only as a problem)."
+      },
+      {
+        "claim_id": "c12",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-a52ca486268a",
+          "E-a02d64e4595b",
+          "E-54b577e325f9"
+        ],
+        "rationale": "Evidence supports both sides deriving the same session keys from shared secrets and DH/ECDHE key exchange. However, one source describes RSA-style premaster secret encrypted with the public key, not DH, so 'using Diffie-Hellman' is not universal."
+      },
+      {
+        "claim_id": "c13",
+        "status": "unsupported",
+        "confidence": 0.6,
+        "evidence_ids": [],
+        "rationale": "Evidence says both sides generate/derive session keys, but does not explicitly state the session key is never transmitted."
+      },
+      {
+        "claim_id": "c14",
+        "status": "partial",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "E-22e355e3d21b",
+          "E-b37685b92dd5",
+          "E-858949a7279b"
+        ],
+        "rationale": "Evidence supports public key cryptography being used for authentication and key exchange, with symmetric used afterward. It says symmetric is simple and efficient, but does not state that asymmetric is computationally expensive."
+      },
+      {
+        "claim_id": "c15",
+        "status": "partial",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-0ee28fe4b991",
+          "E-22e355e3d21b",
+          "E-b37685b92dd5"
+        ],
+        "rationale": "Evidence supports symmetric encryption of HTTP headers and bodies after the handshake. The specific ciphers AES-GCM and ChaCha20-Poly1305 are not mentioned."
+      },
+      {
+        "claim_id": "c16",
+        "status": "supported",
+        "confidence": 0.88,
+        "evidence_ids": [
+          "E-7aac4c2f387d",
+          "E-b37685b92dd5"
+        ],
+        "rationale": "Symmetric keys used to create MACs that verify data integrity. 'Guarantee' slightly strong but acceptable."
+      },
+      {
+        "claim_id": "c17",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-58fda2ebeb1c",
+          "E-b0be22d3ec56"
+        ],
+        "rationale": "Evidence explicitly says HTTPS/padlock does not guarantee a site is safe or trustworthy."
+      },
+      {
+        "claim_id": "c18",
+        "status": "partial",
+        "confidence": 0.75,
+        "evidence_ids": [
+          "E-1197d1cbbe93",
+          "E-665fc28bf2bb",
+          "E-b0be22d3ec56"
+        ],
+        "rationale": "Data in transit vs at rest is explicit. Certificates bind keys to domain name and DV certs verify only domain ownership, but 'owner's intent' is not stated directly."
+      },
+      {
+        "claim_id": "c19",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-b0be22d3ec56"
+        ],
+        "rationale": "DV certs require only proof of domain ownership; attackers obtain free valid certs for lookalike domains; most phishing sites use HTTPS."
+      },
+      {
+        "claim_id": "c20",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-b0be22d3ec56",
+          "E-ad0969c6a944"
+        ],
+        "rationale": "Evidence shows phishing sites using HTTPS and stealing credentials, but the specific example domain is not mentioned."
+      },
+      {
+        "claim_id": "c21",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-6b869d941159"
+        ],
+        "rationale": "Evidence says HTTPS gives no defense against application-level attacks like SQL injection on the server, but does not mention malware on user devices as endpoint compromise or the TLS termination point."
+      },
+      {
+        "claim_id": "c22",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-54b1b0a2ceab"
+        ],
+        "rationale": "Evidence says SNI historically reveals the destination website in plaintext. It does not mention eavesdroppers seeing IP addresses or the URL path being encrypted."
+      },
+      {
+        "claim_id": "c23",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-6b869d941159"
+        ],
+        "rationale": "Evidence says XSS and other attacks travel within an encrypted connection and HTTPS offers no defense. It does not say they run in the decrypted browser context."
+      },
+      {
+        "claim_id": "c24",
+        "status": "partial",
+        "confidence": 0.5,
+        "evidence_ids": [
+          "E-54b1b0a2ceab"
+        ],
+        "rationale": "Evidence says SNI exposure is being addressed with newer encryption standards, but it does not name Encrypted Client Hello."
+      }
+    ],
+    "reference_evidence_ids_by_claim": {
+      "c1": [
+        "E-7366c9bcc311",
+        "E-13af8620698a",
+        "E-334a668c5a69",
+        "E-8a91682beca9"
+      ],
+      "c2": [
+        "E-7366c9bcc311",
+        "E-8a91682beca9",
+        "E-b4423ebaa06a",
+        "E-a24c555320e9"
+      ],
+      "c3": [
+        "E-7366c9bcc311",
+        "E-a24c555320e9",
+        "E-1e7a8e61f3cb",
+        "E-8a91682beca9"
+      ],
+      "c4": [
+        "E-7aac4c2f387d",
+        "E-b4423ebaa06a",
+        "E-1197d1cbbe93",
+        "E-54b577e325f9"
+      ],
+      "c5": [
+        "E-858949a7279b",
+        "E-7aac4c2f387d",
+        "E-1e7a8e61f3cb",
+        "E-f66f365f6b57"
+      ],
+      "c6": [
+        "E-8a91682beca9",
+        "E-b02fb33e5ee7",
+        "E-f66f365f6b57",
+        "E-1e7a8e61f3cb"
+      ],
+      "c7": [
+        "E-6472f781ab46",
+        "E-7bb840c34efd",
+        "E-1e7a8e61f3cb",
+        "E-f66f365f6b57"
+      ],
+      "c8": [
+        "E-a02d64e4595b",
+        "E-ccc66601f12e",
+        "E-0ee28fe4b991",
+        "E-d753caa8f51c"
+      ],
+      "c9": [
+        "E-bca981e68ca3",
+        "E-70c0f01495b3",
+        "E-0ee28fe4b991",
+        "E-13af8620698a"
+      ],
+      "c10": [
+        "E-a52ca486268a",
+        "E-54b577e325f9",
+        "E-0ee28fe4b991",
+        "E-55c04114900a"
+      ],
+      "c11": [
+        "E-55c04114900a",
+        "E-a52ca486268a",
+        "E-54b577e325f9",
+        "E-0ee28fe4b991"
+      ],
+      "c12": [
+        "E-a02d64e4595b",
+        "E-54b577e325f9",
+        "E-b0be22d3ec56",
+        "E-0ee28fe4b991"
+      ],
+      "c13": [
+        "E-54b577e325f9",
+        "E-22e355e3d21b",
+        "E-0ee28fe4b991",
+        "E-55c04114900a"
+      ],
+      "c14": [
+        "E-a02d64e4595b",
+        "E-340024c8bf81",
+        "E-0ee28fe4b991",
+        "E-f66f365f6b57"
+      ],
+      "c15": [
+        "E-8a91682beca9",
+        "E-b37685b92dd5",
+        "E-334a668c5a69",
+        "E-13af8620698a"
+      ],
+      "c16": [
+        "E-7aac4c2f387d",
+        "E-1e7a8e61f3cb",
+        "E-340024c8bf81",
+        "E-1197d1cbbe93"
+      ],
+      "c17": [
+        "E-58fda2ebeb1c",
+        "E-be1ea74bf620",
+        "E-665fc28bf2bb",
+        "E-858949a7279b"
+      ],
+      "c18": [
+        "E-1197d1cbbe93",
+        "E-b4423ebaa06a",
+        "E-b37685b92dd5",
+        "E-54b577e325f9"
+      ],
+      "c19": [
+        "E-b0be22d3ec56",
+        "E-bca981e68ca3",
+        "E-665fc28bf2bb",
+        "E-8a91682beca9"
+      ],
+      "c20": [
+        "E-ad0969c6a944",
+        "E-334a668c5a69",
+        "E-be1ea74bf620",
+        "E-858949a7279b"
+      ],
+      "c21": [
+        "E-6b869d941159",
+        "E-858949a7279b",
+        "E-1e7a8e61f3cb",
+        "E-7366c9bcc311"
+      ],
+      "c22": [
+        "E-54b1b0a2ceab",
+        "E-54b577e325f9",
+        "E-4b9a311bc1f2",
+        "E-22e355e3d21b"
+      ],
+      "c23": [
+        "E-6b869d941159",
+        "E-7366c9bcc311",
+        "E-334a668c5a69",
+        "E-8a91682beca9"
+      ],
+      "c24": [
+        "E-6472f781ab46",
+        "E-7bb840c34efd",
+        "E-1e7a8e61f3cb",
+        "E-d753caa8f51c"
+      ]
+    },
+    "citation_entailment_verifications": [],
+    "quality": {
+      "aspect_scores": [
+        {
+          "aspect": "HTTPS as HTTP carried inside a TLS-encrypted channel, and the problems it addresses",
+          "score": 0.95,
+          "rationale": "Explains HTTPS as HTTP wrapped in TLS, with confidentiality, integrity, authentication, and the postcard analogy."
+        },
+        {
+          "aspect": "TLS handshake: negotiating protocol version and cipher suite between client and server",
+          "score": 0.95,
+          "rationale": "ClientHello lists versions and cipher suites; ServerHello selects parameters."
+        },
+        {
+          "aspect": "Server authentication through certificates, certificate authorities, and the chain of trust",
+          "score": 0.9,
+          "rationale": "Certificate signed by CA, checked against root trust store, validity and domain. Intermediate chain is only implicit."
+        },
+        {
+          "aspect": "Key exchange establishing shared session keys, with forward secrecy",
+          "score": 0.85,
+          "rationale": "Ephemeral Diffie-Hellman and independently derived keys are explained; forward secrecy is not named or explained as a benefit."
+        },
+        {
+          "aspect": "Encryption and integrity protection of data in transit against eavesdropping and tampering",
+          "score": 0.95,
+          "rationale": "Symmetric AES-GCM/ChaCha20, MACs, and guarantees against eavesdropping and alteration."
+        },
+        {
+          "aspect": "Threats HTTPS does not stop: malware, phishing sites, compromised servers, endpoint attacks, metadata exposure",
+          "score": 0.95,
+          "rationale": "Covers phishing, malware, server vulnerabilities, SNI/IP metadata, and XSS."
+        }
+      ],
+      "covered_aspects": [
+        "HTTPS as HTTP carried inside a TLS-encrypted channel, and the problems it addresses",
+        "TLS handshake: negotiating protocol version and cipher suite between client and server",
+        "Server authentication through certificates, certificate authorities, and the chain of trust",
+        "Key exchange establishing shared session keys, with forward secrecy",
+        "Encryption and integrity protection of data in transit against eavesdropping and tampering",
+        "Threats HTTPS does not stop: malware, phishing sites, compromised servers, endpoint attacks, metadata exposure"
+      ],
+      "partially_covered_aspects": [],
+      "missing_aspects": [],
+      "coverage_score": 0.9249999999999999,
+      "coverage_rationale": "All aspects are covered well. Forward secrecy is only implicit, through ephemeral Diffie-Hellman.",
+      "relevance_score": 0.97,
+      "relevance_rationale": "Almost all content answers the question. The closing reflection on enterprise inspection is a brief, appropriate extension.",
+      "opening_orientation_score": 4,
+      "introduction_roadmap_score": 4,
+      "definitions_foundations_score": 4,
+      "explanatory_depth_score": 4,
+      "examples_applications_score": 4,
+      "organization_transitions_score": 4,
+      "clarity_accessibility_score": 4,
+      "spoken_naturalness_score": 4,
+      "conclusion_takeaway_score": 4,
+      "reflective_ending_score": 4,
+      "narration_rationale": "Clear opening and roadmap, logical flow from foundations to handshake to limitations, an analogy, a strong summary, and a reflective closing question."
+    },
+    "additional_metric_details": {
+      "grounded_requirement_coverage_percent": 62.08333,
+      "context_precision_at_k": null,
+      "context_recall_percent": null,
+      "retrieval_k": null,
+      "grounded_aspect_scores": [
+        1.0,
+        1.0,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "retrieved_aspect_scores": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "retrieved_passages_scored": 0,
+      "retrieval_assessment": {
+        "grounded_aspects": [
+          {
+            "aspect": "HTTPS as HTTP carried inside a TLS-encrypted channel, and the problems it addresses",
+            "score": 1.0,
+            "rationale": "E-7366 says TLS is the foundation of HTTPS, providing authentication, confidentiality and integrity; E-1e7a mentions reading/modifying traffic."
+          },
+          {
+            "aspect": "TLS handshake: negotiating protocol version and cipher suite between client and server",
+            "score": 1.0,
+            "rationale": "E-858949 and E-1e7a directly state version and cipher suite agreement, after TCP handshake."
+          },
+          {
+            "aspect": "Server authentication through certificates, certificate authorities, and the chain of trust",
+            "score": 0.5,
+            "rationale": "E-858949 supports server authentication via public key and CA digital signature; the trust store and chain details and domain checks are not in the evidence."
+          },
+          {
+            "aspect": "Key exchange establishing shared session keys, with forward secrecy",
+            "score": 0.5,
+            "rationale": "E-858949 supports generating session keys for symmetric encryption; Diffie-Hellman and forward secrecy are not supported."
+          },
+          {
+            "aspect": "Encryption and integrity protection of data in transit against eavesdropping and tampering",
+            "score": 0.5,
+            "rationale": "E-7366 supports confidentiality, integrity and the record protocol securing data; E-1e7a mentions cipher suites for encryption and message authentication. Specific algorithms are not covered."
+          },
+          {
+            "aspect": "Threats HTTPS does not stop: malware, phishing sites, compromised servers, endpoint attacks, metadata exposure",
+            "score": 0.5,
+            "rationale": "E-5080 supports malware using HTTPS and the padlock giving no protection; phishing, compromised servers, and metadata are not covered."
+          }
+        ],
+        "passage_relevance": [],
+        "retrieved_aspects": [
+          {
+            "aspect": "HTTPS as HTTP carried inside a TLS-encrypted channel, and the problems it addresses",
+            "score": 0.0,
+            "rationale": ""
+          },
+          {
+            "aspect": "TLS handshake: negotiating protocol version and cipher suite between client and server",
+            "score": 0.0,
+            "rationale": ""
+          },
+          {
+            "aspect": "Server authentication through certificates, certificate authorities, and the chain of trust",
+            "score": 0.0,
+            "rationale": ""
+          },
+          {
+            "aspect": "Key exchange establishing shared session keys, with forward secrecy",
+            "score": 0.0,
+            "rationale": ""
+          },
+          {
+            "aspect": "Encryption and integrity protection of data in transit against eavesdropping and tampering",
+            "score": 0.0,
+            "rationale": ""
+          },
+          {
+            "aspect": "Threats HTTPS does not stop: malware, phishing sites, compromised servers, endpoint attacks, metadata exposure",
+            "score": 0.0,
+            "rationale": ""
+          }
+        ]
+      },
+      "revision_comparison": null,
+      "notes": "All scores are Claude judgments, not verified ground truth. Repair effectiveness compares coverage/narration, not factual truth. No revision or no retrieval is N/A rather than zero."
+    },
+    "metric_semantics": {
+      "reference_evidence_support_percent": "Evidence entailment within the frozen reference corpus; not factual accuracy.",
+      "query_coverage_percent": "Coverage of a fixed six-aspect checklist derived once per question from the question text and shared by all systems; missing/duplicate judge outputs are normalized against that fixed denominator.",
+      "query_relevance_percent": "Independent-model relevance judgement.",
+      "narration_input": "Coverage, relevance, narration and grounded-requirement judgements use the complete script with [E-...] evidence markers removed; claim extraction and citation metrics use the marked script. Aspect scores are continuous in [0, 1].",
+      "narration_quality_percent": "Ten-dimension spoken educational narration score; excludes factual truth.",
+      "citation_precision": "Share of emitted citation IDs that are identified as supporting the claim when verification is restricted to cited passages.",
+      "citation_recall": "Share of all citation-required extracted factual claims that have at least one cited passage judged to support the claim.",
+      "evaluation_estimated_llm_cost_usd": "Evaluator telemetry. CLI mode uses Claude Code's reported list-price equivalent; API mode uses the configured Anthropic per-token rates."
+    },
+    "evaluation_telemetry": {
+      "started_at": "2026-11-12T13:10:52.550823+00:00",
+      "ended_at": "2026-11-12T13:11:56.428642+00:00",
+      "wall_seconds": 63.8783954999999,
+      "retrieval_calls": 0,
+      "retrieved_documents": 0,
+      "llm_calls": [
+        {
+          "task": "script_claims",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 11.160100099999909,
+          "prompt_tokens": 3411,
+          "output_tokens": 1731,
+          "thinking_tokens": 0,
+          "total_tokens": 5142,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0277676,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0277676,
+            "cache_creation_input_tokens": 2593,
+            "cache_read_input_tokens": 816,
+            "session_id": "1009f15c-6899-4b91-be35-59c6694971cf",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 6.836493599999812,
+          "prompt_tokens": 7107,
+          "output_tokens": 648,
+          "thinking_tokens": 0,
+          "total_tokens": 7755,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0308207,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0308207,
+            "cache_creation_input_tokens": 6058,
+            "cache_read_input_tokens": 1047,
+            "session_id": "7c761e59-43fb-41c6-b7a6-b508a20bc5bd",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 6.211333600000216,
+          "prompt_tokens": 9460,
+          "output_tokens": 578,
+          "thinking_tokens": 0,
+          "total_tokens": 10038,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0395327,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0395327,
+            "cache_creation_input_tokens": 8411,
+            "cache_read_input_tokens": 1047,
+            "session_id": "6db1d034-85b1-48b6-a537-6875182f6d35",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 7.17481989999942,
+          "prompt_tokens": 8232,
+          "output_tokens": 712,
+          "thinking_tokens": 0,
+          "total_tokens": 8944,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0359607,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0359607,
+            "cache_creation_input_tokens": 7183,
+            "cache_read_input_tokens": 1047,
+            "session_id": "30887050-aacb-484a-a44c-2f1256082663",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 6.450963999999658,
+          "prompt_tokens": 9034,
+          "output_tokens": 602,
+          "thinking_tokens": 0,
+          "total_tokens": 9636,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.038068700000000004,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.038068700000000004,
+            "cache_creation_input_tokens": 7985,
+            "cache_read_input_tokens": 1047,
+            "session_id": "85b461eb-6e4e-48c5-9a0c-43f85fa5d43f",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 5.659054099998684,
+          "prompt_tokens": 7352,
+          "output_tokens": 472,
+          "thinking_tokens": 0,
+          "total_tokens": 7824,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.030040699999999997,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.030040699999999997,
+            "cache_creation_input_tokens": 6303,
+            "cache_read_input_tokens": 1047,
+            "session_id": "fcee2d25-85df-4613-a770-d8cb765b9a74",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "answer_fulfilment_and_narration_evaluation",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 9.648580799999763,
+          "prompt_tokens": 6296,
+          "output_tokens": 1388,
+          "thinking_tokens": 0,
+          "total_tokens": 7684,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0258039,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0258039,
+            "cache_creation_input_tokens": 2895,
+            "cache_read_input_tokens": 3399,
+            "session_id": "46925216-f272-4e6d-8bdc-fdc77cb2994a",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "grounded_requirements_and_retrieval_quality",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 7.741680999999517,
+          "prompt_tokens": 5727,
+          "output_tokens": 934,
+          "thinking_tokens": 0,
+          "total_tokens": 6661,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0269907,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0269907,
+            "cache_creation_input_tokens": 4378,
+            "cache_read_input_tokens": 1347,
+            "session_id": "30780cb2-e0d6-423d-90c3-f5ff657de612",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        }
+      ]
+    },
+    "evaluation_provider": "anthropic",
+    "evaluation_access": "claude_code_cli",
+    "claude_access_method": "cli",
+    "claude_cli_version": "2.1.322 (Claude Code)",
+    "evaluation_model_requested": "claude-sonnet-5-5",
+    "evaluation_model": "claude-sonnet-5-5",
+    "evaluation_cli_reported_cost_usd": 0.2549857,
+    "evaluation_estimated_llm_cost_usd": 0.2549857,
+    "generation_provider": "gemini",
+    "generation_access": "google_api",
+    "generation_model_requested": "gemini-3.8-flash",
+    "generation_estimated_llm_cost_usd": 0.00507975,
+    "combined_generation_plus_evaluation_estimated_llm_cost_usd": 0.26006545
+  }
+}

@@ -1,0 +1,1681 @@
+{
+  "record": {
+    "experiment_id": "EXP_GEMINI_20261112T084659Z_b931c2",
+    "evaluated_script_sha256": "fcae48e4d8766d0272aa3376dd80fdfa654497af18a9809349359fff5005de0f",
+    "reference_pool_sha256": "58f86b2f765b3708a9100b251df357170f15a6e8eeacfd2b6dbfb3d0fbbabf78",
+    "generation_config_sha256": "130fb20735098b5ae7683be72a40463c48605cdf59d320daa9f9373f43ee4512",
+    "prompt_version": "evidence-aware-10q-shared-checklist-clean-narration-v1.6.0",
+    "system_id": "B2",
+    "prompt_id": "FQ02",
+    "domain": "Biology / Health Science",
+    "reasoning_type": "mechanism",
+    "generation_provider": "gemini",
+    "generation_access": "google_api",
+    "generation_model": "gemini-3.8-flash",
+    "evaluator_provider": "anthropic",
+    "evaluator_model": "claude-sonnet-5-5",
+    "claim_count": 28,
+    "supported_claims": 24,
+    "partial_claims": 4,
+    "unsupported_claims": 0,
+    "contradicted_claims": 0,
+    "supported_claim_rate": 0.8571428571428571,
+    "reference_evidence_support_percent": 92.85714285714286,
+    "query_coverage_percent": 82.5,
+    "query_relevance_percent": 93.0,
+    "narration_quality_percent": 92.5,
+    "citation_precision": 0.6923076923076923,
+    "citation_recall": 0.75,
+    "citation_f1": 0.7199999999999999,
+    "grounded_requirement_coverage_percent": 57.5,
+    "context_precision_at_k": 1.0,
+    "context_recall_percent": 58.333333333333336,
+    "repair_effectiveness_points": null,
+    "requirement_preservation_rate": null,
+    "source_count": 4,
+    "source_type_count": 1,
+    "llm_calls": 1,
+    "prompt_tokens": 3726,
+    "output_tokens": 1258,
+    "thinking_tokens": 0,
+    "billable_output_tokens": 1258,
+    "retrieval_calls": 1,
+    "latency_seconds": 12.828842999999779,
+    "word_count": 689,
+    "estimated_llm_cost_usd": 0.0075120000000000004,
+    "llm_call_latency_p50_seconds": 11.595310100000006,
+    "llm_call_latency_p90_seconds": 11.595310100000006
+  },
+  "details": {
+    "artifact_identity": {
+      "experiment_id": "EXP_GEMINI_20261112T084659Z_b931c2",
+      "evaluated_script_sha256": "fcae48e4d8766d0272aa3376dd80fdfa654497af18a9809349359fff5005de0f",
+      "reference_pool_sha256": "58f86b2f765b3708a9100b251df357170f15a6e8eeacfd2b6dbfb3d0fbbabf78",
+      "generation_config_sha256": "130fb20735098b5ae7683be72a40463c48605cdf59d320daa9f9373f43ee4512",
+      "prompt_version": "evidence-aware-10q-shared-checklist-clean-narration-v1.6.0"
+    },
+    "narration_judged_script_sha256": "76156184b87e7dea69efa11f7d8b168141d24e31f1b3f2af9d4f0b981892db5a",
+    "question_checklist": {
+      "aspects": [
+        "Vaccines expose the body to an antigen without causing the actual disease",
+        "Innate immune cells detect the antigen and activate T and B cells",
+        "B cells make antibodies while T cells coordinate and kill infected cells",
+        "Memory B and T cells form, enabling faster stronger response on later exposure",
+        "Different vaccine types (live, inactivated, subunit, mRNA) present antigens to trigger this response",
+        "Boosters are needed because antibodies and memory wane or pathogens mutate to evade immunity"
+      ],
+      "source": "derived_once_per_question_by_evaluator",
+      "aspects_sha256": "2d1427a792e2a26a167b02219c48bea9e8b6902f021407894cde1a9fbdb8a22e",
+      "derived_at": "2026-11-12T08:56:09.009334+00:00",
+      "derived_by_model": "claude-sonnet-5-5",
+      "derivation_cost_usd": 0.0049014,
+      "derived_in_this_call": false,
+      "file": "outputs_final_10q\\experiments\\EXP_GEMINI_20261112T084659Z_b931c2\\checklists\\FQ02.json"
+    },
+    "evaluation_claims": [
+      {
+        "claim_id": "c1",
+        "text": "The immune response functions through two coordinated arms: innate immunity and adaptive immunity.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-aa55e04ec5b0"
+        ]
+      },
+      {
+        "claim_id": "c2",
+        "text": "The innate immune system acts as the body's first line of defense.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-aa55e04ec5b0",
+          "E-5bf551fa9f97"
+        ]
+      },
+      {
+        "claim_id": "c3",
+        "text": "The innate immune system uses pattern recognition receptors, such as Toll-like receptors, to detect pathogen-associated signals like viral RNA.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-aa55e04ec5b0",
+          "E-5bf551fa9f97"
+        ]
+      },
+      {
+        "claim_id": "c4",
+        "text": "Adaptive immunity consists of T cells and B cells that provide tailored, pathogen-specific protection.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-06ced9f8a04c",
+          "E-aa55e04ec5b0"
+        ]
+      },
+      {
+        "claim_id": "c5",
+        "text": "B cells of the adaptive immune system produce defensive proteins known as antibodies.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-06ced9f8a04c",
+          "E-aa55e04ec5b0"
+        ]
+      },
+      {
+        "claim_id": "c6",
+        "text": "Vaccines train the immune system by mimicking natural infection or the structure of a pathogen.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-5bf551fa9f97"
+        ]
+      },
+      {
+        "claim_id": "c7",
+        "text": "Major vaccine formulations include replicating live attenuated vaccines and non-replicating vaccines.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-aa55e04ec5b0"
+        ]
+      },
+      {
+        "claim_id": "c8",
+        "text": "When a replicating live vaccine is injected, viral particles rapidly disseminate through the vascular network to immune organs and tissues, activating innate immune receptors.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-aa55e04ec5b0"
+        ]
+      },
+      {
+        "claim_id": "c9",
+        "text": "In response to vaccine activation, innate immune cells express co-stimulatory molecules and secrete cytokines and chemokines.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-aa55e04ec5b0"
+        ]
+      },
+      {
+        "claim_id": "c10",
+        "text": "Early innate signals modulate and direct the adaptive immune system, determining the quantity and quality of T and B cells as well as long-term memory.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-aa55e04ec5b0",
+          "E-5bf551fa9f97"
+        ]
+      },
+      {
+        "claim_id": "c11",
+        "text": "Antibodies produced after vaccination defend against specific pathogens during future exposures.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-06ced9f8a04c"
+        ]
+      },
+      {
+        "claim_id": "c12",
+        "text": "Over time, antibody levels can naturally decrease, and the protective immunity induced by some vaccines can fade.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-1836f9c6b86a"
+        ]
+      },
+      {
+        "claim_id": "c13",
+        "text": "A booster dose is an additional injection administered after the primary vaccination to restore and enhance protection.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-06ced9f8a04c",
+          "E-4eaf7eb62f6c"
+        ]
+      },
+      {
+        "claim_id": "c14",
+        "text": "A booster re-exposes the immune system to the vaccine antigen, effectively tricking the body into believing it is encountering the pathogen again.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-4eaf7eb62f6c",
+          "E-1836f9c6b86a"
+        ]
+      },
+      {
+        "claim_id": "c15",
+        "text": "A booster kickstarts the immune system to rebuild defenses, increasing both the quantity and quality of circulating antibodies.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-1836f9c6b86a"
+        ]
+      },
+      {
+        "claim_id": "c16",
+        "text": "Scientists evaluate whether a booster is necessary by measuring antibody counts and testing how rapidly and robustly antibodies respond to antigen re-exposure.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-394facf40a0a"
+        ]
+      },
+      {
+        "claim_id": "c17",
+        "text": "A fast, strong antibody response indicates the immune system can successfully combat an infection, while a slower or weaker response signals that an extra dose is needed.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-394facf40a0a"
+        ]
+      },
+      {
+        "claim_id": "c18",
+        "text": "Booster schedules often depend on how long an antibody response typically remains high enough to prevent illness.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-394facf40a0a"
+        ]
+      },
+      {
+        "claim_id": "c19",
+        "text": "The tetanus vaccine requires a booster every ten years to strengthen a fading antigen response.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-394facf40a0a"
+        ]
+      },
+      {
+        "claim_id": "c20",
+        "text": "A Tdap booster is recommended during each pregnancy to protect newborns.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-394facf40a0a"
+        ]
+      },
+      {
+        "claim_id": "c21",
+        "text": "During the COVID-19 pandemic, the Pfizer vaccine regimen showed a decline in protection around six months after initial injections.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-06ced9f8a04c",
+          "E-4eaf7eb62f6c"
+        ]
+      },
+      {
+        "claim_id": "c22",
+        "text": "Booster recommendations for COVID-19 were made to restore vaccine effectiveness against emerging variants.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-06ced9f8a04c",
+          "E-4eaf7eb62f6c"
+        ]
+      },
+      {
+        "claim_id": "c23",
+        "text": "Booster needs vary widely and are not universal across all diseases.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-06ced9f8a04c"
+        ]
+      },
+      {
+        "claim_id": "c24",
+        "text": "Childhood immunization with two doses provides lifelong immunity against measles.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-1836f9c6b86a"
+        ]
+      },
+      {
+        "claim_id": "c25",
+        "text": "Measles is a stable virus that is unlikely to mutate.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-1836f9c6b86a"
+        ]
+      },
+      {
+        "claim_id": "c26",
+        "text": "Viral mutation rates, individual factors such as aging or compromised immune function, and environmental risks like healthcare work or travel can all dictate booster schedules.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-06ced9f8a04c",
+          "E-1836f9c6b86a",
+          "E-306db733a60b"
+        ]
+      },
+      {
+        "claim_id": "c27",
+        "text": "Most boosters are exact replicas of the original shot, but formulations can be tweaked or strain-matched to counteract mutated variants, as with seasonal influenza vaccines.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-306db733a60b"
+        ]
+      },
+      {
+        "claim_id": "c28",
+        "text": "Boosters have a safety profile similar to initial doses, generally causing mild local side effects like injection site soreness or swelling.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-06ced9f8a04c"
+        ]
+      }
+    ],
+    "reference_verifications": [
+      {
+        "claim_id": "c1",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-2dd69c444188",
+          "E-557696b8e7ff"
+        ],
+        "rationale": "Two subsystems/branches, innate and adaptive, that continually interact."
+      },
+      {
+        "claim_id": "c2",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-2dd69c444188",
+          "E-7c8a17506de6"
+        ],
+        "rationale": "Innate system provides first-line defense."
+      },
+      {
+        "claim_id": "c3",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-aa55e04ec5b0",
+          "E-79a1eee4d062",
+          "E-557696b8e7ff"
+        ],
+        "rationale": "Innate system recognizes pathogen-associated signals such as viral RNA via PRRs; TLRs listed as PRR examples."
+      },
+      {
+        "claim_id": "c4",
+        "status": "supported",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-7465df40304d"
+        ],
+        "rationale": "Adaptive response composed of B cells/antibodies and T cells, specific to the pathogen. 'Tailored' is a paraphrase of 'specific'."
+      },
+      {
+        "claim_id": "c5",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-679b7f63ba67",
+          "E-e07b20aa2826"
+        ],
+        "rationale": "B cells differentiate into plasma cells that secrete antibodies; antibodies are proteins that defend the body."
+      },
+      {
+        "claim_id": "c6",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-5bf551fa9f97",
+          "E-29695a55ddd7"
+        ],
+        "rationale": "Evidence says vaccines mimicking natural infection and/or pathogen structure are effective, and that a vaccine imitates an infection to teach the immune system."
+      },
+      {
+        "claim_id": "c7",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-aa55e04ec5b0"
+        ],
+        "rationale": "Directly states two major types: replicating live attenuated and non-replicating vaccines."
+      },
+      {
+        "claim_id": "c8",
+        "status": "partial",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-aa55e04ec5b0",
+          "E-d14496f6da86"
+        ],
+        "rationale": "Rapid dissemination through vascular network to immune organs is stated, and live vaccines trigger innate recognition via pattern recognition receptors; the direct link is slightly inferential (activation of dendritic cells is stated)."
+      },
+      {
+        "claim_id": "c9",
+        "status": "partial",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "E-aa55e04ec5b0"
+        ],
+        "rationale": "Evidence says induction of co-stimulatory molecules and secretion of cytokines/chemokines by innate cells affect T and B cells, but does not explicitly say it occurs in response to vaccine activation."
+      },
+      {
+        "claim_id": "c10",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-5bf551fa9f97",
+          "E-aa55e04ec5b0"
+        ],
+        "rationale": "Evidence states the innate immune system modulates quantity and quality of long-term T and B cell memory, and innate cell signals affect quality and quantities of T and B cells."
+      },
+      {
+        "claim_id": "c11",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-06ced9f8a04c",
+          "E-c98cbb4a315b"
+        ],
+        "rationale": "Evidence says antibodies help defend against specific pathogens; vaccines teach body to produce antibodies against antigen."
+      },
+      {
+        "claim_id": "c12",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-1836f9c6b86a"
+        ],
+        "rationale": "Near verbatim."
+      },
+      {
+        "claim_id": "c13",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-4eaf7eb62f6c",
+          "E-06ced9f8a04c",
+          "E-67b179a42232"
+        ],
+        "rationale": "Booster is additional dose after initial immunization to restore/enhance immune response; 'injection' stated in one source."
+      },
+      {
+        "claim_id": "c14",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-1836f9c6b86a",
+          "E-4eaf7eb62f6c"
+        ],
+        "rationale": "UCLA: booster tricks immune system into thinking it's encountering the virus; re-exposure to antigen."
+      },
+      {
+        "claim_id": "c15",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-1836f9c6b86a"
+        ],
+        "rationale": "UCLA text says booster kickstarts immune response and rebuilds immunity by increasing quantity and quality of antibodies."
+      },
+      {
+        "claim_id": "c16",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-394facf40a0a"
+        ],
+        "rationale": "Evidence says scientists measure antibody number and the response of antibodies to reintroduced antigen."
+      },
+      {
+        "claim_id": "c17",
+        "status": "supported",
+        "confidence": 0.88,
+        "evidence_ids": [
+          "E-394facf40a0a"
+        ],
+        "rationale": "Quick, strong response means immune system likely can fight infection; slower, less robust response means another dose might be needed. The claim's 'signals that' is slightly stronger than 'might', but it's essentially aligned."
+      },
+      {
+        "claim_id": "c18",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-394facf40a0a"
+        ],
+        "rationale": "Boosters are often administered based on how long the antibody response remains strong enough to prevent illness."
+      },
+      {
+        "claim_id": "c19",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-394facf40a0a"
+        ],
+        "rationale": "Tetanus boosters recommended every ten years because the antigen response needs strengthening."
+      },
+      {
+        "claim_id": "c20",
+        "status": "supported",
+        "confidence": 0.92,
+        "evidence_ids": [
+          "E-394facf40a0a"
+        ],
+        "rationale": "Tdap booster is recommended during each pregnancy to help protect newborns from pertussis."
+      },
+      {
+        "claim_id": "c21",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-4eaf7eb62f6c"
+        ],
+        "rationale": "Evidence says most COVID vaccines were 2 injections and 6 months later a decline in immunity was seen. It does not name Pfizer specifically, but this is a minor gap."
+      },
+      {
+        "claim_id": "c22",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-4eaf7eb62f6c",
+          "E-d104b0e94a13",
+          "E-06ced9f8a04c"
+        ],
+        "rationale": "Boosters were recommended to restore vaccine effectiveness and to counter new variants."
+      },
+      {
+        "claim_id": "c23",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-06ced9f8a04c",
+          "E-67b179a42232",
+          "E-394facf40a0a"
+        ],
+        "rationale": "Not all vaccines require boosters, and the need and frequency vary significantly."
+      },
+      {
+        "claim_id": "c24",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-1836f9c6b86a",
+          "E-306db733a60b"
+        ],
+        "rationale": "The UCLA Health text says a child receives a two-dose vaccine to achieve lifelong immunity from measles."
+      },
+      {
+        "claim_id": "c25",
+        "status": "partial",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-1836f9c6b86a"
+        ],
+        "rationale": "The evidence says some viruses, such as measles, are stable and not likely to mutate. The claim's flat wording is slightly stronger, but it is largely supported."
+      },
+      {
+        "claim_id": "c26",
+        "status": "partial",
+        "confidence": 0.72,
+        "evidence_ids": [
+          "E-306db733a60b",
+          "E-06ced9f8a04c",
+          "E-394facf40a0a"
+        ],
+        "rationale": "Evidence supports individual factors (elderly, compromised immunity) and environmental risks (healthcare work, travel) affecting boosters. Viral mutation rates as a determinant of schedules is only loosely supported (new variants prompting boosters), not explicit about mutation rates dictating schedules."
+      },
+      {
+        "claim_id": "c27",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-306db733a60b"
+        ],
+        "rationale": "UCLA Health text says most boosters are exact replicas but can be tweaked, with updates for variants similar to strain-matched seasonal flu vaccines."
+      },
+      {
+        "claim_id": "c28",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-06ced9f8a04c"
+        ],
+        "rationale": "Evidence states booster safety profile is generally similar to the original vaccine, with mild side effects such as soreness or swelling at the injection site."
+      }
+    ],
+    "reference_evidence_ids_by_claim": {
+      "c1": [
+        "E-7465df40304d",
+        "E-557696b8e7ff",
+        "E-8fbcb6c8a220",
+        "E-1836f9c6b86a",
+        "E-007dcd1fee1c"
+      ],
+      "c2": [
+        "E-2dd69c444188",
+        "E-7c8a17506de6",
+        "E-c98cbb4a315b",
+        "E-8fbcb6c8a220",
+        "E-e3dba312b2a1"
+      ],
+      "c3": [
+        "E-79a1eee4d062",
+        "E-aa55e04ec5b0",
+        "E-8fbcb6c8a220",
+        "E-06ced9f8a04c",
+        "E-de4525ba7f72"
+      ],
+      "c4": [
+        "E-5655fbe0b727",
+        "E-f422999e2069",
+        "E-8fbcb6c8a220",
+        "E-679b7f63ba67",
+        "E-e07b20aa2826"
+      ],
+      "c5": [
+        "E-7465df40304d",
+        "E-aa55e04ec5b0",
+        "E-e07b20aa2826",
+        "E-8fbcb6c8a220",
+        "E-679b7f63ba67"
+      ],
+      "c6": [
+        "E-8fbcb6c8a220",
+        "E-d14496f6da86",
+        "E-a2fef4020021",
+        "E-29695a55ddd7",
+        "E-e07b20aa2826"
+      ],
+      "c7": [
+        "E-aa55e04ec5b0",
+        "E-bfb037358d9e",
+        "E-d104b0e94a13",
+        "E-8fccaa8d6e6a",
+        "E-61836500f0a2"
+      ],
+      "c8": [
+        "E-aa55e04ec5b0",
+        "E-2dd69c444188",
+        "E-8fbcb6c8a220",
+        "E-c98cbb4a315b",
+        "E-7cbc36f93ac8"
+      ],
+      "c9": [
+        "E-aa55e04ec5b0",
+        "E-8fbcb6c8a220",
+        "E-2dd69c444188",
+        "E-679b7f63ba67",
+        "E-007dcd1fee1c"
+      ],
+      "c10": [
+        "E-7465df40304d",
+        "E-5bf551fa9f97",
+        "E-85d6646f85f5",
+        "E-8fbcb6c8a220",
+        "E-1836f9c6b86a"
+      ],
+      "c11": [
+        "E-06ced9f8a04c",
+        "E-216110ac4b37",
+        "E-557696b8e7ff",
+        "E-61836500f0a2",
+        "E-306db733a60b"
+      ],
+      "c12": [
+        "E-1836f9c6b86a",
+        "E-c76f2fa4562b",
+        "E-7b253282d729",
+        "E-61836500f0a2",
+        "E-4eaf7eb62f6c"
+      ],
+      "c13": [
+        "E-4eaf7eb62f6c",
+        "E-06ced9f8a04c",
+        "E-d14496f6da86",
+        "E-3a4f651dcc83",
+        "E-306db733a60b"
+      ],
+      "c14": [
+        "E-c98cbb4a315b",
+        "E-bfb037358d9e",
+        "E-1836f9c6b86a",
+        "E-8fbcb6c8a220",
+        "E-f422999e2069"
+      ],
+      "c15": [
+        "E-1836f9c6b86a",
+        "E-ccd3d559434f",
+        "E-5bf551fa9f97",
+        "E-67b179a42232",
+        "E-116c652ab709"
+      ],
+      "c16": [
+        "E-394facf40a0a",
+        "E-306db733a60b",
+        "E-b0bae7b46a03",
+        "E-e249c08278f6",
+        "E-679b7f63ba67"
+      ],
+      "c17": [
+        "E-394facf40a0a",
+        "E-15bd5cb8c50d",
+        "E-4eaf7eb62f6c",
+        "E-1836f9c6b86a",
+        "E-8fbcb6c8a220"
+      ],
+      "c18": [
+        "E-394facf40a0a",
+        "E-15bd5cb8c50d",
+        "E-8fccaa8d6e6a",
+        "E-306db733a60b",
+        "E-e07b20aa2826"
+      ],
+      "c19": [
+        "E-394facf40a0a",
+        "E-1836f9c6b86a",
+        "E-bfb037358d9e",
+        "E-f422999e2069",
+        "E-4eaf7eb62f6c"
+      ],
+      "c20": [
+        "E-394facf40a0a",
+        "E-306db733a60b",
+        "E-4eaf7eb62f6c",
+        "E-c29cd7738e52",
+        "E-ccd3d559434f"
+      ],
+      "c21": [
+        "E-4283525c6d65",
+        "E-5b17b69e4a1a",
+        "E-06ced9f8a04c",
+        "E-e3dba312b2a1",
+        "E-306db733a60b"
+      ],
+      "c22": [
+        "E-4eaf7eb62f6c",
+        "E-306db733a60b",
+        "E-d104b0e94a13",
+        "E-5b17b69e4a1a",
+        "E-7fcbb1dd570d"
+      ],
+      "c23": [
+        "E-06ced9f8a04c",
+        "E-116c652ab709",
+        "E-e3dba312b2a1",
+        "E-5b17b69e4a1a",
+        "E-f7850e1d369b"
+      ],
+      "c24": [
+        "E-1836f9c6b86a",
+        "E-d9127c36d921",
+        "E-92a6a8be385c",
+        "E-67b179a42232",
+        "E-4eaf7eb62f6c"
+      ],
+      "c25": [
+        "E-1836f9c6b86a",
+        "E-679b7f63ba67",
+        "E-20f30c47cebd",
+        "E-c98cbb4a315b",
+        "E-e07b20aa2826"
+      ],
+      "c26": [
+        "E-06ced9f8a04c",
+        "E-1ee33f8540d6",
+        "E-306db733a60b",
+        "E-92a6a8be385c",
+        "E-0acba8baa213"
+      ],
+      "c27": [
+        "E-306db733a60b",
+        "E-fc110068a2ea",
+        "E-d104b0e94a13",
+        "E-038c9b292fde",
+        "E-de4525ba7f72"
+      ],
+      "c28": [
+        "E-06ced9f8a04c",
+        "E-306db733a60b",
+        "E-d14496f6da86",
+        "E-7b253282d729",
+        "E-49a1ce6b78c3"
+      ]
+    },
+    "citation_entailment_verifications": [
+      {
+        "claim_id": "c1",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-aa55e04ec5b0"
+        ],
+        "rationale": "Evidence mentions interactions between innate and adaptive immune systems, but does not explicitly state the response functions via two coordinated arms."
+      },
+      {
+        "claim_id": "c2",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-5bf551fa9f97"
+        ],
+        "rationale": "States innate immunity is the first line of host defense."
+      },
+      {
+        "claim_id": "c3",
+        "status": "supported",
+        "confidence": 0.88,
+        "evidence_ids": [
+          "E-5bf551fa9f97",
+          "E-aa55e04ec5b0"
+        ],
+        "rationale": "Innate system recognizes pathogen-associated signals such as viral RNA via pattern recognition receptors; TLRs are receptors for PAMPs."
+      },
+      {
+        "claim_id": "c4",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-aa55e04ec5b0"
+        ],
+        "rationale": "Evidence mentions T and B cells of the adaptive immune system but not that they provide tailored, pathogen-specific protection."
+      },
+      {
+        "claim_id": "c5",
+        "status": "partial",
+        "confidence": 0.55,
+        "evidence_ids": [
+          "E-06ced9f8a04c",
+          "E-aa55e04ec5b0"
+        ],
+        "rationale": "Evidence mentions antibody production by the immune system and B cells as part of adaptive immunity, but does not explicitly say B cells produce antibodies."
+      },
+      {
+        "claim_id": "c6",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-5bf551fa9f97"
+        ],
+        "rationale": "Evidence says vaccines that mimic natural infection and/or pathogen structure seem effective in inducing long-term immunity (limited studies); it does not state that vaccines generally train the immune system this way."
+      },
+      {
+        "claim_id": "c7",
+        "status": "supported",
+        "confidence": 0.97,
+        "evidence_ids": [
+          "E-aa55e04ec5b0"
+        ],
+        "rationale": "Directly states two major types: replicating live attenuated and non-replicating vaccines."
+      },
+      {
+        "claim_id": "c8",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-aa55e04ec5b0"
+        ],
+        "rationale": "Dissemination through the vascular network to immune organs is stated, and live vaccines activate innate immune system via pattern recognition receptors; but the sentence linking injection directly to activating receptors is only loosely supported."
+      },
+      {
+        "claim_id": "c9",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-aa55e04ec5b0"
+        ],
+        "rationale": "Evidence says innate cells induce co-stimulatory molecules and secrete cytokines/chemokines, but not specifically framed as a response to vaccine activation."
+      },
+      {
+        "claim_id": "c10",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-5bf551fa9f97",
+          "E-aa55e04ec5b0"
+        ],
+        "rationale": "Innate immunity modulates quantity and quality of T and B cell memory and responses; 'early signals' and 'directing' adaptive immunity are mostly consistent but 'determining' is stronger than 'modulates'/'affects'."
+      },
+      {
+        "claim_id": "c11",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-06ced9f8a04c"
+        ],
+        "rationale": "Evidence says vaccine prompts antibody production which helps defend against specific pathogens; 'future exposures' is a mild inference."
+      },
+      {
+        "claim_id": "c12",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-1836f9c6b86a"
+        ],
+        "rationale": "Directly stated."
+      },
+      {
+        "claim_id": "c13",
+        "status": "supported",
+        "confidence": 0.88,
+        "evidence_ids": [
+          "E-06ced9f8a04c",
+          "E-4eaf7eb62f6c"
+        ],
+        "rationale": "Booster is an additional dose/injection after initial immunization to enhance response and restore effectiveness."
+      },
+      {
+        "claim_id": "c14",
+        "status": "supported",
+        "confidence": 0.92,
+        "evidence_ids": [
+          "E-1836f9c6b86a",
+          "E-4eaf7eb62f6c"
+        ],
+        "rationale": "Booster tricks immune system into thinking it's encountering the virus; offers re-exposure to the antigen."
+      },
+      {
+        "claim_id": "c15",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-1836f9c6b86a"
+        ],
+        "rationale": "Booster is needed to kickstart the immune response, rebuilding immunity by increasing antibody quantity and quality."
+      },
+      {
+        "claim_id": "c16",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-394facf40a0a"
+        ],
+        "rationale": "Evidence says scientists measure antibody numbers and their response to antigen reintroduction to determine booster need."
+      },
+      {
+        "claim_id": "c17",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-394facf40a0a"
+        ],
+        "rationale": "Quick, strong response suggests the immune system can fight infection; slower, weaker response means another dose might be needed. The claim slightly overstates certainty ('signals' vs 'might')."
+      },
+      {
+        "claim_id": "c18",
+        "status": "supported",
+        "confidence": 0.92,
+        "evidence_ids": [
+          "E-394facf40a0a"
+        ],
+        "rationale": "In many cases boosters are based on how long antibody response remains strong enough to prevent illness."
+      },
+      {
+        "claim_id": "c19",
+        "status": "supported",
+        "confidence": 0.92,
+        "evidence_ids": [
+          "E-394facf40a0a"
+        ],
+        "rationale": "Tetanus boosters recommended every ten years because the antigen response needs strengthening."
+      },
+      {
+        "claim_id": "c20",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-394facf40a0a"
+        ],
+        "rationale": "Tdap booster recommended during each pregnancy to help protect newborns from pertussis."
+      },
+      {
+        "claim_id": "c21",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-4eaf7eb62f6c"
+        ],
+        "rationale": "E-4eaf7eb62f6c says that for COVID-19, 2 injections were recommended for most vaccines and that 6 months later a decline in immunity was seen. It does not name Pfizer. E-06ced9f8a04c mentions Pfizer but gives no six-month decline. The claim is therefore slightly more specific than the evidence."
+      },
+      {
+        "claim_id": "c22",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-4eaf7eb62f6c",
+          "E-06ced9f8a04c"
+        ],
+        "rationale": "E-4eaf7eb62f6c says the objective of a booster is to restore vaccine effectiveness. E-06ced9f8a04c says Pfizer vaccines needed additional doses to combat new variants."
+      },
+      {
+        "claim_id": "c23",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-06ced9f8a04c"
+        ],
+        "rationale": "E-06ced9f8a04c says not all vaccines require boosters and that the need and frequency vary significantly."
+      },
+      {
+        "claim_id": "c24",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-1836f9c6b86a"
+        ],
+        "rationale": "E-1836f9c6b86a says a two-dose childhood vaccine is received to achieve lifelong immunity from measles."
+      },
+      {
+        "claim_id": "c25",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-1836f9c6b86a"
+        ],
+        "rationale": "E-1836f9c6b86a says measles is stable and not likely to mutate."
+      },
+      {
+        "claim_id": "c26",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-06ced9f8a04c",
+          "E-1836f9c6b86a",
+          "E-306db733a60b"
+        ],
+        "rationale": "Mutation rate (E-1836f9c6b86a, as 'one factor may be'), individual factors like elderly/compromised immunity (E-06ced9f8a04c), and healthcare work/travel (E-306db733a60b) are all mentioned as influencing boosters."
+      },
+      {
+        "claim_id": "c27",
+        "status": "supported",
+        "confidence": 0.92,
+        "evidence_ids": [
+          "E-306db733a60b"
+        ],
+        "rationale": "Evidence states most boosters are exact replicas but can be tweaked, with strain-matched flu vaccines as analogy."
+      },
+      {
+        "claim_id": "c28",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-06ced9f8a04c"
+        ],
+        "rationale": "Evidence states safety profile is generally similar to the original vaccine, with mild side effects like soreness or swelling at the injection site."
+      }
+    ],
+    "quality": {
+      "aspect_scores": [
+        {
+          "aspect": "Vaccines expose the body to an antigen without causing the actual disease",
+          "score": 0.8,
+          "rationale": "Mimicking infection or pathogen structure is explained; the 'without causing disease' safety point is only implicit."
+        },
+        {
+          "aspect": "Innate immune cells detect the antigen and activate T and B cells",
+          "score": 0.9,
+          "rationale": "Pattern recognition receptors, co-stimulatory molecules and cytokines are explained as directing the adaptive response."
+        },
+        {
+          "aspect": "B cells make antibodies while T cells coordinate and kill infected cells",
+          "score": 0.75,
+          "rationale": "Antibody production is covered; the specific T cell roles of coordinating and killing are thin."
+        },
+        {
+          "aspect": "Memory B and T cells form, enabling faster stronger response on later exposure",
+          "score": 0.85,
+          "rationale": "Long-term memory and the faster, stronger response on re-exposure are described, though memory cell formation is not detailed."
+        },
+        {
+          "aspect": "Different vaccine types (live, inactivated, subunit, mRNA) present antigens to trigger this response",
+          "score": 0.7,
+          "rationale": "Only live attenuated and non-replicating vaccines are mentioned; inactivated, subunit and mRNA types are not distinguished."
+        },
+        {
+          "aspect": "Boosters are needed because antibodies and memory wane or pathogens mutate to evade immunity",
+          "score": 0.95,
+          "rationale": "Waning antibodies, mutation, variants and strain-matched updates are all explained with examples."
+        }
+      ],
+      "covered_aspects": [
+        "Vaccines expose the body to an antigen without causing the actual disease",
+        "Innate immune cells detect the antigen and activate T and B cells",
+        "Memory B and T cells form, enabling faster stronger response on later exposure",
+        "Boosters are needed because antibodies and memory wane or pathogens mutate to evade immunity"
+      ],
+      "partially_covered_aspects": [
+        "B cells make antibodies while T cells coordinate and kill infected cells",
+        "Different vaccine types (live, inactivated, subunit, mRNA) present antigens to trigger this response"
+      ],
+      "missing_aspects": [],
+      "coverage_score": 0.8250000000000001,
+      "coverage_rationale": "Boosters and the innate-to-adaptive activation are covered well. Vaccine types and T cell functions are thin.",
+      "relevance_score": 0.93,
+      "relevance_rationale": "Almost everything addresses the question. The safety remark and how scientists evaluate boosters are minor side points.",
+      "opening_orientation_score": 4,
+      "introduction_roadmap_score": 4,
+      "definitions_foundations_score": 4,
+      "explanatory_depth_score": 3,
+      "examples_applications_score": 4,
+      "organization_transitions_score": 4,
+      "clarity_accessibility_score": 3,
+      "spoken_naturalness_score": 3,
+      "conclusion_takeaway_score": 4,
+      "reflective_ending_score": 4,
+      "narration_rationale": "The script has a clear opening and roadmap, a logical flow from innate to adaptive immunity to boosters, concrete examples (tetanus, COVID-19, measles, influenza), and a summary with a reflective closing question. The tone is slightly formal but readable aloud."
+    },
+    "additional_metric_details": {
+      "grounded_requirement_coverage_percent": 57.5,
+      "context_precision_at_k": 1.0,
+      "context_recall_percent": 58.333333333333336,
+      "retrieval_k": 5,
+      "grounded_aspect_scores": [
+        0.5,
+        1.0,
+        0.0,
+        1.0,
+        0.5,
+        1.0
+      ],
+      "retrieved_aspect_scores": [
+        0.5,
+        1.0,
+        0.0,
+        0.5,
+        0.5,
+        1.0
+      ],
+      "retrieved_passages_scored": 5,
+      "retrieval_assessment": {
+        "grounded_aspects": [
+          {
+            "aspect": "Vaccines expose the body to an antigen without causing the actual disease",
+            "score": 0.5,
+            "rationale": "Reference says vaccines mimic natural infection/structure of pathogens; no explicit 'without causing disease'."
+          },
+          {
+            "aspect": "Innate immune cells detect the antigen and activate T and B cells",
+            "score": 1.0,
+            "rationale": "E-d14496f6da86, E-2dd69c444188, E-8fbcb6c8a220 support innate activation of DCs and adaptive T/B cells."
+          },
+          {
+            "aspect": "B cells make antibodies while T cells coordinate and kill infected cells",
+            "score": 0.0,
+            "rationale": "Script says T and B cells provide protection and antibodies; no coordination/killing roles; reference doesn't directly support."
+          },
+          {
+            "aspect": "Memory B and T cells form, enabling faster stronger response on later exposure",
+            "score": 1.0,
+            "rationale": "E-8fbcb6c8a220 describes memory cells rapidly activating on secondary infection; E-ccd3d559434f memory B cells respond quickly."
+          },
+          {
+            "aspect": "Different vaccine types (live, inactivated, subunit, mRNA) present antigens to trigger this response",
+            "score": 0.5,
+            "rationale": "Script covers live vs non-replicating only; reference mentions live, inactivated, subunit, VLP."
+          },
+          {
+            "aspect": "Boosters are needed because antibodies and memory wane or pathogens mutate to evade immunity",
+            "score": 1.0,
+            "rationale": "Reference supports waning antibodies, mutation, and Omicron evasion (E-ccd3d559434f, E-306db733a60b)."
+          }
+        ],
+        "passage_relevance": [
+          {
+            "evidence_id": "E-394facf40a0a",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-06ced9f8a04c",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-116c652ab709",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-4eaf7eb62f6c",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-1836f9c6b86a",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-306db733a60b",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-aa55e04ec5b0",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-5bf551fa9f97",
+            "relevant": true
+          }
+        ],
+        "retrieved_aspects": [
+          {
+            "aspect": "Vaccines expose the body to an antigen without causing the actual disease",
+            "score": 0.5,
+            "rationale": "E-5bf551fa9f97 says vaccines mimic natural infection or pathogen structure; not explicit about no disease."
+          },
+          {
+            "aspect": "Innate immune cells detect the antigen and activate T and B cells",
+            "score": 1.0,
+            "rationale": "E-aa55e04ec5b0 and E-5bf551fa9f97 cover PRRs, TLRs, innate modulation of T and B cells."
+          },
+          {
+            "aspect": "B cells make antibodies while T cells coordinate and kill infected cells",
+            "score": 0.0,
+            "rationale": "No passage describes distinct B and T cell roles."
+          },
+          {
+            "aspect": "Memory B and T cells form, enabling faster stronger response on later exposure",
+            "score": 0.5,
+            "rationale": "E-5bf551fa9f97 mentions long-term T and B cell memory; E-394facf40a0a mentions fast strong antibody response on re-exposure; not detailed on memory cells."
+          },
+          {
+            "aspect": "Different vaccine types (live, inactivated, subunit, mRNA) present antigens to trigger this response",
+            "score": 0.5,
+            "rationale": "E-aa55e04ec5b0 gives live attenuated vs non-replicating; no inactivated, subunit, mRNA detail."
+          },
+          {
+            "aspect": "Boosters are needed because antibodies and memory wane or pathogens mutate to evade immunity",
+            "score": 1.0,
+            "rationale": "E-1836f9c6b86a, E-4eaf7eb62f6c, E-306db733a60b cover waning antibodies, mutation, and variants."
+          }
+        ]
+      },
+      "revision_comparison": null,
+      "notes": "All scores are Claude judgments, not verified ground truth. Repair effectiveness compares coverage/narration, not factual truth. No revision or no retrieval is N/A rather than zero."
+    },
+    "metric_semantics": {
+      "reference_evidence_support_percent": "Evidence entailment within the frozen reference corpus; not factual accuracy.",
+      "query_coverage_percent": "Coverage of a fixed six-aspect checklist derived once per question from the question text and shared by all systems; missing/duplicate judge outputs are normalized against that fixed denominator.",
+      "query_relevance_percent": "Independent-model relevance judgement.",
+      "narration_input": "Coverage, relevance, narration and grounded-requirement judgements use the complete script with [E-...] evidence markers removed; claim extraction and citation metrics use the marked script. Aspect scores are continuous in [0, 1].",
+      "narration_quality_percent": "Ten-dimension spoken educational narration score; excludes factual truth.",
+      "citation_precision": "Share of emitted citation IDs that are identified as supporting the claim when verification is restricted to cited passages.",
+      "citation_recall": "Share of all citation-required extracted factual claims that have at least one cited passage judged to support the claim.",
+      "evaluation_estimated_llm_cost_usd": "Evaluator telemetry. CLI mode uses Claude Code's reported list-price equivalent; API mode uses the configured Anthropic per-token rates."
+    },
+    "evaluation_telemetry": {
+      "started_at": "2026-11-12T09:17:29.063245+00:00",
+      "ended_at": "2026-11-12T09:19:54.411798+00:00",
+      "wall_seconds": 145.34391639999967,
+      "retrieval_calls": 0,
+      "retrieved_documents": 0,
+      "llm_calls": [
+        {
+          "task": "script_claims",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 16.785606200000075,
+          "prompt_tokens": 3264,
+          "output_tokens": 2433,
+          "thinking_tokens": 0,
+          "total_tokens": 5697,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0341996,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0341996,
+            "cache_creation_input_tokens": 2446,
+            "cache_read_input_tokens": 816,
+            "session_id": "65462b51-6db2-466b-a19f-387a4c7a0d99",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 7.831233399999746,
+          "prompt_tokens": 9960,
+          "output_tokens": 539,
+          "thinking_tokens": 0,
+          "total_tokens": 10499,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.041142700000000004,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.041142700000000004,
+            "cache_creation_input_tokens": 8911,
+            "cache_read_input_tokens": 1047,
+            "session_id": "04440e2e-bcc3-4365-9f5f-01144cd81539",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 8.745346899999731,
+          "prompt_tokens": 10879,
+          "output_tokens": 633,
+          "thinking_tokens": 0,
+          "total_tokens": 11512,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0457587,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0457587,
+            "cache_creation_input_tokens": 9830,
+            "cache_read_input_tokens": 1047,
+            "session_id": "b3ed8b9f-724e-47ab-b6fc-77f418db1e3e",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 8.235042400000111,
+          "prompt_tokens": 10131,
+          "output_tokens": 532,
+          "thinking_tokens": 0,
+          "total_tokens": 10663,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0417567,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0417567,
+            "cache_creation_input_tokens": 9082,
+            "cache_read_input_tokens": 1047,
+            "session_id": "6dd4318a-ee4c-4773-afed-3ac262013337",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 7.961066500000015,
+          "prompt_tokens": 8531,
+          "output_tokens": 501,
+          "thinking_tokens": 0,
+          "total_tokens": 9032,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0350467,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0350467,
+            "cache_creation_input_tokens": 7482,
+            "cache_read_input_tokens": 1047,
+            "session_id": "08f93509-3c76-417e-bf82-c4623c52ec47",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 8.120421100000385,
+          "prompt_tokens": 9778,
+          "output_tokens": 578,
+          "thinking_tokens": 0,
+          "total_tokens": 10356,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0408047,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0408047,
+            "cache_creation_input_tokens": 8729,
+            "cache_read_input_tokens": 1047,
+            "session_id": "9b71dc48-2744-4d09-9dec-3dec4666825d",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 7.698329599999852,
+          "prompt_tokens": 7626,
+          "output_tokens": 425,
+          "thinking_tokens": 0,
+          "total_tokens": 8051,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0306667,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0306667,
+            "cache_creation_input_tokens": 6577,
+            "cache_read_input_tokens": 1047,
+            "session_id": "09bff674-fbf9-4307-8cee-7bb009a8a841",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 7.677330299999994,
+          "prompt_tokens": 3310,
+          "output_tokens": 551,
+          "thinking_tokens": 0,
+          "total_tokens": 3861,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.014662699999999999,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.014662699999999999,
+            "cache_creation_input_tokens": 2261,
+            "cache_read_input_tokens": 1047,
+            "session_id": "79ee6462-4e70-4ecf-8fde-ea58209bb256",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 8.481954399999722,
+          "prompt_tokens": 2965,
+          "output_tokens": 630,
+          "thinking_tokens": 0,
+          "total_tokens": 3595,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0140727,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0140727,
+            "cache_creation_input_tokens": 1916,
+            "cache_read_input_tokens": 1047,
+            "session_id": "5c8c822b-bfbb-40f3-bc4d-3a9f5b2153b9",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 7.492140199999994,
+          "prompt_tokens": 3294,
+          "output_tokens": 506,
+          "thinking_tokens": 0,
+          "total_tokens": 3800,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0141487,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0141487,
+            "cache_creation_input_tokens": 2245,
+            "cache_read_input_tokens": 1047,
+            "session_id": "6b29255a-437b-4233-92fe-8b716d8106f0",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 7.504641900000024,
+          "prompt_tokens": 2484,
+          "output_tokens": 495,
+          "thinking_tokens": 0,
+          "total_tokens": 2979,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0107987,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0107987,
+            "cache_creation_input_tokens": 1435,
+            "cache_read_input_tokens": 1047,
+            "session_id": "3e90d87d-2f99-424f-a1ff-6cb050fead2b",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 8.14179920000015,
+          "prompt_tokens": 3256,
+          "output_tokens": 625,
+          "thinking_tokens": 0,
+          "total_tokens": 3881,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.015186700000000001,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.015186700000000001,
+            "cache_creation_input_tokens": 2207,
+            "cache_read_input_tokens": 1047,
+            "session_id": "4a0b10df-79b5-4829-82c0-5e772c7a6b8e",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 6.992554200000086,
+          "prompt_tokens": 3214,
+          "output_tokens": 406,
+          "thinking_tokens": 0,
+          "total_tokens": 3620,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.012828699999999998,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.012828699999999998,
+            "cache_creation_input_tokens": 2165,
+            "cache_read_input_tokens": 1047,
+            "session_id": "364847ef-3564-4d57-b5e0-7e6f34effa44",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "answer_fulfilment_and_narration_evaluation",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 11.933949299999767,
+          "prompt_tokens": 5683,
+          "output_tokens": 1379,
+          "thinking_tokens": 0,
+          "total_tokens": 7062,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.023261900000000002,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.023261900000000002,
+            "cache_creation_input_tokens": 2282,
+            "cache_read_input_tokens": 3399,
+            "session_id": "35e60afd-1877-4dc5-90c6-33a1459a2f38",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "grounded_requirements_and_retrieval_quality",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 12.136502400000154,
+          "prompt_tokens": 9524,
+          "output_tokens": 1400,
+          "thinking_tokens": 0,
+          "total_tokens": 10924,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0468387,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0468387,
+            "cache_creation_input_tokens": 8175,
+            "cache_read_input_tokens": 1347,
+            "session_id": "40be104d-2c57-436e-839b-64d6117a0c6c",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        }
+      ]
+    },
+    "evaluation_provider": "anthropic",
+    "evaluation_access": "claude_code_cli",
+    "claude_access_method": "cli",
+    "claude_cli_version": "2.1.322 (Claude Code)",
+    "evaluation_model_requested": "claude-sonnet-5-5",
+    "evaluation_model": "claude-sonnet-5-5",
+    "evaluation_cli_reported_cost_usd": 0.4211746,
+    "evaluation_estimated_llm_cost_usd": 0.4211746,
+    "generation_provider": "gemini",
+    "generation_access": "google_api",
+    "generation_model_requested": "gemini-3.8-flash",
+    "generation_estimated_llm_cost_usd": 0.0075120000000000004,
+    "combined_generation_plus_evaluation_estimated_llm_cost_usd": 0.42868660000000003
+  }
+}

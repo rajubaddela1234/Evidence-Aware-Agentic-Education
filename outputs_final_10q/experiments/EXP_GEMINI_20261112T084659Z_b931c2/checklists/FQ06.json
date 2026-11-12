@@ -1,0 +1,18 @@
+{
+  "prompt_id": "FQ06",
+  "question_sha256": "92820dd06ad7c941a5e3ff4e9673dd4daaed112c681cdb149589b898bcb82285",
+  "aspects": [
+    "What correlation measures: statistical association between two variables, not proof of influence",
+    "Confounding: a third variable driving both variables, creating a spurious association",
+    "Reverse causation and coincidence: direction ambiguity and chance patterns producing misleading correlations",
+    "Randomized controlled experiments: manipulating one variable to isolate its causal effect",
+    "Observational causal methods: controlling for confounders, natural experiments, and longitudinal designs",
+    "Criteria and limits for causal claims: temporality, dose-response, plausibility, replication, and remaining uncertainty"
+  ],
+  "aspects_sha256": "f7956bc89363580c725797842e2cc90b3c35ea9b4a11d34e2a83ca13899210b9",
+  "derived_at": "2026-11-12T08:56:47.741694+00:00",
+  "derived_by_model": "claude-sonnet-5-5",
+  "derivation_attempts": 2,
+  "derivation_cost_usd": 0.0052934,
+  "note": "Derived from the question text alone by the evaluator; shared by every system in this experiment. Never shown to generators."
+}

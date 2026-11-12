@@ -1,0 +1,18 @@
+{
+  "prompt_id": "FQ09",
+  "question_sha256": "49d7a124f613ffc8126fbba8118a0a7c7e2db573278db519fbda3825e89d1d3c",
+  "aspects": [
+    "Gravity compresses a star's core, creating the extreme temperature and pressure needed for fusion",
+    "Quantum tunneling lets positively charged nuclei overcome electrical repulsion and fuse",
+    "Hydrogen fuses into helium via proton-proton chain or CNO cycle",
+    "Mass converts to energy via E=mc², released as radiation and heat",
+    "Hydrostatic equilibrium: fusion pressure balances gravity to keep the star stable",
+    "A star's initial mass sets its fuel burn rate and therefore lifetime"
+  ],
+  "aspects_sha256": "bbea0166a2aa0f03f37b7e22ec0cde0d182893f01a1a717b3e4bb42fbe28665c",
+  "derived_at": "2026-11-12T08:57:13.385134+00:00",
+  "derived_by_model": "claude-sonnet-5-5",
+  "derivation_attempts": 1,
+  "derivation_cost_usd": 0.0050474000000000005,
+  "note": "Derived from the question text alone by the evaluator; shared by every system in this experiment. Never shown to generators."
+}

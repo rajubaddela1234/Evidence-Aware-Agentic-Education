@@ -1,0 +1,1424 @@
+{
+  "record": {
+    "experiment_id": "EXP_GEMINI_20261112T084659Z_b931c2",
+    "evaluated_script_sha256": "cd74977fa1ae8f67acfe56436a3a9d4bd472eea8db2be782ad7caeb6045e9049",
+    "reference_pool_sha256": "cf6ad135d37526833f903e02d0ee121dde6b316a0fc399283942a5e93740e878",
+    "generation_config_sha256": "130fb20735098b5ae7683be72a40463c48605cdf59d320daa9f9373f43ee4512",
+    "prompt_version": "evidence-aware-10q-shared-checklist-clean-narration-v1.6.0",
+    "system_id": "B2",
+    "prompt_id": "FQ05",
+    "domain": "Earth Science / General Knowledge",
+    "reasoning_type": "causal",
+    "generation_provider": "gemini",
+    "generation_access": "google_api",
+    "generation_model": "gemini-3.8-flash",
+    "evaluator_provider": "anthropic",
+    "evaluator_model": "claude-sonnet-5-5",
+    "claim_count": 22,
+    "supported_claims": 19,
+    "partial_claims": 3,
+    "unsupported_claims": 0,
+    "contradicted_claims": 0,
+    "supported_claim_rate": 0.8636363636363636,
+    "reference_evidence_support_percent": 93.18181818181819,
+    "query_coverage_percent": 85.0,
+    "query_relevance_percent": 93.0,
+    "narration_quality_percent": 90.0,
+    "citation_precision": 0.5,
+    "citation_recall": 0.5909090909090909,
+    "citation_f1": 0.5416666666666667,
+    "grounded_requirement_coverage_percent": 65.41667,
+    "context_precision_at_k": 0.6,
+    "context_recall_percent": 75.0,
+    "repair_effectiveness_points": null,
+    "requirement_preservation_rate": null,
+    "source_count": 4,
+    "source_type_count": 1,
+    "llm_calls": 1,
+    "prompt_tokens": 3646,
+    "output_tokens": 1208,
+    "thinking_tokens": 0,
+    "billable_output_tokens": 1208,
+    "retrieval_calls": 1,
+    "latency_seconds": 13.66196889999992,
+    "word_count": 690,
+    "estimated_llm_cost_usd": 0.0072645,
+    "llm_call_latency_p50_seconds": 12.579250800000409,
+    "llm_call_latency_p90_seconds": 12.579250800000409
+  },
+  "details": {
+    "artifact_identity": {
+      "experiment_id": "EXP_GEMINI_20261112T084659Z_b931c2",
+      "evaluated_script_sha256": "cd74977fa1ae8f67acfe56436a3a9d4bd472eea8db2be782ad7caeb6045e9049",
+      "reference_pool_sha256": "cf6ad135d37526833f903e02d0ee121dde6b316a0fc399283942a5e93740e878",
+      "generation_config_sha256": "130fb20735098b5ae7683be72a40463c48605cdf59d320daa9f9373f43ee4512",
+      "prompt_version": "evidence-aware-10q-shared-checklist-clean-narration-v1.6.0"
+    },
+    "narration_judged_script_sha256": "ff1b4b3d7987f1587c4255dfee1443744a729a55c828393761f79df11cec89d3",
+    "question_checklist": {
+      "aspects": [
+        "What a tsunami is: a series of long waves from displaced water",
+        "Underwater earthquakes at subduction zones displacing the seafloor and water column",
+        "Other triggers: landslides, volcanic eruptions, and meteorite impacts displacing water",
+        "How tsunami waves travel across deep ocean: high speed, long wavelength, small height",
+        "Shoaling: wave slowing and growing taller as water becomes shallow near shore",
+        "Coastal destruction factors: inundation, repeated surges, backwash, coastline shape, and limits of warning"
+      ],
+      "source": "derived_once_per_question_by_evaluator",
+      "aspects_sha256": "fcbfc1d9c5d3a34b4a1abce15f07e0c7939b7638155a173caa3e737648c2a908",
+      "derived_at": "2026-11-12T08:56:34.674436+00:00",
+      "derived_by_model": "claude-sonnet-5-5",
+      "derivation_cost_usd": 0.0052214,
+      "derived_in_this_call": false,
+      "file": "outputs_final_10q\\experiments\\EXP_GEMINI_20261112T084659Z_b931c2\\checklists\\FQ05.json"
+    },
+    "evaluation_claims": [
+      {
+        "claim_id": "c1",
+        "text": "A tsunami is an immense wave generated when a large volume of water is displaced from its equilibrium position.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-76748bba4f5f"
+        ]
+      },
+      {
+        "claim_id": "c2",
+        "text": "Most tsunamis are triggered by geologic activity along the Pacific Ocean's Ring of Fire, where tectonic plates collide and form deep ocean trenches.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-fd419ca23056"
+        ]
+      },
+      {
+        "claim_id": "c3",
+        "text": "Between 1900 and 2015, seventy-eight percent of confirmed tsunamis occurred in the Pacific Ocean.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-b668e20abb71"
+        ]
+      },
+      {
+        "claim_id": "c4",
+        "text": "Between 1900 and 2015, the highest share of Pacific tsunamis was generated off Japan and Indonesia.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-b668e20abb71"
+        ]
+      },
+      {
+        "claim_id": "c5",
+        "text": "Earthquakes along fault zones are the primary trigger of tsunamis.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-ecbf878fe71b",
+          "E-fd419ca23056",
+          "E-76748bba4f5f"
+        ]
+      },
+      {
+        "claim_id": "c6",
+        "text": "Tsunamis can also be initiated by underwater submarine landslides, volcanic eruptions, above-water landslides, falling debris, or large atmospheric storms known as meteotsunamis.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-ecbf878fe71b",
+          "E-fd419ca23056",
+          "E-76748bba4f5f"
+        ]
+      },
+      {
+        "claim_id": "c7",
+        "text": "Sediment movement, an explosive volcanic impulse, or falling mass displaces the water column, and gravity then propagates the disturbance outward across the sea.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-76748bba4f5f"
+        ]
+      },
+      {
+        "claim_id": "c8",
+        "text": "In deep water, a tsunami moves at high speed with a very long wavelength, huge volumes of water, and a relatively small amplitude.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-4a546f1c91f4",
+          "E-21957d183f59"
+        ]
+      },
+      {
+        "claim_id": "c9",
+        "text": "In deep water, the energy of a tsunami is primarily kinetic, stored in the rapid movement of the water.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-4a546f1c91f4"
+        ]
+      },
+      {
+        "claim_id": "c10",
+        "text": "Tsunamis become more destructive near the coast because of a process called shoaling.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-4a546f1c91f4",
+          "E-21957d183f59"
+        ]
+      },
+      {
+        "claim_id": "c11",
+        "text": "As a tsunami enters shallower coastal areas, the wave begins to experience force from the seabed.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-21957d183f59"
+        ]
+      },
+      {
+        "claim_id": "c12",
+        "text": "The shallower the water becomes, the slower the tsunami travels.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-21957d183f59"
+        ]
+      },
+      {
+        "claim_id": "c13",
+        "text": "Because the front of the wave slows while the back continues moving forward, the waves bunch together and the wavelength decreases significantly.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-4a546f1c91f4",
+          "E-21957d183f59"
+        ]
+      },
+      {
+        "claim_id": "c14",
+        "text": "Because a tsunami contains massive volumes of water within each wavelength, shortening the wavelength forces the amplitude to increase dramatically.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-4a546f1c91f4"
+        ]
+      },
+      {
+        "claim_id": "c15",
+        "text": "During shoaling, much of the wave's kinetic energy is converted into gravitational potential energy as water is pushed well above normal sea level.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-4a546f1c91f4"
+        ]
+      },
+      {
+        "claim_id": "c16",
+        "text": "When the stored potential energy reaches the shoreline, it causes massive inundation as water runs up onto and over the land.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-4a546f1c91f4"
+        ]
+      },
+      {
+        "claim_id": "c17",
+        "text": "During the 2004 Boxing Day tsunami, shoaling produced waves fifteen to thirty meters high that inundated coastlines.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-fd419ca23056",
+          "E-21957d183f59"
+        ]
+      },
+      {
+        "claim_id": "c18",
+        "text": "The 2004 Boxing Day tsunami killed nearly a quarter of a million people.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-fd419ca23056",
+          "E-21957d183f59"
+        ]
+      },
+      {
+        "claim_id": "c19",
+        "text": "A wave running up five to ten meters above normal sea level equals the height of a three-story building.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-4a546f1c91f4",
+          "E-21957d183f59"
+        ]
+      },
+      {
+        "claim_id": "c20",
+        "text": "Earthquake-driven tsunamis can travel across entire ocean basins.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-ecbf878fe71b",
+          "E-76748bba4f5f"
+        ]
+      },
+      {
+        "claim_id": "c21",
+        "text": "Tsunamis generated by non-seismic mechanisms such as submarine landslides tend to dissipate quickly and rarely affect distant coastlines.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-ecbf878fe71b",
+          "E-76748bba4f5f"
+        ]
+      },
+      {
+        "claim_id": "c22",
+        "text": "Near their source, landslide-generated tsunamis can be larger than seismic tsunami waves and strike nearby coasts within minutes with little to no warning.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-ecbf878fe71b"
+        ]
+      }
+    ],
+    "reference_verifications": [
+      {
+        "claim_id": "c1",
+        "status": "partial",
+        "confidence": 0.5,
+        "evidence_ids": [
+          "E-76748bba4f5f",
+          "E-93cdccead862"
+        ],
+        "rationale": "Evidence says tsunamis result from water displaced from equilibrium position and large volume of water displaced, but no definition as 'immense wave'."
+      },
+      {
+        "claim_id": "c2",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-fd419ca23056"
+        ],
+        "rationale": "Directly stated."
+      },
+      {
+        "claim_id": "c3",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-b668e20abb71"
+        ],
+        "rationale": "78% of 754 confirmed tsunamis in Pacific between 1900 and 2015."
+      },
+      {
+        "claim_id": "c4",
+        "status": "supported",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-b668e20abb71"
+        ],
+        "rationale": "Highest percentages are off Japan (21%) and Indonesia (8%); the evidence frames it as share of all tsunamis since 1900, not strictly Pacific ones, a minor difference."
+      },
+      {
+        "claim_id": "c5",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-dfc7b7a0b522",
+          "E-4f1d079c4009",
+          "E-b8240b308189"
+        ],
+        "rationale": "About 80% of tsunamis are triggered by earthquakes; usually caused by earthquakes along fault zones at plate boundaries."
+      },
+      {
+        "claim_id": "c6",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-76748bba4f5f",
+          "E-ecbf878fe71b",
+          "E-71324302cd6c",
+          "E-4f1d079c4009"
+        ],
+        "rationale": "Submarine landslides, volcanic eruptions, above-water landslides, falling debris and meteotsunamis from large storms are all mentioned."
+      },
+      {
+        "claim_id": "c7",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-76748bba4f5f"
+        ],
+        "rationale": "Sediment movement alters sea level, gravity propagates; volcanic eruption impulsive force displaces water column; falling debris displaces water."
+      },
+      {
+        "claim_id": "c8",
+        "status": "supported",
+        "confidence": 0.88,
+        "evidence_ids": [
+          "E-21957d183f59",
+          "E-4a546f1c91f4",
+          "E-53e3da468ca0"
+        ],
+        "rationale": "Deep water: very fast, long wavelength, small amplitude, large volumes of water."
+      },
+      {
+        "claim_id": "c9",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-4a546f1c91f4"
+        ],
+        "rationale": "Evidence says energy is mostly kinetic when propagating across the ocean; 'primarily' matches 'mostly'."
+      },
+      {
+        "claim_id": "c10",
+        "status": "supported",
+        "confidence": 0.88,
+        "evidence_ids": [
+          "E-4a546f1c91f4",
+          "E-0cc3d3ab20b3",
+          "E-311f5639daf3"
+        ],
+        "rationale": "Shoaling is described as one reason tsunamis cause so much damage near coasts, with wave height growing."
+      },
+      {
+        "claim_id": "c11",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-21957d183f59"
+        ],
+        "rationale": "Shoaling happens because waves experience force from the seabed as water gets shallower."
+      },
+      {
+        "claim_id": "c12",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-21957d183f59",
+          "E-311f5639daf3"
+        ],
+        "rationale": "Directly states the shallower the water, the slower the wave."
+      },
+      {
+        "claim_id": "c13",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-21957d183f59",
+          "E-c74ee0bd58fa"
+        ],
+        "rationale": "Evidence says waves slow and bunch together, shortening wavelength; the front-slows/back-continues mechanism is implied (trailing waves faster) but not explicitly stated, and 'significantly' is only loosely supported."
+      },
+      {
+        "claim_id": "c14",
+        "status": "supported",
+        "confidence": 0.88,
+        "evidence_ids": [
+          "E-4a546f1c91f4"
+        ],
+        "rationale": "States tsunamis involve large volumes of water in each wavelength, so wavelength can decrease by a large proportion and amplitude increase by a lot."
+      },
+      {
+        "claim_id": "c15",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-4a546f1c91f4"
+        ],
+        "rationale": "Says a lot of kinetic energy is converted to potential energy due to gravity as water is much higher than normal level."
+      },
+      {
+        "claim_id": "c16",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-4a546f1c91f4"
+        ],
+        "rationale": "Evidence says stored energy is unleashed when it runs up onto and over the land; inundation is linked to shoaling."
+      },
+      {
+        "claim_id": "c17",
+        "status": "supported",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-900e1f077b1a",
+          "E-21957d183f59"
+        ],
+        "rationale": "Evidence states waves 15–30m high in 2004 Boxing Day tsunami, in a shoaling context; 'inundated coastlines' is a mild inference."
+      },
+      {
+        "claim_id": "c18",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-fd419ca23056",
+          "E-2286c3b816c2",
+          "E-5874c1fe123e"
+        ],
+        "rationale": "Evidence says nearly a quarter of a million killed."
+      },
+      {
+        "claim_id": "c19",
+        "status": "partial",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "E-900e1f077b1a",
+          "E-21957d183f59"
+        ],
+        "rationale": "Evidence says up to 10 m is about a 3-storey building height; the 5–10 m range equaling that is stronger than stated."
+      },
+      {
+        "claim_id": "c20",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-0ec8b4723bec",
+          "E-4f1d079c4009",
+          "E-2286c3b816c2"
+        ],
+        "rationale": "Evidence says tsunamis, usually earthquake-caused, can travel across entire ocean basins."
+      },
+      {
+        "claim_id": "c21",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-76748bba4f5f",
+          "E-ecbf878fe71b"
+        ],
+        "rationale": "Pacific Tsunami Museum says non-seismic tsunamis usually dissipate quickly and rarely affect far coastlines; NOAA says the same of landslide tsunamis."
+      },
+      {
+        "claim_id": "c22",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-ecbf878fe71b",
+          "E-96fa1de7acba",
+          "E-dde6260c02d4"
+        ],
+        "rationale": "NOAA directly states landslide tsunamis may be larger near source and impact coasts within minutes with little to no warning."
+      }
+    ],
+    "reference_evidence_ids_by_claim": {
+      "c1": [
+        "E-76748bba4f5f",
+        "E-93cdccead862",
+        "E-6bfcea809e25",
+        "E-c74ee0bd58fa",
+        "E-1c3e537b428a"
+      ],
+      "c2": [
+        "E-fd419ca23056",
+        "E-39cd479d6c60",
+        "E-74cd53d49afd",
+        "E-dfc7b7a0b522",
+        "E-0cc3d3ab20b3"
+      ],
+      "c3": [
+        "E-b668e20abb71",
+        "E-39cd479d6c60",
+        "E-fd419ca23056",
+        "E-4f1d079c4009",
+        "E-e597c7edbf66"
+      ],
+      "c4": [
+        "E-b668e20abb71",
+        "E-39cd479d6c60",
+        "E-fd419ca23056",
+        "E-e597c7edbf66",
+        "E-48b463f17285"
+      ],
+      "c5": [
+        "E-fd419ca23056",
+        "E-74cd53d49afd",
+        "E-39cd479d6c60",
+        "E-b8240b308189",
+        "E-900e1f077b1a"
+      ],
+      "c6": [
+        "E-76748bba4f5f",
+        "E-b8240b308189",
+        "E-96fa1de7acba",
+        "E-71324302cd6c",
+        "E-53e3da468ca0"
+      ],
+      "c7": [
+        "E-76748bba4f5f",
+        "E-4f1d079c4009",
+        "E-6bfcea809e25",
+        "E-0ec8b4723bec",
+        "E-0cc3d3ab20b3"
+      ],
+      "c8": [
+        "E-21957d183f59",
+        "E-0cc3d3ab20b3",
+        "E-53e3da468ca0",
+        "E-c74ee0bd58fa",
+        "E-6bfcea809e25"
+      ],
+      "c9": [
+        "E-0cc3d3ab20b3",
+        "E-4a546f1c91f4",
+        "E-c74ee0bd58fa",
+        "E-6bfcea809e25",
+        "E-53e3da468ca0"
+      ],
+      "c10": [
+        "E-311f5639daf3",
+        "E-c74ee0bd58fa",
+        "E-4a546f1c91f4",
+        "E-ecbf878fe71b",
+        "E-0cc3d3ab20b3"
+      ],
+      "c11": [
+        "E-21957d183f59",
+        "E-311f5639daf3",
+        "E-0cc3d3ab20b3",
+        "E-93cdccead862",
+        "E-d693edf81131"
+      ],
+      "c12": [
+        "E-21957d183f59",
+        "E-e597c7edbf66",
+        "E-311f5639daf3",
+        "E-71324302cd6c",
+        "E-0cc3d3ab20b3"
+      ],
+      "c13": [
+        "E-21957d183f59",
+        "E-53e3da468ca0",
+        "E-b8169f0a07c9",
+        "E-c74ee0bd58fa",
+        "E-1c3e537b428a"
+      ],
+      "c14": [
+        "E-4a546f1c91f4",
+        "E-53e3da468ca0",
+        "E-b8169f0a07c9",
+        "E-c74ee0bd58fa",
+        "E-0ec8b4723bec"
+      ],
+      "c15": [
+        "E-4a546f1c91f4",
+        "E-f049c7e28a82",
+        "E-0cc3d3ab20b3",
+        "E-311f5639daf3",
+        "E-e597c7edbf66"
+      ],
+      "c16": [
+        "E-4a546f1c91f4",
+        "E-dde6260c02d4",
+        "E-0ec8b4723bec",
+        "E-0cc3d3ab20b3",
+        "E-d693edf81131"
+      ],
+      "c17": [
+        "E-900e1f077b1a",
+        "E-546b20e64579",
+        "E-0cc3d3ab20b3",
+        "E-4f993b5f879c",
+        "E-d693edf81131"
+      ],
+      "c18": [
+        "E-fd419ca23056",
+        "E-900e1f077b1a",
+        "E-5874c1fe123e",
+        "E-0cc3d3ab20b3",
+        "E-9ac7a921dea0"
+      ],
+      "c19": [
+        "E-21957d183f59",
+        "E-55ab64dcd4b4",
+        "E-f049c7e28a82",
+        "E-546b20e64579",
+        "E-7d25cd44840d"
+      ],
+      "c20": [
+        "E-0ec8b4723bec",
+        "E-4f1d079c4009",
+        "E-2286c3b816c2",
+        "E-0cc3d3ab20b3",
+        "E-53e3da468ca0"
+      ],
+      "c21": [
+        "E-76748bba4f5f",
+        "E-ecbf878fe71b",
+        "E-dde6260c02d4",
+        "E-48b463f17285",
+        "E-c74ee0bd58fa"
+      ],
+      "c22": [
+        "E-ecbf878fe71b",
+        "E-96fa1de7acba",
+        "E-55ab64dcd4b4",
+        "E-c74ee0bd58fa",
+        "E-76748bba4f5f"
+      ]
+    },
+    "citation_entailment_verifications": [
+      {
+        "claim_id": "c1",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-76748bba4f5f"
+        ],
+        "rationale": "Evidence says falling debris displaces water from equilibrium position and produces a tsunami, but doesn't define a tsunami as an 'immense wave' from a large volume of water."
+      },
+      {
+        "claim_id": "c2",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-fd419ca23056"
+        ],
+        "rationale": "Directly stated: most tsunamis triggered by Ring of Fire activity; plates collide forming deep ocean trenches."
+      },
+      {
+        "claim_id": "c3",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-b668e20abb71"
+        ],
+        "rationale": "78% of 754 confirmed tsunamis 1900-2015 were in the Pacific."
+      },
+      {
+        "claim_id": "c4",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-b668e20abb71"
+        ],
+        "rationale": "Evidence says highest percentages since 1900 are off Japan (21%) and Indonesia (8%), but it's not specifically a share of Pacific tsunamis and the period is 'since 1900'."
+      },
+      {
+        "claim_id": "c5",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-fd419ca23056",
+          "E-ecbf878fe71b"
+        ],
+        "rationale": "Evidence says trenches are often the source of earthquakes that trigger tsunamis and that most tsunami-causing landslides are earthquake-caused, but doesn't explicitly state earthquakes are the primary trigger."
+      },
+      {
+        "claim_id": "c6",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-76748bba4f5f",
+          "E-ecbf878fe71b",
+          "E-fd419ca23056"
+        ],
+        "rationale": "Submarine landslides, volcanic eruptions, above-water landslides, falling debris, and storm-caused meteotsunamis are all covered across the passages."
+      },
+      {
+        "claim_id": "c7",
+        "status": "supported",
+        "confidence": 0.92,
+        "evidence_ids": [
+          "E-76748bba4f5f"
+        ],
+        "rationale": "Sediment movement, volcanic impulsive force, and falling debris displace water; gravitational forces propagate the tsunami."
+      },
+      {
+        "claim_id": "c8",
+        "status": "partial",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-21957d183f59",
+          "E-4a546f1c91f4"
+        ],
+        "rationale": "Fast speed, long wavelength, small amplitude, and large water volumes are supported, but 'huge volumes' is a paraphrase of 'large volumes'. Mostly supported."
+      },
+      {
+        "claim_id": "c9",
+        "status": "partial",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "E-4a546f1c91f4"
+        ],
+        "rationale": "Evidence says the energy is mostly kinetic (movement) energy in the ocean, but doesn't say 'primarily stored in rapid movement'; this is a minor paraphrase."
+      },
+      {
+        "claim_id": "c10",
+        "status": "supported",
+        "confidence": 0.88,
+        "evidence_ids": [
+          "E-4a546f1c91f4",
+          "E-21957d183f59"
+        ],
+        "rationale": "Shoaling is described as one reason tsunamis cause so much damage to coastal areas; 'because of' is slightly stronger than 'one reason'."
+      },
+      {
+        "claim_id": "c11",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-21957d183f59"
+        ],
+        "rationale": "Evidence says shoaling happens because waves experience force from the seabed as water gets shallower."
+      },
+      {
+        "claim_id": "c12",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-21957d183f59"
+        ],
+        "rationale": "States 'the shallower the water, the slower the wave'."
+      },
+      {
+        "claim_id": "c13",
+        "status": "partial",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "E-21957d183f59",
+          "E-4a546f1c91f4"
+        ],
+        "rationale": "Evidence says waves slow, bunch together, and wavelength decreases (by a large proportion). It does not mention the front slowing while the back continues moving forward."
+      },
+      {
+        "claim_id": "c14",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-4a546f1c91f4"
+        ],
+        "rationale": "Evidence says tsunamis involve large volumes of water per wavelength, so wavelength decrease allows amplitude to increase by a lot."
+      },
+      {
+        "claim_id": "c15",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-4a546f1c91f4"
+        ],
+        "rationale": "Evidence says a lot of kinetic energy is converted to potential energy because water is much higher than normal level, due to gravity."
+      },
+      {
+        "claim_id": "c16",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-4a546f1c91f4"
+        ],
+        "rationale": "Energy stored is unleashed when it runs up onto and over the land; shoaling causes inundation. 'Massive' is slight embellishment."
+      },
+      {
+        "claim_id": "c17",
+        "status": "partial",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "E-21957d183f59"
+        ],
+        "rationale": "Evidence says waves 15–30m high in 2004 tsunami, but doesn't explicitly attribute to shoaling in that statement or say inundated coastlines; shoaling is discussed generally."
+      },
+      {
+        "claim_id": "c18",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-fd419ca23056"
+        ],
+        "rationale": "States it killed nearly a quarter of a million people in total."
+      },
+      {
+        "claim_id": "c19",
+        "status": "partial",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "E-21957d183f59",
+          "E-4a546f1c91f4"
+        ],
+        "rationale": "Evidence says up to 10 m is about a 3-storey building; 5–10 m wave is mentioned, but equating 5–10 m to 3 storeys is not stated (only 10 m)."
+      },
+      {
+        "claim_id": "c20",
+        "status": "partial",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "E-76748bba4f5f"
+        ],
+        "rationale": "Mentions 'ocean-wide tsunamis caused by some earthquakes', implying basin-wide travel, and contrasts with non-seismic ones; not explicit about crossing basins."
+      },
+      {
+        "claim_id": "c21",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-76748bba4f5f",
+          "E-ecbf878fe71b"
+        ],
+        "rationale": "E-76748bba4f5f says non-seismic tsunamis usually dissipate quickly and rarely affect distant coastlines; E-ecbf878fe71b says landslide tsunamis lose energy quickly and rarely affect distant coastlines."
+      },
+      {
+        "claim_id": "c22",
+        "status": "supported",
+        "confidence": 0.96,
+        "evidence_ids": [
+          "E-ecbf878fe71b"
+        ],
+        "rationale": "E-ecbf878fe71b states landslide-generated tsunamis may be larger than seismic tsunamis near their source and can impact coastlines within minutes with little to no warning."
+      }
+    ],
+    "quality": {
+      "aspect_scores": [
+        {
+          "aspect": "What a tsunami is: a series of long waves from displaced water",
+          "score": 0.85,
+          "rationale": "Defined as immense waves from displaced water; 'series' only implicit, long wavelength mentioned."
+        },
+        {
+          "aspect": "Underwater earthquakes at subduction zones displacing the seafloor and water column",
+          "score": 0.8,
+          "rationale": "Earthquakes at plate collision zones/trenches named as primary trigger, water column displaced; seafloor uplift mechanism thin."
+        },
+        {
+          "aspect": "Other triggers: landslides, volcanic eruptions, and meteorite impacts displacing water",
+          "score": 0.8,
+          "rationale": "Landslides and volcanoes explained; meteotsunamis mentioned instead of meteorite impacts."
+        },
+        {
+          "aspect": "How tsunami waves travel across deep ocean: high speed, long wavelength, small height",
+          "score": 0.95,
+          "rationale": "Clearly stated high speed, long wavelength, small amplitude."
+        },
+        {
+          "aspect": "Shoaling: wave slowing and growing taller as water becomes shallow near shore",
+          "score": 1.0,
+          "rationale": "Well explained with toothpaste analogy and energy conversion."
+        },
+        {
+          "aspect": "Coastal destruction factors: inundation, repeated surges, backwash, coastline shape, and limits of warning",
+          "score": 0.7,
+          "rationale": "Inundation and little warning for landslide tsunamis covered; no repeated surges, backwash, or coastline shape (only in closing question)."
+        }
+      ],
+      "covered_aspects": [
+        "What a tsunami is: a series of long waves from displaced water",
+        "Underwater earthquakes at subduction zones displacing the seafloor and water column",
+        "Other triggers: landslides, volcanic eruptions, and meteorite impacts displacing water",
+        "How tsunami waves travel across deep ocean: high speed, long wavelength, small height",
+        "Shoaling: wave slowing and growing taller as water becomes shallow near shore"
+      ],
+      "partially_covered_aspects": [
+        "Coastal destruction factors: inundation, repeated surges, backwash, coastline shape, and limits of warning"
+      ],
+      "missing_aspects": [],
+      "coverage_score": 0.85,
+      "coverage_rationale": "Core formation and shoaling well covered; coastal factors beyond inundation thin.",
+      "relevance_score": 0.93,
+      "relevance_rationale": "Almost entirely on topic; statistics are minor.",
+      "opening_orientation_score": 4,
+      "introduction_roadmap_score": 4,
+      "definitions_foundations_score": 3,
+      "explanatory_depth_score": 3,
+      "examples_applications_score": 4,
+      "organization_transitions_score": 4,
+      "clarity_accessibility_score": 3,
+      "spoken_naturalness_score": 3,
+      "conclusion_takeaway_score": 4,
+      "reflective_ending_score": 4,
+      "narration_rationale": "Clear roadmap, logical flow, analogy and example, good summary and reflective question."
+    },
+    "additional_metric_details": {
+      "grounded_requirement_coverage_percent": 65.41667,
+      "context_precision_at_k": 0.6,
+      "context_recall_percent": 75.0,
+      "retrieval_k": 5,
+      "grounded_aspect_scores": [
+        0.5,
+        0.5,
+        1.0,
+        1.0,
+        1.0,
+        0.5
+      ],
+      "retrieved_aspect_scores": [
+        0.5,
+        0.5,
+        1.0,
+        1.0,
+        1.0,
+        0.5
+      ],
+      "retrieved_passages_scored": 5,
+      "retrieval_assessment": {
+        "grounded_aspects": [
+          {
+            "aspect": "What a tsunami is: a series of long waves from displaced water",
+            "score": 0.5,
+            "rationale": "Reference supports displacement of water from equilibrium and a series of waves; script says 'immense waves' displaced water, not clearly a series of long waves."
+          },
+          {
+            "aspect": "Underwater earthquakes at subduction zones displacing the seafloor and water column",
+            "score": 0.5,
+            "rationale": "Reference supports earthquakes at trenches where plates collide; script doesn't explain seafloor displacement and the evidence doesn't mention subduction explicitly."
+          },
+          {
+            "aspect": "Other triggers: landslides, volcanic eruptions, and meteorite impacts displacing water",
+            "score": 1.0,
+            "rationale": "Reference directly supports landslides, volcanic eruptions, and space-borne objects displacing water. The script says meteotsunamis instead of meteorites, but the other triggers are covered."
+          },
+          {
+            "aspect": "How tsunami waves travel across deep ocean: high speed, long wavelength, small height",
+            "score": 1.0,
+            "rationale": "Directly supported by the references on high speed, long wavelength and low amplitude."
+          },
+          {
+            "aspect": "Shoaling: wave slowing and growing taller as water becomes shallow near shore",
+            "score": 1.0,
+            "rationale": "Directly supported: the wave slows, bunches together, its wavelength shortens and its height grows, with the toothpaste analogy and energy conversion."
+          },
+          {
+            "aspect": "Coastal destruction factors: inundation, repeated surges, backwash, coastline shape, and limits of warning",
+            "score": 0.5,
+            "rationale": "Inundation and limited warning for landslide tsunamis are supported. The script omits repeated surges, backwash and coastline shape."
+          }
+        ],
+        "passage_relevance": [
+          {
+            "evidence_id": "E-ecbf878fe71b",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-fd419ca23056",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-b668e20abb71",
+            "relevant": false
+          },
+          {
+            "evidence_id": "E-7f914aca1ee0",
+            "relevant": false
+          },
+          {
+            "evidence_id": "E-4a546f1c91f4",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-76748bba4f5f",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-21957d183f59",
+            "relevant": true
+          }
+        ],
+        "retrieved_aspects": [
+          {
+            "aspect": "What a tsunami is: a series of long waves from displaced water",
+            "score": 0.5,
+            "rationale": "Passages describe water displaced from equilibrium, but not a series of long waves."
+          },
+          {
+            "aspect": "Underwater earthquakes at subduction zones displacing the seafloor and water column",
+            "score": 0.5,
+            "rationale": "Passages cover earthquakes at trenches where plates collide, but not seafloor displacement."
+          },
+          {
+            "aspect": "Other triggers: landslides, volcanic eruptions, and meteorite impacts displacing water",
+            "score": 1.0,
+            "rationale": "The passages cover landslides, volcanic eruptions and space-borne objects displacing water."
+          },
+          {
+            "aspect": "How tsunami waves travel across deep ocean: high speed, long wavelength, small height",
+            "score": 1.0,
+            "rationale": "E-21957d183f59 states high speed, long wavelength and small amplitude in deep water."
+          },
+          {
+            "aspect": "Shoaling: wave slowing and growing taller as water becomes shallow near shore",
+            "score": 1.0,
+            "rationale": "The passages cover slowing, bunching, shorter wavelength, taller waves and energy conversion."
+          },
+          {
+            "aspect": "Coastal destruction factors: inundation, repeated surges, backwash, coastline shape, and limits of warning",
+            "score": 0.5,
+            "rationale": "The passages cover inundation and little or no warning for landslide tsunamis, but not repeated surges, backwash or coastline shape."
+          }
+        ]
+      },
+      "revision_comparison": null,
+      "notes": "All scores are Claude judgments, not verified ground truth. Repair effectiveness compares coverage/narration, not factual truth. No revision or no retrieval is N/A rather than zero."
+    },
+    "metric_semantics": {
+      "reference_evidence_support_percent": "Evidence entailment within the frozen reference corpus; not factual accuracy.",
+      "query_coverage_percent": "Coverage of a fixed six-aspect checklist derived once per question from the question text and shared by all systems; missing/duplicate judge outputs are normalized against that fixed denominator.",
+      "query_relevance_percent": "Independent-model relevance judgement.",
+      "narration_input": "Coverage, relevance, narration and grounded-requirement judgements use the complete script with [E-...] evidence markers removed; claim extraction and citation metrics use the marked script. Aspect scores are continuous in [0, 1].",
+      "narration_quality_percent": "Ten-dimension spoken educational narration score; excludes factual truth.",
+      "citation_precision": "Share of emitted citation IDs that are identified as supporting the claim when verification is restricted to cited passages.",
+      "citation_recall": "Share of all citation-required extracted factual claims that have at least one cited passage judged to support the claim.",
+      "evaluation_estimated_llm_cost_usd": "Evaluator telemetry. CLI mode uses Claude Code's reported list-price equivalent; API mode uses the configured Anthropic per-token rates."
+    },
+    "evaluation_telemetry": {
+      "started_at": "2026-11-12T10:14:21.562154+00:00",
+      "ended_at": "2026-11-12T10:16:07.878905+00:00",
+      "wall_seconds": 106.31604100000004,
+      "retrieval_calls": 0,
+      "retrieved_documents": 0,
+      "llm_calls": [
+        {
+          "task": "script_claims",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 14.233270200000334,
+          "prompt_tokens": 3121,
+          "output_tokens": 1983,
+          "thinking_tokens": 0,
+          "total_tokens": 5104,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.029127600000000003,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.029127600000000003,
+            "cache_creation_input_tokens": 2303,
+            "cache_read_input_tokens": 816,
+            "session_id": "61874ff5-26b6-40bd-be2d-cd9bc06bd466",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 7.462723100000403,
+          "prompt_tokens": 8772,
+          "output_tokens": 536,
+          "thinking_tokens": 0,
+          "total_tokens": 9308,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.036360699999999996,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.036360699999999996,
+            "cache_creation_input_tokens": 7723,
+            "cache_read_input_tokens": 1047,
+            "session_id": "c273b39f-1aa6-4d3f-9f12-221af5b5fc62",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 8.091581300000144,
+          "prompt_tokens": 7968,
+          "output_tokens": 594,
+          "thinking_tokens": 0,
+          "total_tokens": 8562,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.033724699999999996,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.033724699999999996,
+            "cache_creation_input_tokens": 6919,
+            "cache_read_input_tokens": 1047,
+            "session_id": "9cc4de6a-3aa3-4e0d-ae68-50dab6c338c2",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 7.798779599999762,
+          "prompt_tokens": 8482,
+          "output_tokens": 539,
+          "thinking_tokens": 0,
+          "total_tokens": 9021,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.035230700000000004,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.035230700000000004,
+            "cache_creation_input_tokens": 7433,
+            "cache_read_input_tokens": 1047,
+            "session_id": "7056bff5-b0af-4999-bfa3-416035b156dd",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 8.273424199999681,
+          "prompt_tokens": 9806,
+          "output_tokens": 567,
+          "thinking_tokens": 0,
+          "total_tokens": 10373,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.040806699999999994,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.040806699999999994,
+            "cache_creation_input_tokens": 8757,
+            "cache_read_input_tokens": 1047,
+            "session_id": "88abda09-8507-40ac-8b0d-386e1bf4ae7a",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 6.816072499999791,
+          "prompt_tokens": 4730,
+          "output_tokens": 294,
+          "thinking_tokens": 0,
+          "total_tokens": 5024,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0177727,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0177727,
+            "cache_creation_input_tokens": 3681,
+            "cache_read_input_tokens": 1047,
+            "session_id": "a936589a-5d34-4572-b9bb-f52f399ec12e",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 7.851040900000044,
+          "prompt_tokens": 3734,
+          "output_tokens": 592,
+          "thinking_tokens": 0,
+          "total_tokens": 4326,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.016768699999999997,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.016768699999999997,
+            "cache_creation_input_tokens": 2685,
+            "cache_read_input_tokens": 1047,
+            "session_id": "777ee849-6ac6-42f2-bcf4-b5ce9b440bb3",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 6.790801800000736,
+          "prompt_tokens": 4223,
+          "output_tokens": 623,
+          "thinking_tokens": 0,
+          "total_tokens": 4846,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0190347,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0190347,
+            "cache_creation_input_tokens": 3174,
+            "cache_read_input_tokens": 1047,
+            "session_id": "a4f2bbaf-7134-42ee-8549-b85793ca7b8b",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 5.788037500000428,
+          "prompt_tokens": 2918,
+          "output_tokens": 512,
+          "thinking_tokens": 0,
+          "total_tokens": 3430,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0127047,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0127047,
+            "cache_creation_input_tokens": 1869,
+            "cache_read_input_tokens": 1047,
+            "session_id": "7d27e895-7666-4ca9-b999-0d8b6cbc5127",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 6.041696799999954,
+          "prompt_tokens": 4165,
+          "output_tokens": 581,
+          "thinking_tokens": 0,
+          "total_tokens": 4746,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0183827,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0183827,
+            "cache_creation_input_tokens": 3116,
+            "cache_read_input_tokens": 1047,
+            "session_id": "2a625dd8-c915-44b6-b37e-2abde69720e8",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 4.564002699999946,
+          "prompt_tokens": 2753,
+          "output_tokens": 314,
+          "thinking_tokens": 0,
+          "total_tokens": 3067,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0100647,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0100647,
+            "cache_creation_input_tokens": 1704,
+            "cache_read_input_tokens": 1047,
+            "session_id": "5f8b74fb-2971-45fe-9c7f-7785e19282c9",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "answer_fulfilment_and_narration_evaluation",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 9.271886300000006,
+          "prompt_tokens": 5704,
+          "output_tokens": 1191,
+          "thinking_tokens": 0,
+          "total_tokens": 6895,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.021465900000000003,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.021465900000000003,
+            "cache_creation_input_tokens": 2303,
+            "cache_read_input_tokens": 3399,
+            "session_id": "61c95b08-c761-4f50-b57b-e649d8f12fa5",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "grounded_requirements_and_retrieval_quality",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 9.669743100000233,
+          "prompt_tokens": 9404,
+          "output_tokens": 1333,
+          "thinking_tokens": 0,
+          "total_tokens": 10737,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0456887,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0456887,
+            "cache_creation_input_tokens": 8055,
+            "cache_read_input_tokens": 1347,
+            "session_id": "b78c0d63-ab9a-45ac-99c6-070f94c5cc99",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        }
+      ]
+    },
+    "evaluation_provider": "anthropic",
+    "evaluation_access": "claude_code_cli",
+    "claude_access_method": "cli",
+    "claude_cli_version": "2.1.322 (Claude Code)",
+    "evaluation_model_requested": "claude-sonnet-5-5",
+    "evaluation_model": "claude-sonnet-5-5",
+    "evaluation_cli_reported_cost_usd": 0.33713319999999997,
+    "evaluation_estimated_llm_cost_usd": 0.33713319999999997,
+    "generation_provider": "gemini",
+    "generation_access": "google_api",
+    "generation_model_requested": "gemini-3.8-flash",
+    "generation_estimated_llm_cost_usd": 0.0072645,
+    "combined_generation_plus_evaluation_estimated_llm_cost_usd": 0.3443977
+  }
+}

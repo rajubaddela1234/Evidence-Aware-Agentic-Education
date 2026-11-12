@@ -1,0 +1,53 @@
+{
+  "system_id": "B1",
+  "system_name": "Direct LLM",
+  "prompt_id": "FQ04",
+  "query": "Why do central banks raise interest rates to reduce inflation, and what trade-offs can result?",
+  "domain": "Business / Economics",
+  "reasoning_type": "cause-effect-and-tradeoffs",
+  "script": "Welcome. Today, we are exploring one of the most powerful and consequential tools in modern macroeconomics: why central banks raise interest rates to combat inflation, and the serious trade-offs that come with that decision. \n\nWhen consumer prices rise too rapidly, it erodes the purchasing power of money, destabilizing households and broader financial planning. In response, monetary authorities—such as the Federal Reserve in the United States or the European Central Bank—intervene primarily by tightening credit. Over the next few minutes, we will unpack how this mechanism functions step by step, trace its ripple effects through businesses and households, examine a concrete real-world dynamic, and confront the significant economic costs that rate hikes inevitably risk. By the end of this discussion, you will understand not just the mechanics of monetary tightening, but why policymakers view it as a delicate, high-stakes balancing act.\n\nTo understand this policy, we first need to define the core terms. Inflation refers to a broad, sustained increase in the overall price level of goods and services across an economy. A central bank's primary lever over inflation is its policy interest rate—often an overnight benchmark rate at which commercial banks borrow from one another or from the central bank itself. While the central bank directly sets only this short-term rate, changing it alters the foundational cost of money throughout the entire financial system.\n\nNow, consider the mechanism of transmission. Why does making money more expensive bring prices down? The answer lies in aggregate demand. When the central bank hikes its benchmark rate, commercial banks pass those higher borrowing costs along to their customers. Mortgage rates rise, auto loans become costlier, and corporate bond yields increase. \n\nThis triggers a clear causal chain across three main channels. First, it dampens debt-financed consumption. Consumers faced with high borrowing costs are less likely to buy new cars, renovate homes, or swipe credit cards. Second, it shifts incentives toward saving: higher yields on savings accounts and certificates of deposit encourage households to bank their cash rather than spend it immediately. Third, it curtails business investment. When the cost of capital climbs, firms find fewer expansion projects profitable. They scale back plans to build new factories, buy equipment, or hire additional staff. \n\nAs consumer spending and corporate investment decelerate, overall demand in the economy cools. Sellers and retailers suddenly find that consumers are less willing or able to pay escalating prices. To sustain sales, firms lose their pricing power, cut markups, and moderate wage growth. Step by step, the upward pressure on price tags begins to ease.\n\nTo see this play out in everyday life, look at the housing market. Suppose mortgage interest rates double from three percent to six or seven percent. For an ordinary family, that shift can add hundreds or even thousands of dollars to their required monthly payment for the exact same home. Demand for housing drops quickly. Home sales slow, construction companies halt new developments, and sellers are forced to trim their asking prices. Because housing touches dozens of related industries—from timber and appliances to legal and financial services—the slowdown in that single sector reverberates across the broader economy.\n\nHowever, cooling an overheating economy is never without cost, and this brings us to the crucial trade-offs. The primary risk of raising interest rates is that aggregate demand does not merely slow down; it can contract severely, triggering an economic recession. As businesses pull back on hiring and investment, unemployment often rises. Job losses fall disproportionately on lower-income workers, who are least equipped to absorb them. Furthermore, governments and highly leveraged corporations face mounting debt-service burdens, diverting public and private revenues toward interest payments rather than productive investments.\n\nIt is equally important to recognize the fundamental limitation of interest rates: central banks can manage aggregate demand, but they cannot directly fix supply. A common misconception is that interest rate hikes can resolve every type of inflation. If inflation is driven by physical supply chain shocks, crop failures, or geopolitical disruptions to global oil supplies, higher interest rates cannot drill more oil wells or untangle ports. Raising rates in the face of supply-side inflation forces demand down to meet a restricted supply, potentially causing severe economic pain without addressing the root cause of the shortage.\n\nIn summary, central banks raise interest rates to cool aggregate demand by making borrowing expensive and saving attractive, which strips away the economic momentum driving prices upward. Yet, this medicine carries profound side effects: the risk of rising unemployment, lower growth, and potential financial distress across indebted sectors. Managing this balance—achieving a so-called \"soft landing\" where inflation moderates without precipitating a sharp recession—remains one of the central dilemmas of macroeconomic policy.\n\nAs you reflect on this dynamic, consider these questions: When a central bank deliberately raises borrowing costs to tame inflation, how should society weigh the cost of higher unemployment against the hidden tax of rising prices? Furthermore, what other policy tools, outside of central banking, could help stabilize prices without suppressing overall economic growth?",
+  "sources": [],
+  "evidence": [],
+  "claims": [],
+  "verifications": [],
+  "contradictions": [],
+  "metadata": {
+    "generation_provider": "gemini",
+    "generation_access": "google_api",
+    "generation_model_requested": "gemini-3.8-flash"
+  },
+  "telemetry": {
+    "started_at": "2026-11-12T09:54:25.513535+00:00",
+    "ended_at": "2026-11-12T09:54:40.754023+00:00",
+    "wall_seconds": 15.242414600000302,
+    "retrieval_calls": 0,
+    "retrieved_documents": 0,
+    "llm_calls": [
+      {
+        "task": "b1_direct_generation",
+        "model": "gemini-3.8-flash",
+        "provider": "google",
+        "latency_seconds": 13.932762800000091,
+        "prompt_tokens": 1029,
+        "output_tokens": 1005,
+        "thinking_tokens": 0,
+        "total_tokens": 2034,
+        "input_cost_usd": 0.00077175,
+        "output_cost_usd": 0.00376875,
+        "total_cost_usd": 0.0045405,
+        "attempts": 1,
+        "metadata": {}
+      }
+    ]
+  },
+  "experiment_id": "EXP_GEMINI_20261112T084659Z_b931c2",
+  "script_sha256": "bce67b25e94855cbbf66b6866ecfaa39d94743bb3a16b3f6384bfe6c89a0a4fd",
+  "reference_pool_sha256": "d066e188faf7551c94566d8f1ed0c717926efb560d4ccb33f54a542929759f6e",
+  "generation_config_sha256": "130fb20735098b5ae7683be72a40463c48605cdf59d320daa9f9373f43ee4512",
+  "prompt_version": "evidence-aware-10q-shared-checklist-clean-narration-v1.6.0",
+  "study_id": "",
+  "generation_provider": "gemini",
+  "generation_access": "google_api",
+  "generation_model": "gemini-3.8-flash",
+  "artifact_status": "generation_complete"
+}

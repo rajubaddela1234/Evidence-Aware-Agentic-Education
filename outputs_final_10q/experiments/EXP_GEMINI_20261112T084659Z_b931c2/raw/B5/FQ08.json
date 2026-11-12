@@ -1,0 +1,905 @@
+{
+  "system_id": "B5",
+  "system_name": "Agentic RAG + whole-script verifier",
+  "prompt_id": "FQ08",
+  "query": "How does HTTPS use TLS to secure web connections, and what threats does it not prevent?",
+  "domain": "Computer Networks / Cybersecurity",
+  "reasoning_type": "mechanism-and-threat-model",
+  "script": "Welcome, everyone. Today, we are going to explore how HTTPS relies on Transport Layer Security, or TLS, to protect web traffic, and just as importantly, examine which critical threats it leaves unaddressed. \n\nWhen you browse the web, your data travels across an untrusted network. By the end of this discussion, you will understand the three core security properties HTTPS provides, the two-layer mechanics of how TLS establishes a protected session, and the real-world threats that bypass these protections entirely. We will begin with the foundations of the protocol, break down the step-by-step handshake process, and conclude with the vital distinction between encrypted transit and complete security.\n\nTo build our foundation, let us look at the protocols involved. Hypertext Transfer Protocol Secure, or HTTPS, is an application layer protocol that enables encrypted exchanges between web browsers and web servers [E-7366c9bcc311]. HTTPS achieves this protection using Transport Layer Security, or TLS, which is the modern successor to the older Secure Sockets Layer, or SSL [E-a24c555320e9][E-8a91682beca9]. While people still casually use the term SSL, TLS is the cryptographic protocol actually securing our communications today [E-7366c9bcc311][E-8a91682beca9]. \n\nWhen properly configured, TLS guarantees three fundamental security properties: confidentiality, authenticity, and data integrity [E-7366c9bcc311][E-a24c555320e9]. Confidentiality means the connection is encrypted, preventing unauthorized parties from reading data such as URLs, cookies, and sensitive metadata [E-a24c555320e9][E-b4423ebaa06a]. Authenticity confirms that the visitor is communicating with the legitimate website rather than an imposter [E-a24c555320e9]. Integrity ensures that data cannot be secretly altered or tampered with during transmission without detection [E-a24c555320e9][E-b4423ebaa06a]. Together, these properties serve as the primary defense against manipulator-in-the-middle attacks, where an adversary sits between the browser and the server to eavesdrop on or alter web traffic [E-b4423ebaa06a].\n\nTo provide these protections, TLS operates across two internal layers: the TLS handshake protocol and the TLS record protocol [E-7366c9bcc311]. The handshake protocol authenticates the parties, while the record protocol verifies and secures the data for transport [E-7366c9bcc311].\n\nNow, consider what happens when a user navigates to an HTTPS website, makes an API call, or performs a DNS over HTTPS query [E-858949a7279b]. Right after a basic TCP connection opens via a TCP handshake, the TLS handshake kicks off as the process that starts the communication session [E-858949a7279b][E-8a91682beca9]. During this exchange, the client and server send a sequence of datagrams to negotiate their connection parameters [E-858949a7279b]. First, they specify which version of TLS they will use [E-858949a7279b]. TLS 1.3 is the current and most widely used version, TLS 1.2 remains in use by some websites, while older versions like TLS 1.0 and 1.1 should no longer be used [E-1e7a8e61f3cb]. Next, they agree on a cipher suite—the exact combination of algorithms they will deploy for key agreement, authentication, encryption, and message authentication [E-858949a7279b][E-1e7a8e61f3cb].\n\nWith the parameters established, the parties authenticate identities and prepare their encryption [E-858949a7279b]. The server presents its digital certificate, which is issued by a trusted certificate authority [E-858949a7279b][E-be1ea74bf620]. The client verifies the server’s identity using the server's public key and the certificate authority’s digital signature [E-858949a7279b]. While client authentication is technically possible, it is rare on the web outside of specialized applications; typically, only the server proves its identity to the client [E-1e7a8e61f3cb][E-b4423ebaa06a]. TLS incorporates both asymmetric and symmetric cryptographic techniques, and during the handshake, the communicating sides exchange randomly generated data to create shared session keys so that symmetric encryption can secure communications once the handshake is complete [E-7366c9bcc311][E-858949a7279b][E-8a91682beca9].\n\nThink of this process like using a tamper-evident, armored transport truck to deliver sealed mail between two physical buildings. The guards verify each other's credentials at the gate, seal the transport, and ensure no one on the highway can look inside or swap the envelopes along the route. \n\nHowever, this brings us to an essential nuance and common misunderstanding: HTTPS protects data while it is in transit across networks [E-a24c555320e9]. The browser's padlock icon signals to users that a site is trustworthy and secure, indicating that the website has a valid certificate and an encrypted channel [E-be1ea74bf620]. Yet the padlock icon provides no protection against threats where the encryption itself is leveraged by attackers [E-5080fa7193d9].\n\nIn fact, attackers increasingly use HTTPS itself to conceal malicious activities [E-5080fa7193d9]. A report from WatchGuard Technologies revealed that encrypted HTTPS traffic delivered over 91.5% of all malware threats, meaning organizations that do not decrypt and inspect HTTPS traffic at the perimeter risk allowing roughly nine out of ten pieces of malware into their systems [E-5080fa7193d9]. Cisco reported in 2016 that 12% of malware was exploiting TLS, and other security industry estimates indicate that between 37% and 60% of malware now uses HTTPS [E-5080fa7193d9]. Because secure perimeter gateways cannot inspect encrypted data directly, encrypted malware passes through, creating serious risks particularly for remote workers operating outside protected enterprise networks [E-5080fa7193d9]. \n\nIn summary, HTTPS leverages the TLS handshake and record protocols to establish end-to-end authentication, confidentiality, and data integrity for traffic moving across untrusted networks [E-7366c9bcc311][E-a24c555320e9]. Yet, encryption alone does not eliminate security threats, as adversaries can disguise malware inside encrypted HTTPS traffic [E-5080fa7193d9].\n\nTo reflect on what we covered today: If an encrypted channel can protect attackers just as effectively as legitimate users, how must an organization's network defense strategy evolve beyond relying solely on perimeter encryption?",
+  "sources": [
+    {
+      "source_id": "S-2b0554d3be00",
+      "source_type": "web",
+      "title": "What Is Transport Layer Security (TLS)? | IBM",
+      "url": "https://www.ibm.com/think/topics/transport-layer-security",
+      "text": "# What is Transport Layer Security (TLS)?\n\n## What is Transport Layer Security (TLS)?\n\nTransport Layer Security (TLS) is a cryptographic protocol that helps secure communications over unprotected computer networks, such as the Internet.\n\nThrough various asymmetric and symmetric cryptography techniques, TLS provides end-to-end authentication, confidentiality and data integrity. These protections apply to a wide range of network communications, including email, messaging, voice over IP (VoIP) and virtual private networks (VPNs).\n\nTLS is widely recognized for establishing secure connections for web browsing. It’s the foundation of Hypertext Transfer Protocol Secure (HTTPS), an application layer protocol that enables encrypted data exchanges between web applications and most major web browsers.\n\nThe TLS encryption protocol has two layers: the TLS handshake protocol and the TLS record protocol. The handshake protocol authenticates the web server and the client (the device connecting to the server). The record protocol verifies and secures the data for transport.\n\nThese layers sit above a transport protocol, such as that within the Transmission Control Protocol/Internet Protocol (TCP/IP) model—a suite of protocols that specify communications standards between computers and are considered “the glue that holds the Internet together.”1\n\n## Would your team catch the next zero-day in time?\n\nJoin security leaders who rely on the Think Newsletter for curated news on AI, cybersecurity, data and automation. Learn fast from expert tutorials and explainers—delivered directly to your inbox twice weekly. See the IBM Privacy Statement.\n\n## Thank you!\n\n## SSL vs. TLS\n\nThe TLS protocol is the successor to the Secure Sockets Layer (SSL) protocol standard developed by Netscape Communications Corporation. In 1996, the Internet Engineering Task Force (IETF) formally standardized the SSL protocol.\n\nIn January 1999, the IETF made improvements and addressed vulnerabilities to the latest SSL version (SSL 3.0), changing the name to Transport Layer Security. It was formally defined in the Request for Comments (RFC) 2246. Today, the terms “TLS” and “SSL” are often used interchangeably or stylized as TLS/SSL.\n\nSecurity Intelligence | 19 August, episode 47\n\n### Your weekly news podcast for cybersecurity pros\n\nWhether you're a builder, defender, business leader or simply want to stay secure in a connected world, you'll find timely updates and timeless principles in a lively, accessible format. New episodes on Wednesdays at 6am EST.\n\n## Why use TLS?\n\nCalled “the most important security protocol on the Internet” by the IETF, TLS is critical to protecting online communication from unauthorized access. Its latest version, TLS 1.3, delivers stronger, faster security—and serves as the backbone of today’s safe digital world.\n\nNearly 68% of the global population is online,2 with billions relying on the Internet daily for everything from shopping and banking to healthcare and personal communications. In all these use cases, safeguarding sensitive data is essential. That means protecting it from hackers, tampering, eavesdropping and other cybersecurity threats such as data breaches, malware or man-in-the-middle attacks.\n\nTLS specifically underpins HTTPS, the standard security protocol for websites. The HTTPS padlock icon, now a familiar feature in web browsers, signals to users that a website is trustworthy and secure.\n\nThe icon also indicates that a website has a valid TLS certificate (also known as an SSL certificate). This digital credential, issued by a certificate authority (CA), verifies a website’s identity and enables an encrypted connection. To illustrate the scale of TLS and HTTPS usage: one major TLS certificate provider issues over 340,000 certificates per hour.\n\nTLS ensures secure Internet communication by enforcing three core properties of a secure channel:\n\nVerifies the identities of the sender and receiver, and the origin and destination of the data.\n\nEnsures data can only be accessed by its intended recipient.\n\nEnsures data cannot be modified in storage or transmission without changes being detected.\n\n## How does TLS work?\n\nTransport Layer Security is effective because it relies on cryptographic processes to secure transmitted information.\n\nCryptography comes from the Greek word “*kryptos*,” meaning “hidden.” The primary purpose of cryptography is to secure and obscure communications using encryption—a process in which complex algorithms convert readable messages (plaintext) into encoded messages (ciphertext). The ciphertext can only be decrypted into a readable format by an authorized recipient using a specific key.\n\nIn the context of cryptography—such as TLS encryption—a key is a random string of numbers or letters. When used with a cryptographic algorithm it encrypts (locks) or decrypts (unlocks) information. The algorithms used to encrypt and decrypt data transferred over a network typically come in two categories: secret key cryptography and public key cryptography.\n\n### Secret key cryptography\n\nAlso known as symmetric encryption or symmetric key cryptography, this system creates a single shared key to encrypt and decrypt sensitive data. Symmetric encryption is simple and efficient but relies on secure key exchange and meticulous key management.\n\nMost of the sensitive data sent in a TLS session is sent using secret-key cryptography. TLS uses cryptographic hash functions to help ensure privacy and data integrity. Hash functions generate a fixed-size hash value from input data. This value acts as a digital fingerprint that can be compared before and after transmission. If the hash has changed, that means someone has tampered with the data.\n\nA message authentication code (MAC) is like a cryptographic hash, except it also authenticates the sender. It applies a secret key to hashed messages, with the resulting hash being known as a hashed message authentication code (HMAC).\n\n### Public key cryptography\n\nAlso referred to as asymmetric cryptography or public key encryption, this system uses a mathematically linked pair of keys—one public, one private—to encrypt and decrypt data. It allows people and systems to exchange sensitive information without needing to share a secret key in advance. It's comparable to a mailbox: anyone can insert a letter, but only the owner can unlock and retrieve its contents.\n\nThese capabilities help establish trust when integrated with public key infrastructure (PKI). For instance, public key certificates (also known as digital certificates or SSL/TLS certificates), bind public keys to verified identities through a certificate authority.\n\nThey also provide the basis for digital signatures—a component of digital certificates used in TLS to authenticate a client or a web server. Once a cryptographic hash is created for a message, the hash is encrypted with the sender's private key.\n\nThis encrypted hash is the digital signature. The signature can be verified by anyone using the public key, providing validation of the sender's identity and the data's integrity.\n\n## What are the two layers of TLS?\n\nThe TLS protocol has two sub-protocols: the TLS handshake protocol and the TLS record protocol. The exact steps may vary depending on the version of TLS.\n\n### The TLS handshake protocol\n\nThe TLS handshake establishes a secure connection between the client and the web server. Using public key cryptography, the server is authenticated (and sometimes the client) using a digital certificate. The client and server then agree on a cipher suite (a set of encryption algorithms) and perform a key exchange to securely establish shared session keys (secret keys for encryption and hashing).\n\nOnce the session keys are established, the secure session is considered set up. From this point on, public key encryption is no longer used, and all subsequent data transmitted is encrypted and authenticated using secret key cryptography.\n\n(For further detail, see: **“What are the steps of a TLS handshake?**”)\n\n### The TLS record protocol\n\nThe record protocol is responsible for securing data transmitted during the TLS connection. To do so, it uses the cipher suite and keys negotiated during the handshake as a kind of recipe for how to protect data.\n\nThe cipher suite defines which algorithms should be used for key exchange, encryption and message authentication. The symmetric (secret) keys are used to encrypt outgoing data and decrypt incoming data. The keys are also used to create message authentication codes, which verify the integrity of the data.\n\nThrough these mechanisms, the record protocol ensures the authentication, integrity and confidentiality of the connection.\n\n## What are the steps in a TLS handshake?\n\nThe exact steps of a TLS handshake vary based on the TLS version. It can take around 200 to 300 milliseconds, or as little as 100 milliseconds, to complete (of course, the exact duration depends on latency, round-trip time (RTT), server performance and other network considerations).\n\nThis illustration uses TLS 1.3, which is the fastest, most recent and more secure TLS version.\n\n### 1. Client hello\n\nThe client sends a ClientHello message with the supported TLS version (TLS 1.3), cipher suites, a random byte string (*client\\_random*) and an ephemeral key share—using the Elliptic Curve Diffie-Hellman Ephemeral (ECDHE) key exchange method.\n\n### 2. Server hello and key exchange\n\nThe server responds with a ServerHello message containing the selected cipher suite, another random byte string (*server\\_random*) and its own ephemeral key share. This step establishes the key exchange parameters.\n\nNow, both parties can compute a shared secret using ECDHE. This shared secret is used to derive the handshake keys.\n\nThe server then sends its digital certificate, a CertificateVerify message (signed with its private key) and a Finished message (encrypted with the handshake key).\n\n*(Optional:If the server requires client authentication, it sends a CertificateRequest. The client then responds with its certificate and a CertificateVerify message.)*\n\n### 3. Authentication and finished\n\nThe client verifies that the server's certificate is issued by a trusted certificate authority, is valid and not revoked and that the domain matches. It also verifies the server’s CertificateVerify message using the server's public key from the certificate and the Finished message using the handshake key.\n\nThe client sends its own Finished message using a handshake key, and the handshake is confirmed complete.\n\nAt this point, both parties have authenticated each other and established a shared secret key. They can now exchange messages using symmetric encryption.\n\n## What key exchange methods does TLS use?\n\nKey exchange methods help users securely exchange cryptographic keys. There are several key exchange methods used to implement TLS, including:\n\n### Diffie-Hellman (DH)\n\nDiffie-Hellman is one of the most common key exchange methods. It’s an asymmetric key exchange protocol that allows two parties—with no prior knowledge of each other—to generate a shared secret key for secure communications over an insecure channel. Its security relies on the difficulty of solving the discrete logarithm problem**,** a complex mathematical problem that makes it computationally infeasible to decipher the shared secret.\n\nThere are several variations of the Diffie-Hellman key exchange, including:\n\n* **Diffie-Hellman ephemeral (DHE):** In DHE, “ephemeral” means a temporary or single-use key is generated for each session. This provides forward secrecy, ensuring that the compromise of long-term keys does not compromise past sessions.DHE is commonly used in TLS 1.2, although TLS 1.2 supports both DH and DHE.\n* **Elliptic Curve Diffie-Hellman (ECDH):** ECDH is similar to DH but uses elliptic curve cryptography—which provides greater security with smaller key sizes. ECDH computations are therefore faster and less resource intensive. However, non-ephemeral cipher suites are not recommended by the IETF due to their lack of forward secrecy.\n* **Elliptic Curve Diffie-Hellman Ephemeral (ECDHE):** This is the ephemeral version of ECDH, where temporary keys are generated for each session, providing forward secrecy. It is the mandated key exchange method for TLS 1.3.\n\n### Rivest-Shamir-Adleman (RSA)\n\nRSA is an asymmetric encryption algorithm that relies on the mathematical complexity of factoring large prime numbers to generate key pairs. It uses a public-private key pair for encryption and decryption, making it suitable for secure data transmission and digital signatures. RSA is not supported in TLS 1.3 for key exchange due to security concerns (that is, it does not provide forward secrecy). However, it can be used for authentication.\n\n### Pre-shared key (PSK)\n\nA PSK is a shared secret key that was previously shared between the two parties using a secure channel before the TLS session. Users can establish a PSK during one TLS handshake and then use it to establish a new connection in another handshake; this is called session resumption with a PSK. It is recommended to use PSKs with DHE or ECDHE to provide forward secrecy.\n\n## What is the latest TLS protocol version?\n\nSince the initial release of TLS 1.0 in 1999 (which was an upgrade to SSL version 3.0), the IETF has released three subsequent TLS versions:\n\n* **TLS 1.1**, specified in RFC 4346, April 2006: This version contained minor security and editorial improvements, as well as clarifications.\n* **TLS 1.2**, specified in RFC 5246, August 2008: This version was an update to TLS 1.1 and notably improved flexibility for negotiation of cryptographic algorithms.\n* **TLS 1.3**, specified in RFC 8446, August 2018: This latest update improves security, performance and privacy by reducing latency with a zero-round-trip time (0-RTT) and simplifying negotiation, among other changes.\n\nIt’s important to note that, while TLS 1.3 can be implemented with a backward-compatibility mode, it is not directly compatible with previous TLS versions.\n\n[Report   Cost of a Data Breach report 2026\n\nThe global average cost of a data breach reached USD 4.99M while AI-driven attacks increased 56%. Explore the latest findings.\n\n## Resources\n\n[Report   Cost of a Data Breach report 2026\n\nThe global average cost of a data breach reached USD 4.99M while AI-driven attacks increased 56%. Explore the latest findings.\n\n[NEW   Smarter AI governance and security solutions\n\nLearn how to turn governance and security into drivers of resilience, smarter decision-making and confident growth with practical strategies from this buyer’s guide.\n\n[TII report   IBM X-Force Threat Intelligence Index 2026\n\nGain insights to prepare and respond to cyberattacks with greater speed and effectiveness with the IBM X-Force® Threat Intelligence Index.\n\n[Webinar recording   Agent ops and responsible AI\n\nJoin this webinar to explore practical strategies for operating and governing AI agents responsibly at scale, with expert insights on observability, risk management and accountable AI operations.\n\n[KuppingerCole report   See why KuppingerCole ranks IBM as a leader\n\nThe KuppingerCole data security platforms report offers guidance and recommendations to find sensitive data protection and governance products that best meet clients’ needs.\n\n[On-demand webinars   Guardium webinars\n\nLearn how to protect your data at every stage of its lifecycle in our webinars.\n\n[TEI report   The total economic impact (TEI) of Guardium Data Protection\n\nDiscover the benefits and ROI of IBM Guardium® Data Protection in this Forrester TEI study.\n\n[Gartner Market Guide   Gartner® Market Guide for AI TRiSM\n\nAccess this Gartner guide to learn how to manage the complete AI inventory and secure your AI workloads with guardrails. It also shows how to reduce risk and manage the governance process to achieve AI trust for all AI use cases in your organization.\n\n[Security tutorials   Expand your skills with free security tutorials\n\nFollow clear steps to complete tasks and learn how to effectively use technologies in your projects.\n\n[IAM explainer   What is identity and access management (IAM)?\n\nIdentity and access management (IAM) is a cybersecurity discipline that deals with user access and resource permissions.\n\nProtect data everywhere—enforce strong encryption, manage keys and secure sensitive information across on-premises and cloud environments.\n\nProtect data everywhere—discover, classify, monitor and secure sensitive information across your environment.\n\nIBM provides comprehensive data security services to protect enterprise data, applications and AI.\n\nTake the next step\n\nSecure and protect sensitive data everywhere—enforce strong encryption, gain visibility and defend against threats while meeting privacy and compliance needs.",
+      "retrieval_query": "How does HTTPS utilize the TLS protocol to establish and secure communication channels?",
+      "rank": 1,
+      "author": null,
+      "published_at": null,
+      "metadata": {
+        "score": 0.81479084
+      }
+    },
+    {
+      "source_id": "S-6e0033801129",
+      "source_type": "web",
+      "title": "Why HTTPS Doesn't Mean Safe: A Comprehensive Overview of HTTPS Limitations and Security Threats",
+      "url": "https://www.linkedin.com/pulse/why-https-doesnt-mean-safe-comprehensive-overview-prince-chaudhary-f3pmf",
+      "text": "## Sign in to view more content\n\nCreate your free account or sign in to continue your search\n\nBy clicking Continue to join or sign in, you agree to LinkedIn’s User Agreement, Privacy Policy, and Cookie Policy.\n\nLinkedIn is better on the app\n\nDon’t have the app? Get it in the Microsoft Store.\n\n# Why HTTPS Doesn't Mean Safe: A Comprehensive Overview of HTTPS Limitations and Security Threats\n\n### Prince Chaudhary\n\nPublished Dec 3, 2025\n\nThe ubiquitous padlock icon and \" prefix have become synonymous with website security in the minds of most internet users. However, this perception represents a significant and potentially dangerous misconception. While HTTPS (Hypertext Transfer Protocol Secure) is indeed a crucial security technology, it provides only one layer of protection and does not guarantee that a website is safe or trustworthy. The presence of encryption merely ensures that data traveling between your browser and a server cannot be easily intercepted or modified during transmission—nothing more. This critical distinction is the foundation for understanding why encrypted connections alone are insufficient against the sophisticated attack landscape that exists today. Understanding what HTTPS truly protects and, more importantly, what it does not protect is essential for anyone navigating the modern internet securely.\n\n### What HTTPS Actually Protects\n\nTo understand why HTTPS doesn't mean \"safe,\" it is first necessary to clarify exactly what HTTPS is designed to do. When properly configured, HTTPS guarantees three specific security properties: confidentiality (the connection is encrypted, obscuring URLs, cookies, and sensitive metadata), authenticity (the visitor is communicating with the legitimate website, not an imposter), and integrity (data has not been tampered with or modified during transmission). This encryption is achieved through Transport Layer Security (TLS), the modern successor to the older Secure Sockets Layer (SSL) protocol, which creates an encrypted channel between your browser and the website's server.\n\nThe encryption provided by HTTPS protects data while it is \"in transit\"—moving across networks and the internet. An unencrypted HTTP connection reveals not just the body of requests but the full URL, query string, and various HTTP headers about the client and request. With HTTPS, these elements become unreadable to eavesdroppers on the same network, such as those on public Wi-Fi hotspots. Additionally, HTTPS authentication protects against certain man-in-the-middle (MITM) attacks by verifying that the server presenting a certificate has demonstrated ownership of the domain to a trusted certificate authority. For this reason, HTTPS remains an essential security baseline and should absolutely be used on any website handling sensitive information.\n\n### The Critical Limitation: What HTTPS Does NOT Protect\n\nThe fundamental misconception is that HTTPS protects against all cyber threats. In reality, HTTPS only encrypts data in transit and provides no protection whatsoever against application-level attacks, malware, phishing, social engineering, or compromised servers. The encryption is essentially a secure envelope: if that envelope is addressed to a scammer instead of a trusted recipient, it will still arrive perfectly intact, but in the wrong hands.\n\n### Data At Rest Remains Vulnerable\n\nOne of the most overlooked limitations of HTTPS is that it protects only data in transit, not data at rest. Data at rest refers to information stored on servers, databases, or devices that is not actively moving across networks. Even if data is encrypted during transmission via HTTPS, if it is stored unencrypted on a server and that server is breached, attackers will have direct access to it in plaintext. This distinction is critical: a company could use HTTPS flawlessly for all user interactions, yet if the backend database lacks encryption, a successful breach could expose all stored customer data. Many organizations fail to implement encryption at the application layer, leaving their most sensitive data vulnerable once it reaches the server.\n\n### Application-Level Attacks Bypass HTTPS Entirely\n\nHTTPS provides no defense against application-level attacks where the attacker already has a valid connection to the encrypted server. If an attacker can access or create a valid user account on a vulnerable HTTPS-protected application, they can freely attempt SQL injection attacks, privilege escalation, cross-site scripting (XSS), or other exploits—all within a securely encrypted connection. The encryption means the attack traffic travels securely to the server, where it then exploits vulnerabilities in the application logic itself. A malicious website with HTTPS encryption will faithfully encrypt a user's data, then deliver it securely to the attacker running the trap.\n\n### The Rise of HTTPS-Based Phishing and Fraud\n\nPerhaps the most striking demonstration of HTTPS's limitations is the explosive growth of phishing and fraud websites using valid SSL/TLS certificates. Research shows that between 58-90% of phishing websites now use HTTPS, with many obtaining free Domain Validated (DV) certificates from certificate authorities like Let's Encrypt. In the first quarter of 2021, 83% of phishing sites had SSL encryption enabled. This trend reflects a fundamental misunderstanding by users: the padlock icon is simply a trust signal for the connection's encryption, not a verification of the website's legitimacy or purpose.\n\nAttackers exploit this false sense of security by registering lookalike domains—such as paypa1.com (with the number 1 instead of the letter 'l') or microsоft.com (using Cyrillic characters that appear identical to Latin letters)—and obtaining valid HTTPS certificates for them. Domain Validated certificates require only proof of domain ownership; they do not verify the organization's identity or legitimacy. A user arriving at such a phishing site sees the same padlock icon, the same \"secure connection\" indicators, and the same encrypted communication as they would at the legitimate site. Their credentials are then transmitted securely—directly to the attacker. The encryption is real, but the safety is entirely an illusion.\n\n### Certificate Authority Compromise and Vulnerabilities\n\nAnother critical vulnerability in the HTTPS ecosystem is the possibility of certificate authority (CA) compromise or the issuance of fraudulent certificates. When a certificate authority is compromised, attackers can issue valid certificates for any domain, enabling them to intercept traffic while passing browser validation checks. Notable historical incidents include the 2011 DigiNotar breach, which resulted in fraudulent certificates for Google and Yahoo; the 2017 Symantec incident, where improper certificates were issued and led to browser distrust; and ongoing abuse of Let's Encrypt by phishers. Even without CA compromise, improperly validated or misconfigured certificates—such as expired certificates, self-signed certificates, weak encryption algorithms, or mismatched domain names—can create security gaps. Certificate chain validation flaws can also prevent browsers from properly verifying authenticity.\n\n### Protocol Downgrade Attacks and SSL/TLS Vulnerabilities\n\nHTTPS security can also be undermined through TLS downgrade attacks, where attackers force systems to use older, less secure protocol versions. A prominent example is the POODLE (Padding Oracle On Downgraded Legacy Encryption) attack, which forces browsers to downgrade to SSL 3.0 when TLS handshakes fail. During the TLS handshake—the initial communication phase where a client and server negotiate encryption parameters—attackers can intercept and manipulate the messages exchanged, forcing the use of weaker protocols with known vulnerabilities. Other downgrade attacks include FREAK and Logjam, which similarly coerce systems into using inadequate encryption. Additionally, SSL stripping attacks position an attacker between a user and server, maintaining an unencrypted HTTP connection with the client while establishing a separate HTTPS connection with the server, effectively downgrading the user's connection to insecure HTTP.\n\n### Information Leakage Through Side-Channels and DNS\n\nEven with encryption in place, attackers can extract sensitive information through side-channel attacks, which exploit indirect information leaks such as timing variations, traffic analysis, or power consumption patterns. Encrypted HTTPS traffic remains vulnerable to side-channel analysis: an attacker cannot decrypt the content, but they can analyze the time spent on a site, the relative size of user input, or patterns in encrypted traffic to infer sensitive information. Researchers have demonstrated the ability to identify specific encrypted videos from traffic patterns with over 90% accuracy.\n\nFurthermore, HTTPS does not encrypt DNS queries by default. When a user attempts to visit a website, their computer first performs an unencrypted DNS lookup to translate the domain name into an IP address. This DNS resolution can be intercepted and manipulated through DNS hijacking or spoofing, potentially redirecting users to malicious sites even if they later establish HTTPS connections. While newer protocols like DNS over TLS (DoT) and DNS over HTTPS (DoH) encrypt these queries, they remain unadopted by many users. Additionally, the Server Name Indication (SNI) field in the TLS handshake historically reveals the destination website in plaintext, though this is being addressed with newer encryption standards.\n\n### Malware Exploits HTTPS for Concealment\n\nIn an ironic twist, attackers increasingly use HTTPS itself to conceal malicious activities. A WatchGuard Technologies report revealed that encrypted HTTPS traffic delivered over 91.5% of all malware threats, meaning that organizations not decrypting and inspecting HTTPS traffic at the perimeter risk allowing approximately 9 out of every 10 pieces of malware into their systems. Malware developers have engineered network packets that use TLS encryption to disguise attacks, and in 2016, Cisco reported that 12% of malware was exploiting TLS, while more recent estimates by other security firms suggest 37-60% of malware now uses HTTPS. Since secure gateways cannot inspect encrypted data, encrypted malware passes through—a particularly dangerous situation for remote workers outside protected enterprise networks. The padlock icon provides no protection against this threat because the encryption, encryption itself becomes a tool for attack.\n\n### Best Practices: Moving Beyond HTTPS\n\nWhile HTTPS remains essential, security requires a layered, defense-in-depth approach that extends far beyond encryption. Organizations and users must implement multiple security measures:\n\nUse HSTS (HTTP Strict Transport Security) to force browsers to connect exclusively via HTTPS and prevent SSL stripping attacks. HSTS headers instruct browsers to reject any HTTP connection attempts, eliminating the redirect vulnerability.\n\nImplement Extended Validation (EV) or Organization Validated (OV) certificates rather than relying on inexpensive Domain Validated certificates. These require verification of organizational identity and provide stronger trust signals.\n\nEnable certificate pinning for mobile applications and high-security applications, which binds specific certificates or public keys to prevent MITM attacks using fraudulent certificates.\n\nInspect HTTPS traffic at security gateways using robust tools that decrypt and analyze encrypted traffic to detect malware and application-level threats. However, this must be implemented carefully to avoid introducing security flaws.\n\nCheck certificate details by clicking on the padlock icon or security indicators in the browser address bar to verify the certificate issuer, validity period, and organizational information.\n\nConsult reputation databases such as Google Safe Browsing or other URL checkers before visiting unfamiliar sites.\n\nVerify domain ownership by examining the URL carefully for typos or lookalike domains, and cross-reference with official contact information.\n\nImplement application-layer security measures including input validation, parameterized queries to prevent SQL injection, strong authentication mechanisms, and access controls.\n\nEncrypt sensitive data at the application layer to create a final failsafe that protects data even if network or server security is compromised.\n\nBased on the latest cybersecurity reports and incident findings, here are the most significant recent developments demonstrating why HTTPS doesn't mean \"safe\":\n\n### IBM X-Force 2025 Report: Cloud-Hosted Phishing Surge\n\nThe IBM X-Force 2025 Threat Intelligence Index, published in April 2025, revealed one of the most alarming trends: threat actors have massively shifted to using cloud hosting services to facilitate phishing campaigns. This development exploits a critical weakness in the HTTPS security model—attackers leverage legitimate cloud infrastructure to obtain trusted URLs, domains, and IP addresses that bypass traditional security filters.\n\n## Recommended by LinkedIn\n\nMachine Learning and Artificial Intelligence Reshaping…\n\nHimangini Khanna   5 years ago](\n\nTask Based on Git And Github MasterClass:\n\nSneha Jain   5 years ago](\n\nTop Linux Distros for Cybersecurity & Hacking\n\nRohit Singh   11 months ago](\n\nKey findings from the report include:\n\n* 84% increase in infostealers delivered via phishing emails in 2024 compared to 2023, with early 2025 data showing an even more dramatic 180% increase in weekly volume\n* Cloud-hosted phishing campaigns create trusted HTTPS connections that appear completely legitimate to security systems and users alike\n* Latin America is especially targeted, with threat actors significantly ramping up cloud-hosted phishing throughout 2024\n* Organizations cannot block these attacks by blocking cloud services or PDFs/URLs broadly without disrupting legitimate business operations\n\nThe report emphasizes that attackers only need payloads to stay active until victims click the link, making detection and takedown efforts challenging. IBM X-Force recommends using AI tools and automation as the only effective countermeasures to match the scale of these attacks.\n\n### Phishing Statistics: Near-Million Attacks with HTTPS Certificates\n\nThe Anti-Phishing Working Group's Q4 2024 Report documented 989,123 phishing incidents between October and December 2024. Critically, these phishing sites often possess valid SSL certificates to appear legitimate, with phishers taking advantage of free SSL certificates to exploit user trust in traditional security markers like the padlock icon.\n\nAccording to SSL/TLS industry statistics published in September 2025:\n\n* 88.08% of websites now use HTTPS protocol as of June 2025, but 11.92% still lack security protocols\n* 30.3% of websites do not follow best practices for SSL implementation despite having HTTPS, leaving significant security gaps\n* The SSL certificate market is projected to reach $234.5 million in 2025 and grow to $518.4 million by 2032, reflecting the critical importance yet widespread exploitation of these certificates\n\n### Certificate Validity Period Reductions to Combat Phishing\n\nIn response to the epidemic of phishing sites with valid HTTPS certificates, the CA/Browser Forum introduced aggressive new measures to reduce certificate validity periods:\n\n* Current validity: Maximum of 398 days (until March 15, 2026)\n* March 15, 2026: Drops to 200 days\n* March 15, 2027: Further reduced to 100 days\n* March 15, 2029: Final limit of 47 days (1.5 months)\n\nThis dramatic reduction aims to limit the damage window of compromised SSL/TLS certificates and reduce opportunities for misuse by attackers. However, it also requires organizations to implement automated certificate management using tools like Automatic Certificate Management Environment (ACME) to prevent expired certificate outages.\n\n### APT36 Campaign: Nation-State Actors Using HTTPS for Espionage\n\nIn November 2025, multiple cybersecurity firms documented a sophisticated APT36 (Transparent Tribe) malware campaign targeting Indian government and defense entities. This Pakistan-aligned threat actor demonstrated how HTTPS-secured connections facilitate cyber-espionage:\n\n* Active in August 2025 through November 2025, the campaign used spoofed Indian Ministry of Defence press releases to deliver malware on both Windows and Linux systems\n* Attackers cloned the official Ministry website using HTTrack in March 2025, hosting it on typosquatted domains with valid HTTPS certificates\n* The campaign used Google Drive for payload delivery and established command-and-control channels over HTTPS, making detection extremely difficult\n* Victims received Python-based ELF malware and .NET-based remote access trojans delivered through seemingly legitimate, HTTPS-secured infrastructure\n\nThe campaign exemplifies how nation-state actors weaponize HTTPS to create authentic-appearing infrastructure that evades detection while conducting long-term espionage operations.\n\n### ClickFix Phishing: Exploiting User Trust in Secure Connections\n\nThroughout 2025, a technique called ClickFix emerged as a dominant social engineering tactic, with multiple campaigns documented in November 2025:\n\n### Hotel Industry Campaign\n\nA large-scale ClickFix phishing campaign targeting the hospitality industry was active from April 2025 through October 2025. Attackers:\n\n* Sent spear-phishing emails impersonating Booking.com from compromised accounts\n* Redirected victims to HTTPS-secured malicious websites with fake reCAPTCHA challenges\n* Deployed PureRAT malware to steal credentials for booking platforms like Booking.com and Expedia\n* Used the stolen credentials to conduct fraud against hotel customers or sold them on cybercrime forums\n\n### HTML Attachment Campaign\n\nIn November 2025, Cyble Research and Intelligence Labs uncovered a sophisticated phishing campaign using HTML attachments with embedded JavaScript to bypass email security:\n\n* Attackers created self-contained HTML files impersonating Adobe or Microsoft login pages\n* Used CryptoJS AES encryption to obfuscate malicious logic and included anti-forensics measures that disable developer tools\n* Exfiltrated stolen credentials via Telegram Bot API over HTTPS, making the traffic appear as legitimate encrypted communications\n* The campaign continues to evolve with multilingual support and advanced obfuscation tactics\n\n### Black Friday Phishing Surge: 620% Increase\n\nDarktrace reported on December 2, 2025 that phishing attacks surged by 620% in the lead-up to Black Friday. The week before Thanksgiving (November 15-21) saw 201% more phishing attempts mimicking US retailers compared to the same week in October. These attacks predominantly used HTTPS-secured fake retail websites to harvest payment credentials and personal information during the high-traffic shopping season.\n\n### Recent SSL Certificate Expiry Incidents\n\nSeveral organizations experienced connectivity disruptions in late 2025 due to expired SSL certificates:\n\n* November 27, 2025: An SSL certificate for feb.es expired, causing security validation failures and preventing users from establishing secure connections\n* September 28, 2025: Another domain's SSL certificate became invalid, leaving users unable to establish secure connections and highlighting the operational risks of certificate management failures\n\nThese incidents demonstrate that even legitimate organizations with HTTPS can experience security lapses that create vulnerabilities, underscoring that the presence of HTTPS alone doesn't guarantee continuous security.\n\n### Key Takeaways from 2025\n\nThe convergence of these developments reveals critical truths about HTTPS security in 2025:\n\n1. Attackers have industrialized HTTPS exploitation: With 989,123 phishing incidents in Q4 2024 alone, many using valid certificates, HTTPS has become a weapon rather than just a defense\n2. Cloud infrastructure abuse is escalating: Threat actors leverage trusted cloud services to obtain legitimate HTTPS credentials, creating an arms race between attackers and defenders\n3. Nation-state actors weaponize HTTPS for espionage: APT campaigns demonstrate that HTTPS-secured connections facilitate long-term, stealthy cyber-espionage operations\n4. Social engineering bypasses encryption: ClickFix and similar techniques exploit user trust in the padlock icon, proving that human psychology remains the weakest link\n5. Certificate validity reductions are necessary but challenging: The industry's move to 47-day certificates by 2029 reflects the severity of certificate abuse, but requires massive infrastructure changes\n\nThe overwhelming evidence from 2025 confirms that HTTPS encryption is necessary but insufficient for security. Organizations and users must adopt layered defenses, threat intelligence, behavioral analysis, and security awareness training to address the sophisticated exploitation of HTTPS by modern threat actors.\n\n### Conclusion\n\nHTTPS is an indispensable security technology that protects data in transit and verifies server identity, but it is emphatically not a complete security solution. The padlock icon is merely a symbol of encryption, not a guarantee of safety, legitimacy, or trustworthiness. Attackers have adapted to widespread HTTPS adoption by obtaining valid certificates for phishing sites, delivering malware through encrypted channels, exploiting application vulnerabilities within encrypted connections, and employing sophisticated attacks that bypass encryption altogether. Users and organizations that regard HTTPS as a comprehensive security solution are leaving themselves vulnerable to a sophisticated array of threats. True security requires understanding what HTTPS protects (data in transit between verified endpoints) and what it does not protect (application logic, data at rest, server compromise, social engineering, and malware), combined with a comprehensive security strategy that includes multiple layers of defense, application-level security, data protection across all states, threat intelligence, and user awareness. Only through this multifaceted approach can organizations and individuals achieve meaningful protection in an increasingly hostile threat landscape.\n\n🚀 A must-have for digital professionals. Save 50% on Multilogin: apply code SAAS50. Hope this helps someone!\n\nTo view or add a comment, sign in\n\n## More articles by Prince Chaudhary\n\n  ### TCP vs UDP — Real World Examples\n\n  I used to see TCP and UDP mentioned everywhere and just nod along like I understood. Then someone asked me in an…\n\n  ### What is DNS?\n\n  I had been writing web apps for over a year before I actually understood what happens when you type a URL. I knew the…\n\n  ### What is the Internet?\n\n  I studied computers for years before someone asked me a simple question: \"What actually is the internet?\" I opened my…\n\n  ### Your Password's Replacement is Already Here—Passkeys\n\n  The death of the password isn't coming. It's already happening.\n\n  ### Blockchain\n\n  Last month, a developer at a major fintech made a single typo in a smart contract. Seventy-two hours later, attackers…\n\n## Others also viewed\n\n  ### Foundational and Evolving Paradigms in Cybersecurity: A Comprehensive Analysis of Security Principles, Access Controls, and Organizational Resilience\n\n  Yashraj Singh Tomar   1y](\n\n  ### Heart Touching Birthday Wishes for Wife\n\n  ### Python course(PY001) only in one hours\n\n  ### Stack Overflow: Global Lifeline for Developers\n\n  ### Revolutionizing Business Transformation with Salesforce across Diverse Sectors\n\n  ### 20+ Open Source Opportunities to ace today. I bet you don't know that.\n\n  ### SQL at 50: The Silent Infrastructure Running Our Digital World\n\n  ### Server vs PC: What Really Powers Modern Cloud Computing\n\n  ### Ethical Hacking: From Threats to Trust\n\n  ### Human detection : social distancing Association\n\n  satyapal singh lodhi   6y](\n\n## Similar topics\n\n* [### Understanding HTTPS Security Beyond the Padlock\n\n* [### Understanding Encrypted Internet Connections\n\n* [### Understanding TLS and HTTPS Protocols\n\n* [### Encryption and Certificates in HTTPS\n\n* [### Browser Encryption Padlock Explained\n\n* [### SSL/TLS and web security\n\n## Explore content categories",
+      "retrieval_query": "How does HTTPS utilize the TLS protocol to establish and secure communication channels?",
+      "rank": 2,
+      "author": null,
+      "published_at": null,
+      "metadata": {
+        "score": 0.80735475
+      }
+    },
+    {
+      "source_id": "S-9834d55f7537",
+      "source_type": "web",
+      "title": "Transport Layer Security (TLS) - Security | MDN",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security",
+      "text": "Remember language   Learn more\n\n# Transport Layer Security (TLS)\n\nTransport Layer Security (TLS) is a protocol which enables a client to communicate securely with a server across an untrusted network. Most notably it's used to secure HTTP connections on the web: the resulting protocol is called HTTPS.\n\nTLS secures a network connection in three ways:\n\n* **Encryption**: the data exchanged between client and server is encrypted while in transit, so it can't be read by any attackers.\n* **Integrity**: an attacker can't secretly modify data (without detection) while it is in transit between client and server.\n* **Authentication**: client and server are each able to prove to the other party that they are the entity they claim to be. On the web, servers usually authenticate themselves to clients, but clients don't usually authenticate themselves to servers.\n\nIn particular, HTTPS is the defense against a manipulator in the middle (MITM) attack, in which the attacker inserts themselves between the user's browser and the server they are connecting to, and can read and modify the traffic exchanged.\n\nBrowsers consider pages delivered over HTTPS as providing a secure context. Many powerful web APIs are only available to code running in a secure context.\n\n**All websites should serve all their pages and subresources over HTTPS, and implement server authentication.**\n\nWhen a client connects to a server using TLS, an initial *handshake* sets the security parameters for the protocol:\n\n* Client and server agree on which version of TLS to use. The current version of TLS is 1.3 (RFC 8446), and this is the most widely-used version. TLS 1.2 is still used by some websites, and TLS 1.1 and 1.0 should no longer be used.\n* Client and server agree on the cipher suite that they will use: this defines the algorithms that they will use for key agreement, authentication, encryption, and message authentication.\n* Optionally, client and server authenticate each other. Client authentication, in which the client proves who they are to the server, is rare on the web outside some specialized applications. However, server authentication, in which the server proves who they are to the client, is a fundamental part of web security.\n* Client and server agree on a secret key that they will use to encrypt and decrypt messages.\n\nAfter the handshake, client and server use the secret key to encrypt and decrypt any messages, including HTTP headers as well as bodies.\n\nChoosing the right TLS server configuration has a big impact on the security of the connection. In particular, it determines the TLS version and cryptographic algorithms that will be used. If you need to configure your own server, consult a resource such as Mozilla's TLS Recommended Configurations.\n\nMozilla also provides a TLS configuration generator that will generate configuration files for a wide range of web servers.\n\nTo support server authentication, your website must have a digital certificate, which contains a digitally signed copy of the public key which is the counterpart of the website's private key. This binds the website's keys to their domain name, so the browser knows that it really is connecting to, for example, \"\n\nLet's Encrypt is a widely used nonprofit Certification Authority which issues free TLS certificates.\n\nModern web hosting services support HTTPS for you, either by default or through a configuration setting. In this situation, the hosting service is likely to manage your certificate and configure the server on your behalf.\n\nA website should use HTTPS not only for the main document, but also for all subresources that it loads, such as scripts, stylesheets, images, and fonts. If a website loads the main document over HTTPS but then loads any of its subresources over HTTP, this is called mixed content.\n\nFor example, if a document served from ` includes the following content, then it will constitute mixed content:\n\nMixed content is unsafe because the subresources don't get the protection that HTTPS offers, so an attacker can not only read them but potentially also modify them. This can undermine the integrity of the page as a whole! For example, we could imagine an attacker modifying a script to behave harmfully. Other resources are less dangerous than scripts, but still potentially dangerous: for example, an attacker could modify images so as to confuse or mislead users.\n\nFor this reason, browsers don't allow secure pages to load insecure subresources. Instead, depending on the type of subresource, they either upgrade the load request to use HTTPS, or block the request entirely.\n\nIf it's not possible for you to update your code to load resources from HTTPS URLs (for example, because your HTML has been archived), your server can set a content security policy that contains the `upgrade-insecure-requests` directive, and the browser will automatically upgrade these requests to HTTPS.\n\nEven if a site is only served over HTTPS, users may still request it over HTTP: for example, by typing ` into the address bar. To enable the site to work in cases like this, listen for HTTP requests and use a 301 Moved Permanently response to redirect to the HTTPS version.\n\nHowever, this gives attackers the opportunity to intercept the initial exchange, and then prevent the upgrade to HTTPS from happening. This is sometimes called an *SSL stripping* attack (SSL is the precursor to TLS).\n\nTo reduce the risk of this attack, the server should also send the `Strict-Transport-Security` HTTP response header (also known as HSTS): this informs clients that the site wishes them to use HTTPS, and will cause the browser to connect using HTTPS directly for any subsequent visits, even those made using HTTP URLs.\n\nWith HSTS, SSL stripping is prevented except for the first time the browser tries to connect to your site (or, since HSTS has an expiry, the first time after an HSTS record in the browser has expired). To protect the site even on first connection or HSTS record expiry, Chrome maintains a list of domains called the HSTS preload list: if a domain is on this list, then Chrome will always upgrade HTTP requests to HTTPS, effectively behaving as if the server has already sent the HSTS header. Safari and Firefox have similar behavior, using a list that is derived from the Chrome list.\n\n## Help improve MDN\n\nThis page was last modified on by MDN contributors.",
+      "retrieval_query": "How does HTTPS utilize the TLS protocol to establish and secure communication channels?",
+      "rank": 3,
+      "author": null,
+      "published_at": null,
+      "metadata": {
+        "score": 0.73077047
+      }
+    },
+    {
+      "source_id": "S-2e1c477556ea",
+      "source_type": "web",
+      "title": "What Happens in a TLS Handshake? | SSL Handshake",
+      "url": "https://www.cloudflare.com/learning/ssl/what-happens-in-a-tls-handshake",
+      "text": "## What happens in a TLS handshake? | SSL handshake\n\nIn a TLS/SSL handshake, clients and servers exchange SSL certificates, cipher suite requirements, and randomly generated data for creating session keys.\n\n## What is a TLS handshake?\n\nTLS is an encryption and authentication protocol designed to secure Internet communications. A TLS handshake is the process that kicks off a communication session that uses TLS. During a TLS handshake, the two communicating sides exchange messages to acknowledge each other, verify each other, establish the cryptographic algorithms they will use, and agree on session keys. TLS handshakes are a foundational part of how HTTPS works.\n\n## TLS vs. SSL handshakes\n\nSSL, or Secure Sockets Layer, was the original security protocol developed for HTTP. SSL was replaced by TLS, or Transport Layer Security, some time ago. SSL handshakes are now called TLS handshakes, although the \"SSL\" name is still in wide use.\n\n## When does a TLS handshake occur?\n\nA TLS handshake takes place whenever a user navigates to a website over HTTPS and the browser first begins to query the website's origin server. A TLS handshake also happens whenever any other communications use HTTPS, including API calls and DNS over HTTPS queries.\n\nTLS handshakes occur after a TCP connection has been opened via a TCP handshake.\n\n## What happens during a TLS handshake?\n\nDuring the course of a TLS handshake, the client and server together will do the following:\n\n* Specify which version of TLS (TLS 1.0, 1.2, 1.3, etc.) they will use\n* Decide on which cipher suites (see below) they will use\n* Authenticate the identity of the server via the server’s public key and the SSL certificate authority’s digital signature\n* Generate session keys in order to use symmetric encryption after the handshake is complete\n\n#### What are the steps of a TLS handshake?\n\nTLS handshakes are a series of datagrams, or messages, exchanged by a client and a server. A TLS handshake involves multiple steps, as the client and server exchange the information necessary for completing the handshake and making further conversation possible.\n\nThe exact steps within a TLS handshake will vary depending upon the kind of key exchange algorithm used and the cipher suites supported by both sides. The RSA key exchange algorithm, while now considered not secure, was used in versions of TLS before 1.3. It goes roughly as follows:\n\n* **The 'client hello' message:** The client initiates the handshake by sending a \"hello\" message to the server. The message will include which TLS version the client supports, the cipher suites supported, and a string of random bytes known as the \"client random.\"\n* **The 'server hello' message:** In reply to the client hello message, the server sends a message containing the server's SSL certificate, the server's chosen cipher suite, and the \"server random,\" another random string of bytes that's generated by the server.\n* **Authentication:** The client verifies the server's SSL certificate with the certificate authority that issued it. This confirms that the server is who it says it is, and that the client is interacting with the actual owner of the domain.\n* **The premaster secret:** The client sends one more random string of bytes, the \"premaster secret.\" The premaster secret is encrypted with the public key and can only be decrypted with the private key by the server. (The client gets the public key from the server's SSL certificate.)\n* **Private key used:** The server decrypts the premaster secret.\n* **Session keys created:** Both client and server generate session keys from the client random, the server random, and the premaster secret. They should arrive at the same results.\n* **Client is ready:** The client sends a \"finished\" message that is encrypted with a session key.\n* **Server is ready:** The server sends a \"finished\" message encrypted with a session key.\n* **Secure symmetric encryption achieved:** The handshake is completed, and communication continues using the session keys.\n\nAll TLS handshakes make use of asymmetric cryptography (the public and private key), but not all will use the private key in the process of generating session keys. For instance, an ephemeral Diffie-Hellman handshake proceeds as follows:\n\n* **Client hello:** The client sends a client hello message with the protocol version, the client random, and a list of cipher suites.\n* **Server hello:** The server replies with its SSL certificate, its selected cipher suite, and the server random. In contrast to the RSA handshake described above, in this message the server also includes the following (step 3):\n* **Server's digital signature:** The server computes a digital signature of all the messages up to this point.\n* **Digital signature confirmed:** The client verifies the server's digital signature, confirming that the server is who it says it is.\n* **Client DH parameter:** The client sends its DH parameter to the server.\n\n  + **Client and server calculate the premaster secret:** Instead of the client generating the premaster secret and sending it to the server, as in an RSA handshake, the client and server use the DH parameters they exchanged to calculate a matching premaster secret separately.\n  + **Session keys created:** Now, the client and server calculate session keys from the premaster secret, client random, and server random, just like in an RSA handshake.\n  + **Client is ready:** Same as an RSA handshake.\n  + **Secure symmetric encryption achieved**\n\n\\*DH parameter: DH stands for Diffie-Hellman. The Diffie-Hellman algorithm uses exponential calculations to arrive at the same premaster secret. The server and client each provide a parameter for the calculation, and when combined they result in a different calculation on each side, with results that are equal.\n\nTo read more about the contrast between ephemeral Diffie-Hellman handshakes and other kinds of handshakes, and how they achieve forward secrecy, see What is Keyless SSL?\n\n## What is different about a handshake in TLS 1.3?\n\nTLS 1.3 does not support RSA, nor other cipher suites and parameters that are vulnerable to attack. It also shortens the TLS handshake, making a TLS 1.3 handshake both faster and more secure.\n\nThe basic steps of a TLS 1.3 handshake are:\n\n* **Client hello:** The client sends a client hello message with the protocol version, the client random, and a list of cipher suites. Because support for insecure cipher suites has been removed from TLS 1.3, the number of possible cipher suites is vastly reduced. The client hello also includes the parameters that will be used for calculating the premaster secret. Essentially, the client is assuming that it knows the server’s preferred key exchange method (which, due to the simplified list of cipher suites, it probably does). This cuts down the overall length of the handshake — one of the important differences between TLS 1.3 handshakes and TLS 1.0, 1.1, and 1.2 handshakes.\n* **Server generates master secret:** At this point, the server has received the client random and the client's parameters and cipher suites. It already has the server random, since it can generate that on its own. Therefore, the server can create the master secret.\n* **Server hello and \"Finished\":** The server hello includes the server’s certificate, digital signature, server random, and chosen cipher suite. Because it already has the master secret, it also sends a \"Finished\" message.\n* **Final steps and client \"Finished\":** Client verifies signature and certificate, generates master secret, and sends \"Finished\" message.\n* **Secure symmetric encryption achieved**\n\n#### 0-RTT mode for session resumption\n\nTLS 1.3 also supports an even faster version of the TLS handshake that does not require any round trips, or back-and-forth communication between client and server, at all. If the client and the server have connected to each other before (as in, if the user has visited the website before), they can each derive another shared secret from the first session, called the \"resumption main secret.\" The server also sends the client something called a session ticket during this first session. The client can use this shared secret to send encrypted data to the server on its first message of the next session, along with that session ticket. And TLS resumes between client and server.\n\n## What is a cipher suite?\n\nA cipher suite is a set of algorithms for use in establishing a secure communications connection. There are a number of cipher suites in wide use, and an essential part of the TLS handshake is agreeing upon which cipher suite will be used for that handshake.\n\nTo learn more about TLS/SSL, see How does SSL work?.",
+      "retrieval_query": "How does HTTPS utilize the TLS protocol to establish and secure communication channels?",
+      "rank": 4,
+      "author": null,
+      "published_at": null,
+      "metadata": {
+        "score": 0.7663815
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "E-7366c9bcc311",
+      "source_id": "S-2b0554d3be00",
+      "source_type": "web",
+      "title": "What Is Transport Layer Security (TLS)? | IBM",
+      "url": "https://www.ibm.com/think/topics/transport-layer-security",
+      "passage": "# What is Transport Layer Security (TLS)? ## What is Transport Layer Security (TLS)? Transport Layer Security (TLS) is a cryptographic protocol that helps secure communications over unprotected computer networks, such as the Internet. Through various asymmetric and symmetric cryptography techniques, TLS provides end-to-end authentication, confidentiality and data integrity. These protections apply to a wide range of network communications, including email, messaging, voice over IP (VoIP) and virtual private networks (VPNs). TLS is widely recognized for establishing secure connections for web browsing. It’s the foundation of Hypertext Transfer Protocol Secure (HTTPS), an application layer protocol that enables encrypted data exchanges between web applications and most major web browsers. The TLS encryption protocol has two layers: the TLS handshake protocol and the TLS record protocol. The handshake protocol authenticates the web server and the client (the device connecting to the server). The record protocol verifies and secures the data for transport.",
+      "retrieval_query": "How does HTTPS use TLS to secure web connections, and what threats does it not prevent?",
+      "relevance_score": 0.06835589460066131,
+      "published_at": null
+    },
+    {
+      "evidence_id": "E-5080fa7193d9",
+      "source_id": "S-6e0033801129",
+      "source_type": "web",
+      "title": "Why HTTPS Doesn't Mean Safe: A Comprehensive Overview of HTTPS Limitations and Security Threats",
+      "url": "https://www.linkedin.com/pulse/why-https-doesnt-mean-safe-comprehensive-overview-prince-chaudhary-f3pmf",
+      "passage": "g addressed with newer encryption standards. ### Malware Exploits HTTPS for Concealment In an ironic twist, attackers increasingly use HTTPS itself to conceal malicious activities. A WatchGuard Technologies report revealed that encrypted HTTPS traffic delivered over 91.5% of all malware threats, meaning that organizations not decrypting and inspecting HTTPS traffic at the perimeter risk allowing approximately 9 out of every 10 pieces of malware into their systems. Malware developers have engineered network packets that use TLS encryption to disguise attacks, and in 2016, Cisco reported that 12% of malware was exploiting TLS, while more recent estimates by other security firms suggest 37-60% of malware now uses HTTPS. Since secure gateways cannot inspect encrypted data, encrypted malware passes through—a particularly dangerous situation for remote workers outside protected enterprise networks. The padlock icon provides no protection against this threat because the encryption, encryption itself becomes a tool for attack. ### Best Practices: Moving Beyond HTTPS While HTTPS remains essential, security requires a layered, defense-in-depth approach that extends far beyond encryption.",
+      "retrieval_query": "How does HTTPS use TLS to secure web connections, and what threats does it not prevent?",
+      "relevance_score": 0.058809676235504975,
+      "published_at": null
+    },
+    {
+      "evidence_id": "E-a24c555320e9",
+      "source_id": "S-6e0033801129",
+      "source_type": "web",
+      "title": "Why HTTPS Doesn't Mean Safe: A Comprehensive Overview of HTTPS Limitations and Security Threats",
+      "url": "https://www.linkedin.com/pulse/why-https-doesnt-mean-safe-comprehensive-overview-prince-chaudhary-f3pmf",
+      "passage": "g more. This critical distinction is the foundation for understanding why encrypted connections alone are insufficient against the sophisticated attack landscape that exists today. Understanding what HTTPS truly protects and, more importantly, what it does not protect is essential for anyone navigating the modern internet securely. ### What HTTPS Actually Protects To understand why HTTPS doesn't mean \"safe,\" it is first necessary to clarify exactly what HTTPS is designed to do. When properly configured, HTTPS guarantees three specific security properties: confidentiality (the connection is encrypted, obscuring URLs, cookies, and sensitive metadata), authenticity (the visitor is communicating with the legitimate website, not an imposter), and integrity (data has not been tampered with or modified during transmission). This encryption is achieved through Transport Layer Security (TLS), the modern successor to the older Secure Sockets Layer (SSL) protocol, which creates an encrypted channel between your browser and the website's server. The encryption provided by HTTPS protects data while it is \"in transit\"—moving across networks and the internet.",
+      "retrieval_query": "How does HTTPS use TLS to secure web connections, and what threats does it not prevent?",
+      "relevance_score": 0.0557324283807565,
+      "published_at": null
+    },
+    {
+      "evidence_id": "E-858949a7279b",
+      "source_id": "S-2e1c477556ea",
+      "source_type": "web",
+      "title": "What Happens in a TLS Handshake? | SSL Handshake",
+      "url": "https://www.cloudflare.com/learning/ssl/what-happens-in-a-tls-handshake",
+      "passage": "## When does a TLS handshake occur? A TLS handshake takes place whenever a user navigates to a website over HTTPS and the browser first begins to query the website's origin server. A TLS handshake also happens whenever any other communications use HTTPS, including API calls and DNS over HTTPS queries. TLS handshakes occur after a TCP connection has been opened via a TCP handshake. ## What happens during a TLS handshake? During the course of a TLS handshake, the client and server together will do the following: * Specify which version of TLS (TLS 1.0, 1.2, 1.3, etc.) they will use * Decide on which cipher suites (see below) they will use * Authenticate the identity of the server via the server’s public key and the SSL certificate authority’s digital signature * Generate session keys in order to use symmetric encryption after the handshake is complete #### What are the steps of a TLS handshake? TLS handshakes are a series of datagrams, or messages, exchanged by a client and a server. A TLS handshake involves multiple steps, as the client and server exchange the information necessary for completing the handshake and making further conversation possible.",
+      "retrieval_query": "How does HTTPS use TLS to secure web connections, and what threats does it not prevent?",
+      "relevance_score": 0.05278393442712298,
+      "published_at": null
+    },
+    {
+      "evidence_id": "E-1e7a8e61f3cb",
+      "source_id": "S-9834d55f7537",
+      "source_type": "web",
+      "title": "Transport Layer Security (TLS) - Security | MDN",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security",
+      "passage": "the user's browser and the server they are connecting to, and can read and modify the traffic exchanged. Browsers consider pages delivered over HTTPS as providing a secure context. Many powerful web APIs are only available to code running in a secure context. **All websites should serve all their pages and subresources over HTTPS, and implement server authentication.** When a client connects to a server using TLS, an initial *handshake* sets the security parameters for the protocol: * Client and server agree on which version of TLS to use. The current version of TLS is 1.3 (RFC 8446), and this is the most widely-used version. TLS 1.2 is still used by some websites, and TLS 1.1 and 1.0 should no longer be used. * Client and server agree on the cipher suite that they will use: this defines the algorithms that they will use for key agreement, authentication, encryption, and message authentication. * Optionally, client and server authenticate each other. Client authentication, in which the client proves who they are to the server, is rare on the web outside some specialized applications.",
+      "retrieval_query": "How does HTTPS use TLS to secure web connections, and what threats does it not prevent?",
+      "relevance_score": 0.05206396862843478,
+      "published_at": null
+    },
+    {
+      "evidence_id": "E-8a91682beca9",
+      "source_id": "S-2e1c477556ea",
+      "source_type": "web",
+      "title": "What Happens in a TLS Handshake? | SSL Handshake",
+      "url": "https://www.cloudflare.com/learning/ssl/what-happens-in-a-tls-handshake",
+      "passage": "## What happens in a TLS handshake? | SSL handshake In a TLS/SSL handshake, clients and servers exchange SSL certificates, cipher suite requirements, and randomly generated data for creating session keys. ## What is a TLS handshake? TLS is an encryption and authentication protocol designed to secure Internet communications. A TLS handshake is the process that kicks off a communication session that uses TLS. During a TLS handshake, the two communicating sides exchange messages to acknowledge each other, verify each other, establish the cryptographic algorithms they will use, and agree on session keys. TLS handshakes are a foundational part of how HTTPS works. ## TLS vs. SSL handshakes SSL, or Secure Sockets Layer, was the original security protocol developed for HTTP. SSL was replaced by TLS, or Transport Layer Security, some time ago. SSL handshakes are now called TLS handshakes, although the \"SSL\" name is still in wide use. ## When does a TLS handshake occur? A TLS handshake takes place whenever a user navigates to a website over HTTPS and the browser first begins to query the website's origin server.",
+      "retrieval_query": "How does HTTPS use TLS to secure web connections, and what threats does it not prevent?",
+      "relevance_score": 0.04994417652199202,
+      "published_at": null
+    },
+    {
+      "evidence_id": "E-b4423ebaa06a",
+      "source_id": "S-9834d55f7537",
+      "source_type": "web",
+      "title": "Transport Layer Security (TLS) - Security | MDN",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security",
+      "passage": "Remember language Learn more # Transport Layer Security (TLS) Transport Layer Security (TLS) is a protocol which enables a client to communicate securely with a server across an untrusted network. Most notably it's used to secure HTTP connections on the web: the resulting protocol is called HTTPS. TLS secures a network connection in three ways: * **Encryption**: the data exchanged between client and server is encrypted while in transit, so it can't be read by any attackers. * **Integrity**: an attacker can't secretly modify data (without detection) while it is in transit between client and server. * **Authentication**: client and server are each able to prove to the other party that they are the entity they claim to be. On the web, servers usually authenticate themselves to clients, but clients don't usually authenticate themselves to servers. In particular, HTTPS is the defense against a manipulator in the middle (MITM) attack, in which the attacker inserts themselves between the user's browser and the server they are connecting to, and can read and modify the traffic exchanged. Browsers consider pages delivered over HTTPS as providing a secure context.",
+      "retrieval_query": "How does HTTPS use TLS to secure web connections, and what threats does it not prevent?",
+      "relevance_score": 0.04866738488570469,
+      "published_at": null
+    },
+    {
+      "evidence_id": "E-be1ea74bf620",
+      "source_id": "S-2b0554d3be00",
+      "source_type": "web",
+      "title": "What Is Transport Layer Security (TLS)? | IBM",
+      "url": "https://www.ibm.com/think/topics/transport-layer-security",
+      "passage": "relying on the Internet daily for everything from shopping and banking to healthcare and personal communications. In all these use cases, safeguarding sensitive data is essential. That means protecting it from hackers, tampering, eavesdropping and other cybersecurity threats such as data breaches, malware or man-in-the-middle attacks. TLS specifically underpins HTTPS, the standard security protocol for websites. The HTTPS padlock icon, now a familiar feature in web browsers, signals to users that a website is trustworthy and secure. The icon also indicates that a website has a valid TLS certificate (also known as an SSL certificate). This digital credential, issued by a certificate authority (CA), verifies a website’s identity and enables an encrypted connection. To illustrate the scale of TLS and HTTPS usage: one major TLS certificate provider issues over 340,000 certificates per hour. TLS ensures secure Internet communication by enforcing three core properties of a secure channel: Verifies the identities of the sender and receiver, and the origin and destination of the data. Ensures data can only be accessed by its intended recipient.",
+      "retrieval_query": "How does HTTPS use TLS to secure web connections, and what threats does it not prevent?",
+      "relevance_score": 0.044470352101758426,
+      "published_at": null
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "c1",
+      "text": "HTTPS is an application layer protocol that enables encrypted exchanges between web browsers and web servers.",
+      "needs_citation": true,
+      "importance": "core",
+      "citation_ids": [
+        "E-7366c9bcc311"
+      ]
+    },
+    {
+      "claim_id": "c2",
+      "text": "TLS is the modern successor to the older Secure Sockets Layer (SSL).",
+      "needs_citation": true,
+      "importance": "supporting",
+      "citation_ids": [
+        "E-a24c555320e9",
+        "E-8a91682beca9"
+      ]
+    },
+    {
+      "claim_id": "c3",
+      "text": "TLS is the cryptographic protocol actually securing web communications today, despite the casual continued use of the term SSL.",
+      "needs_citation": true,
+      "importance": "supporting",
+      "citation_ids": [
+        "E-7366c9bcc311",
+        "E-8a91682beca9"
+      ]
+    },
+    {
+      "claim_id": "c4",
+      "text": "When properly configured, TLS guarantees confidentiality, authenticity, and data integrity.",
+      "needs_citation": true,
+      "importance": "core",
+      "citation_ids": [
+        "E-7366c9bcc311",
+        "E-a24c555320e9"
+      ]
+    },
+    {
+      "claim_id": "c5",
+      "text": "Confidentiality in TLS encrypts the connection, preventing unauthorized parties from reading data such as URLs, cookies, and sensitive metadata.",
+      "needs_citation": true,
+      "importance": "supporting",
+      "citation_ids": [
+        "E-a24c555320e9",
+        "E-b4423ebaa06a"
+      ]
+    },
+    {
+      "claim_id": "c6",
+      "text": "Authenticity in TLS confirms that the visitor is communicating with the legitimate website rather than an imposter.",
+      "needs_citation": true,
+      "importance": "supporting",
+      "citation_ids": [
+        "E-a24c555320e9"
+      ]
+    },
+    {
+      "claim_id": "c7",
+      "text": "Integrity in TLS ensures that data cannot be secretly altered or tampered with during transmission without detection.",
+      "needs_citation": true,
+      "importance": "supporting",
+      "citation_ids": [
+        "E-a24c555320e9",
+        "E-b4423ebaa06a"
+      ]
+    },
+    {
+      "claim_id": "c8",
+      "text": "Together, confidentiality, authenticity, and integrity serve as the primary defense against manipulator-in-the-middle attacks.",
+      "needs_citation": true,
+      "importance": "supporting",
+      "citation_ids": [
+        "E-b4423ebaa06a"
+      ]
+    },
+    {
+      "claim_id": "c9",
+      "text": "TLS operates across two internal layers: the TLS handshake protocol and the TLS record protocol.",
+      "needs_citation": true,
+      "importance": "core",
+      "citation_ids": [
+        "E-7366c9bcc311"
+      ]
+    },
+    {
+      "claim_id": "c10",
+      "text": "The TLS handshake protocol authenticates the parties, while the record protocol verifies and secures the data for transport.",
+      "needs_citation": true,
+      "importance": "core",
+      "citation_ids": [
+        "E-7366c9bcc311"
+      ]
+    },
+    {
+      "claim_id": "c11",
+      "text": "The TLS handshake initiates when navigating to an HTTPS site, making an API call, or performing a DNS over HTTPS query.",
+      "needs_citation": true,
+      "importance": "supporting",
+      "citation_ids": [
+        "E-858949a7279b"
+      ]
+    },
+    {
+      "claim_id": "c12",
+      "text": "The TLS handshake process begins right after a basic TCP connection opens via a TCP handshake.",
+      "needs_citation": true,
+      "importance": "supporting",
+      "citation_ids": [
+        "E-858949a7279b",
+        "E-8a91682beca9"
+      ]
+    },
+    {
+      "claim_id": "c13",
+      "text": "During the handshake, the client and server send a sequence of datagrams to negotiate connection parameters.",
+      "needs_citation": true,
+      "importance": "supporting",
+      "citation_ids": [
+        "E-858949a7279b"
+      ]
+    },
+    {
+      "claim_id": "c14",
+      "text": "During negotiation, the client and server specify which version of TLS they will use.",
+      "needs_citation": true,
+      "importance": "supporting",
+      "citation_ids": [
+        "E-858949a7279b"
+      ]
+    },
+    {
+      "claim_id": "c15",
+      "text": "TLS 1.3 is the current and most widely used version, TLS 1.2 remains in use by some websites, and older versions like TLS 1.0 and 1.1 should no longer be used.",
+      "needs_citation": true,
+      "importance": "supporting",
+      "citation_ids": [
+        "E-1e7a8e61f3cb"
+      ]
+    },
+    {
+      "claim_id": "c16",
+      "text": "The client and server agree on a cipher suite containing algorithms for key agreement, authentication, encryption, and message authentication.",
+      "needs_citation": true,
+      "importance": "core",
+      "citation_ids": [
+        "E-858949a7279b",
+        "E-1e7a8e61f3cb"
+      ]
+    },
+    {
+      "claim_id": "c17",
+      "text": "The server presents a digital certificate issued by a trusted certificate authority.",
+      "needs_citation": true,
+      "importance": "supporting",
+      "citation_ids": [
+        "E-858949a7279b",
+        "E-be1ea74bf620"
+      ]
+    },
+    {
+      "claim_id": "c18",
+      "text": "The client verifies the server's identity using the server's public key and the certificate authority's digital signature.",
+      "needs_citation": true,
+      "importance": "supporting",
+      "citation_ids": [
+        "E-858949a7279b"
+      ]
+    },
+    {
+      "claim_id": "c19",
+      "text": "Client authentication is technically possible but rare on the web outside of specialized applications, with typically only the server proving identity.",
+      "needs_citation": true,
+      "importance": "supporting",
+      "citation_ids": [
+        "E-1e7a8e61f3cb",
+        "E-b4423ebaa06a"
+      ]
+    },
+    {
+      "claim_id": "c20",
+      "text": "TLS incorporates both asymmetric and symmetric cryptographic techniques, exchanging randomly generated data during the handshake to create shared session keys for symmetric encryption.",
+      "needs_citation": true,
+      "importance": "core",
+      "citation_ids": [
+        "E-7366c9bcc311",
+        "E-858949a7279b",
+        "E-8a91682beca9"
+      ]
+    },
+    {
+      "claim_id": "c21",
+      "text": "HTTPS protects data while it is in transit across networks.",
+      "needs_citation": true,
+      "importance": "supporting",
+      "citation_ids": [
+        "E-a24c555320e9"
+      ]
+    },
+    {
+      "claim_id": "c22",
+      "text": "The browser padlock icon indicates to users that a website has a valid certificate and an encrypted channel.",
+      "needs_citation": true,
+      "importance": "supporting",
+      "citation_ids": [
+        "E-be1ea74bf620"
+      ]
+    },
+    {
+      "claim_id": "c23",
+      "text": "The browser padlock icon provides no protection against threats where encryption itself is leveraged by attackers.",
+      "needs_citation": true,
+      "importance": "supporting",
+      "citation_ids": [
+        "E-5080fa7193d9"
+      ]
+    },
+    {
+      "claim_id": "c24",
+      "text": "Attackers increasingly use HTTPS to conceal malicious activities.",
+      "needs_citation": true,
+      "importance": "core",
+      "citation_ids": [
+        "E-5080fa7193d9"
+      ]
+    },
+    {
+      "claim_id": "c25",
+      "text": "A WatchGuard Technologies report revealed that encrypted HTTPS traffic delivered over 91.5% of all malware threats.",
+      "needs_citation": true,
+      "importance": "supporting",
+      "citation_ids": [
+        "E-5080fa7193d9"
+      ]
+    },
+    {
+      "claim_id": "c26",
+      "text": "Cisco reported in 2016 that 12% of malware was exploiting TLS.",
+      "needs_citation": true,
+      "importance": "supporting",
+      "citation_ids": [
+        "E-5080fa7193d9"
+      ]
+    },
+    {
+      "claim_id": "c27",
+      "text": "Security industry estimates indicate that between 37% and 60% of malware uses HTTPS.",
+      "needs_citation": true,
+      "importance": "supporting",
+      "citation_ids": [
+        "E-5080fa7193d9"
+      ]
+    },
+    {
+      "claim_id": "c28",
+      "text": "Because secure perimeter gateways cannot inspect encrypted data directly, encrypted malware passes through, posing heightened risks to remote workers outside enterprise networks.",
+      "needs_citation": true,
+      "importance": "core",
+      "citation_ids": [
+        "E-5080fa7193d9"
+      ]
+    }
+  ],
+  "verifications": [
+    {
+      "claim_id": "c1",
+      "status": "supported",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "E-7366c9bcc311"
+      ],
+      "rationale": "Evidence E-7366c9bcc311 explicitly states that HTTPS is 'an application layer protocol that enables encrypted data exchanges between web applications and most major web browsers.'"
+    },
+    {
+      "claim_id": "c2",
+      "status": "supported",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "E-a24c555320e9"
+      ],
+      "rationale": "Evidence E-a24c555320e9 directly states that Transport Layer Security (TLS) is 'the modern successor to the older Secure Sockets Layer (SSL) protocol'."
+    },
+    {
+      "claim_id": "c3",
+      "status": "supported",
+      "confidence": 0.9,
+      "evidence_ids": [
+        "E-7366c9bcc311",
+        "E-8a91682beca9"
+      ],
+      "rationale": "Evidence E-8a91682beca9 states that SSL was replaced by TLS and that SSL handshakes are now called TLS handshakes although the SSL name is still in wide use, and E-7366c9bcc311 notes TLS is the cryptographic protocol securing web browsing/communications today."
+    },
+    {
+      "claim_id": "c4",
+      "status": "partial",
+      "confidence": 0.85,
+      "evidence_ids": [
+        "E-7366c9bcc311",
+        "E-a24c555320e9"
+      ],
+      "rationale": "Evidence E-a24c555320e9 states that 'When properly configured, HTTPS guarantees three specific security properties: confidentiality... authenticity... and integrity' achieved via TLS, and E-7366c9bcc311 notes TLS provides authentication, confidentiality and data integrity, but the specific phrasing 'When properly configured, TLS guarantees...' attributes the proper configuration guarantee directly stated about HTTPS in the evidence to TLS."
+    },
+    {
+      "claim_id": "c5",
+      "status": "supported",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "E-a24c555320e9"
+      ],
+      "rationale": "Evidence E-a24c555320e9 states confidentiality means 'the connection is encrypted, obscuring URLs, cookies, and sensitive metadata', achieved through TLS."
+    },
+    {
+      "claim_id": "c6",
+      "status": "supported",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "E-a24c555320e9"
+      ],
+      "rationale": "Evidence E-a24c555320e9 defines authenticity as confirming 'the visitor is communicating with the legitimate website, not an imposter' within the context of HTTPS/TLS."
+    },
+    {
+      "claim_id": "c7",
+      "status": "supported",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "E-b4423ebaa06a"
+      ],
+      "rationale": "Evidence E-b4423ebaa06a defines Integrity in TLS as: 'an attacker can't secretly modify data (without detection) while it is in transit between client and server.'"
+    },
+    {
+      "claim_id": "c8",
+      "status": "supported",
+      "confidence": 0.9,
+      "evidence_ids": [
+        "E-b4423ebaa06a"
+      ],
+      "rationale": "Evidence E-b4423ebaa06a outlines the three properties (Encryption, Integrity, Authentication) and states 'In particular, HTTPS is the defense against a manipulator in the middle (MITM) attack'."
+    },
+    {
+      "claim_id": "c9",
+      "status": "supported",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "E-7366c9bcc311"
+      ],
+      "rationale": "Evidence E-7366c9bcc311 states: 'The TLS encryption protocol has two layers: the TLS handshake protocol and the TLS record protocol.'"
+    },
+    {
+      "claim_id": "c10",
+      "status": "supported",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "E-7366c9bcc311"
+      ],
+      "rationale": "Evidence E-7366c9bcc311 states: 'The handshake protocol authenticates the web server and the client (the device connecting to the server). The record protocol verifies and secures the data for transport.'"
+    },
+    {
+      "claim_id": "c11",
+      "status": "supported",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "E-858949a7279b"
+      ],
+      "rationale": "Evidence E-858949a7279b states that a TLS handshake takes place whenever a user navigates to a website over HTTPS, and also happens whenever any other communications use HTTPS, including API calls and DNS over HTTPS queries."
+    },
+    {
+      "claim_id": "c12",
+      "status": "supported",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "E-858949a7279b"
+      ],
+      "rationale": "Evidence E-858949a7279b explicitly states that TLS handshakes occur after a TCP connection has been opened via a TCP handshake."
+    },
+    {
+      "claim_id": "c13",
+      "status": "supported",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "E-858949a7279b"
+      ],
+      "rationale": "Evidence E-858949a7279b states that TLS handshakes are a series of datagrams, or messages, exchanged by a client and a server to exchange necessary information and negotiate parameters like versions, cipher suites, and session keys."
+    },
+    {
+      "claim_id": "c14",
+      "status": "supported",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "E-858949a7279b",
+        "E-1e7a8e61f3cb"
+      ],
+      "rationale": "Both E-858949a7279b and E-1e7a8e61f3cb state that during the handshake, the client and server specify/agree on which version of TLS they will use."
+    },
+    {
+      "claim_id": "c15",
+      "status": "supported",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "E-1e7a8e61f3cb"
+      ],
+      "rationale": "Evidence E-1e7a8e61f3cb states: 'The current version of TLS is 1.3 (RFC 8446), and this is the most widely-used version. TLS 1.2 is still used by some websites, and TLS 1.1 and 1.0 should no longer be used.'"
+    },
+    {
+      "claim_id": "c16",
+      "status": "supported",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "E-1e7a8e61f3cb"
+      ],
+      "rationale": "Evidence E-1e7a8e61f3cb states that client and server agree on the cipher suite they will use, which defines the algorithms used for key agreement, authentication, encryption, and message authentication."
+    },
+    {
+      "claim_id": "c17",
+      "status": "supported",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "E-8a91682beca9",
+        "E-be1ea74bf620"
+      ],
+      "rationale": "Evidence E-8a91682beca9 states that clients and servers exchange SSL certificates in a TLS/SSL handshake, and E-be1ea74bf620 explains that this digital credential is issued by a certificate authority (CA) to verify a website's identity."
+    },
+    {
+      "claim_id": "c18",
+      "status": "supported",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "E-858949a7279b"
+      ],
+      "rationale": "Evidence E-858949a7279b explicitly states that the client and server authenticate the identity of the server via the server's public key and the SSL certificate authority's digital signature."
+    },
+    {
+      "claim_id": "c19",
+      "status": "supported",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "E-1e7a8e61f3cb",
+        "E-b4423ebaa06a"
+      ],
+      "rationale": "Evidence E-1e7a8e61f3cb states that client authentication is rare on the web outside some specialized applications, and E-b4423ebaa06a notes that servers usually authenticate themselves to clients, but clients don't usually authenticate themselves to servers."
+    },
+    {
+      "claim_id": "c20",
+      "status": "supported",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "E-7366c9bcc311",
+        "E-858949a7279b",
+        "E-8a91682beca9"
+      ],
+      "rationale": "E-7366c9bcc311 notes TLS uses asymmetric and symmetric cryptography techniques; E-8a91682beca9 notes randomly generated data is exchanged for creating session keys; and E-858949a7279b states they generate session keys in order to use symmetric encryption."
+    },
+    {
+      "claim_id": "c21",
+      "status": "supported",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "E-a24c555320e9"
+      ],
+      "rationale": "Evidence E-a24c555320e9 explicitly states: 'The encryption provided by HTTPS protects data while it is \"in transit\"—moving across networks and the internet.'"
+    },
+    {
+      "claim_id": "c22",
+      "status": "supported",
+      "confidence": 0.98,
+      "evidence_ids": [
+        "E-be1ea74bf620"
+      ],
+      "rationale": "Evidence E-be1ea74bf620 confirms: 'The HTTPS padlock icon... indicates that a website has a valid TLS certificate... and enables an encrypted connection.'"
+    },
+    {
+      "claim_id": "c23",
+      "status": "supported",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "E-5080fa7193d9"
+      ],
+      "rationale": "Evidence E-5080fa7193d9 states: 'The padlock icon provides no protection against this threat because the encryption, encryption itself becomes a tool for attack.'"
+    },
+    {
+      "claim_id": "c24",
+      "status": "supported",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "E-5080fa7193d9"
+      ],
+      "rationale": "Evidence E-5080fa7193d9 states: 'In an ironic twist, attackers increasingly use HTTPS itself to conceal malicious activities.'"
+    },
+    {
+      "claim_id": "c25",
+      "status": "supported",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "E-5080fa7193d9"
+      ],
+      "rationale": "Evidence E-5080fa7193d9 explicitly states: 'A WatchGuard Technologies report revealed that encrypted HTTPS traffic delivered over 91.5% of all malware threats'."
+    },
+    {
+      "claim_id": "c26",
+      "status": "supported",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "E-5080fa7193d9"
+      ],
+      "rationale": "Evidence E-5080fa7193d9 explicitly states: 'and in 2016, Cisco reported that 12% of malware was exploiting TLS'."
+    },
+    {
+      "claim_id": "c27",
+      "status": "supported",
+      "confidence": 0.98,
+      "evidence_ids": [
+        "E-5080fa7193d9"
+      ],
+      "rationale": "Evidence E-5080fa7193d9 states: 'while more recent estimates by other security firms suggest 37-60% of malware now uses HTTPS.'"
+    },
+    {
+      "claim_id": "c28",
+      "status": "supported",
+      "confidence": 0.97,
+      "evidence_ids": [
+        "E-5080fa7193d9"
+      ],
+      "rationale": "Evidence E-5080fa7193d9 directly supports this: 'Since secure gateways cannot inspect encrypted data, encrypted malware passes through—a particularly dangerous situation for remote workers outside protected enterprise networks.'"
+    }
+  ],
+  "contradictions": [],
+  "metadata": {
+    "b4_metadata": {
+      "feedback_history": [
+        {
+          "score": 9.5,
+          "clarity": 9.5,
+          "factual_grounding": 10.0,
+          "completeness": 9.2,
+          "revision_needed": false,
+          "feedback": "The script provides an outstanding, well-structured explanation that strictly adheres to the provided source context. It thoroughly covers how HTTPS utilizes TLS (detailing the handshake, record protocol, cipher suites, certificate validation, and key generation) and explicitly discusses the threats it fails to prevent (such as malware concealment and payload inspection limitations). The framing, transitions, analogy, summary, and closing reflective question are all well executed."
+        }
+      ],
+      "pre_repair_script": null,
+      "generation_provider": "gemini",
+      "generation_access": "google_api",
+      "generation_model_requested": "gemini-3.8-flash"
+    },
+    "pre_repair_script": "Welcome, everyone. Today, we are going to explore how HTTPS relies on Transport Layer Security, or TLS, to protect web traffic, and just as importantly, examine which critical threats it leaves unaddressed. \n\nWhen you browse the web, your data travels across an untrusted network. By the end of this discussion, you will understand the three core security properties HTTPS provides, the two-layer mechanics of how TLS establishes a protected session, and the real-world threats that bypass these protections entirely. We will begin with the foundations of the protocol, break down the step-by-step handshake process, and conclude with the vital distinction between encrypted transit and complete security.\n\nTo build our foundation, let us look at the protocols involved. Hypertext Transfer Protocol Secure, or HTTPS, is an application layer protocol that enables encrypted exchanges between web browsers and web servers [E-7366c9bcc311]. HTTPS achieves this protection using Transport Layer Security, or TLS, which is the modern successor to the older Secure Sockets Layer, or SSL [E-a24c555320e9][E-8a91682beca9]. While people still casually use the term SSL, TLS is the cryptographic protocol actually securing our communications today [E-7366c9bcc311][E-8a91682beca9]. \n\nWhen properly configured, TLS guarantees three fundamental security properties: confidentiality, authenticity, and data integrity [E-7366c9bcc311][E-a24c555320e9]. Confidentiality means the connection is encrypted, preventing unauthorized parties from reading data such as URLs, cookies, and sensitive metadata [E-a24c555320e9][E-b4423ebaa06a]. Authenticity confirms that the visitor is genuinely communicating with the legitimate website rather than an imposter [E-a24c555320e9]. Integrity ensures that data cannot be secretly altered or tampered with during transmission without detection [E-a24c555320e9][E-b4423ebaa06a]. Together, these properties serve as the primary defense against manipulator-in-the-middle attacks, where an adversary sits between the browser and the server to eavesdrop on or alter web traffic [E-b4423ebaa06a].\n\nTo provide these protections, TLS operates across two internal layers: the TLS handshake protocol and the TLS record protocol [E-7366c9bcc311]. The record protocol is responsible for verifying and securing data for transport once a session exists [E-7366c9bcc311]. However, before any application data can flow, the connection relies on the TLS handshake protocol [E-7366c9bcc311].\n\nNow, consider what happens when a user navigates to an HTTPS website, makes an API call, or performs a DNS over HTTPS query [E-858949a7279b]. Right after a basic TCP connection opens via a TCP handshake, the TLS handshake kicks off [E-858949a7279b]. During this exchange, the client and server send a sequence of datagrams to negotiate their connection parameters [E-858949a7279b]. First, they specify which version of TLS they will use [E-858949a7279b]. TLS 1.3 is the current and most widely used version, TLS 1.2 remains in use by some websites, while older versions like TLS 1.0 and 1.1 should no longer be used [E-1e7a8e61f3cb]. Next, they agree on a cipher suite—the exact combination of algorithms they will deploy for key agreement, authentication, encryption, and message authentication [E-858949a7279b][E-1e7a8e61f3cb].\n\nWith the parameters established, the parties authenticate identities and prepare their encryption [E-858949a7279b]. The server presents its digital certificate, which is issued by a trusted certificate authority [E-858949a7279b][E-be1ea74bf620]. The client verifies the server’s identity using the server's public key and the certificate authority’s digital signature [E-858949a7279b]. While client authentication is technically possible, it is rare on the web outside of specialized applications; typically, only the server proves its identity to the client [E-1e7a8e61f3cb][E-b4423ebaa06a]. Finally, by combining asymmetric and symmetric cryptography, the parties exchange randomly generated data to create shared session keys, which then power fast symmetric encryption for all subsequent application data [E-7366c9bcc311][E-858949a7279b][E-8a91682beca9].\n\nThink of this process like using a tamper-evident, armored transport truck to deliver sealed mail between two physical buildings. The guards verify each other's credentials at the gate, seal the transport, and ensure no one on the highway can look inside or swap the envelopes along the route. \n\nHowever, this brings us to an essential nuance and common misunderstanding: HTTPS only protects data \"in transit\"—while it is actively moving across networks [E-a24c555320e9]. The browser's padlock icon simply indicates that the website has a valid certificate and an encrypted channel, not that the site itself is benign or secure [E-5080fa7193d9][E-be1ea74bf620]. \n\nBecause HTTPS does not evaluate the intent of the payload, attackers routinely exploit HTTPS to conceal malicious operations [E-5080fa7193d9]. A report from WatchGuard Technologies revealed that encrypted HTTPS traffic delivered over 91.5% of all malware threats, and other security industry estimates indicate that between 37% and 60% of malware now uses HTTPS [E-5080fa7193d9]. Cisco earlier reported in 2016 that 12% of malware was exploiting TLS [E-5080fa7193d9]. Because secure perimeter gateways cannot inspect encrypted contents directly, encrypted malware passes right through defenses unless traffic is actively decrypted and inspected, creating significant risks for organizations and remote workers [E-5080fa7193d9]. \n\nIn summary, HTTPS leverages the TLS handshake and record protocols to establish end-to-end authentication, confidentiality, and data integrity for traffic moving across untrusted networks [E-7366c9bcc311][E-a24c555320e9]. Yet, encryption is not a complete shield against cyber threats; an encrypted connection can still deliver malicious payloads directly to an endpoint [E-5080fa7193d9].\n\nTo reflect on what we covered today: If an encrypted channel can protect attackers just as effectively as legitimate users, how must an organization's network defense strategy evolve beyond relying solely on perimeter encryption?",
+    "generation_provider": "gemini",
+    "generation_access": "google_api",
+    "generation_model_requested": "gemini-3.8-flash"
+  },
+  "telemetry": {
+    "started_at": "2026-11-12T13:18:29.826201+00:00",
+    "ended_at": "2026-11-12T13:20:05.313050+00:00",
+    "wall_seconds": 118.77300509999986,
+    "retrieval_calls": 2,
+    "retrieved_documents": 8,
+    "llm_calls": [
+      {
+        "task": "decompose",
+        "model": "gemini-3.8-flash",
+        "provider": "google",
+        "latency_seconds": 3.444556799997372,
+        "prompt_tokens": 66,
+        "output_tokens": 48,
+        "thinking_tokens": 0,
+        "total_tokens": 114,
+        "input_cost_usd": 4.9500000000000004e-05,
+        "output_cost_usd": 0.00018,
+        "total_cost_usd": 0.00022950000000000002,
+        "attempts": 1,
+        "metadata": {}
+      },
+      {
+        "task": "b4_synthesis_iter_1",
+        "model": "gemini-3.8-flash",
+        "provider": "google",
+        "latency_seconds": 15.471700500002044,
+        "prompt_tokens": 3750,
+        "output_tokens": 1599,
+        "thinking_tokens": 0,
+        "total_tokens": 5349,
+        "input_cost_usd": 0.0028125,
+        "output_cost_usd": 0.00599625,
+        "total_cost_usd": 0.00880875,
+        "attempts": 1,
+        "metadata": {}
+      },
+      {
+        "task": "original_feedback",
+        "model": "gemini-3.8-flash",
+        "provider": "google",
+        "latency_seconds": 2.9284756000015477,
+        "prompt_tokens": 4021,
+        "output_tokens": 146,
+        "thinking_tokens": 0,
+        "total_tokens": 4167,
+        "input_cost_usd": 0.00301575,
+        "output_cost_usd": 0.0005475,
+        "total_cost_usd": 0.0035632500000000004,
+        "attempts": 1,
+        "metadata": {}
+      },
+      {
+        "task": "script_claims",
+        "model": "gemini-3.8-flash",
+        "provider": "google",
+        "latency_seconds": 15.799506700001075,
+        "prompt_tokens": 1676,
+        "output_tokens": 2553,
+        "thinking_tokens": 0,
+        "total_tokens": 4229,
+        "input_cost_usd": 0.0012569999999999999,
+        "output_cost_usd": 0.00957375,
+        "total_cost_usd": 0.01083075,
+        "attempts": 1,
+        "metadata": {}
+      },
+      {
+        "task": "b5_verify",
+        "model": "gemini-3.8-flash",
+        "provider": "google",
+        "latency_seconds": 8.629415600000357,
+        "prompt_tokens": 2389,
+        "output_tokens": 1202,
+        "thinking_tokens": 0,
+        "total_tokens": 3591,
+        "input_cost_usd": 0.00179175,
+        "output_cost_usd": 0.004507499999999999,
+        "total_cost_usd": 0.006299249999999999,
+        "attempts": 1,
+        "metadata": {}
+      },
+      {
+        "task": "b5_verify",
+        "model": "gemini-3.8-flash",
+        "provider": "google",
+        "latency_seconds": 8.041211900002963,
+        "prompt_tokens": 2435,
+        "output_tokens": 1035,
+        "thinking_tokens": 0,
+        "total_tokens": 3470,
+        "input_cost_usd": 0.0018262500000000002,
+        "output_cost_usd": 0.0038812499999999997,
+        "total_cost_usd": 0.0057075,
+        "attempts": 1,
+        "metadata": {}
+      },
+      {
+        "task": "b5_verify",
+        "model": "gemini-3.8-flash",
+        "provider": "google",
+        "latency_seconds": 6.63711400000102,
+        "prompt_tokens": 2380,
+        "output_tokens": 775,
+        "thinking_tokens": 0,
+        "total_tokens": 3155,
+        "input_cost_usd": 0.0017850000000000001,
+        "output_cost_usd": 0.00290625,
+        "total_cost_usd": 0.00469125,
+        "attempts": 1,
+        "metadata": {}
+      },
+      {
+        "task": "script_repair",
+        "model": "gemini-3.8-flash",
+        "provider": "google",
+        "latency_seconds": 11.459212199999456,
+        "prompt_tokens": 4518,
+        "output_tokens": 1618,
+        "thinking_tokens": 0,
+        "total_tokens": 6136,
+        "input_cost_usd": 0.0033885,
+        "output_cost_usd": 0.0060675,
+        "total_cost_usd": 0.009455999999999999,
+        "attempts": 1,
+        "metadata": {}
+      },
+      {
+        "task": "script_claims",
+        "model": "gemini-3.8-flash",
+        "provider": "google",
+        "latency_seconds": 17.203733700000157,
+        "prompt_tokens": 1695,
+        "output_tokens": 2499,
+        "thinking_tokens": 0,
+        "total_tokens": 4194,
+        "input_cost_usd": 0.0012712499999999998,
+        "output_cost_usd": 0.00937125,
+        "total_cost_usd": 0.0106425,
+        "attempts": 1,
+        "metadata": {}
+      },
+      {
+        "task": "b5_reverify",
+        "model": "gemini-3.8-flash",
+        "provider": "google",
+        "latency_seconds": 9.248131700001977,
+        "prompt_tokens": 2403,
+        "output_tokens": 1235,
+        "thinking_tokens": 0,
+        "total_tokens": 3638,
+        "input_cost_usd": 0.00180225,
+        "output_cost_usd": 0.00463125,
+        "total_cost_usd": 0.0064335,
+        "attempts": 1,
+        "metadata": {}
+      },
+      {
+        "task": "b5_reverify",
+        "model": "gemini-3.8-flash",
+        "provider": "google",
+        "latency_seconds": 9.39054440000109,
+        "prompt_tokens": 2451,
+        "output_tokens": 1369,
+        "thinking_tokens": 0,
+        "total_tokens": 3820,
+        "input_cost_usd": 0.00183825,
+        "output_cost_usd": 0.00513375,
+        "total_cost_usd": 0.006972000000000001,
+        "attempts": 1,
+        "metadata": {}
+      },
+      {
+        "task": "b5_reverify",
+        "model": "gemini-3.8-flash",
+        "provider": "google",
+        "latency_seconds": 7.965009499999724,
+        "prompt_tokens": 2354,
+        "output_tokens": 898,
+        "thinking_tokens": 0,
+        "total_tokens": 3252,
+        "input_cost_usd": 0.0017655000000000001,
+        "output_cost_usd": 0.0033675000000000003,
+        "total_cost_usd": 0.005133,
+        "attempts": 1,
+        "metadata": {}
+      }
+    ]
+  },
+  "experiment_id": "EXP_GEMINI_20261112T084659Z_b931c2",
+  "script_sha256": "1e8e56f1f4f37ba78c97f65fad0e8c64beceddd9072c20db302846b4cb52d417",
+  "reference_pool_sha256": "b25e6124f010b44543886fb5827db6a509bc7be8fa27a2ecc676262eb8d37634",
+  "generation_config_sha256": "130fb20735098b5ae7683be72a40463c48605cdf59d320daa9f9373f43ee4512",
+  "prompt_version": "evidence-aware-10q-shared-checklist-clean-narration-v1.6.0",
+  "study_id": "",
+  "generation_provider": "gemini",
+  "generation_access": "google_api",
+  "generation_model": "gemini-3.8-flash",
+  "artifact_status": "generation_complete"
+}

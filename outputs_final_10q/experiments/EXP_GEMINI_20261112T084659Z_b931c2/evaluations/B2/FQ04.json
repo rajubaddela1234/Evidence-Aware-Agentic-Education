@@ -1,0 +1,1516 @@
+{
+  "record": {
+    "experiment_id": "EXP_GEMINI_20261112T084659Z_b931c2",
+    "evaluated_script_sha256": "286f931647c0cefca144b1b6a482d846fbab9f7c604b59a8f6f9d12455aa6f04",
+    "reference_pool_sha256": "d066e188faf7551c94566d8f1ed0c717926efb560d4ccb33f54a542929759f6e",
+    "generation_config_sha256": "130fb20735098b5ae7683be72a40463c48605cdf59d320daa9f9373f43ee4512",
+    "prompt_version": "evidence-aware-10q-shared-checklist-clean-narration-v1.6.0",
+    "system_id": "B2",
+    "prompt_id": "FQ04",
+    "domain": "Business / Economics",
+    "reasoning_type": "cause-effect-and-tradeoffs",
+    "generation_provider": "gemini",
+    "generation_access": "google_api",
+    "generation_model": "gemini-3.8-flash",
+    "evaluator_provider": "anthropic",
+    "evaluator_model": "claude-sonnet-5-5",
+    "claim_count": 24,
+    "supported_claims": 17,
+    "partial_claims": 7,
+    "unsupported_claims": 0,
+    "contradicted_claims": 0,
+    "supported_claim_rate": 0.7083333333333334,
+    "reference_evidence_support_percent": 85.41666666666667,
+    "query_coverage_percent": 74.16666666666667,
+    "query_relevance_percent": 90.0,
+    "narration_quality_percent": 87.5,
+    "citation_precision": 0.42857142857142855,
+    "citation_recall": 0.5,
+    "citation_f1": 0.4615384615384615,
+    "grounded_requirement_coverage_percent": 60.0,
+    "context_precision_at_k": 1.0,
+    "context_recall_percent": 66.66666666666667,
+    "repair_effectiveness_points": null,
+    "requirement_preservation_rate": null,
+    "source_count": 4,
+    "source_type_count": 1,
+    "llm_calls": 1,
+    "prompt_tokens": 3841,
+    "output_tokens": 1446,
+    "thinking_tokens": 0,
+    "billable_output_tokens": 1446,
+    "retrieval_calls": 1,
+    "latency_seconds": 15.287823199999366,
+    "word_count": 701,
+    "estimated_llm_cost_usd": 0.00830325,
+    "llm_call_latency_p50_seconds": 13.918764299999566,
+    "llm_call_latency_p90_seconds": 13.918764299999566
+  },
+  "details": {
+    "artifact_identity": {
+      "experiment_id": "EXP_GEMINI_20261112T084659Z_b931c2",
+      "evaluated_script_sha256": "286f931647c0cefca144b1b6a482d846fbab9f7c604b59a8f6f9d12455aa6f04",
+      "reference_pool_sha256": "d066e188faf7551c94566d8f1ed0c717926efb560d4ccb33f54a542929759f6e",
+      "generation_config_sha256": "130fb20735098b5ae7683be72a40463c48605cdf59d320daa9f9373f43ee4512",
+      "prompt_version": "evidence-aware-10q-shared-checklist-clean-narration-v1.6.0"
+    },
+    "narration_judged_script_sha256": "24a10aff016f5cc5ed9a3a872c761c3465b329b06da956d1d9994b3dc1a628e5",
+    "question_checklist": {
+      "aspects": [
+        "What inflation is and why persistently high inflation harms an economy",
+        "The central bank's policy interest rate as its main tool",
+        "How higher policy rates raise borrowing costs for households and firms",
+        "How reduced spending and investment cool demand and ease price pressures",
+        "Role of inflation expectations and exchange rate in transmission",
+        "Trade-offs: slower growth, higher unemployment, and risk of recession or financial strain"
+      ],
+      "source": "derived_once_per_question_by_evaluator",
+      "aspects_sha256": "04ea0aa1b1330567c8ef308bf938f74396abea29a519725ed4cf8964be98b837",
+      "derived_at": "2026-11-12T08:56:21.600627+00:00",
+      "derived_by_model": "claude-sonnet-5-5",
+      "derivation_cost_usd": 0.0046114,
+      "derived_in_this_call": false,
+      "file": "outputs_final_10q\\experiments\\EXP_GEMINI_20261112T084659Z_b931c2\\checklists\\FQ04.json"
+    },
+    "evaluation_claims": [
+      {
+        "claim_id": "c1",
+        "text": "Inflation is the pace at which prices for goods and services rise across the entire economy, eroding purchasing power.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-90c8dec32b5c",
+          "E-4875420c5314"
+        ]
+      },
+      {
+        "claim_id": "c2",
+        "text": "The Federal Reserve, the Bank of England, and the European Central Bank generally pursue an inflation target of around two percent.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-90c8dec32b5c",
+          "E-4875420c5314"
+        ]
+      },
+      {
+        "claim_id": "c3",
+        "text": "When the Federal Reserve judges that the economy is overheating and inflation is accelerating, the Federal Open Market Committee (FOMC) steps in.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-3077d74e287c"
+        ]
+      },
+      {
+        "claim_id": "c4",
+        "text": "The primary mechanism the central bank uses to raise rates is open market operations.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-05b16263745b"
+        ]
+      },
+      {
+        "claim_id": "c5",
+        "text": "In open market sales, the central bank sells government securities to commercial banks, extracting funds from the financial system.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-05b16263745b"
+        ]
+      },
+      {
+        "claim_id": "c6",
+        "text": "Central banks also adjust the interest paid on excess reserves that commercial banks deposit with them, and manage tools like the discount rate.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-90c8dec32b5c",
+          "E-05b16263745b"
+        ]
+      },
+      {
+        "claim_id": "c7",
+        "text": "Because commercial banks earn higher returns by keeping reserves at the central bank, they demand a higher return when lending out their funds.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-90c8dec32b5c"
+        ]
+      },
+      {
+        "claim_id": "c8",
+        "text": "Commercial banks consequently increase the borrowing rates they charge to individuals and firms.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-90c8dec32b5c"
+        ]
+      },
+      {
+        "claim_id": "c9",
+        "text": "Higher policy rates make everyday credit such as mortgages, personal loans, and credit cards more expensive.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-30b41c31276c",
+          "E-62a5f66a4225"
+        ]
+      },
+      {
+        "claim_id": "c10",
+        "text": "Central banks raise rates to discourage borrowing and spending while encouraging saving, since savers earn better returns on deposits.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-4875420c5314",
+          "E-62a5f66a4225"
+        ]
+      },
+      {
+        "claim_id": "c11",
+        "text": "As consumer and business demand softens, upward pressure on prices recedes.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-90c8dec32b5c",
+          "E-4875420c5314"
+        ]
+      },
+      {
+        "claim_id": "c12",
+        "text": "Cooling inflation through rate hikes involves trade-offs.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-3cadcc7dc897",
+          "E-5e8125e8a8c0"
+        ]
+      },
+      {
+        "claim_id": "c13",
+        "text": "Price stability and economic growth are compatible over the long run, but central banks face a short-term conflict between them.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-3cadcc7dc897"
+        ]
+      },
+      {
+        "claim_id": "c14",
+        "text": "Tighter policy, by slowing money growth and raising borrowing costs, often dampens consumer confidence and encourages businesses to hold off on new capital investment.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-30b41c31276c",
+          "E-5e8125e8a8c0",
+          "E-4875420c5314"
+        ]
+      },
+      {
+        "claim_id": "c15",
+        "text": "Reduced investment threatens overall economic output and can stoke fears of recession.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-30b41c31276c",
+          "E-4875420c5314"
+        ]
+      },
+      {
+        "claim_id": "c16",
+        "text": "When economic activity slows, employment can suffer, which challenges the Federal Reserve's mandate to balance price stability with maximum employment near its natural rate.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-5e8125e8a8c0",
+          "E-3077d74e287c"
+        ]
+      },
+      {
+        "claim_id": "c17",
+        "text": "Under the Maastricht Treaty, the European Central Bank's primary objective is price stability, supporting employment and growth only without prejudice to that goal.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-3cadcc7dc897"
+        ]
+      },
+      {
+        "claim_id": "c18",
+        "text": "The Federal Reserve evaluates its dual mandate on an ad hoc, case-by-case basis.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-5e8125e8a8c0",
+          "E-3077d74e287c"
+        ]
+      },
+      {
+        "claim_id": "c19",
+        "text": "The Fed unanimously raised rates from 3.5%-3.75% to 3.75%-4% after inflation had remained above target for more than five years.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-4875420c5314",
+          "E-62a5f66a4225"
+        ]
+      },
+      {
+        "claim_id": "c20",
+        "text": "Policymakers prioritized price control despite public political opposition because those least well off suffer the most from prolonged, rapid price increases.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-4875420c5314",
+          "E-62a5f66a4225"
+        ]
+      },
+      {
+        "claim_id": "c21",
+        "text": "A central bank cannot directly lower individual prices, such as spikes in wholesale oil or basic grocery items.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-4875420c5314"
+        ]
+      },
+      {
+        "claim_id": "c22",
+        "text": "Monetary policy is a blunt macroeconomic tool meant to keep sector-specific cost surges from broadening across the wider economy.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-4875420c5314"
+        ]
+      },
+      {
+        "claim_id": "c23",
+        "text": "Central banks raise rates by pulling liquidity from the banking system, raising borrowing costs to dampen aggregate demand and slow inflation.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-90c8dec32b5c",
+          "E-05b16263745b",
+          "E-4875420c5314"
+        ]
+      },
+      {
+        "claim_id": "c24",
+        "text": "Rate hikes risk curbing business investment, weakening job growth, and depressing output in the short term.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-3cadcc7dc897",
+          "E-5e8125e8a8c0",
+          "E-4875420c5314"
+        ]
+      }
+    ],
+    "reference_verifications": [
+      {
+        "claim_id": "c1",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-c59acb30b84d",
+          "E-90c8dec32b5c"
+        ],
+        "rationale": "Evidence defines inflation as the rate at which prices for goods and services rise; 'how fast prices rise for everyone'. Purchasing power erosion is supported by BoE/real wages mention loosely."
+      },
+      {
+        "claim_id": "c2",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-90c8dec32b5c"
+        ],
+        "rationale": "States Fed, BoE, ECB are all trying to hit an inflation target of 2%."
+      },
+      {
+        "claim_id": "c3",
+        "status": "supported",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-05b16263745b",
+          "E-3077d74e287c",
+          "E-a5aad465e2c6"
+        ],
+        "rationale": "Fed raises rates to cool an overheated economy and prevent inflation accelerating; FOMC makes the monetary policy decisions."
+      },
+      {
+        "claim_id": "c4",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-05b16263745b"
+        ],
+        "rationale": "States the most common tool to adjust interest rates is open market operations."
+      },
+      {
+        "claim_id": "c5",
+        "status": "supported",
+        "confidence": 0.88,
+        "evidence_ids": [
+          "E-05b16263745b"
+        ],
+        "rationale": "Open market sales: selling government securities to banks, extracting money from the banking system."
+      },
+      {
+        "claim_id": "c6",
+        "status": "supported",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-787c0fc0dcf1",
+          "E-cc06350b318d"
+        ],
+        "rationale": "Banks can deposit excess reserves at central bank and earn interest; discount rate is described as a tool."
+      },
+      {
+        "claim_id": "c7",
+        "status": "supported",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-90c8dec32b5c",
+          "E-9b479667206a"
+        ],
+        "rationale": "Evidence says banks may earn more keeping money at central bank than lending, so if they lend they raise rates to make it worth their while."
+      },
+      {
+        "claim_id": "c8",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-90c8dec32b5c",
+          "E-9b479667206a",
+          "E-cc06350b318d"
+        ],
+        "rationale": "Evidence says banks raise lending rates if they lend, and higher discount rate can lead to higher consumer/business rates; 'consequently increase' is somewhat stronger."
+      },
+      {
+        "claim_id": "c9",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-62a5f66a4225",
+          "E-93cc8bbf3ca6"
+        ],
+        "rationale": "Higher rates make borrowing more expensive for loans, mortgages, credit cards; prime rate affects credit cards and personal loans."
+      },
+      {
+        "claim_id": "c10",
+        "status": "supported",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-68fb5651cf2b",
+          "E-a5aad465e2c6",
+          "E-62a5f66a4225"
+        ],
+        "rationale": "Higher rates make borrowing costlier, slow spending, encourage saving in interest-bearing accounts, and yield better savings returns."
+      },
+      {
+        "claim_id": "c11",
+        "status": "supported",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-e3956ff6dab3",
+          "E-5120eff14ed4",
+          "E-6416629fbd86"
+        ],
+        "rationale": "Evidence says slowing demand/spending makes businesses reluctant to raise prices and pulls inflation back; Fed says inflation tends to decline when demand slows."
+      },
+      {
+        "claim_id": "c12",
+        "status": "supported",
+        "confidence": 0.88,
+        "evidence_ids": [
+          "E-4875420c5314",
+          "E-5120eff14ed4",
+          "E-f65d9e728edd"
+        ],
+        "rationale": "Evidence describes raising rates as a balancing act with costs to growth, and as painful."
+      },
+      {
+        "claim_id": "c13",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-3cadcc7dc897",
+          "E-5e8125e8a8c0"
+        ],
+        "rationale": "States goals are compatible long-run but sometimes conflict in the short run."
+      },
+      {
+        "claim_id": "c14",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-6416629fbd86",
+          "E-c508f37071d7",
+          "E-4875420c5314",
+          "E-5e8125e8a8c0"
+        ],
+        "rationale": "Evidence supports higher borrowing costs, consumer confidence possibly suffering, and businesses holding off investing; 'often' and the money growth link to confidence are somewhat stronger or not directly stated."
+      },
+      {
+        "claim_id": "c15",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-4875420c5314",
+          "E-5120eff14ed4",
+          "E-949947bca114"
+        ],
+        "rationale": "Evidence says higher rates can hurt economic growth, reduce business investment, and that curbing inflation has often caused recession; it does not directly say reduced investment stokes recession fears."
+      },
+      {
+        "claim_id": "c16",
+        "status": "supported",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-9123f8344eda",
+          "E-0e74a5e1c801",
+          "E-5e8125e8a8c0"
+        ],
+        "rationale": "Evidence says if economy slows too much, employment may suffer, and the Fed balances employment and price stability, targeting the natural rate of unemployment."
+      },
+      {
+        "claim_id": "c17",
+        "status": "supported",
+        "confidence": 0.96,
+        "evidence_ids": [
+          "E-3cadcc7dc897",
+          "E-dbaca15bab39"
+        ],
+        "rationale": "Maastricht Treaty quote directly states primary objective price stability and support for employment/growth without prejudice."
+      },
+      {
+        "claim_id": "c18",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-5e8125e8a8c0"
+        ],
+        "rationale": "Evidence states others, including the Fed, confront the trade-off on an ad hoc, case-by-case basis."
+      },
+      {
+        "claim_id": "c19",
+        "status": "partial",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-62a5f66a4225"
+        ],
+        "rationale": "Unanimous hike from 3.5%-3.75% to 3.75%-4% and inflation above target for more than five years are supported; the claim's causal 'after' framing is roughly fine, but 'unanimously' and details match. Minor: none significant."
+      },
+      {
+        "claim_id": "c20",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-62a5f66a4225"
+        ],
+        "rationale": "Evidence supports the hike despite opposition from Trump and that inflation was too high for too long, but nothing states the rationale that those least well off suffer most from prolonged rapid price increases; also the opposition was from the president, not general public."
+      },
+      {
+        "claim_id": "c21",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-4875420c5314"
+        ],
+        "rationale": "Warsh said the Fed cannot affect any individual price, such as oil or grocery food items."
+      },
+      {
+        "claim_id": "c22",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-4875420c5314",
+          "E-f65d9e728edd"
+        ],
+        "rationale": "Evidence says the Fed can keep price rises from broadening and that raising rates is a blunt instrument; it doesn't directly frame monetary policy as a blunt tool meant for that purpose."
+      },
+      {
+        "claim_id": "c23",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-05b16263745b",
+          "E-4875420c5314",
+          "E-58e6c9552951"
+        ],
+        "rationale": "One source says open market sales extract money from the banking system, and others say rate rises raise borrowing costs and lower demand. However, that source says this reduces the supply of funds and decreases interest rates, which is confusing, and the liquidity mechanism isn't directly tied to raising rates and slowing inflation."
+      },
+      {
+        "claim_id": "c24",
+        "status": "supported",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-4875420c5314",
+          "E-3cadcc7dc897",
+          "E-5e8125e8a8c0"
+        ],
+        "rationale": "Higher rates can make businesses hold off on investing and hurt growth. Short-term trade-off with employment and output is stated."
+      }
+    ],
+    "reference_evidence_ids_by_claim": {
+      "c1": [
+        "E-e3956ff6dab3",
+        "E-c59acb30b84d",
+        "E-232dc1e4a26f",
+        "E-4875420c5314",
+        "E-5120eff14ed4"
+      ],
+      "c2": [
+        "E-90c8dec32b5c",
+        "E-dbaca15bab39",
+        "E-954445e9f037",
+        "E-68fb5651cf2b",
+        "E-a9218eba96c1"
+      ],
+      "c3": [
+        "E-954445e9f037",
+        "E-a5aad465e2c6",
+        "E-5da240cea9a7",
+        "E-7a48a4766978",
+        "E-18fe07856c8d"
+      ],
+      "c4": [
+        "E-05b16263745b",
+        "E-90c8dec32b5c",
+        "E-5da240cea9a7",
+        "E-3cadcc7dc897",
+        "E-a9218eba96c1"
+      ],
+      "c5": [
+        "E-05b16263745b",
+        "E-787c0fc0dcf1",
+        "E-a79b60607e25",
+        "E-c47f2744f47f",
+        "E-5da240cea9a7"
+      ],
+      "c6": [
+        "E-787c0fc0dcf1",
+        "E-cc06350b318d",
+        "E-c47f2744f47f",
+        "E-92eba5223eb0",
+        "E-c508f37071d7"
+      ],
+      "c7": [
+        "E-787c0fc0dcf1",
+        "E-c47f2744f47f",
+        "E-cc06350b318d",
+        "E-92eba5223eb0",
+        "E-68fb5651cf2b"
+      ],
+      "c8": [
+        "E-787c0fc0dcf1",
+        "E-cc06350b318d",
+        "E-bc99ebe90709",
+        "E-92eba5223eb0",
+        "E-68fb5651cf2b"
+      ],
+      "c9": [
+        "E-93cc8bbf3ca6",
+        "E-7201947f10ba",
+        "E-8c831aa36e00",
+        "E-b18402af11e1",
+        "E-9b479667206a"
+      ],
+      "c10": [
+        "E-90c8dec32b5c",
+        "E-68fb5651cf2b",
+        "E-62a5f66a4225",
+        "E-a5aad465e2c6",
+        "E-3cadcc7dc897"
+      ],
+      "c11": [
+        "E-3e60e84aebbf",
+        "E-232dc1e4a26f",
+        "E-102dea0de7f0",
+        "E-e3956ff6dab3",
+        "E-949947bca114"
+      ],
+      "c12": [
+        "E-3cadcc7dc897",
+        "E-3077d74e287c",
+        "E-29a98b31bef3",
+        "E-c59acb30b84d",
+        "E-30a105048bfb"
+      ],
+      "c13": [
+        "E-3cadcc7dc897",
+        "E-f65d9e728edd",
+        "E-47d673302f34",
+        "E-4875420c5314",
+        "E-c8f2c7b1e742"
+      ],
+      "c14": [
+        "E-5e8125e8a8c0",
+        "E-c508f37071d7",
+        "E-6416629fbd86",
+        "E-ec60dc513c6f",
+        "E-5f1399d90ac7"
+      ],
+      "c15": [
+        "E-e3956ff6dab3",
+        "E-5120eff14ed4",
+        "E-a5aad465e2c6",
+        "E-b18402af11e1",
+        "E-6bceef9533d5"
+      ],
+      "c16": [
+        "E-dbaca15bab39",
+        "E-9123f8344eda",
+        "E-0e74a5e1c801",
+        "E-3077d74e287c",
+        "E-ba50740580f1"
+      ],
+      "c17": [
+        "E-3cadcc7dc897",
+        "E-90c8dec32b5c",
+        "E-9123f8344eda",
+        "E-ba50740580f1",
+        "E-29a98b31bef3"
+      ],
+      "c18": [
+        "E-5e8125e8a8c0",
+        "E-0e74a5e1c801",
+        "E-7a8641cb129f",
+        "E-ba50740580f1",
+        "E-7a48a4766978"
+      ],
+      "c19": [
+        "E-62a5f66a4225",
+        "E-30b41c31276c",
+        "E-9123f8344eda",
+        "E-05b16263745b",
+        "E-c38ec9a65c4b"
+      ],
+      "c20": [
+        "E-bee013506bcf",
+        "E-f2c7105481c9",
+        "E-3cadcc7dc897",
+        "E-62a5f66a4225",
+        "E-9123f8344eda"
+      ],
+      "c21": [
+        "E-4875420c5314",
+        "E-ca7f65358903",
+        "E-0b4bad63bef3",
+        "E-90c8dec32b5c",
+        "E-c59acb30b84d"
+      ],
+      "c22": [
+        "E-4875420c5314",
+        "E-ba50740580f1",
+        "E-0e74a5e1c801",
+        "E-af5c7bc7eadc",
+        "E-f65d9e728edd"
+      ],
+      "c23": [
+        "E-30b41c31276c",
+        "E-d9afa809ffca",
+        "E-58e6c9552951",
+        "E-05b16263745b",
+        "E-3cadcc7dc897"
+      ],
+      "c24": [
+        "E-b18402af11e1",
+        "E-3e60e84aebbf",
+        "E-7201947f10ba",
+        "E-5e8125e8a8c0",
+        "E-42d60f51319e"
+      ]
+    },
+    "citation_entailment_verifications": [
+      {
+        "claim_id": "c1",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-90c8dec32b5c",
+          "E-4875420c5314"
+        ],
+        "rationale": "Evidence describes inflation as how fast prices rise for everyone and price rises broadening across the economy, but does not mention eroding purchasing power."
+      },
+      {
+        "claim_id": "c2",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-90c8dec32b5c"
+        ],
+        "rationale": "States the Fed, BoE and ECB are all trying to hit a 2% inflation target."
+      },
+      {
+        "claim_id": "c3",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-3077d74e287c"
+        ],
+        "rationale": "Evidence says the Fed might raise rates to cool an overheated economy and prevent inflation accelerating, and that the FOMC assesses data, but does not explicitly say the FOMC steps in in that situation."
+      },
+      {
+        "claim_id": "c4",
+        "status": "partial",
+        "confidence": 0.75,
+        "evidence_ids": [
+          "E-05b16263745b"
+        ],
+        "rationale": "Open market operations are called the most common tool, which is close to but not exactly 'primary mechanism'."
+      },
+      {
+        "claim_id": "c5",
+        "status": "supported",
+        "confidence": 0.88,
+        "evidence_ids": [
+          "E-05b16263745b"
+        ],
+        "rationale": "Evidence says open market sales sell government securities to banks, extracting money from the banking system."
+      },
+      {
+        "claim_id": "c6",
+        "status": "supported",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-90c8dec32b5c",
+          "E-05b16263745b"
+        ],
+        "rationale": "E-90c8 says banks deposit excess reserves at the central bank and earn interest, and central banks change rates. E-05b1 says the discount rate is another tool in the Fed's toolkit."
+      },
+      {
+        "claim_id": "c7",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-90c8dec32b5c"
+        ],
+        "rationale": "Evidence says banks may earn more keeping money at the central bank than lending it, so they raise lending rates if they lend. 'Demand a higher return' is a reasonable paraphrase, but the evidence frames it as a rate rise rather than higher returns causing a demand."
+      },
+      {
+        "claim_id": "c8",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-90c8dec32b5c"
+        ],
+        "rationale": "Evidence says banks will raise their interest rates if they lend. It does not explicitly name individuals and firms as the borrowers."
+      },
+      {
+        "claim_id": "c9",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-62a5f66a4225",
+          "E-30b41c31276c"
+        ],
+        "rationale": "E-62a5 says higher rates make borrowing more expensive for loans, mortgages and credit cards. E-30b4 says rising rates raise the cost of borrowing."
+      },
+      {
+        "claim_id": "c10",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-4875420c5314",
+          "E-62a5f66a4225"
+        ],
+        "rationale": "E-4875 says central banks raise rates when inflation is high to discourage spending and encourage saving. E-62a5 says higher rates can give better returns on savings."
+      },
+      {
+        "claim_id": "c11",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-4875420c5314",
+          "E-90c8dec32b5c"
+        ],
+        "rationale": "Evidence says rate hikes discourage spending to reduce pace of price rises and slow inflation, but doesn't explicitly say softening demand reduces price pressure."
+      },
+      {
+        "claim_id": "c12",
+        "status": "supported",
+        "confidence": 0.88,
+        "evidence_ids": [
+          "E-3cadcc7dc897",
+          "E-5e8125e8a8c0"
+        ],
+        "rationale": "Evidence describes the trade-off between inflation control and growth/employment."
+      },
+      {
+        "claim_id": "c13",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-3cadcc7dc897"
+        ],
+        "rationale": "States goals are compatible in the long run but sometimes not in the short run."
+      },
+      {
+        "claim_id": "c14",
+        "status": "partial",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "E-30b41c31276c",
+          "E-4875420c5314",
+          "E-5e8125e8a8c0"
+        ],
+        "rationale": "Evidence supports higher borrowing costs, sinking consumer confidence, and businesses holding off investing; slower money growth as tighter policy is mentioned, but 'capital investment' and 'often' are not directly stated."
+      },
+      {
+        "claim_id": "c15",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-4875420c5314",
+          "E-30b41c31276c"
+        ],
+        "rationale": "Evidence says holding off investment can hurt economic growth and mentions recession worries, but doesn't directly link reduced investment to recession fears."
+      },
+      {
+        "claim_id": "c16",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-3077d74e287c",
+          "E-5e8125e8a8c0"
+        ],
+        "rationale": "Evidence describes the dual mandate trade-off between employment and price stability and the natural rate of unemployment, but does not explicitly say that slowdowns hurt employment and challenge the mandate."
+      },
+      {
+        "claim_id": "c17",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-3cadcc7dc897"
+        ],
+        "rationale": "Maastricht Treaty quote states the primary objective is price stability, with support for general economic policies, including high employment and growth, without prejudice to that objective."
+      },
+      {
+        "claim_id": "c18",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-5e8125e8a8c0"
+        ],
+        "rationale": "States that others, including the Fed, confront the trade-off on an ad hoc, case-by-case basis."
+      },
+      {
+        "claim_id": "c19",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-62a5f66a4225"
+        ],
+        "rationale": "Rates were hiked to 3.75%-4% from 3.5%-3.75% in a unanimous decision, and inflation has been above target for more than five years."
+      },
+      {
+        "claim_id": "c20",
+        "status": "partial",
+        "confidence": 0.65,
+        "evidence_ids": [
+          "E-4875420c5314",
+          "E-62a5f66a4225"
+        ],
+        "rationale": "Evidence shows the Fed raised rates despite Trump's opposition and Warsh said those least well off have the most to gain from lower inflation. It does not explicitly say that this was the reason, nor mention 'prolonged, rapid' price increases harming them."
+      },
+      {
+        "claim_id": "c21",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-4875420c5314"
+        ],
+        "rationale": "Warsh said the Fed cannot affect any individual price, e.g., oil or groceries."
+      },
+      {
+        "claim_id": "c22",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-4875420c5314"
+        ],
+        "rationale": "Evidence says the Fed can work to keep price rises from broadening, but does not call monetary policy a 'blunt' tool."
+      },
+      {
+        "claim_id": "c23",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-05b16263745b",
+          "E-4875420c5314",
+          "E-90c8dec32b5c"
+        ],
+        "rationale": "Open market sales extract money from the banking system, and higher rates discourage spending to reduce price rises. However, E-05b says this decreases rates (apparently an error), and the 'raising borrowing costs' mechanism is only partly shown (banks raise lending rates in E-90c8)."
+      },
+      {
+        "claim_id": "c24",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-4875420c5314",
+          "E-3cadcc7dc897",
+          "E-5e8125e8a8c0"
+        ],
+        "rationale": "Higher rates can make businesses hold off investing and hurt growth; short-term trade-off with employment and output is described."
+      }
+    ],
+    "quality": {
+      "aspect_scores": [
+        {
+          "aspect": "What inflation is and why persistently high inflation harms an economy",
+          "score": 0.8,
+          "rationale": "Defines inflation and purchasing power erosion; harm mentioned briefly (poor suffer most)."
+        },
+        {
+          "aspect": "The central bank's policy interest rate as its main tool",
+          "score": 0.9,
+          "rationale": "Explains open market operations, reserve interest, discount rate, FOMC."
+        },
+        {
+          "aspect": "How higher policy rates raise borrowing costs for households and firms",
+          "score": 0.95,
+          "rationale": "Clear transmission chain to mortgages, loans, credit cards."
+        },
+        {
+          "aspect": "How reduced spending and investment cool demand and ease price pressures",
+          "score": 0.9,
+          "rationale": "Valve analogy; spending slows, demand softens, prices ease."
+        },
+        {
+          "aspect": "Role of inflation expectations and exchange rate in transmission",
+          "score": 0.0,
+          "rationale": "Neither expectations nor exchange rate are discussed."
+        },
+        {
+          "aspect": "Trade-offs: slower growth, higher unemployment, and risk of recession or financial strain",
+          "score": 0.9,
+          "rationale": "Covers output, investment, recession fears, employment; financial strain not mentioned but main idea clear."
+        }
+      ],
+      "covered_aspects": [
+        "What inflation is and why persistently high inflation harms an economy",
+        "The central bank's policy interest rate as its main tool",
+        "How higher policy rates raise borrowing costs for households and firms",
+        "How reduced spending and investment cool demand and ease price pressures",
+        "Trade-offs: slower growth, higher unemployment, and risk of recession or financial strain"
+      ],
+      "partially_covered_aspects": [],
+      "missing_aspects": [
+        "Role of inflation expectations and exchange rate in transmission"
+      ],
+      "coverage_score": 0.7416666666666667,
+      "coverage_rationale": "Most aspects covered well; inflation expectations and exchange rate absent.",
+      "relevance_score": 0.9,
+      "relevance_rationale": "Mostly on topic; the ECB/Fed framework comparison is a mild tangent but relevant to trade-offs.",
+      "opening_orientation_score": 4,
+      "introduction_roadmap_score": 4,
+      "definitions_foundations_score": 3,
+      "explanatory_depth_score": 3,
+      "examples_applications_score": 4,
+      "organization_transitions_score": 4,
+      "clarity_accessibility_score": 3,
+      "spoken_naturalness_score": 3,
+      "conclusion_takeaway_score": 3,
+      "reflective_ending_score": 4,
+      "narration_rationale": "Clear, well-organized, spoken-friendly, with roadmap, analogy, example, summary and reflective question."
+    },
+    "additional_metric_details": {
+      "grounded_requirement_coverage_percent": 60.0,
+      "context_precision_at_k": 1.0,
+      "context_recall_percent": 66.66666666666667,
+      "retrieval_k": 5,
+      "grounded_aspect_scores": [
+        0.5,
+        0.5,
+        1.0,
+        1.0,
+        0.0,
+        1.0
+      ],
+      "retrieved_aspect_scores": [
+        0.5,
+        0.5,
+        1.0,
+        1.0,
+        0.0,
+        1.0
+      ],
+      "retrieved_passages_scored": 5,
+      "retrieval_assessment": {
+        "grounded_aspects": [
+          {
+            "aspect": "What inflation is and why persistently high inflation harms an economy",
+            "score": 0.5,
+            "rationale": "Inflation as how fast prices rise (E-90c8); least well off gain most from lower inflation (E-4875). Eroding purchasing power and broader harm only partly supported."
+          },
+          {
+            "aspect": "The central bank's policy interest rate as its main tool",
+            "score": 0.5,
+            "rationale": "Rates are a powerful tool (E-90c8), FOMC target for fed funds rate is primary means (E-740b). Script's claim that open market operations are the primary mechanism is partly supported by E-05b1 (not in reference list), but the reference here only partly aligns."
+          },
+          {
+            "aspect": "How higher policy rates raise borrowing costs for households and firms",
+            "score": 1.0,
+            "rationale": "E-90c8 says banks raise lending rates; E-62a5 not in reference but E-740b/E-90c8 support transmission."
+          },
+          {
+            "aspect": "How reduced spending and investment cool demand and ease price pressures",
+            "score": 1.0,
+            "rationale": "E-4875 says higher rates discourage spending, encourage saving, reduce price rises, and make businesses hold off investing; E-58e6 notes lower aggregate demand."
+          },
+          {
+            "aspect": "Role of inflation expectations and exchange rate in transmission",
+            "score": 0.0,
+            "rationale": "Script does not explain expectations or exchange rate; the reference (E-58e6) covers expectations but the script has nothing."
+          },
+          {
+            "aspect": "Trade-offs: slower growth, higher unemployment, and risk of recession or financial strain",
+            "score": 1.0,
+            "rationale": "E-3cadcc, E-4875, E-9123 support the growth/employment trade-off; recession and financial strain are less directly supported, but the core is clear."
+          }
+        ],
+        "passage_relevance": [
+          {
+            "evidence_id": "E-3cadcc7dc897",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-90c8dec32b5c",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-30b41c31276c",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-5e8125e8a8c0",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-3077d74e287c",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-4875420c5314",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-05b16263745b",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-62a5f66a4225",
+            "relevant": true
+          }
+        ],
+        "retrieved_aspects": [
+          {
+            "aspect": "What inflation is and why persistently high inflation harms an economy",
+            "score": 0.5,
+            "rationale": "Retrieved passages define inflation as how fast prices rise and note the least well off benefit from lower inflation; the broader harms are not covered."
+          },
+          {
+            "aspect": "The central bank's policy interest rate as its main tool",
+            "score": 0.5,
+            "rationale": "Retrieved passages show rates as a tool and describe open market operations, but they don't clearly identify a policy rate as the main tool."
+          },
+          {
+            "aspect": "How higher policy rates raise borrowing costs for households and firms",
+            "score": 1.0,
+            "rationale": "E-62a5 and E-90c8 cover higher borrowing costs for loans, mortgages, and credit cards, and the bank pass-through."
+          },
+          {
+            "aspect": "How reduced spending and investment cool demand and ease price pressures",
+            "score": 1.0,
+            "rationale": "E-4875 covers discouraging spending, encouraging saving, businesses holding off investing, and reduced price rises."
+          },
+          {
+            "aspect": "Role of inflation expectations and exchange rate in transmission",
+            "score": 0.0,
+            "rationale": "Retrieved passages say nothing on inflation expectations or the exchange rate."
+          },
+          {
+            "aspect": "Trade-offs: slower growth, higher unemployment, and risk of recession or financial strain",
+            "score": 1.0,
+            "rationale": "E-3cadcc, E-5e81, E-4875, and E-3077 cover the inflation vs growth/employment trade-off; recession and financial strain are only partly covered."
+          }
+        ]
+      },
+      "revision_comparison": null,
+      "notes": "All scores are Claude judgments, not verified ground truth. Repair effectiveness compares coverage/narration, not factual truth. No revision or no retrieval is N/A rather than zero."
+    },
+    "metric_semantics": {
+      "reference_evidence_support_percent": "Evidence entailment within the frozen reference corpus; not factual accuracy.",
+      "query_coverage_percent": "Coverage of a fixed six-aspect checklist derived once per question from the question text and shared by all systems; missing/duplicate judge outputs are normalized against that fixed denominator.",
+      "query_relevance_percent": "Independent-model relevance judgement.",
+      "narration_input": "Coverage, relevance, narration and grounded-requirement judgements use the complete script with [E-...] evidence markers removed; claim extraction and citation metrics use the marked script. Aspect scores are continuous in [0, 1].",
+      "narration_quality_percent": "Ten-dimension spoken educational narration score; excludes factual truth.",
+      "citation_precision": "Share of emitted citation IDs that are identified as supporting the claim when verification is restricted to cited passages.",
+      "citation_recall": "Share of all citation-required extracted factual claims that have at least one cited passage judged to support the claim.",
+      "evaluation_estimated_llm_cost_usd": "Evaluator telemetry. CLI mode uses Claude Code's reported list-price equivalent; API mode uses the configured Anthropic per-token rates."
+    },
+    "evaluation_telemetry": {
+      "started_at": "2026-11-12T09:56:16.292169+00:00",
+      "ended_at": "2026-11-12T09:58:28.017570+00:00",
+      "wall_seconds": 131.71917870000016,
+      "retrieval_calls": 0,
+      "retrieved_documents": 0,
+      "llm_calls": [
+        {
+          "task": "script_claims",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 22.96206589999929,
+          "prompt_tokens": 4276,
+          "output_tokens": 2185,
+          "thinking_tokens": 0,
+          "total_tokens": 6461,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0357676,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0357676,
+            "cache_creation_input_tokens": 3458,
+            "cache_read_input_tokens": 816,
+            "session_id": "36eefb8d-3521-486a-a6d2-fa700363a39a",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 7.610680499999944,
+          "prompt_tokens": 9580,
+          "output_tokens": 532,
+          "thinking_tokens": 0,
+          "total_tokens": 10112,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0395527,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0395527,
+            "cache_creation_input_tokens": 8531,
+            "cache_read_input_tokens": 1047,
+            "session_id": "ec4ccedb-2239-4a85-9229-cbe2a416edff",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 8.546894600000087,
+          "prompt_tokens": 8304,
+          "output_tokens": 617,
+          "thinking_tokens": 0,
+          "total_tokens": 8921,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0352987,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0352987,
+            "cache_creation_input_tokens": 7255,
+            "cache_read_input_tokens": 1047,
+            "session_id": "5bbcb092-5565-4a32-a70f-b96b71feee19",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 9.007714400000623,
+          "prompt_tokens": 10700,
+          "output_tokens": 654,
+          "thinking_tokens": 0,
+          "total_tokens": 11354,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0452527,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0452527,
+            "cache_creation_input_tokens": 9651,
+            "cache_read_input_tokens": 1047,
+            "session_id": "91c57aac-6947-42f9-8503-52c915695507",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 8.58438920000026,
+          "prompt_tokens": 8360,
+          "output_tokens": 631,
+          "thinking_tokens": 0,
+          "total_tokens": 8991,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0356627,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0356627,
+            "cache_creation_input_tokens": 7311,
+            "cache_read_input_tokens": 1047,
+            "session_id": "bd0fd750-db02-4ffd-97db-63448bbb66ba",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 7.725392599999395,
+          "prompt_tokens": 9322,
+          "output_tokens": 543,
+          "thinking_tokens": 0,
+          "total_tokens": 9865,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.038630700000000004,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.038630700000000004,
+            "cache_creation_input_tokens": 8273,
+            "cache_read_input_tokens": 1047,
+            "session_id": "dd0f8ec8-afdd-4078-bcaf-d5fb899c1734",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 7.411879299999782,
+          "prompt_tokens": 3635,
+          "output_tokens": 529,
+          "thinking_tokens": 0,
+          "total_tokens": 4164,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0157427,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0157427,
+            "cache_creation_input_tokens": 2586,
+            "cache_read_input_tokens": 1047,
+            "session_id": "74682ea6-e81a-4a11-98b4-e9e38312bf62",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 8.421388200000365,
+          "prompt_tokens": 4056,
+          "output_tokens": 649,
+          "thinking_tokens": 0,
+          "total_tokens": 4705,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0186267,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0186267,
+            "cache_creation_input_tokens": 3007,
+            "cache_read_input_tokens": 1047,
+            "session_id": "cc41aef9-e936-4018-8b76-76f3b9cc9173",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 7.64015019999988,
+          "prompt_tokens": 3996,
+          "output_tokens": 590,
+          "thinking_tokens": 0,
+          "total_tokens": 4586,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0177967,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0177967,
+            "cache_creation_input_tokens": 2947,
+            "cache_read_input_tokens": 1047,
+            "session_id": "d560393a-1512-4abe-a16e-2ce3732c2559",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 8.077472599999965,
+          "prompt_tokens": 4069,
+          "output_tokens": 621,
+          "thinking_tokens": 0,
+          "total_tokens": 4690,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0183987,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0183987,
+            "cache_creation_input_tokens": 3020,
+            "cache_read_input_tokens": 1047,
+            "session_id": "f01c46a2-d181-4966-900c-438ad7737d0d",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 6.9931133000000045,
+          "prompt_tokens": 3965,
+          "output_tokens": 504,
+          "thinking_tokens": 0,
+          "total_tokens": 4469,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0168127,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0168127,
+            "cache_creation_input_tokens": 2916,
+            "cache_read_input_tokens": 1047,
+            "session_id": "1faac26a-5a0f-4ad1-93f2-a8d1e0cea359",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "answer_fulfilment_and_narration_evaluation",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 10.494267600000057,
+          "prompt_tokens": 5661,
+          "output_tokens": 1192,
+          "thinking_tokens": 0,
+          "total_tokens": 6853,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0213039,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0213039,
+            "cache_creation_input_tokens": 2260,
+            "cache_read_input_tokens": 3399,
+            "session_id": "a36b626b-c4b8-4a82-8ff6-53c6ead66ce7",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "grounded_requirements_and_retrieval_quality",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 12.636304100000416,
+          "prompt_tokens": 9228,
+          "output_tokens": 1394,
+          "thinking_tokens": 0,
+          "total_tokens": 10622,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0455947,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0455947,
+            "cache_creation_input_tokens": 7879,
+            "cache_read_input_tokens": 1347,
+            "session_id": "4556083d-65b3-4f93-97d1-be57890824eb",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        }
+      ]
+    },
+    "evaluation_provider": "anthropic",
+    "evaluation_access": "claude_code_cli",
+    "claude_access_method": "cli",
+    "claude_cli_version": "2.1.322 (Claude Code)",
+    "evaluation_model_requested": "claude-sonnet-5-5",
+    "evaluation_model": "claude-sonnet-5-5",
+    "evaluation_cli_reported_cost_usd": 0.3844412,
+    "evaluation_estimated_llm_cost_usd": 0.3844412,
+    "generation_provider": "gemini",
+    "generation_access": "google_api",
+    "generation_model_requested": "gemini-3.8-flash",
+    "generation_estimated_llm_cost_usd": 0.00830325,
+    "combined_generation_plus_evaluation_estimated_llm_cost_usd": 0.39274444999999997
+  }
+}

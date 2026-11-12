@@ -1,0 +1,1261 @@
+{
+  "record": {
+    "experiment_id": "EXP_GEMINI_20261112T084659Z_b931c2",
+    "evaluated_script_sha256": "de651483329dc09618e0ca3eae4822a5ead1b92556102950602e7fa649da4597",
+    "reference_pool_sha256": "060c77b143c7e65c17f2c0b562fccedecdd63cbc84054cd7cd8cd949ec3bd15f",
+    "generation_config_sha256": "130fb20735098b5ae7683be72a40463c48605cdf59d320daa9f9373f43ee4512",
+    "prompt_version": "evidence-aware-10q-shared-checklist-clean-narration-v1.6.0",
+    "system_id": "P1",
+    "prompt_id": "FQ09",
+    "domain": "Physics / Astronomy",
+    "reasoning_type": "mechanism-and-factors",
+    "generation_provider": "gemini",
+    "generation_access": "google_api",
+    "generation_model": "gemini-3.8-flash",
+    "evaluator_provider": "anthropic",
+    "evaluator_model": "claude-sonnet-5-5",
+    "claim_count": 18,
+    "supported_claims": 18,
+    "partial_claims": 0,
+    "unsupported_claims": 0,
+    "contradicted_claims": 0,
+    "supported_claim_rate": 1.0,
+    "reference_evidence_support_percent": 100.0,
+    "query_coverage_percent": 71.66666666666667,
+    "query_relevance_percent": 93.0,
+    "narration_quality_percent": 90.0,
+    "citation_precision": 0.9354838709677419,
+    "citation_recall": 0.9444444444444444,
+    "citation_f1": 0.9399428026692088,
+    "grounded_requirement_coverage_percent": 54.16667,
+    "context_precision_at_k": 1.0,
+    "context_recall_percent": 66.66666666666667,
+    "repair_effectiveness_points": null,
+    "requirement_preservation_rate": null,
+    "source_count": 6,
+    "source_type_count": 1,
+    "llm_calls": 16,
+    "prompt_tokens": 38276,
+    "output_tokens": 14701,
+    "thinking_tokens": 0,
+    "billable_output_tokens": 14701,
+    "retrieval_calls": 3,
+    "latency_seconds": 124.57281639999928,
+    "word_count": 816,
+    "estimated_llm_cost_usd": 0.08383575,
+    "llm_call_latency_p50_seconds": 8.044488600002296,
+    "llm_call_latency_p90_seconds": 12.28541684999982
+  },
+  "details": {
+    "artifact_identity": {
+      "experiment_id": "EXP_GEMINI_20261112T084659Z_b931c2",
+      "evaluated_script_sha256": "de651483329dc09618e0ca3eae4822a5ead1b92556102950602e7fa649da4597",
+      "reference_pool_sha256": "060c77b143c7e65c17f2c0b562fccedecdd63cbc84054cd7cd8cd949ec3bd15f",
+      "generation_config_sha256": "130fb20735098b5ae7683be72a40463c48605cdf59d320daa9f9373f43ee4512",
+      "prompt_version": "evidence-aware-10q-shared-checklist-clean-narration-v1.6.0"
+    },
+    "narration_judged_script_sha256": "ac241f02678a334b812a31c470ab17a24c8a49005108ca66b1c103b4cf5eed0e",
+    "question_checklist": {
+      "aspects": [
+        "Gravity compresses a star's core, creating the extreme temperature and pressure needed for fusion",
+        "Quantum tunneling lets positively charged nuclei overcome electrical repulsion and fuse",
+        "Hydrogen fuses into helium via proton-proton chain or CNO cycle",
+        "Mass converts to energy via E=mc², released as radiation and heat",
+        "Hydrostatic equilibrium: fusion pressure balances gravity to keep the star stable",
+        "A star's initial mass sets its fuel burn rate and therefore lifetime"
+      ],
+      "source": "derived_once_per_question_by_evaluator",
+      "aspects_sha256": "bbea0166a2aa0f03f37b7e22ec0cde0d182893f01a1a717b3e4bb42fbe28665c",
+      "derived_at": "2026-11-12T08:57:13.385134+00:00",
+      "derived_by_model": "claude-sonnet-5-5",
+      "derivation_cost_usd": 0.0050474000000000005,
+      "derived_in_this_call": false,
+      "file": "outputs_final_10q\\experiments\\EXP_GEMINI_20261112T084659Z_b931c2\\checklists\\FQ09.json"
+    },
+    "evaluation_claims": [
+      {
+        "claim_id": "c1",
+        "text": "In the cores of main-sequence stars, nuclear fusion generates energy primarily through the conversion of hydrogen into helium.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-2b97dde246a6",
+          "E-c65972ee0860"
+        ]
+      },
+      {
+        "claim_id": "c2",
+        "text": "Stellar hydrogen fusion converts four free protons into a single helium-4 nucleus through a specific sequence of nuclear reactions.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-18feadc8eaaf",
+          "E-2b97dde246a6"
+        ]
+      },
+      {
+        "claim_id": "c3",
+        "text": "Hydrogen fusion in stars occurs predominantly via two primary processes: the proton-proton chain and the CNO cycle.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-2b97dde246a6"
+        ]
+      },
+      {
+        "claim_id": "c4",
+        "text": "The proton-proton chain is the dominant energy production mechanism in lower-mass main-sequence stars such as the Sun, initiating at core temperatures around four million Kelvin.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-2b97dde246a6",
+          "E-31fc5e1c3424"
+        ]
+      },
+      {
+        "claim_id": "c5",
+        "text": "The CNO cycle becomes the dominant energy source above temperatures of approximately seventeen million Kelvin, found inside main-sequence stars of at least 1.3 solar masses.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-31fc5e1c3424"
+        ]
+      },
+      {
+        "claim_id": "c6",
+        "text": "Hydrostatic equilibrium is the balance in a star where the outward pressure gradient, including radiation pressure generated by nuclear fusion, balances the inward gravitational pull.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-8232ba651371"
+        ]
+      },
+      {
+        "claim_id": "c7",
+        "text": "Hydrostatic equilibrium sets a star's internal temperature, luminosity, and fuel consumption rate.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-8232ba651371"
+        ]
+      },
+      {
+        "claim_id": "c8",
+        "text": "A star's total available nuclear fuel supply is proportional to its initial mass.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-09db5e2ad714",
+          "E-4ce7d1d3a9db"
+        ]
+      },
+      {
+        "claim_id": "c9",
+        "text": "More massive stars have stronger gravitational fields, requiring higher core pressure and temperature to support their weight against gravitational collapse.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-8232ba651371"
+        ]
+      },
+      {
+        "claim_id": "c10",
+        "text": "Higher core temperatures and pressures drive faster nuclear fusion reaction rates, leading to higher stellar luminosity.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-4ce7d1d3a9db",
+          "E-8232ba651371",
+          "E-c65972ee0860"
+        ]
+      },
+      {
+        "claim_id": "c11",
+        "text": "Luminosity represents the rate at which a star consumes its nuclear fuel, so brightness reveals its burn rate.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-09db5e2ad714"
+        ]
+      },
+      {
+        "claim_id": "c12",
+        "text": "For intermediate-mass main-sequence stars, luminosity is proportional to mass raised to an exponent of approximately 3.5.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-8232ba651371",
+          "E-dc6ea3553830"
+        ]
+      },
+      {
+        "claim_id": "c13",
+        "text": "A star's main-sequence lifetime is the ratio of its total available nuclear fuel to its fuel consumption rate.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-09db5e2ad714",
+          "E-4ce7d1d3a9db",
+          "E-dc6ea3553830"
+        ]
+      },
+      {
+        "claim_id": "c14",
+        "text": "A massive star's fuel consumption rate increases more rapidly with mass than its fuel supply does, so massive stars have much shorter lifespans than low-mass stars.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-4ce7d1d3a9db",
+          "E-dc6ea3553830"
+        ]
+      },
+      {
+        "claim_id": "c15",
+        "text": "A Sun-like star has enough core hydrogen fuel to support fusion for approximately 10 billion years.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-09db5e2ad714",
+          "E-18feadc8eaaf",
+          "E-93b42ac2dded"
+        ]
+      },
+      {
+        "claim_id": "c16",
+        "text": "A 0.1 solar mass red dwarf can survive for over a trillion years.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-dc6ea3553830"
+        ]
+      },
+      {
+        "claim_id": "c17",
+        "text": "A 60 solar mass star exhausts its fuel in approximately 3 million years.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-dc6ea3553830"
+        ]
+      },
+      {
+        "claim_id": "c18",
+        "text": "For the most massive stars exceeding 30 solar masses, some analyses indicate the mass-luminosity exponent drops toward 3, while others suggest it approaches approximately 1 near the Eddington limit.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-09db5e2ad714",
+          "E-dc6ea3553830"
+        ]
+      }
+    ],
+    "reference_verifications": [
+      {
+        "claim_id": "c1",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-26fa93ab3106",
+          "E-2b97dde246a6"
+        ],
+        "rationale": "Hydrogen fusion is the dominant energy-generating process in cores of main-sequence stars."
+      },
+      {
+        "claim_id": "c2",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-6e497d2d7b1c",
+          "E-2b97dde246a6",
+          "E-26fa93ab3106"
+        ],
+        "rationale": "Net reaction converts four protons to helium-4 via a sequence of reactions."
+      },
+      {
+        "claim_id": "c3",
+        "status": "supported",
+        "confidence": 0.96,
+        "evidence_ids": [
+          "E-2b97dde246a6"
+        ],
+        "rationale": "Two predominant processes: pp chain and CNO cycle."
+      },
+      {
+        "claim_id": "c4",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-2b97dde246a6",
+          "E-31fc5e1c3424"
+        ],
+        "rationale": "pp chain dominant in lower-mass stars like the Sun; starts at about 4×10^6 K."
+      },
+      {
+        "claim_id": "c5",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-31fc5e1c3424"
+        ],
+        "rationale": "Above ~1.7×10^7 K CNO dominates, achieved in main-sequence stars of at least 1.3 solar masses."
+      },
+      {
+        "claim_id": "c6",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-8232ba651371",
+          "E-ad940feabc53",
+          "E-93b42ac2dded"
+        ],
+        "rationale": "Evidence describes outward pressure gradient balancing inward gravity, with radiation pressure from fusion contributing."
+      },
+      {
+        "claim_id": "c7",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-8232ba651371"
+        ],
+        "rationale": "Directly stated that the balance sets internal temperature, luminosity, and fuel consumption rate."
+      },
+      {
+        "claim_id": "c8",
+        "status": "supported",
+        "confidence": 0.92,
+        "evidence_ids": [
+          "E-09db5e2ad714",
+          "E-55e241686994",
+          "E-4ce7d1d3a9db"
+        ],
+        "rationale": "Fuel is proportional to initial mass."
+      },
+      {
+        "claim_id": "c9",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-8232ba651371"
+        ],
+        "rationale": "A more massive star requires higher core pressure and temperature to support its weight; gravitational collapse is also mentioned elsewhere. 'Stronger gravitational fields' is a minor paraphrase."
+      },
+      {
+        "claim_id": "c10",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-8232ba651371",
+          "E-55e241686994",
+          "E-bcc30b38f98b"
+        ],
+        "rationale": "Higher core T and P drive faster nuclear reactions; the mass-luminosity relation and the burn-rate evidence link this to higher luminosity. The explicit causal chain to luminosity is slightly inferred."
+      },
+      {
+        "claim_id": "c11",
+        "status": "supported",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-09db5e2ad714",
+          "E-7ce08e6db166"
+        ],
+        "rationale": "Evidence states consumption rate is simply the luminosity / burn rate is luminosity L. 'Brightness reveals burn rate' follows."
+      },
+      {
+        "claim_id": "c12",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-55e241686994",
+          "E-dc6ea3553830"
+        ],
+        "rationale": "L ∝ M^α with α ≈ 3.5 for intermediate masses."
+      },
+      {
+        "claim_id": "c13",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-4ce7d1d3a9db",
+          "E-55e241686994"
+        ],
+        "rationale": "Lifetime = amount of fuel / consumption rate."
+      },
+      {
+        "claim_id": "c14",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-dc6ea3553830",
+          "E-4ce7d1d3a9db",
+          "E-55e241686994"
+        ],
+        "rationale": "Massive stars have more fuel but consume it far faster (L∝M^3.5 vs fuel ∝ M), giving shorter lifetimes."
+      },
+      {
+        "claim_id": "c15",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-18feadc8eaaf",
+          "E-93b42ac2dded",
+          "E-09db5e2ad714"
+        ],
+        "rationale": "Sun-like star has enough hydrogen for about ten billion years of fusion."
+      },
+      {
+        "claim_id": "c16",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-dc6ea3553830",
+          "E-202d41a19b54"
+        ],
+        "rationale": "Evidence says a 0.1 M☉ red dwarf persists well over a trillion years; the table lists 1000's of billions of years."
+      },
+      {
+        "claim_id": "c17",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-dc6ea3553830",
+          "E-202d41a19b54"
+        ],
+        "rationale": "Both state a 60 M☉ star lives about 3 million years."
+      },
+      {
+        "claim_id": "c18",
+        "status": "supported",
+        "confidence": 0.88,
+        "evidence_ids": [
+          "E-09db5e2ad714",
+          "E-dc6ea3553830"
+        ],
+        "rationale": "One source says p=3 for M>30 Msun; another says α≈1 near the Eddington limit for the most massive stars."
+      }
+    ],
+    "reference_evidence_ids_by_claim": {
+      "c1": [
+        "E-93b42ac2dded",
+        "E-26fa93ab3106",
+        "E-c69c60b90a09",
+        "E-c65972ee0860",
+        "E-b4ba20e0ede9"
+      ],
+      "c2": [
+        "E-6e497d2d7b1c",
+        "E-26fa93ab3106",
+        "E-33f773f00b98",
+        "E-4ce7d1d3a9db",
+        "E-1c7089400fd1"
+      ],
+      "c3": [
+        "E-2b97dde246a6",
+        "E-ad940feabc53",
+        "E-1c7089400fd1",
+        "E-6e497d2d7b1c",
+        "E-c65972ee0860"
+      ],
+      "c4": [
+        "E-2b97dde246a6",
+        "E-c0e69895299d",
+        "E-b4ba20e0ede9",
+        "E-bcc30b38f98b",
+        "E-202d41a19b54"
+      ],
+      "c5": [
+        "E-31fc5e1c3424",
+        "E-d35ef5590c1b",
+        "E-bcc30b38f98b",
+        "E-1c7089400fd1",
+        "E-202d41a19b54"
+      ],
+      "c6": [
+        "E-8232ba651371",
+        "E-ad940feabc53",
+        "E-18feadc8eaaf",
+        "E-09db5e2ad714",
+        "E-c65972ee0860"
+      ],
+      "c7": [
+        "E-8232ba651371",
+        "E-09db5e2ad714",
+        "E-ad940feabc53",
+        "E-18feadc8eaaf",
+        "E-c65972ee0860"
+      ],
+      "c8": [
+        "E-55e241686994",
+        "E-09db5e2ad714",
+        "E-b3c69fe12347",
+        "E-93b42ac2dded",
+        "E-c65972ee0860"
+      ],
+      "c9": [
+        "E-8232ba651371",
+        "E-18feadc8eaaf",
+        "E-ad940feabc53",
+        "E-54ef8d1f6805",
+        "E-4ce7d1d3a9db"
+      ],
+      "c10": [
+        "E-8232ba651371",
+        "E-3cb348eb4586",
+        "E-c65972ee0860",
+        "E-93b42ac2dded",
+        "E-bcc30b38f98b"
+      ],
+      "c11": [
+        "E-55e241686994",
+        "E-4ce7d1d3a9db",
+        "E-b3c69fe12347",
+        "E-93b42ac2dded",
+        "E-39391fa4b810"
+      ],
+      "c12": [
+        "E-55e241686994",
+        "E-09db5e2ad714",
+        "E-31fc5e1c3424",
+        "E-b3c69fe12347",
+        "E-b6b395582c20"
+      ],
+      "c13": [
+        "E-55e241686994",
+        "E-4ce7d1d3a9db",
+        "E-b3c69fe12347",
+        "E-93b42ac2dded",
+        "E-c65972ee0860"
+      ],
+      "c14": [
+        "E-c65972ee0860",
+        "E-dc6ea3553830",
+        "E-4ce7d1d3a9db",
+        "E-b3c69fe12347",
+        "E-83d1ba7c3932"
+      ],
+      "c15": [
+        "E-93b42ac2dded",
+        "E-202d41a19b54",
+        "E-18feadc8eaaf",
+        "E-7ce08e6db166",
+        "E-c65972ee0860"
+      ],
+      "c16": [
+        "E-dc6ea3553830",
+        "E-bcc30b38f98b",
+        "E-202d41a19b54",
+        "E-3edb0638b6bc",
+        "E-bac7d2ee7d77"
+      ],
+      "c17": [
+        "E-b3c69fe12347",
+        "E-202d41a19b54",
+        "E-dc6ea3553830",
+        "E-c65972ee0860",
+        "E-83d1ba7c3932"
+      ],
+      "c18": [
+        "E-dc6ea3553830",
+        "E-09db5e2ad714",
+        "E-bcc30b38f98b",
+        "E-811fe3da3a10",
+        "E-c65972ee0860"
+      ]
+    },
+    "citation_entailment_verifications": [
+      {
+        "claim_id": "c1",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-2b97dde246a6",
+          "E-c65972ee0860"
+        ],
+        "rationale": "E-2b97 refers to hydrogen fusion energy in cores of main-sequence stars; E-c659 says the most common fusion is hydrogen into helium."
+      },
+      {
+        "claim_id": "c2",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-18feadc8eaaf",
+          "E-2b97dde246a6"
+        ],
+        "rationale": "E-18fe says net reaction converts four free protons to a single helium nucleus; E-2b97 says a sequence of reactions creates helium-4."
+      },
+      {
+        "claim_id": "c3",
+        "status": "supported",
+        "confidence": 0.96,
+        "evidence_ids": [
+          "E-2b97dde246a6"
+        ],
+        "rationale": "Directly states two predominant processes: proton-proton chain and CNO cycle."
+      },
+      {
+        "claim_id": "c4",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-2b97dde246a6",
+          "E-31fc5e1c3424"
+        ],
+        "rationale": "E-2b97 gives dominance in lower-mass stars like the Sun; E-31fc gives start at about 4×10^6 K."
+      },
+      {
+        "claim_id": "c5",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-31fc5e1c3424"
+        ],
+        "rationale": "Above ~1.7×10^7 K CNO dominates, achieved in main-sequence stars with at least 1.3 solar masses."
+      },
+      {
+        "claim_id": "c6",
+        "status": "partial",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "E-8232ba651371"
+        ],
+        "rationale": "Evidence says outward pressure gradient balances inward gravity and mentions radiation pressure from fusion pushing outward, but doesn't define the outward pressure gradient as including radiation pressure explicitly; close but slightly stretched."
+      },
+      {
+        "claim_id": "c7",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-8232ba651371"
+        ],
+        "rationale": "Directly states the balance sets internal temperature, luminosity, and rate of fuel consumption."
+      },
+      {
+        "claim_id": "c8",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-4ce7d1d3a9db",
+          "E-09db5e2ad714"
+        ],
+        "rationale": "Both state fuel amount is proportional to the star's initial mass."
+      },
+      {
+        "claim_id": "c9",
+        "status": "supported",
+        "confidence": 0.88,
+        "evidence_ids": [
+          "E-8232ba651371"
+        ],
+        "rationale": "States a more massive star requires higher core pressure and temperature to support its weight. 'Stronger gravitational fields' is implied, and 'collapse' is implied by the gravity-vs-pressure battle."
+      },
+      {
+        "claim_id": "c10",
+        "status": "supported",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-8232ba651371",
+          "E-4ce7d1d3a9db"
+        ],
+        "rationale": "E-8232 says higher core temperature drives faster nuclear reactions; E-4ce7 says more luminous stars have more reactions occurring. Together they support the link to luminosity, though the causal chain is somewhat inferred."
+      },
+      {
+        "claim_id": "c11",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-09db5e2ad714"
+        ],
+        "rationale": "Evidence states the consumption rate is simply the star's luminosity. The 'brightness reveals burn rate' wording is a mild paraphrase."
+      },
+      {
+        "claim_id": "c12",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-8232ba651371",
+          "E-dc6ea3553830"
+        ],
+        "rationale": "Both passages give L ∝ M^α with α≈3.5 for intermediate masses."
+      },
+      {
+        "claim_id": "c13",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-4ce7d1d3a9db",
+          "E-dc6ea3553830",
+          "E-09db5e2ad714"
+        ],
+        "rationale": "Lifetime is defined as fuel amount divided by consumption rate."
+      },
+      {
+        "claim_id": "c14",
+        "status": "supported",
+        "confidence": 0.92,
+        "evidence_ids": [
+          "E-4ce7d1d3a9db",
+          "E-dc6ea3553830"
+        ],
+        "rationale": "Massive stars have more fuel but consume it at a much greater rate, so they live shorter lives."
+      },
+      {
+        "claim_id": "c15",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-18feadc8eaaf",
+          "E-93b42ac2dded",
+          "E-09db5e2ad714"
+        ],
+        "rationale": "Evidence says a Sun-like star has enough hydrogen for about ten billion years."
+      },
+      {
+        "claim_id": "c16",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-dc6ea3553830"
+        ],
+        "rationale": "Evidence says a 0.1 M☉ red dwarf will persist for well over a trillion years."
+      },
+      {
+        "claim_id": "c17",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-dc6ea3553830"
+        ],
+        "rationale": "Evidence says a 60 M☉ star lives only about 3 million years."
+      },
+      {
+        "claim_id": "c18",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-09db5e2ad714",
+          "E-dc6ea3553830"
+        ],
+        "rationale": "One source gives p=3 for M>30 Msun; the other says α≈1 near the Eddington limit for the most massive stars."
+      }
+    ],
+    "quality": {
+      "aspect_scores": [
+        {
+          "aspect": "Gravity compresses a star's core, creating the extreme temperature and pressure needed for fusion",
+          "score": 0.7,
+          "rationale": "Gravity's role in requiring high core pressure/temperature is mentioned, but compression as the cause of fusion conditions is only implicit."
+        },
+        {
+          "aspect": "Quantum tunneling lets positively charged nuclei overcome electrical repulsion and fuse",
+          "score": 0.0,
+          "rationale": "Not mentioned."
+        },
+        {
+          "aspect": "Hydrogen fuses into helium via proton-proton chain or CNO cycle",
+          "score": 0.95,
+          "rationale": "Clearly explained with temperature regimes and mass dependence."
+        },
+        {
+          "aspect": "Mass converts to energy via E=mc², released as radiation and heat",
+          "score": 0.7,
+          "rationale": "Mentions mass deficit and mass-energy equivalence but explicitly declines to explain it."
+        },
+        {
+          "aspect": "Hydrostatic equilibrium: fusion pressure balances gravity to keep the star stable",
+          "score": 0.95,
+          "rationale": "Defined and explained well."
+        },
+        {
+          "aspect": "A star's initial mass sets its fuel burn rate and therefore lifetime",
+          "score": 1.0,
+          "rationale": "Thoroughly explained with the lifetime ratio, scaling, vehicle analogy, and examples."
+        }
+      ],
+      "covered_aspects": [
+        "Hydrogen fuses into helium via proton-proton chain or CNO cycle",
+        "Hydrostatic equilibrium: fusion pressure balances gravity to keep the star stable",
+        "A star's initial mass sets its fuel burn rate and therefore lifetime"
+      ],
+      "partially_covered_aspects": [
+        "Gravity compresses a star's core, creating the extreme temperature and pressure needed for fusion",
+        "Mass converts to energy via E=mc², released as radiation and heat"
+      ],
+      "missing_aspects": [
+        "Quantum tunneling lets positively charged nuclei overcome electrical repulsion and fuse"
+      ],
+      "coverage_score": 0.7166666666666667,
+      "coverage_rationale": "Strong on fusion pathways, equilibrium and lifetime; tunneling is absent and E=mc² is explicitly skipped.",
+      "relevance_score": 0.93,
+      "relevance_rationale": "Almost entirely on-topic; the mass-luminosity caveat is a slight tangent.",
+      "opening_orientation_score": 4,
+      "introduction_roadmap_score": 4,
+      "definitions_foundations_score": 3,
+      "explanatory_depth_score": 3,
+      "examples_applications_score": 4,
+      "organization_transitions_score": 4,
+      "clarity_accessibility_score": 3,
+      "spoken_naturalness_score": 3,
+      "conclusion_takeaway_score": 4,
+      "reflective_ending_score": 4,
+      "narration_rationale": "Well organized with a clear roadmap, a vehicle analogy, concrete lifetime examples, a summary and a reflective question. It is slightly formal and skips the energy conversion explanation."
+    },
+    "additional_metric_details": {
+      "grounded_requirement_coverage_percent": 54.16667,
+      "context_precision_at_k": 1.0,
+      "context_recall_percent": 66.66666666666667,
+      "retrieval_k": 5,
+      "grounded_aspect_scores": [
+        0.5,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "retrieved_aspect_scores": [
+        0.5,
+        0.0,
+        1.0,
+        0.5,
+        1.0,
+        1.0
+      ],
+      "retrieved_passages_scored": 5,
+      "retrieval_assessment": {
+        "grounded_aspects": [
+          {
+            "aspect": "Gravity compresses a star's core, creating the extreme temperature and pressure needed for fusion",
+            "score": 0.5,
+            "rationale": "Script says massive stars need higher core pressure/temperature to resist gravity; reference supports this (E-8232ba651371), but not gravity compression creating fusion conditions."
+          },
+          {
+            "aspect": "Quantum tunneling lets positively charged nuclei overcome electrical repulsion and fuse",
+            "score": 0.0,
+            "rationale": "Script does not mention tunneling; no reference support."
+          },
+          {
+            "aspect": "Hydrogen fuses into helium via proton-proton chain or CNO cycle",
+            "score": 1.0,
+            "rationale": "Script's four protons to helium-4, pp chain and CNO thresholds are directly supported by E-18feadc8eaaf, and the 4 million K, 1.7 million K, 1.3 solar mass figures are in the passages shown for the generator but the reference extracts support the core claim of four protons to helium."
+          },
+          {
+            "aspect": "Mass converts to energy via E=mc², released as radiation and heat",
+            "score": 0.0,
+            "rationale": "Script explicitly declines to explain the mass-energy conversion."
+          },
+          {
+            "aspect": "Hydrostatic equilibrium: fusion pressure balances gravity to keep the star stable",
+            "score": 1.0,
+            "rationale": "E-8232ba651371 and E-93b42ac2dded directly support the balance of radiation pressure and gravity."
+          },
+          {
+            "aspect": "A star's initial mass sets its fuel burn rate and therefore lifetime",
+            "score": 1.0,
+            "rationale": "E-4ce7d1d3a9db and E-c65972ee0860 directly support lifetime = fuel/consumption, fuel proportional to initial mass, and massive stars burning faster."
+          }
+        ],
+        "passage_relevance": [
+          {
+            "evidence_id": "E-8232ba651371",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-09db5e2ad714",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-4ce7d1d3a9db",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-2b97dde246a6",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-31fc5e1c3424",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-dc6ea3553830",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-c65972ee0860",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-b3c69fe12347",
+            "relevant": false
+          },
+          {
+            "evidence_id": "E-18feadc8eaaf",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-bac7d2ee7d77",
+            "relevant": false
+          },
+          {
+            "evidence_id": "E-93b42ac2dded",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-3996ca35d348",
+            "relevant": false
+          }
+        ],
+        "retrieved_aspects": [
+          {
+            "aspect": "Gravity compresses a star's core, creating the extreme temperature and pressure needed for fusion",
+            "score": 0.5,
+            "rationale": "Passages say massive stars need higher core pressure and temperature to support their weight, but they don't say gravity compression creates fusion conditions."
+          },
+          {
+            "aspect": "Quantum tunneling lets positively charged nuclei overcome electrical repulsion and fuse",
+            "score": 0.0,
+            "rationale": "Nothing on tunneling or Coulomb repulsion."
+          },
+          {
+            "aspect": "Hydrogen fuses into helium via proton-proton chain or CNO cycle",
+            "score": 1.0,
+            "rationale": "E-2b97dde246a6 and E-31fc5e1c3424 give both processes, thresholds, and dominance conditions, and E-18feadc8eaaf gives four protons to helium."
+          },
+          {
+            "aspect": "Mass converts to energy via E=mc², released as radiation and heat",
+            "score": 0.5,
+            "rationale": "Passages mention energy released per reaction (26.2 MeV) and radiation, but there is no mass-energy equivalence or mass deficit."
+          },
+          {
+            "aspect": "Hydrostatic equilibrium: fusion pressure balances gravity to keep the star stable",
+            "score": 1.0,
+            "rationale": "E-8232ba651371 and E-93b42ac2dded describe the balance directly."
+          },
+          {
+            "aspect": "A star's initial mass sets its fuel burn rate and therefore lifetime",
+            "score": 1.0,
+            "rationale": "E-09db5e2ad714, E-4ce7d1d3a9db, E-dc6ea3553830, and E-c65972ee0860 give complete coverage."
+          }
+        ]
+      },
+      "revision_comparison": null,
+      "notes": "All scores are Claude judgments, not verified ground truth. Repair effectiveness compares coverage/narration, not factual truth. No revision or no retrieval is N/A rather than zero."
+    },
+    "metric_semantics": {
+      "reference_evidence_support_percent": "Evidence entailment within the frozen reference corpus; not factual accuracy.",
+      "query_coverage_percent": "Coverage of a fixed six-aspect checklist derived once per question from the question text and shared by all systems; missing/duplicate judge outputs are normalized against that fixed denominator.",
+      "query_relevance_percent": "Independent-model relevance judgement.",
+      "narration_input": "Coverage, relevance, narration and grounded-requirement judgements use the complete script with [E-...] evidence markers removed; claim extraction and citation metrics use the marked script. Aspect scores are continuous in [0, 1].",
+      "narration_quality_percent": "Ten-dimension spoken educational narration score; excludes factual truth.",
+      "citation_precision": "Share of emitted citation IDs that are identified as supporting the claim when verification is restricted to cited passages.",
+      "citation_recall": "Share of all citation-required extracted factual claims that have at least one cited passage judged to support the claim.",
+      "evaluation_estimated_llm_cost_usd": "Evaluator telemetry. CLI mode uses Claude Code's reported list-price equivalent; API mode uses the configured Anthropic per-token rates."
+    },
+    "evaluation_telemetry": {
+      "started_at": "2026-11-12T13:42:11.410600+00:00",
+      "ended_at": "2026-11-12T13:43:50.938423+00:00",
+      "wall_seconds": 99.52720760000011,
+      "retrieval_calls": 0,
+      "retrieved_documents": 0,
+      "llm_calls": [
+        {
+          "task": "script_claims",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 12.981738899998163,
+          "prompt_tokens": 3567,
+          "output_tokens": 1688,
+          "thinking_tokens": 0,
+          "total_tokens": 5255,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.027961600000000003,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.027961600000000003,
+            "cache_creation_input_tokens": 2749,
+            "cache_read_input_tokens": 816,
+            "session_id": "02f298b7-e822-4f94-8d2f-11bdfe4c8818",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 7.285515999999916,
+          "prompt_tokens": 8833,
+          "output_tokens": 523,
+          "thinking_tokens": 0,
+          "total_tokens": 9356,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0364747,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0364747,
+            "cache_creation_input_tokens": 7784,
+            "cache_read_input_tokens": 1047,
+            "session_id": "5dfe595b-9c6c-48cd-87bd-6a8b1f144060",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 7.8275959999991755,
+          "prompt_tokens": 6873,
+          "output_tokens": 593,
+          "thinking_tokens": 0,
+          "total_tokens": 7466,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0293347,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0293347,
+            "cache_creation_input_tokens": 5824,
+            "cache_read_input_tokens": 1047,
+            "session_id": "54029d37-77de-46c9-81ee-6ce3949fa3ae",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 7.527694500000507,
+          "prompt_tokens": 7906,
+          "output_tokens": 562,
+          "thinking_tokens": 0,
+          "total_tokens": 8468,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0331567,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0331567,
+            "cache_creation_input_tokens": 6857,
+            "cache_read_input_tokens": 1047,
+            "session_id": "ff744762-cfc6-4a6d-9bcb-4b111ae092e3",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 6.939806800000952,
+          "prompt_tokens": 7135,
+          "output_tokens": 348,
+          "thinking_tokens": 0,
+          "total_tokens": 7483,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0279327,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0279327,
+            "cache_creation_input_tokens": 6086,
+            "cache_read_input_tokens": 1047,
+            "session_id": "019424bf-291c-40b3-9607-854a482c1f43",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 7.396568600001046,
+          "prompt_tokens": 3843,
+          "output_tokens": 569,
+          "thinking_tokens": 0,
+          "total_tokens": 4412,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0169747,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0169747,
+            "cache_creation_input_tokens": 2794,
+            "cache_read_input_tokens": 1047,
+            "session_id": "0c3ab913-5197-42b5-843a-24c8acc853fd",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 8.407403500001237,
+          "prompt_tokens": 3804,
+          "output_tokens": 608,
+          "thinking_tokens": 0,
+          "total_tokens": 4412,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0172087,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0172087,
+            "cache_creation_input_tokens": 2755,
+            "cache_read_input_tokens": 1047,
+            "session_id": "e2de9b05-c939-4a91-a688-c709617e8533",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 7.759410400001798,
+          "prompt_tokens": 4711,
+          "output_tokens": 549,
+          "thinking_tokens": 0,
+          "total_tokens": 5260,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0202467,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0202467,
+            "cache_creation_input_tokens": 3662,
+            "cache_read_input_tokens": 1047,
+            "session_id": "2100af62-0073-4845-a9d6-0db08c400c63",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 6.010151400001632,
+          "prompt_tokens": 2953,
+          "output_tokens": 321,
+          "thinking_tokens": 0,
+          "total_tokens": 3274,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0109347,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0109347,
+            "cache_creation_input_tokens": 1904,
+            "cache_read_input_tokens": 1047,
+            "session_id": "2ebaaa7b-cd3c-45ab-ad07-0ef257678881",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "answer_fulfilment_and_narration_evaluation",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 10.9083157999994,
+          "prompt_tokens": 6091,
+          "output_tokens": 1311,
+          "thinking_tokens": 0,
+          "total_tokens": 7402,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.024213900000000003,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.024213900000000003,
+            "cache_creation_input_tokens": 2690,
+            "cache_read_input_tokens": 3399,
+            "session_id": "97ec87c2-a43c-4a89-836e-35127e76c18b",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "grounded_requirements_and_retrieval_quality",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 12.540452299999743,
+          "prompt_tokens": 10869,
+          "output_tokens": 1547,
+          "thinking_tokens": 0,
+          "total_tokens": 12416,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.053688700000000006,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.053688700000000006,
+            "cache_creation_input_tokens": 9520,
+            "cache_read_input_tokens": 1347,
+            "session_id": "896883a0-9ff6-4641-81d7-54b0310b64e9",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        }
+      ]
+    },
+    "evaluation_provider": "anthropic",
+    "evaluation_access": "claude_code_cli",
+    "claude_access_method": "cli",
+    "claude_cli_version": "2.1.322 (Claude Code)",
+    "evaluation_model_requested": "claude-sonnet-5-5",
+    "evaluation_model": "claude-sonnet-5-5",
+    "evaluation_cli_reported_cost_usd": 0.2981278,
+    "evaluation_estimated_llm_cost_usd": 0.2981278,
+    "generation_provider": "gemini",
+    "generation_access": "google_api",
+    "generation_model_requested": "gemini-3.8-flash",
+    "generation_estimated_llm_cost_usd": 0.08383575,
+    "combined_generation_plus_evaluation_estimated_llm_cost_usd": 0.38196355
+  }
+}

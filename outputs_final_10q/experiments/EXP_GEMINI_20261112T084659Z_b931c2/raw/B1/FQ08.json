@@ -1,0 +1,53 @@
+{
+  "system_id": "B1",
+  "system_name": "Direct LLM",
+  "prompt_id": "FQ08",
+  "query": "How does HTTPS use TLS to secure web connections, and what threats does it not prevent?",
+  "domain": "Computer Networks / Cybersecurity",
+  "reasoning_type": "mechanism-and-threat-model",
+  "script": "Welcome to this session on web security. Today, we are exploring how the Hypertext Transfer Protocol Secure, widely known as HTTPS, relies on Transport Layer Security, or TLS, to protect our everyday online communications, as well as the critical boundaries of that protection. \n\nEvery time you submit personal information, check an account balance, or browse a website, sensitive packets travel across countless intermediate routers, public Wi-Fi access points, and service provider networks. Understanding how HTTPS secures this journey is fundamental to modern network security. By the end of this discussion, you will understand the three core security pillars that TLS provides, walk through the exact mechanics of how a secure session is negotiated, and recognize the specific classes of web threats that HTTPS simply cannot prevent.\n\nAt its foundation, HTTPS is not a separate application protocol from plain HTTP. Instead, it is standard HTTP traffic wrapped inside a cryptographic layer provided by TLS. TLS is a cryptographic protocol designed to establish secure communication over an inherently insecure transport medium, typically TCP. To achieve this, TLS delivers three vital guarantees: confidentiality, integrity, and authentication. Confidentiality ensures that eavesdroppers cannot read the transmitted data. Integrity guarantees that no adversary can secretly alter or corrupt the data in transit. Finally, authentication allows the client to verify that the server on the other end is truly the entity it claims to be, rather than an imposter.\n\nTo see how these guarantees come to life, we must look at the sequence of the TLS handshake, which takes place immediately after the initial TCP connection is established. Modern implementations, primarily TLS 1.3, have streamlined this process into a remarkably efficient dance. \n\nThe exchange begins when the client sends a message called the ClientHello. This message contains the TLS versions supported, a list of cryptographic algorithms—known as cipher suites—that the client can use, and a client-generated random value. In TLS 1.3, the client also takes an educated guess at which key exchange algorithm the server will accept and proactively sends its half of the cryptographic key material, typically using an ephemeral Diffie-Hellman scheme.\n\nNext, the server replies with its ServerHello. It selects the cryptographic parameters and provides its own public key share. Along with this, the server sends its digital certificate. This certificate is crucial for authentication. It contains the server's public key and identity, cryptographically signed by a trusted Certificate Authority, or CA. The client checks this certificate against its local trust store of root CAs to confirm that the certificate is valid, within its expiration date, and tied to the exact domain name requested. \n\nOnce authentication succeeds, both endpoints combine their respective key shares and random values using the Diffie-Hellman algorithm to derive identical symmetric session keys independently. Notice that the session key itself is never transmitted across the network. Because asymmetric cryptography—the math behind public and private keys—is computationally expensive, TLS uses it only to authenticate and negotiate this shared secret. For the rest of the session, the client and server switch to symmetric encryption, such as AES-GCM or ChaCha20-Poly1305. These symmetric algorithms encrypt the HTTP request and response bodies rapidly, while also attaching Message Authentication Codes to guarantee data integrity against tampering.\n\nA helpful analogy is sending sensitive documents through the postal system. Plain HTTP is like writing your private correspondence on an open postcard; any postal worker, sorter, or neighbor can read or alter your message. Standard HTTPS, by contrast, is like placing your letter inside an armored, tamper-evident lockbox, while also verifying the recipient’s government-issued identification badge before handing it over.\n\nHowever, recognizing the limitations of HTTPS is just as critical as appreciating its strengths. A widespread misconception is that the padlock icon in a browser guarantees that a website is fundamentally safe or trustworthy. In truth, HTTPS protects data in transit, not data at rest, and it authenticates the domain name, not the owner's underlying intent. \n\nBecause Certificate Authorities issue certificates simply based on domain validation, malicious actors can easily obtain legitimate TLS certificates for phishing sites. A site like \"login-update-yourbank.com\" can run over HTTPS perfectly; your connection to the criminal’s server will be securely encrypted, but you are still handing your credentials to a thief. \n\nFurthermore, HTTPS cannot protect against endpoint compromise. If a user’s device is infected with malware, or if the web server running behind the TLS termination point suffers from a SQL injection vulnerability or poor database security, the data can be stolen directly from memory or storage. HTTPS also does not hide all metadata. While the URL path and payload are encrypted, eavesdroppers can often observe the IP addresses involved and the domain name via the Server Name Indication header, revealing which websites you visit even if they cannot see what you do there. Finally, application-layer attacks like Cross-Site Scripting, or XSS, run completely within the decrypted context of the browser, bypassing transport-layer security entirely.\n\nTo summarize, HTTPS secures web connections by running standard HTTP over an authenticated, encrypted TLS tunnel. Through a cryptographic handshake, it confirms the server’s identity using certificates, derives symmetric keys, and shields data from eavesdropping and modification during transit. Yet, it remains solely a transport-layer safeguard, powerless against phishing, compromised endpoints, application vulnerabilities, and metadata leakage.\n\nNow, consider this: If TLS guarantees confidentiality between the browser and the web server, what challenges does this ubiquitous encryption create for enterprise firewalls and network administrators trying to inspect traffic for corporate threats? How might emerging privacy standards, such as Encrypted Client Hello, further complicate that balance?",
+  "sources": [],
+  "evidence": [],
+  "claims": [],
+  "verifications": [],
+  "contradictions": [],
+  "metadata": {
+    "generation_provider": "gemini",
+    "generation_access": "google_api",
+    "generation_model_requested": "gemini-3.8-flash"
+  },
+  "telemetry": {
+    "started_at": "2026-11-12T13:10:37.646104+00:00",
+    "ended_at": "2026-11-12T13:10:52.504194+00:00",
+    "wall_seconds": 14.860139299998991,
+    "retrieval_calls": 0,
+    "retrieved_documents": 0,
+    "llm_calls": [
+      {
+        "task": "b1_direct_generation",
+        "model": "gemini-3.8-flash",
+        "provider": "google",
+        "latency_seconds": 13.641342999999324,
+        "prompt_tokens": 1028,
+        "output_tokens": 1149,
+        "thinking_tokens": 0,
+        "total_tokens": 2177,
+        "input_cost_usd": 0.000771,
+        "output_cost_usd": 0.00430875,
+        "total_cost_usd": 0.00507975,
+        "attempts": 1,
+        "metadata": {}
+      }
+    ]
+  },
+  "experiment_id": "EXP_GEMINI_20261112T084659Z_b931c2",
+  "script_sha256": "c3c2c26caf8ed0f5380debf22730c8359505be446a7674b9ab0303ced0ddccd7",
+  "reference_pool_sha256": "b25e6124f010b44543886fb5827db6a509bc7be8fa27a2ecc676262eb8d37634",
+  "generation_config_sha256": "130fb20735098b5ae7683be72a40463c48605cdf59d320daa9f9373f43ee4512",
+  "prompt_version": "evidence-aware-10q-shared-checklist-clean-narration-v1.6.0",
+  "study_id": "",
+  "generation_provider": "gemini",
+  "generation_access": "google_api",
+  "generation_model": "gemini-3.8-flash",
+  "artifact_status": "generation_complete"
+}

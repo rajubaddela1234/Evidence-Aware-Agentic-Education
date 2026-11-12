@@ -1,0 +1,18 @@
+{
+  "prompt_id": "FQ10",
+  "question_sha256": "6ed2dda9e0e5f0892807fe98f356e877882e414e387e5185ab626c189f719a57",
+  "aspects": [
+    "Rusting as electrochemical oxidation of iron to iron oxides",
+    "Required reactants: oxygen and water, and the role of electrolytes",
+    "Anodic and cathodic half-reactions forming Fe(OH)2 then hydrated Fe2O3 rust",
+    "Why rust is flaky and porous, so corrosion continues inward",
+    "Barrier protection: paint, oil, plastic coating, or plating that blocks oxygen and water",
+    "Sacrificial protection and alloying: galvanizing, cathodic anodes, stainless steel, and their limitations"
+  ],
+  "aspects_sha256": "55c9b4df898dccaebfe45fd7228e2375e61d20a84585d266ed03d27b35b319c0",
+  "derived_at": "2026-11-12T08:57:19.819082+00:00",
+  "derived_by_model": "claude-sonnet-5-5",
+  "derivation_attempts": 1,
+  "derivation_cost_usd": 0.0050854,
+  "note": "Derived from the question text alone by the evaluator; shared by every system in this experiment. Never shown to generators."
+}

@@ -1,0 +1,18 @@
+{
+  "prompt_id": "FQ02",
+  "question_sha256": "09a9242e921ab7a4d4ff492a990b22d4713d37f3c6c392d3c16f6a3e172b6718",
+  "aspects": [
+    "Vaccines expose the body to an antigen without causing the actual disease",
+    "Innate immune cells detect the antigen and activate T and B cells",
+    "B cells make antibodies while T cells coordinate and kill infected cells",
+    "Memory B and T cells form, enabling faster stronger response on later exposure",
+    "Different vaccine types (live, inactivated, subunit, mRNA) present antigens to trigger this response",
+    "Boosters are needed because antibodies and memory wane or pathogens mutate to evade immunity"
+  ],
+  "aspects_sha256": "2d1427a792e2a26a167b02219c48bea9e8b6902f021407894cde1a9fbdb8a22e",
+  "derived_at": "2026-11-12T08:56:09.009334+00:00",
+  "derived_by_model": "claude-sonnet-5-5",
+  "derivation_attempts": 1,
+  "derivation_cost_usd": 0.0049014,
+  "note": "Derived from the question text alone by the evaluator; shared by every system in this experiment. Never shown to generators."
+}

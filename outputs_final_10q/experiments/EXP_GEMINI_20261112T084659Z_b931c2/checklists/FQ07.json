@@ -1,0 +1,18 @@
+{
+  "prompt_id": "FQ07",
+  "question_sha256": "a4e4bb1ad3f090333f2bb380c5a722ec7c8e2e6b550cb6d0ef783b7e7f3de3a0",
+  "aspects": [
+    "How antibiotics kill or inhibit bacteria, setting the stage for resistance",
+    "How random mutations create resistant bacteria within a population",
+    "How natural selection under antibiotic exposure favors resistant survivors",
+    "How bacteria share resistance genes through horizontal transfer such as plasmids",
+    "How resistant bacteria spread between people, animals, hospitals and the environment",
+    "How stewardship, infection prevention and new drug development slow resistance, and their limits"
+  ],
+  "aspects_sha256": "b35208aed06430d0c04df74f4f1a38e8bfbd69bed841d4e520b25bc095056c5c",
+  "derived_at": "2026-11-12T08:57:00.466347+00:00",
+  "derived_by_model": "claude-sonnet-5-5",
+  "derivation_attempts": 2,
+  "derivation_cost_usd": 0.0049514,
+  "note": "Derived from the question text alone by the evaluator; shared by every system in this experiment. Never shown to generators."
+}

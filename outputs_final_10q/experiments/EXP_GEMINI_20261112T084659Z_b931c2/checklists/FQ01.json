@@ -1,0 +1,18 @@
+{
+  "prompt_id": "FQ01",
+  "question_sha256": "9d699414c33bba155057b81f33bb27951f8e9a7b4fe74b4e61703cc10ff599dd",
+  "aspects": [
+    "The core idea of RAG: retrieving external documents at query time to supplement the LLM prompt",
+    "How the retrieval step works: indexing documents as embeddings and finding relevant passages for a query",
+    "How retrieved passages are inserted into the prompt so the model generates a grounded answer",
+    "Benefits over a plain LLM: fresher, domain-specific knowledge and fewer hallucinations",
+    "Failure modes in retrieval: irrelevant, incomplete, or poorly chunked passages leading to wrong answers",
+    "Failure modes in generation: model ignores, misreads, or contradicts context, or still hallucinates despite retrieval"
+  ],
+  "aspects_sha256": "9c0447fe33107f32de0bcb816e5279a29648df3a91957ab18831c8a3c3d6009a",
+  "derived_at": "2026-11-12T08:56:02.620234+00:00",
+  "derived_by_model": "claude-sonnet-5-5",
+  "derivation_attempts": 1,
+  "derivation_cost_usd": 0.013250000000000001,
+  "note": "Derived from the question text alone by the evaluator; shared by every system in this experiment. Never shown to generators."
+}

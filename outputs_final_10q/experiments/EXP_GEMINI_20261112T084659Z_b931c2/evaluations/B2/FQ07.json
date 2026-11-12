@@ -1,0 +1,1364 @@
+{
+  "record": {
+    "experiment_id": "EXP_GEMINI_20261112T084659Z_b931c2",
+    "evaluated_script_sha256": "fb631f926f7f7a531eb9164d5171bd05524d43db6732103950a7d210fba12631",
+    "reference_pool_sha256": "17d491c9a8080676951741cae50ed64d306979a3e59268f96a9dcc1a5e4993ea",
+    "generation_config_sha256": "130fb20735098b5ae7683be72a40463c48605cdf59d320daa9f9373f43ee4512",
+    "prompt_version": "evidence-aware-10q-shared-checklist-clean-narration-v1.6.0",
+    "system_id": "B2",
+    "prompt_id": "FQ07",
+    "domain": "Microbiology / Public Health",
+    "reasoning_type": "mechanism-and-prevention",
+    "generation_provider": "gemini",
+    "generation_access": "google_api",
+    "generation_model": "gemini-3.8-flash",
+    "evaluator_provider": "anthropic",
+    "evaluator_model": "claude-sonnet-5-5",
+    "claim_count": 21,
+    "supported_claims": 17,
+    "partial_claims": 4,
+    "unsupported_claims": 0,
+    "contradicted_claims": 0,
+    "supported_claim_rate": 0.8095238095238095,
+    "reference_evidence_support_percent": 90.47619047619048,
+    "query_coverage_percent": 85.0,
+    "query_relevance_percent": 92.0,
+    "narration_quality_percent": 85.0,
+    "citation_precision": 0.6666666666666666,
+    "citation_recall": 0.7619047619047619,
+    "citation_f1": 0.7111111111111111,
+    "grounded_requirement_coverage_percent": 67.5,
+    "context_precision_at_k": 0.8,
+    "context_recall_percent": 75.0,
+    "repair_effectiveness_points": null,
+    "requirement_preservation_rate": null,
+    "source_count": 4,
+    "source_type_count": 1,
+    "llm_calls": 1,
+    "prompt_tokens": 3659,
+    "output_tokens": 1128,
+    "thinking_tokens": 0,
+    "billable_output_tokens": 1128,
+    "retrieval_calls": 1,
+    "latency_seconds": 15.469830299999558,
+    "word_count": 715,
+    "estimated_llm_cost_usd": 0.00697425,
+    "llm_call_latency_p50_seconds": 14.936992299999474,
+    "llm_call_latency_p90_seconds": 14.936992299999474
+  },
+  "details": {
+    "artifact_identity": {
+      "experiment_id": "EXP_GEMINI_20261112T084659Z_b931c2",
+      "evaluated_script_sha256": "fb631f926f7f7a531eb9164d5171bd05524d43db6732103950a7d210fba12631",
+      "reference_pool_sha256": "17d491c9a8080676951741cae50ed64d306979a3e59268f96a9dcc1a5e4993ea",
+      "generation_config_sha256": "130fb20735098b5ae7683be72a40463c48605cdf59d320daa9f9373f43ee4512",
+      "prompt_version": "evidence-aware-10q-shared-checklist-clean-narration-v1.6.0"
+    },
+    "narration_judged_script_sha256": "51b6ddaa5a7a31fb3d35ff3813e45a1b910089d081e3426814320f341525c9c3",
+    "question_checklist": {
+      "aspects": [
+        "How antibiotics kill or inhibit bacteria, setting the stage for resistance",
+        "How random mutations create resistant bacteria within a population",
+        "How natural selection under antibiotic exposure favors resistant survivors",
+        "How bacteria share resistance genes through horizontal transfer such as plasmids",
+        "How resistant bacteria spread between people, animals, hospitals and the environment",
+        "How stewardship, infection prevention and new drug development slow resistance, and their limits"
+      ],
+      "source": "derived_once_per_question_by_evaluator",
+      "aspects_sha256": "b35208aed06430d0c04df74f4f1a38e8bfbd69bed841d4e520b25bc095056c5c",
+      "derived_at": "2026-11-12T08:57:00.466347+00:00",
+      "derived_by_model": "claude-sonnet-5-5",
+      "derivation_cost_usd": 0.0049514,
+      "derived_in_this_call": false,
+      "file": "outputs_final_10q\\experiments\\EXP_GEMINI_20261112T084659Z_b931c2\\checklists\\FQ07.json"
+    },
+    "evaluation_claims": [
+      {
+        "claim_id": "c1",
+        "text": "Bacteria possess genetic plasticity that allows them to respond to severe environmental threats.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-762d6173e286"
+        ]
+      },
+      {
+        "claim_id": "c2",
+        "text": "Organisms that historically shared ecological niches with natural antibiotic producers evolved ancient intrinsic mechanisms to survive those compounds.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-762d6173e286"
+        ]
+      },
+      {
+        "claim_id": "c3",
+        "text": "Almost every known bacterial pathogen has developed resistance to one or more antibiotics in clinical use.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-8309038f4d08"
+        ]
+      },
+      {
+        "claim_id": "c4",
+        "text": "Resistance primarily develops through two genetic pathways: spontaneous mutation and acquisition of foreign DNA via horizontal gene transfer.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-762d6173e286"
+        ]
+      },
+      {
+        "claim_id": "c5",
+        "text": "In mutational resistance, a small subset of cells within a susceptible population develops alterations in genes directly linked to the drug's mechanism of action.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-762d6173e286"
+        ]
+      },
+      {
+        "claim_id": "c6",
+        "text": "When an antibiotic is introduced, it eliminates susceptible cells, allowing newly resistant mutants to survive, replicate, and predominate.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-762d6173e286"
+        ]
+      },
+      {
+        "claim_id": "c7",
+        "text": "Bacteria also acquire resistance determinants from neighboring bacteria.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-762d6173e286"
+        ]
+      },
+      {
+        "claim_id": "c8",
+        "text": "Horizontal gene transfer occurs via three primary mechanisms: transformation (uptake of naked environmental DNA), transduction (mediated by bacteriophages), and conjugation.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-5ca30c9fcdeb"
+        ]
+      },
+      {
+        "claim_id": "c9",
+        "text": "Transformation is restricted to a handful of clinically relevant species capable of naturally taking up external DNA, whereas conjugation is widespread.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-5ca30c9fcdeb"
+        ]
+      },
+      {
+        "claim_id": "c10",
+        "text": "Conjugation relies on direct cell-to-cell contact and mobile genetic elements such as transposons and plasmids.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-5ca30c9fcdeb"
+        ]
+      },
+      {
+        "claim_id": "c11",
+        "text": "Most drug resistance genes reside on circular extrachromosomal elements called plasmids.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-1e01c13d1291",
+          "E-6b9454d80206"
+        ]
+      },
+      {
+        "claim_id": "c12",
+        "text": "Plasmid-mediated conjugation is the most common and effective driver of rapid spread of multidrug resistance in both laboratory and real-world settings.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-1e01c13d1291",
+          "E-6b9454d80206"
+        ]
+      },
+      {
+        "claim_id": "c13",
+        "text": "Plasmid exchange occurs at high rates in dense microbial environments such as the human gastrointestinal tract under antibiotic treatment.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-5ca30c9fcdeb"
+        ]
+      },
+      {
+        "claim_id": "c14",
+        "text": "Novel antibiotic discovery has declined, particularly against Gram-negative bacteria.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-8309038f4d08"
+        ]
+      },
+      {
+        "claim_id": "c15",
+        "text": "Pathogens rapidly adapt to new antibiotic compounds just as they did to older ones.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-8309038f4d08"
+        ]
+      },
+      {
+        "claim_id": "c16",
+        "text": "Public health prevention programs have proven effective in curbing resistant germs and saving lives.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-1013946a750a"
+        ]
+      },
+      {
+        "claim_id": "c17",
+        "text": "Core practices for containing resistance include stringent hand hygiene, broad vaccination programs, and rapid containment when unusual genes or pathogens are detected.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-1013946a750a"
+        ]
+      },
+      {
+        "claim_id": "c18",
+        "text": "Healthcare providers should screen at-risk individuals, identify whether patients recently received care in other facilities or traveled internationally, and alert receiving facilities when colonized or infected patients are transferred.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-1013946a750a"
+        ]
+      },
+      {
+        "claim_id": "c19",
+        "text": "Slowing resistance depends on prudent antibiotic prescribing, antimicrobial stewardship programs, professional education, and concerted societal efforts.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-8309038f4d08",
+          "E-6459af5f30a0"
+        ]
+      },
+      {
+        "claim_id": "c20",
+        "text": "Much of what is understood about resistance transfer comes from simplified in vitro models, which often fail to capture the complex conditions of horizontal gene transfer inside a living host.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-1e01c13d1291"
+        ]
+      },
+      {
+        "claim_id": "c21",
+        "text": "In vivo models more accurately mimic patient environments and help researchers design effective interventions to halt gene transmission.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-1e01c13d1291"
+        ]
+      }
+    ],
+    "reference_verifications": [
+      {
+        "claim_id": "c1",
+        "status": "supported",
+        "confidence": 0.96,
+        "evidence_ids": [
+          "E-821551a99915",
+          "E-762d6173e286"
+        ],
+        "rationale": "Evidence states bacteria have remarkable genetic plasticity allowing response to environmental threats."
+      },
+      {
+        "claim_id": "c2",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-762d6173e286"
+        ],
+        "rationale": "Bacteria sharing niche with antimicrobial producers evolved ancient mechanisms; intrinsic resistance."
+      },
+      {
+        "claim_id": "c3",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-8309038f4d08"
+        ],
+        "rationale": "Directly stated."
+      },
+      {
+        "claim_id": "c4",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-762d6173e286",
+          "E-fd51cc85569b"
+        ],
+        "rationale": "Two major strategies: mutation and HGT acquisition of foreign DNA; 'spontaneous' mutation and 'mostly' stated in the other source."
+      },
+      {
+        "claim_id": "c5",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-762d6173e286"
+        ],
+        "rationale": "A subset of cells from a susceptible population develop mutations in genes affecting drug activity; genes often associated with mechanism of action."
+      },
+      {
+        "claim_id": "c6",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-762d6173e286"
+        ],
+        "rationale": "Evidence: once a resistant mutant emerges, antibiotic eliminates susceptible population and resistant bacteria predominate."
+      },
+      {
+        "claim_id": "c7",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-762d6173e286",
+          "E-85f59eeb535a"
+        ],
+        "rationale": "HGT acquisition of foreign DNA coding for resistance; bacteria-to-bacteria transmission of plasmids."
+      },
+      {
+        "claim_id": "c8",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-5ca30c9fcdeb",
+          "E-3e54e28482dd"
+        ],
+        "rationale": "Three main strategies listed with matching descriptions."
+      },
+      {
+        "claim_id": "c9",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-5ca30c9fcdeb"
+        ],
+        "rationale": "Only a handful of clinically relevant species naturally incorporate naked DNA; conjugation described as very efficient, and widely present in bacteria per another source."
+      },
+      {
+        "claim_id": "c10",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-5ca30c9fcdeb",
+          "E-2d1e1eec7e29"
+        ],
+        "rationale": "Conjugation involves cell-to-cell contact and uses MGEs, plasmids and transposons."
+      },
+      {
+        "claim_id": "c11",
+        "status": "partial",
+        "confidence": 0.5,
+        "evidence_ids": [
+          "E-85f59eeb535a"
+        ],
+        "rationale": "Evidence says plasmids are small circular DNA transmitted for resistance, and that plasmids are important MGEs, but does not state most resistance genes reside on plasmids."
+      },
+      {
+        "claim_id": "c12",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-1e01c13d1291"
+        ],
+        "rationale": "States plasmid-mediated conjugation transfer is the most common and effective way for spread of multidrug resistance. The 'laboratory and real-world' part is only loosely implied by the surrounding discussion."
+      },
+      {
+        "claim_id": "c13",
+        "status": "partial",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "E-5ca30c9fcdeb"
+        ],
+        "rationale": "Evidence says conjugation is likely to occur at high rates in the human GI tract under antibiotic treatment. It does not specifically say plasmid exchange, and it does not mention 'dense microbial environments'."
+      },
+      {
+        "claim_id": "c14",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-8309038f4d08"
+        ],
+        "rationale": "Directly states the decline in novel antibiotic discovery, particularly in the Gram-negative spectrum."
+      },
+      {
+        "claim_id": "c15",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-8309038f4d08"
+        ],
+        "rationale": "Says pathogens may evolve resistance to novel antibiotics just as they adapt quickly to existing ones. The evidence frames this as a possibility, while the claim states it as fact."
+      },
+      {
+        "claim_id": "c16",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-1013946a750a"
+        ],
+        "rationale": "The AMA report says public health prevention programs can and have worked to slow spread and save lives."
+      },
+      {
+        "claim_id": "c17",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-1013946a750a"
+        ],
+        "rationale": "The evidence lists vaccination, hand hygiene, and rapid response to unusual genes and germs. It does not say 'stringent' or 'broad', which are minor wording differences."
+      },
+      {
+        "claim_id": "c18",
+        "status": "supported",
+        "confidence": 0.88,
+        "evidence_ids": [
+          "E-1013946a750a"
+        ],
+        "rationale": "The evidence covers screening at-risk patients, asking about care in other facilities or international travel, and alerting receiving facilities on transfer."
+      },
+      {
+        "claim_id": "c19",
+        "status": "supported",
+        "confidence": 0.88,
+        "evidence_ids": [
+          "E-6f22a575995a",
+          "E-6459af5f30a0"
+        ],
+        "rationale": "The evidence supports prudent prescribing, stewardship programs, education, and concerted efforts by all members of society."
+      },
+      {
+        "claim_id": "c20",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-fd3abce825d2",
+          "E-ee8fc4964f04"
+        ],
+        "rationale": "The evidence says HGT research has mainly used in vitro experiments and that in vitro results may differ from the in vivo situation. It does not say 'simplified' models or that they 'often fail', so the claim is stronger than the evidence."
+      },
+      {
+        "claim_id": "c21",
+        "status": "partial",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-fd3abce825d2"
+        ],
+        "rationale": "Evidence says in vivo models might help investigate ARG dissemination under more realistic conditions than in vitro models. It does not say they help researchers design effective interventions to halt gene transmission, and the claim's wording is stronger than the hedged 'might help'."
+      }
+    ],
+    "reference_evidence_ids_by_claim": {
+      "c1": [
+        "E-821551a99915",
+        "E-e010e8b368f0",
+        "E-97cb142a83f7",
+        "E-b2ec8fa6bbd9",
+        "E-c5340a9f65dc"
+      ],
+      "c2": [
+        "E-762d6173e286",
+        "E-f4364735ee23",
+        "E-7ffa5260f5c8",
+        "E-7887393945de",
+        "E-bf156d1e69e5"
+      ],
+      "c3": [
+        "E-8309038f4d08",
+        "E-544511a7f04c",
+        "E-d2d7701d7398",
+        "E-734756ecfde4",
+        "E-b03a665e7178"
+      ],
+      "c4": [
+        "E-3e54e28482dd",
+        "E-2d1e1eec7e29",
+        "E-fd51cc85569b",
+        "E-cc0adeb435a3",
+        "E-a851aced8ef9"
+      ],
+      "c5": [
+        "E-762d6173e286",
+        "E-8589249b6222",
+        "E-543074efb74f",
+        "E-4f61124f6888",
+        "E-86c39dfcc78d"
+      ],
+      "c6": [
+        "E-4f61124f6888",
+        "E-762d6173e286",
+        "E-543074efb74f",
+        "E-e2aaab8e30e3",
+        "E-9c8c1a544885"
+      ],
+      "c7": [
+        "E-c5340a9f65dc",
+        "E-c7717285142a",
+        "E-3e54e28482dd",
+        "E-8975fe63e13b",
+        "E-04308120dd9d"
+      ],
+      "c8": [
+        "E-2d1e1eec7e29",
+        "E-5ca30c9fcdeb",
+        "E-cc0adeb435a3",
+        "E-85f59eeb535a",
+        "E-a851aced8ef9"
+      ],
+      "c9": [
+        "E-5ca30c9fcdeb",
+        "E-8975fe63e13b",
+        "E-a851aced8ef9",
+        "E-8fef8c9ec5a8",
+        "E-4b288a7d2f1d"
+      ],
+      "c10": [
+        "E-2d1e1eec7e29",
+        "E-5ca30c9fcdeb",
+        "E-a851aced8ef9",
+        "E-fd51cc85569b",
+        "E-880e764051e9"
+      ],
+      "c11": [
+        "E-8589249b6222",
+        "E-3c0dc6b63acc",
+        "E-85f59eeb535a",
+        "E-a851aced8ef9",
+        "E-96a9c83ba03e"
+      ],
+      "c12": [
+        "E-1e01c13d1291",
+        "E-b2d8ac6bcae8",
+        "E-a1465611b117",
+        "E-273acb6de211",
+        "E-743a02bf0385"
+      ],
+      "c13": [
+        "E-5ca30c9fcdeb",
+        "E-97cb142a83f7",
+        "E-0c1e64346e09",
+        "E-d01579339ad6",
+        "E-8c344ae0ea69"
+      ],
+      "c14": [
+        "E-8309038f4d08",
+        "E-bd20ae18d671",
+        "E-c07032cb4045",
+        "E-da28fcb75532",
+        "E-62ce20344d56"
+      ],
+      "c15": [
+        "E-8309038f4d08",
+        "E-e287e75f83f2",
+        "E-45df44d23511",
+        "E-c07032cb4045",
+        "E-7887393945de"
+      ],
+      "c16": [
+        "E-1013946a750a",
+        "E-b4b3f28fbee1",
+        "E-273acb6de211",
+        "E-6f22a575995a",
+        "E-6b9454d80206"
+      ],
+      "c17": [
+        "E-1013946a750a",
+        "E-ee8fc4964f04",
+        "E-20003b35dc6c",
+        "E-9c8c1a544885",
+        "E-03b11c599016"
+      ],
+      "c18": [
+        "E-1013946a750a",
+        "E-20003b35dc6c",
+        "E-b21acf210221",
+        "E-743a02bf0385",
+        "E-b0cc75cb1bf2"
+      ],
+      "c19": [
+        "E-6459af5f30a0",
+        "E-db87a2c9cc35",
+        "E-68ce3a0a37de",
+        "E-97678add3dda",
+        "E-0fcc4a164b13"
+      ],
+      "c20": [
+        "E-fd3abce825d2",
+        "E-cc0adeb435a3",
+        "E-8dc74eb21190",
+        "E-762d6173e286",
+        "E-a851aced8ef9"
+      ],
+      "c21": [
+        "E-fd3abce825d2",
+        "E-45df44d23511",
+        "E-61dae1cb30e4",
+        "E-fce12e5d65b9",
+        "E-db87a2c9cc35"
+      ]
+    },
+    "citation_entailment_verifications": [
+      {
+        "claim_id": "c1",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-762d6173e286"
+        ],
+        "rationale": "Evidence states bacteria have remarkable genetic plasticity allowing response to environmental threats."
+      },
+      {
+        "claim_id": "c2",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-762d6173e286"
+        ],
+        "rationale": "Bacteria sharing niches with antimicrobial producers evolved ancient mechanisms and intrinsic resistance."
+      },
+      {
+        "claim_id": "c3",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-8309038f4d08"
+        ],
+        "rationale": "Evidence states this almost verbatim."
+      },
+      {
+        "claim_id": "c4",
+        "status": "supported",
+        "confidence": 0.92,
+        "evidence_ids": [
+          "E-762d6173e286"
+        ],
+        "rationale": "Two major genetic strategies: mutations and HGT acquisition of foreign DNA. 'Primarily' matches 'major'."
+      },
+      {
+        "claim_id": "c5",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-762d6173e286"
+        ],
+        "rationale": "A subset of cells from a susceptible population develop mutations in genes affecting drug activity, often associated with the mechanism of action."
+      },
+      {
+        "claim_id": "c6",
+        "status": "supported",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-762d6173e286"
+        ],
+        "rationale": "Evidence: once a resistant mutant emerges, the antibiotic eliminates the susceptible population and resistant bacteria predominate. Survival and replication are implied."
+      },
+      {
+        "claim_id": "c7",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-762d6173e286"
+        ],
+        "rationale": "Evidence says bacteria acquire foreign DNA coding for resistance determinants via HGT; 'neighboring bacteria' is a mild paraphrase."
+      },
+      {
+        "claim_id": "c8",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-5ca30c9fcdeb"
+        ],
+        "rationale": "Lists three mechanisms: transformation (naked DNA), transduction (phage mediated), conjugation."
+      },
+      {
+        "claim_id": "c9",
+        "status": "partial",
+        "confidence": 0.75,
+        "evidence_ids": [
+          "E-5ca30c9fcdeb"
+        ],
+        "rationale": "Transformation limited to a handful of species is supported; conjugation being widespread is not directly stated (only 'very efficient' and common in hospital settings)."
+      },
+      {
+        "claim_id": "c10",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-5ca30c9fcdeb"
+        ],
+        "rationale": "Conjugation involves cell-to-cell contact and uses MGEs, with plasmids and transposons the most important."
+      },
+      {
+        "claim_id": "c11",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-6b9454d80206"
+        ],
+        "rationale": "States most drug resistance genes are located on plasmids. 'Circular extrachromosomal' detail is minor."
+      },
+      {
+        "claim_id": "c12",
+        "status": "partial",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "E-6b9454d80206",
+          "E-1e01c13d1291"
+        ],
+        "rationale": "Evidence says plasmid-mediated conjugation is the most common and effective way for multidrug resistance spread; 'both laboratory and real-world settings' is not directly stated, and the evidence notes in vitro models may not reflect realistic conditions."
+      },
+      {
+        "claim_id": "c13",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-5ca30c9fcdeb"
+        ],
+        "rationale": "Conjugation is likely to occur at high rates in the human GI tract under antibiotic treatment; plasmids are the main MGEs used, though 'dense microbial environments' generalization and plasmid-specificity are slightly inferred."
+      },
+      {
+        "claim_id": "c14",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-8309038f4d08"
+        ],
+        "rationale": "Directly states decline in novel antibiotic discovery, particularly Gram-negative."
+      },
+      {
+        "claim_id": "c15",
+        "status": "partial",
+        "confidence": 0.75,
+        "evidence_ids": [
+          "E-8309038f4d08"
+        ],
+        "rationale": "Evidence frames it as a possibility that pathogens will evolve resistance to novel antibiotics, not an established fact."
+      },
+      {
+        "claim_id": "c16",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-1013946a750a"
+        ],
+        "rationale": "Evidence says prevention programs can and have worked to slow spread and save lives."
+      },
+      {
+        "claim_id": "c17",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-1013946a750a"
+        ],
+        "rationale": "Vaccination, hand hygiene, rapid response to unusual genes and germs are listed. 'Stringent' and 'broad' are slight embellishments."
+      },
+      {
+        "claim_id": "c18",
+        "status": "supported",
+        "confidence": 0.92,
+        "evidence_ids": [
+          "E-1013946a750a"
+        ],
+        "rationale": "Screening at-risk patients, asking about recent care or travel, and alerting receiving facilities are all stated."
+      },
+      {
+        "claim_id": "c19",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-6459af5f30a0"
+        ],
+        "rationale": "Keywords and text mention prudent prescribing, stewardship programs, education, and concerted societal efforts. The wording that this 'slows' resistance is a close paraphrase of 'minimized'."
+      },
+      {
+        "claim_id": "c20",
+        "status": "partial",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-1e01c13d1291"
+        ],
+        "rationale": "Evidence says experimental studies have focused on simple in vitro models that might not reflect HGT in realistic conditions. 'Much of what is understood' and 'often fail' are stronger than the hedged 'might not'."
+      },
+      {
+        "claim_id": "c21",
+        "status": "partial",
+        "confidence": 0.72,
+        "evidence_ids": [
+          "E-1e01c13d1291"
+        ],
+        "rationale": "Evidence says the in vivo model can better mimic patient situations and that this is crucial to develop strategies to curtail spread. But it doesn't state that it helps researchers design effective interventions; 'more accurately' and 'effective interventions to halt' are somewhat stronger than 'better mimic' and 'curtail'."
+      }
+    ],
+    "quality": {
+      "aspect_scores": [
+        {
+          "aspect": "How antibiotics kill or inhibit bacteria, setting the stage for resistance",
+          "score": 0.7,
+          "rationale": "Only implicit: mentions drug's mechanism of action and that antibiotics eliminate susceptible cells; no explanation of how they kill or inhibit."
+        },
+        {
+          "aspect": "How random mutations create resistant bacteria within a population",
+          "score": 0.9,
+          "rationale": "Spontaneous mutation in a subset of cells altering genes linked to drug's target is explained."
+        },
+        {
+          "aspect": "How natural selection under antibiotic exposure favors resistant survivors",
+          "score": 0.9,
+          "rationale": "Antibiotic eliminates susceptible cells, resistant mutants survive, replicate, predominate."
+        },
+        {
+          "aspect": "How bacteria share resistance genes through horizontal transfer such as plasmids",
+          "score": 1.0,
+          "rationale": "Transformation, transduction, conjugation, plasmids, and analogy explained clearly."
+        },
+        {
+          "aspect": "How resistant bacteria spread between people, animals, hospitals and the environment",
+          "score": 0.7,
+          "rationale": "Hospital transfers, travel and environmental DNA mentioned; animals and environment spread barely covered."
+        },
+        {
+          "aspect": "How stewardship, infection prevention and new drug development slow resistance, and their limits",
+          "score": 0.9,
+          "rationale": "Covers hygiene, vaccination, stewardship, declining drug discovery, and limits of the lab models."
+        }
+      ],
+      "covered_aspects": [
+        "How random mutations create resistant bacteria within a population",
+        "How natural selection under antibiotic exposure favors resistant survivors",
+        "How bacteria share resistance genes through horizontal transfer such as plasmids",
+        "How stewardship, infection prevention and new drug development slow resistance, and their limits"
+      ],
+      "partially_covered_aspects": [
+        "How antibiotics kill or inhibit bacteria, setting the stage for resistance",
+        "How resistant bacteria spread between people, animals, hospitals and the environment"
+      ],
+      "missing_aspects": [],
+      "coverage_score": 0.85,
+      "coverage_rationale": "Strong on mutation, selection, HGT and interventions; thin on antibiotic mechanisms and spread across animals and environment.",
+      "relevance_score": 0.92,
+      "relevance_rationale": "Almost all content addresses the question; the in vitro model caveat is a mild tangent and the final question is extra.",
+      "opening_orientation_score": 4,
+      "introduction_roadmap_score": 4,
+      "definitions_foundations_score": 3,
+      "explanatory_depth_score": 3,
+      "examples_applications_score": 3,
+      "organization_transitions_score": 4,
+      "clarity_accessibility_score": 3,
+      "spoken_naturalness_score": 3,
+      "conclusion_takeaway_score": 3,
+      "reflective_ending_score": 4,
+      "narration_rationale": "Clear opening and roadmap, logical flow, plasmid analogy, a good summary, and a reflective closing question. Somewhat formal tone, and the summary omits the stewardship limits."
+    },
+    "additional_metric_details": {
+      "grounded_requirement_coverage_percent": 67.5,
+      "context_precision_at_k": 0.8,
+      "context_recall_percent": 75.0,
+      "retrieval_k": 5,
+      "grounded_aspect_scores": [
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.5,
+        1.0
+      ],
+      "retrieved_aspect_scores": [
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.5,
+        1.0
+      ],
+      "retrieved_passages_scored": 5,
+      "retrieval_assessment": {
+        "grounded_aspects": [
+          {
+            "aspect": "How antibiotics kill or inhibit bacteria, setting the stage for resistance",
+            "score": 0.0,
+            "rationale": "Script does not explain how antibiotics kill/inhibit bacteria; reference has nothing on it."
+          },
+          {
+            "aspect": "How random mutations create resistant bacteria within a population",
+            "score": 1.0,
+            "rationale": "Script's mutational resistance explanation matches E-762d6173e286 closely."
+          },
+          {
+            "aspect": "How natural selection under antibiotic exposure favors resistant survivors",
+            "score": 1.0,
+            "rationale": "Antibiotic eliminates susceptible cells and resistant mutants predominate (E-762d6173e286); also use leads to resistance (E-8309038f4d08)."
+          },
+          {
+            "aspect": "How bacteria share resistance genes through horizontal transfer such as plasmids",
+            "score": 1.0,
+            "rationale": "Supported by E-1e01c13d1291 and E-fd51cc85569b; the transformation, transduction and conjugation details are not in the reference extracts, but the core plasmid claim is."
+          },
+          {
+            "aspect": "How resistant bacteria spread between people, animals, hospitals and the environment",
+            "score": 0.5,
+            "rationale": "Script covers transfers between facilities and the gut, but not animals or the environment, which E-998686992216 supports."
+          },
+          {
+            "aspect": "How stewardship, infection prevention and new drug development slow resistance, and their limits",
+            "score": 1.0,
+            "rationale": "Directly supported by E-1013946a750a and E-8309038f4d08; the in vitro vs in vivo caveat comes from E-1e01c13d1291."
+          }
+        ],
+        "passage_relevance": [
+          {
+            "evidence_id": "E-1e01c13d1291",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-1013946a750a",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-6b9454d80206",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-e2eae777f3c9",
+            "relevant": false
+          },
+          {
+            "evidence_id": "E-762d6173e286",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-5ca30c9fcdeb",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-8309038f4d08",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-6459af5f30a0",
+            "relevant": true
+          }
+        ],
+        "retrieved_aspects": [
+          {
+            "aspect": "How antibiotics kill or inhibit bacteria, setting the stage for resistance",
+            "score": 0.0,
+            "rationale": "No retrieved passage covers how antibiotics work."
+          },
+          {
+            "aspect": "How random mutations create resistant bacteria within a population",
+            "score": 1.0,
+            "rationale": "E-762d6173e286 fully covers mutational resistance."
+          },
+          {
+            "aspect": "How natural selection under antibiotic exposure favors resistant survivors",
+            "score": 1.0,
+            "rationale": "E-762d6173e286 and E-8309038f4d08 cover selection and the resistance that follows antibiotic use."
+          },
+          {
+            "aspect": "How bacteria share resistance genes through horizontal transfer such as plasmids",
+            "score": 1.0,
+            "rationale": "E-5ca30c9fcdeb, E-6b9454d80206 and E-1e01c13d1291 cover this fully."
+          },
+          {
+            "aspect": "How resistant bacteria spread between people, animals, hospitals and the environment",
+            "score": 0.5,
+            "rationale": "Hospital transfer and gut transfer are covered, but nothing on animals or the environment."
+          },
+          {
+            "aspect": "How stewardship, infection prevention and new drug development slow resistance, and their limits",
+            "score": 1.0,
+            "rationale": "E-1013946a750a, E-8309038f4d08 and E-6459af5f30a0 cover prevention, stewardship, education and the limits of new drugs."
+          }
+        ]
+      },
+      "revision_comparison": null,
+      "notes": "All scores are Claude judgments, not verified ground truth. Repair effectiveness compares coverage/narration, not factual truth. No revision or no retrieval is N/A rather than zero."
+    },
+    "metric_semantics": {
+      "reference_evidence_support_percent": "Evidence entailment within the frozen reference corpus; not factual accuracy.",
+      "query_coverage_percent": "Coverage of a fixed six-aspect checklist derived once per question from the question text and shared by all systems; missing/duplicate judge outputs are normalized against that fixed denominator.",
+      "query_relevance_percent": "Independent-model relevance judgement.",
+      "narration_input": "Coverage, relevance, narration and grounded-requirement judgements use the complete script with [E-...] evidence markers removed; claim extraction and citation metrics use the marked script. Aspect scores are continuous in [0, 1].",
+      "narration_quality_percent": "Ten-dimension spoken educational narration score; excludes factual truth.",
+      "citation_precision": "Share of emitted citation IDs that are identified as supporting the claim when verification is restricted to cited passages.",
+      "citation_recall": "Share of all citation-required extracted factual claims that have at least one cited passage judged to support the claim.",
+      "evaluation_estimated_llm_cost_usd": "Evaluator telemetry. CLI mode uses Claude Code's reported list-price equivalent; API mode uses the configured Anthropic per-token rates."
+    },
+    "evaluation_telemetry": {
+      "started_at": "2026-11-12T12:55:56.459896+00:00",
+      "ended_at": "2026-11-12T12:57:51.887839+00:00",
+      "wall_seconds": 115.42832520000047,
+      "retrieval_calls": 0,
+      "retrieved_documents": 0,
+      "llm_calls": [
+        {
+          "task": "script_claims",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 16.631514999999126,
+          "prompt_tokens": 4456,
+          "output_tokens": 1859,
+          "thinking_tokens": 0,
+          "total_tokens": 6315,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.03641,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.03641,
+            "cache_creation_input_tokens": 4454,
+            "cache_read_input_tokens": 0,
+            "session_id": "c06a2cfe-00bb-4d07-bb2e-163cadfb522a",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 6.123999299999923,
+          "prompt_tokens": 12443,
+          "output_tokens": 500,
+          "thinking_tokens": 0,
+          "total_tokens": 12943,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.054768000000000004,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.054768000000000004,
+            "cache_creation_input_tokens": 12441,
+            "cache_read_input_tokens": 0,
+            "session_id": "e73eb23c-4ee9-4734-a3a8-e68aa0d4c657",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 7.149733399999604,
+          "prompt_tokens": 10681,
+          "output_tokens": 542,
+          "thinking_tokens": 0,
+          "total_tokens": 11223,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0440567,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0440567,
+            "cache_creation_input_tokens": 9632,
+            "cache_read_input_tokens": 1047,
+            "session_id": "c7f35c23-2d3b-4c0f-8f42-6d71f484176f",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 6.519039299999349,
+          "prompt_tokens": 12547,
+          "output_tokens": 604,
+          "thinking_tokens": 0,
+          "total_tokens": 13151,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0521407,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0521407,
+            "cache_creation_input_tokens": 11498,
+            "cache_read_input_tokens": 1047,
+            "session_id": "24d72f9e-b419-41f2-ada0-6c3cc39c43a2",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 6.426588600001196,
+          "prompt_tokens": 11955,
+          "output_tokens": 575,
+          "thinking_tokens": 0,
+          "total_tokens": 12530,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.049482700000000004,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.049482700000000004,
+            "cache_creation_input_tokens": 10906,
+            "cache_read_input_tokens": 1047,
+            "session_id": "54109c8c-fb00-4618-a86b-889e2532b734",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 4.32403560000057,
+          "prompt_tokens": 4893,
+          "output_tokens": 190,
+          "thinking_tokens": 0,
+          "total_tokens": 5083,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.017384700000000003,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.017384700000000003,
+            "cache_creation_input_tokens": 3844,
+            "cache_read_input_tokens": 1047,
+            "session_id": "c8607eb6-3a07-4153-a927-a01bbb1d9389",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 6.198840400000336,
+          "prompt_tokens": 2978,
+          "output_tokens": 479,
+          "thinking_tokens": 0,
+          "total_tokens": 3457,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0126147,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0126147,
+            "cache_creation_input_tokens": 1929,
+            "cache_read_input_tokens": 1047,
+            "session_id": "b20495ad-9250-4b0f-9093-a511bc18d1f1",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 5.810328199999276,
+          "prompt_tokens": 2930,
+          "output_tokens": 553,
+          "thinking_tokens": 0,
+          "total_tokens": 3483,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0131627,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0131627,
+            "cache_creation_input_tokens": 1881,
+            "cache_read_input_tokens": 1047,
+            "session_id": "d41ee268-4273-4998-86cd-ffef4fb299d4",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 6.649762400000327,
+          "prompt_tokens": 3778,
+          "output_tokens": 589,
+          "thinking_tokens": 0,
+          "total_tokens": 4367,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0169147,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0169147,
+            "cache_creation_input_tokens": 2729,
+            "cache_read_input_tokens": 1047,
+            "session_id": "ef016de9-71b1-497f-a79d-4b55f301be6b",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 6.466319299999668,
+          "prompt_tokens": 3753,
+          "output_tokens": 558,
+          "thinking_tokens": 0,
+          "total_tokens": 4311,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.016504699999999997,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.016504699999999997,
+            "cache_creation_input_tokens": 2704,
+            "cache_read_input_tokens": 1047,
+            "session_id": "43ad181a-a804-4cef-b1f9-cca26fcbf001",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 4.917908499999612,
+          "prompt_tokens": 2229,
+          "output_tokens": 211,
+          "thinking_tokens": 0,
+          "total_tokens": 2440,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.006938700000000001,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.006938700000000001,
+            "cache_creation_input_tokens": 1180,
+            "cache_read_input_tokens": 1047,
+            "session_id": "7bd4e4f7-2386-48d0-b690-f7c94aee05a4",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "answer_fulfilment_and_narration_evaluation",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 9.898072900001353,
+          "prompt_tokens": 5887,
+          "output_tokens": 1327,
+          "thinking_tokens": 0,
+          "total_tokens": 7214,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.036814,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.036814,
+            "cache_creation_input_tokens": 5885,
+            "cache_read_input_tokens": 0,
+            "session_id": "e7db1f94-024b-45ff-aa9e-d461503cbc99",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "grounded_requirements_and_retrieval_quality",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 10.179667100001097,
+          "prompt_tokens": 9807,
+          "output_tokens": 1298,
+          "thinking_tokens": 0,
+          "total_tokens": 11105,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.052204,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.052204,
+            "cache_creation_input_tokens": 9805,
+            "cache_read_input_tokens": 0,
+            "session_id": "8a2fc272-84f5-48fc-970d-d2e06e0d5bc7",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        }
+      ]
+    },
+    "evaluation_provider": "anthropic",
+    "evaluation_access": "claude_code_cli",
+    "claude_access_method": "cli",
+    "claude_cli_version": "2.1.322 (Claude Code)",
+    "evaluation_model_requested": "claude-sonnet-5-5",
+    "evaluation_model": "claude-sonnet-5-5",
+    "evaluation_cli_reported_cost_usd": 0.4093963,
+    "evaluation_estimated_llm_cost_usd": 0.4093963,
+    "generation_provider": "gemini",
+    "generation_access": "google_api",
+    "generation_model_requested": "gemini-3.8-flash",
+    "generation_estimated_llm_cost_usd": 0.00697425,
+    "combined_generation_plus_evaluation_estimated_llm_cost_usd": 0.41637055
+  }
+}

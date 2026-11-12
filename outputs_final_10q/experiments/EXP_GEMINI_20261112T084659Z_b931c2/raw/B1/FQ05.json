@@ -1,0 +1,53 @@
+{
+  "system_id": "B1",
+  "system_name": "Direct LLM",
+  "prompt_id": "FQ05",
+  "query": "How do tsunamis form, and why can they become more destructive near coastlines?",
+  "domain": "Earth Science / General Knowledge",
+  "reasoning_type": "causal",
+  "script": "Welcome to our exploration of one of the planet's most formidable natural phenomena: the tsunami. Today, we are looking at how these massive waves originate in the open ocean and why their destructive power intensifies so dramatically as they approach land. \n\nUnderstanding this behavior is essential because tsunamis do not operate like typical ocean waves. Over the next few minutes, we will trace the journey of a tsunami from its initial trigger deep beneath the sea, examine the physical mechanics governing its movement across deep water, and explore the coastal transformation that makes it catastrophic upon arrival.\n\nTo begin, we must clarify what a tsunami actually is. Derived from the Japanese words for \"harbor\" and \"wave,\" a tsunami is not a tidal wave, nor is it driven by surface winds. Instead, it is a series of water waves caused by the displacement of a large volume of water. While wind waves churn only the uppermost layer of the ocean, a tsunami involves the movement of the entire water column, from the ocean floor all the way up to the sea surface. \n\nThe primary trigger for a tsunami is underwater seismic activity, specifically along subduction zones where tectonic plates collide. When an oceanic plate slides beneath a continental plate, intense frictional forces cause the upper plate to bend and store elastic strain over decades or centuries. Eventually, the frictional limit is exceeded. The plate snaps back upward in a sudden, violent motion known as an megathrust earthquake. This instantaneous vertical displacement of the seafloor pushes the water column directly above it upward. Gravity immediately attempts to restore equilibrium, pulling the displaced water back down and sending waves radiating outward in all directions. While earthquakes cause the vast majority of tsunamis, massive submarine landslides, volcanic eruptions, or caldera collapses can also displace water through similar principles.\n\nOnce generated in deep water, tsunamis behave in ways that seem counterintuitive. In the open ocean, where water depths can reach four to five thousand meters, a tsunami possesses an immense wavelength—the horizontal distance between two successive wave crests—often spanning one hundred to two hundred kilometers. Because the ocean's depth is small compared to this enormous wavelength, physics categorizes tsunamis as shallow-water waves. Their velocity depends directly on the depth of the water, calculated mathematically as the square root of gravitational acceleration multiplied by ocean depth. In the deep ocean, this allows a tsunami to travel at jet-airliner speeds of seven hundred to eight hundred kilometers per hour. Yet, despite this incredible speed, the wave height in the open sea might only be a few tens of centimeters to a meter. A ship sailing over a tsunami in deep water would barely notice it passing beneath the hull.\n\nThe critical transformation begins as the tsunami nears land, through a physical process known as wave shoaling. As the ocean floor slopes upward near a coastline, friction with the seabed increases, and the water depth decreases. Because wave speed is tied to depth, the front of the wave slows down abruptly—often dropping from hundreds of kilometers per hour to the speed of a moving car, around forty or fifty kilometers per hour. \n\nHowever, the trailing portion of the wave, still moving through deeper water behind it, continues to travel at a faster speed. This creates a severe traffic jam of kinetic energy. Because energy must be conserved and the immense volume of moving water cannot simply vanish, the wave compresses horizontally. As the wavelength dramatically shrinks, that compressed kinetic energy transforms into potential energy, forcing the water upward. The relatively flat, imperceptible swell rises into a towering wall of water that can reach heights of ten, twenty, or even thirty meters.\n\nTo picture this effect, imagine a high-speed train where the locomotive suddenly slams on its brakes, but the passenger cars behind it keep hurtling forward at full throttle. The cars inevitably telescope and buckle upward into the air. In the same way, the trailing mass of water piles atop the decelerating front of the tsunami, forcing the sea surface skyward.\n\nA common misconception is that a tsunami strikes the coast as a single, curling wave like a gigantic surfing break. In reality, because the wavelength remains several kilometers long even after shoaling, a tsunami acts more like a rapidly rising, unstoppable tide or a violent sea surge. Furthermore, if the trough of the wave reaches the shore before the crest, the sea will recede dramatically, exposing the seafloor hundreds of meters out—a dangerous natural warning sign that a massive surge is imminent. When the crest finally arrives, it carries the momentum of the entire ocean column behind it, allowing it to penetrate deep inland, demolish structures, and scour the landscape with immense hydrostatic pressure and floating debris.\n\nIn summary, tsunamis originate when sudden vertical seafloor movement displaces the entire ocean column. They travel silently and rapidly across deep oceans with immense wavelengths and minimal heights, but shoaling compresses their energy as they meet shallow coastal shelves, trading horizontal speed for devastating vertical height and mass.\n\nNow, consider the physical mechanics we discussed: how might the natural topography of a coastline, such as a narrow bay compared to a broad, flat beach, influence the ultimate height and destructive power of a tsunami? And knowing that tsunamis consist of a series of wave crests spread across hours, what operational challenges does this pose for emergency evacuations?",
+  "sources": [],
+  "evidence": [],
+  "claims": [],
+  "verifications": [],
+  "contradictions": [],
+  "metadata": {
+    "generation_provider": "gemini",
+    "generation_access": "google_api",
+    "generation_model_requested": "gemini-3.8-flash"
+  },
+  "telemetry": {
+    "started_at": "2026-11-12T10:12:18.502938+00:00",
+    "ended_at": "2026-11-12T10:12:34.716629+00:00",
+    "wall_seconds": 16.213815300000533,
+    "retrieval_calls": 0,
+    "retrieved_documents": 0,
+    "llm_calls": [
+      {
+        "task": "b1_direct_generation",
+        "model": "gemini-3.8-flash",
+        "provider": "google",
+        "latency_seconds": 15.257820400000128,
+        "prompt_tokens": 1028,
+        "output_tokens": 1072,
+        "thinking_tokens": 0,
+        "total_tokens": 2100,
+        "input_cost_usd": 0.000771,
+        "output_cost_usd": 0.00402,
+        "total_cost_usd": 0.004791,
+        "attempts": 1,
+        "metadata": {}
+      }
+    ]
+  },
+  "experiment_id": "EXP_GEMINI_20261112T084659Z_b931c2",
+  "script_sha256": "b0861b08944eb8617c0d73eb6f2001b652e51e1c99e9b8c59baa9c635918a897",
+  "reference_pool_sha256": "cf6ad135d37526833f903e02d0ee121dde6b316a0fc399283942a5e93740e878",
+  "generation_config_sha256": "130fb20735098b5ae7683be72a40463c48605cdf59d320daa9f9373f43ee4512",
+  "prompt_version": "evidence-aware-10q-shared-checklist-clean-narration-v1.6.0",
+  "study_id": "",
+  "generation_provider": "gemini",
+  "generation_access": "google_api",
+  "generation_model": "gemini-3.8-flash",
+  "artifact_status": "generation_complete"
+}

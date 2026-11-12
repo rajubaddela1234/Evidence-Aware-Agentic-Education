@@ -1,0 +1,18 @@
+{
+  "prompt_id": "FQ04",
+  "question_sha256": "e7c4cc4ce17860552ac47a99ea0063067284968152c1adf6771abb312c0731c0",
+  "aspects": [
+    "What inflation is and why persistently high inflation harms an economy",
+    "The central bank's policy interest rate as its main tool",
+    "How higher policy rates raise borrowing costs for households and firms",
+    "How reduced spending and investment cool demand and ease price pressures",
+    "Role of inflation expectations and exchange rate in transmission",
+    "Trade-offs: slower growth, higher unemployment, and risk of recession or financial strain"
+  ],
+  "aspects_sha256": "04ea0aa1b1330567c8ef308bf938f74396abea29a519725ed4cf8964be98b837",
+  "derived_at": "2026-11-12T08:56:21.600627+00:00",
+  "derived_by_model": "claude-sonnet-5-5",
+  "derivation_attempts": 1,
+  "derivation_cost_usd": 0.0046114,
+  "note": "Derived from the question text alone by the evaluator; shared by every system in this experiment. Never shown to generators."
+}

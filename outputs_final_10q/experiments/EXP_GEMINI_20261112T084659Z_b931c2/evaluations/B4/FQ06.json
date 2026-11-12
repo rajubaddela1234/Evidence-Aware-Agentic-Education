@@ -1,0 +1,1550 @@
+{
+  "record": {
+    "experiment_id": "EXP_GEMINI_20261112T084659Z_b931c2",
+    "evaluated_script_sha256": "05bcb48757c89433eda6c17b2afcec68b126d91e0885ea66501766624d2f5bab",
+    "reference_pool_sha256": "6fccd1336e76b843ed4d57e49e9f4682367a972005dd6bd201509d461d506ed0",
+    "generation_config_sha256": "130fb20735098b5ae7683be72a40463c48605cdf59d320daa9f9373f43ee4512",
+    "prompt_version": "evidence-aware-10q-shared-checklist-clean-narration-v1.6.0",
+    "system_id": "B4",
+    "prompt_id": "FQ06",
+    "domain": "Statistics / Research Methods",
+    "reasoning_type": "causal-inference-and-limitations",
+    "generation_provider": "gemini",
+    "generation_access": "google_api",
+    "generation_model": "gemini-3.8-flash",
+    "evaluator_provider": "anthropic",
+    "evaluator_model": "claude-sonnet-5-5",
+    "claim_count": 25,
+    "supported_claims": 20,
+    "partial_claims": 5,
+    "unsupported_claims": 0,
+    "contradicted_claims": 0,
+    "supported_claim_rate": 0.8,
+    "reference_evidence_support_percent": 90.0,
+    "query_coverage_percent": 85.33333333333334,
+    "query_relevance_percent": 96.0,
+    "narration_quality_percent": 95.0,
+    "citation_precision": 0.5714285714285714,
+    "citation_recall": 0.64,
+    "citation_f1": 0.6037735849056605,
+    "grounded_requirement_coverage_percent": 58.5,
+    "context_precision_at_k": 0.8,
+    "context_recall_percent": 75.0,
+    "repair_effectiveness_points": null,
+    "requirement_preservation_rate": null,
+    "source_count": 6,
+    "source_type_count": 2,
+    "llm_calls": 3,
+    "prompt_tokens": 9767,
+    "output_tokens": 1779,
+    "thinking_tokens": 0,
+    "billable_output_tokens": 1779,
+    "retrieval_calls": 2,
+    "latency_seconds": 21.604352399999698,
+    "word_count": 761,
+    "estimated_llm_cost_usd": 0.013996499999999999,
+    "llm_call_latency_p50_seconds": 3.16151439999976,
+    "llm_call_latency_p90_seconds": 12.558984640000016
+  },
+  "details": {
+    "artifact_identity": {
+      "experiment_id": "EXP_GEMINI_20261112T084659Z_b931c2",
+      "evaluated_script_sha256": "05bcb48757c89433eda6c17b2afcec68b126d91e0885ea66501766624d2f5bab",
+      "reference_pool_sha256": "6fccd1336e76b843ed4d57e49e9f4682367a972005dd6bd201509d461d506ed0",
+      "generation_config_sha256": "130fb20735098b5ae7683be72a40463c48605cdf59d320daa9f9373f43ee4512",
+      "prompt_version": "evidence-aware-10q-shared-checklist-clean-narration-v1.6.0"
+    },
+    "narration_judged_script_sha256": "60554addc6617d110ed567d8ec6c266fbe30b356efebd54baaf85dbed9636d47",
+    "question_checklist": {
+      "aspects": [
+        "What correlation measures: statistical association between two variables, not proof of influence",
+        "Confounding: a third variable driving both variables, creating a spurious association",
+        "Reverse causation and coincidence: direction ambiguity and chance patterns producing misleading correlations",
+        "Randomized controlled experiments: manipulating one variable to isolate its causal effect",
+        "Observational causal methods: controlling for confounders, natural experiments, and longitudinal designs",
+        "Criteria and limits for causal claims: temporality, dose-response, plausibility, replication, and remaining uncertainty"
+      ],
+      "source": "derived_once_per_question_by_evaluator",
+      "aspects_sha256": "f7956bc89363580c725797842e2cc90b3c35ea9b4a11d34e2a83ca13899210b9",
+      "derived_at": "2026-11-12T08:56:47.741694+00:00",
+      "derived_by_model": "claude-sonnet-5-5",
+      "derivation_cost_usd": 0.0052934,
+      "derived_in_this_call": false,
+      "file": "outputs_final_10q\\experiments\\EXP_GEMINI_20261112T084659Z_b931c2\\checklists\\FQ06.json"
+    },
+    "evaluation_claims": [
+      {
+        "claim_id": "c1",
+        "text": "In statistics, a correlation expresses the degree to which two variables change alongside each other or move in sync, such as when one decreases as the other increases.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-5c808076648d"
+        ]
+      },
+      {
+        "claim_id": "c2",
+        "text": "Correlation merely indicates that an association exists between two variables and shows a pattern of co-occurrence, but it cannot confirm that one variable causes the other to change.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-f1e4f3b46d38",
+          "E-5c808076648d",
+          "E-5de4d4429b6b"
+        ]
+      },
+      {
+        "claim_id": "c3",
+        "text": "Causation requires a direct relationship where one variable directly influences or produces the change in another.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-5c808076648d",
+          "E-5de4d4429b6b"
+        ]
+      },
+      {
+        "claim_id": "c4",
+        "text": "Variables can move together for reasons that have nothing to do with direct influence.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-5de4d4429b6b"
+        ]
+      },
+      {
+        "claim_id": "c5",
+        "text": "An observed correlation can occur by random chance or coincidence, producing an apparent relationship when there is no true underlying link.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-f1e4f3b46d38",
+          "E-5de4d4429b6b"
+        ]
+      },
+      {
+        "claim_id": "c6",
+        "text": "Spurious correlations can easily arise through chance alone, such as from multiple comparisons.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-2c721a405e23"
+        ]
+      },
+      {
+        "claim_id": "c7",
+        "text": "Two variables may be correlated because both are driven by a third, lurking, or confounding variable.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-f1e4f3b46d38",
+          "E-9c2be7f8fbf5"
+        ]
+      },
+      {
+        "claim_id": "c8",
+        "text": "A confounding variable can artificially inflate or distort the apparent association between two variables, leading observers to assume a direct link where none exists.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-f1e4f3b46d38"
+        ]
+      },
+      {
+        "claim_id": "c9",
+        "text": "Reverse causality is a problem in which the direction of influence is mistakenly inverted.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-73d0155069c3",
+          "E-9669427fe11c"
+        ]
+      },
+      {
+        "claim_id": "c10",
+        "text": "Statistically significant and reliable correlations between completely unlinked variables are surprisingly common, especially in observational data.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-f1e4f3b46d38"
+        ]
+      },
+      {
+        "claim_id": "c11",
+        "text": "A statistically significant positive correlation can be found between exercise and rates of skin cancer.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-9c2be7f8fbf5"
+        ]
+      },
+      {
+        "claim_id": "c12",
+        "text": "The exercise and skin cancer correlation is explained by a shared unmeasured confounding factor, outdoor sunlight exposure.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-9c2be7f8fbf5",
+          "E-36fe6a7809b6"
+        ]
+      },
+      {
+        "claim_id": "c13",
+        "text": "People who exercise outdoors encounter more sun, which drives up cancer risk, so exercise and skin cancer co-occur without a causal connection between the workout and the disease.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-9c2be7f8fbf5",
+          "E-36fe6a7809b6"
+        ]
+      },
+      {
+        "claim_id": "c14",
+        "text": "Eating ice cream and getting sunburned are correlated because hot, sunny weather increases both, not because ice cream burns the skin.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-36fe6a7809b6"
+        ]
+      },
+      {
+        "claim_id": "c15",
+        "text": "Scientific methodology requires demonstrating three core criteria to assess causation: covariation, temporal precedence, and elimination of alternative explanations.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-72dd9a46d25d"
+        ]
+      },
+      {
+        "claim_id": "c16",
+        "text": "Covariation of cause and effect means changes in the independent variable are consistently accompanied by changes in the dependent variable.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-72dd9a46d25d"
+        ]
+      },
+      {
+        "claim_id": "c17",
+        "text": "Temporal precedence requires that the proposed cause precede the effect in time.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-72dd9a46d25d"
+        ]
+      },
+      {
+        "claim_id": "c18",
+        "text": "Longitudinal measurements or experimental setups help verify that changes in the independent variable happen before changes in the outcome, ruling out reverse causality.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-72dd9a46d25d",
+          "E-9669427fe11c"
+        ]
+      },
+      {
+        "claim_id": "c19",
+        "text": "Elimination of alternative explanations involves controlling for confounding variables to isolate the independent variable's true effect.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-72dd9a46d25d",
+          "E-0467345d085d"
+        ]
+      },
+      {
+        "claim_id": "c20",
+        "text": "Researchers use controlled A/B experiments, or statistical models like linear regression that estimate partial effects while adjusting for covariates, to assess causation.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-72dd9a46d25d",
+          "E-2c721a405e23",
+          "E-36fe6a7809b6",
+          "E-9669427fe11c"
+        ]
+      },
+      {
+        "claim_id": "c21",
+        "text": "In observational settings, investigators can perform sensitivity analyses such as computing an E-value, which gauges the minimum strength an unmeasured confounder would need to explain away the observed effect.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-73d0155069c3"
+        ]
+      },
+      {
+        "claim_id": "c22",
+        "text": "Grounding empirical work in established theoretical models is essential to justify the proposed causal chain.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-2c721a405e23",
+          "E-9669427fe11c"
+        ]
+      },
+      {
+        "claim_id": "c23",
+        "text": "Observational data alone can never fully confirm causation.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-f1e4f3b46d38"
+        ]
+      },
+      {
+        "claim_id": "c24",
+        "text": "When experimentation is impossible and unmeasured confounding persists, even advanced statistical adjustments require strong theoretical assumptions to claim a causal effect.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-2c721a405e23",
+          "E-73d0155069c3"
+        ]
+      },
+      {
+        "claim_id": "c25",
+        "text": "Confusing correlation with causation can bias conclusions, mislead product analytics, or lead to wasted resources.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-5c808076648d",
+          "E-0467345d085d",
+          "E-36fe6a7809b6"
+        ]
+      }
+    ],
+    "reference_verifications": [
+      {
+        "claim_id": "c1",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-5c808076648d"
+        ],
+        "rationale": "Directly states correlation expresses degree two variables change with one another; appear to change in sync, e.g., one decreases as other increases."
+      },
+      {
+        "claim_id": "c2",
+        "status": "supported",
+        "confidence": 0.92,
+        "evidence_ids": [
+          "E-5de4d4429b6b",
+          "E-f1e4f3b46d38",
+          "E-5c808076648d"
+        ],
+        "rationale": "Evidence says correlation only implies an association, shows a pattern of moving together, and cannot confirm causation."
+      },
+      {
+        "claim_id": "c3",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-5c808076648d",
+          "E-5de4d4429b6b"
+        ],
+        "rationale": "Causation means one variable directly influences/causes change in another."
+      },
+      {
+        "claim_id": "c4",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-f1e4f3b46d38",
+          "E-e58d82296e7f"
+        ],
+        "rationale": "Variables can be correlated without causal link, due to chance, lurking third variables, or reverse causality."
+      },
+      {
+        "claim_id": "c5",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-f1e4f3b46d38",
+          "E-5de4d4429b6b"
+        ],
+        "rationale": "Correlation may result from random chance with no true underlying relationship; coincidental relationships occur by chance alone."
+      },
+      {
+        "claim_id": "c6",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-2c721a405e23",
+          "E-5de4d4429b6b",
+          "E-f1e4f3b46d38"
+        ],
+        "rationale": "Evidence says spurious correlations arise from multiple comparisons and chance; 'easily' is supported by 'there could easily be other explanations' including random chance."
+      },
+      {
+        "claim_id": "c7",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-9d4020d6bc17",
+          "E-0932b4b2c4f1",
+          "E-9669427fe11c",
+          "E-f1e4f3b46d38"
+        ],
+        "rationale": "Evidence describes correlation caused by a common third/lurking variable."
+      },
+      {
+        "claim_id": "c8",
+        "status": "partial",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "E-f1e4f3b46d38",
+          "E-370733e1a429"
+        ],
+        "rationale": "Evidence says a lurking variable can make the relationship appear stronger or weaker and confounders lead to spurious correlations or erroneous causal inferences; the 'assume a direct link where none exists' part is only loosely supported."
+      },
+      {
+        "claim_id": "c9",
+        "status": "supported",
+        "confidence": 0.88,
+        "evidence_ids": [
+          "E-e58d82296e7f",
+          "E-77dda445a457"
+        ],
+        "rationale": "Reverse causality is described as believing x causes y when it is the other way around; outcome causes exposure."
+      },
+      {
+        "claim_id": "c10",
+        "status": "supported",
+        "confidence": 0.88,
+        "evidence_ids": [
+          "E-f1e4f3b46d38"
+        ],
+        "rationale": "Evidence says it's possible to find statistically significant, reliable correlations for causally unlinked variables and that such correlations are common, in the observational data context."
+      },
+      {
+        "claim_id": "c11",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-9c2be7f8fbf5"
+        ],
+        "rationale": "Evidence describes observing a statistically significant positive correlation between exercise and skin cancer (as a hypothetical example)."
+      },
+      {
+        "claim_id": "c12",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-a546cc5a717b"
+        ],
+        "rationale": "Evidence explains the correlation via a third variable, amount of sunlight, affecting both. 'Unmeasured' is a minor framing difference."
+      },
+      {
+        "claim_id": "c13",
+        "status": "supported",
+        "confidence": 0.88,
+        "evidence_ids": [
+          "E-a546cc5a717b"
+        ],
+        "rationale": "Sunlight leads to more outdoor exercise and more skin cancer; the two are not causally related. Evidence frames it as locations with more sunlight, close enough to the claim."
+      },
+      {
+        "claim_id": "c14",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-c7b82df86cff",
+          "E-0932b4b2c4f1"
+        ],
+        "rationale": "Ice cream and sunburn are correlated, both caused by sunny weather, and neither causes the other."
+      },
+      {
+        "claim_id": "c15",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-72dd9a46d25d"
+        ],
+        "rationale": "Evidence lists temporal precedence, covariation, and elimination of alternative explanations as required criteria."
+      },
+      {
+        "claim_id": "c16",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-72dd9a46d25d"
+        ],
+        "rationale": "Evidence says changes in IV should be accompanied by corresponding changes in DV, a consistent pattern of association."
+      },
+      {
+        "claim_id": "c17",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-72dd9a46d25d",
+          "E-aaab1efe2aeb"
+        ],
+        "rationale": "Both state the cause must precede the effect in time."
+      },
+      {
+        "claim_id": "c18",
+        "status": "partial",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "E-9669427fe11c",
+          "E-2d7e8e8eda9e",
+          "E-77dda445a457"
+        ],
+        "rationale": "Longitudinal or experimental measurement reduces likelihood of reverse causation, but evidence says 'reduce', not 'rule out'; it says reverse causality is minimized, not eliminated."
+      },
+      {
+        "claim_id": "c19",
+        "status": "supported",
+        "confidence": 0.92,
+        "evidence_ids": [
+          "E-72dd9a46d25d"
+        ],
+        "rationale": "Evidence says elimination of alternative explanations involves controlling for confounders and rigorous designs to isolate the independent variable's effects."
+      },
+      {
+        "claim_id": "c20",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-528561e57e15",
+          "E-2c721a405e23",
+          "E-3d426d44c486"
+        ],
+        "rationale": "A/B experiment is described as establishing causal evidence; linear regression partial effect is described as causal if theory is good enough; controlled experiments and multivariable models are listed as techniques."
+      },
+      {
+        "claim_id": "c21",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-73d0155069c3"
+        ],
+        "rationale": "Evidence describes sensitivity analysis with E-value as the minimum strength of confounder association needed to explain away the observed relationship."
+      },
+      {
+        "claim_id": "c22",
+        "status": "partial",
+        "confidence": 0.55,
+        "evidence_ids": [
+          "E-9669427fe11c"
+        ],
+        "rationale": "Basing an argument on established theory is listed as one strategy, and a strong theory is mentioned, but not that it is 'essential'."
+      },
+      {
+        "claim_id": "c23",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-f1e4f3b46d38"
+        ],
+        "rationale": "Evidence says for observational data correlations can't confirm causation, but 'never fully confirm' is stronger; other sources say non-experimental methods can derive causal conclusions."
+      },
+      {
+        "claim_id": "c24",
+        "status": "partial",
+        "confidence": 0.4,
+        "evidence_ids": [
+          "E-2d12f4fa08e6",
+          "E-84c3f25f0913"
+        ],
+        "rationale": "Evidence notes experiments are not always possible and describes statistical approaches for unmeasured confounding, but does not state that strong theoretical assumptions are required."
+      },
+      {
+        "claim_id": "c25",
+        "status": "supported",
+        "confidence": 0.75,
+        "evidence_ids": [
+          "E-36fe6a7809b6",
+          "E-73d0155069c3"
+        ],
+        "rationale": "Product analytics misinterpretation leads to ineffective strategies and wasted resources; confusing correlation with causation is a pitfall for conclusions; bias is less directly stated."
+      }
+    ],
+    "reference_evidence_ids_by_claim": {
+      "c1": [
+        "E-5c808076648d",
+        "E-5de4d4429b6b",
+        "E-a82a39bc5064",
+        "E-f1e4f3b46d38",
+        "E-f30026e7f197"
+      ],
+      "c2": [
+        "E-5de4d4429b6b",
+        "E-f1e4f3b46d38",
+        "E-a82a39bc5064",
+        "E-5c808076648d",
+        "E-72dd9a46d25d"
+      ],
+      "c3": [
+        "E-5c808076648d",
+        "E-a82a39bc5064",
+        "E-5de4d4429b6b",
+        "E-562c26371209",
+        "E-72dd9a46d25d"
+      ],
+      "c4": [
+        "E-370733e1a429",
+        "E-5de4d4429b6b",
+        "E-f1a948c51e36",
+        "E-f1e4f3b46d38",
+        "E-8d9ce157e553"
+      ],
+      "c5": [
+        "E-f1e4f3b46d38",
+        "E-e58d82296e7f",
+        "E-77dda445a457",
+        "E-9e5bfb66acba",
+        "E-72dd9a46d25d"
+      ],
+      "c6": [
+        "E-2c721a405e23",
+        "E-6e96127dfbd2",
+        "E-f1e4f3b46d38",
+        "E-5cd83895eb3f",
+        "E-370733e1a429"
+      ],
+      "c7": [
+        "E-370733e1a429",
+        "E-f1e4f3b46d38",
+        "E-0932b4b2c4f1",
+        "E-9669427fe11c",
+        "E-5de4d4429b6b"
+      ],
+      "c8": [
+        "E-370733e1a429",
+        "E-2d7e8e8eda9e",
+        "E-9669427fe11c",
+        "E-f1a948c51e36",
+        "E-2d12f4fa08e6"
+      ],
+      "c9": [
+        "E-77dda445a457",
+        "E-9d4020d6bc17",
+        "E-e58d82296e7f",
+        "E-884a6b037887",
+        "E-1fec11ac10a9"
+      ],
+      "c10": [
+        "E-f1e4f3b46d38",
+        "E-8d9ce157e553",
+        "E-8d3c807e60a8",
+        "E-6e96127dfbd2",
+        "E-e15352b07fbd"
+      ],
+      "c11": [
+        "E-9c2be7f8fbf5",
+        "E-7e1030ca81c6",
+        "E-d39aa27f64c1",
+        "E-037892b5d477",
+        "E-823b2cf2926b"
+      ],
+      "c12": [
+        "E-a546cc5a717b",
+        "E-84c3f25f0913",
+        "E-d39aa27f64c1",
+        "E-e58d82296e7f",
+        "E-ebe2d3541127"
+      ],
+      "c13": [
+        "E-9c2be7f8fbf5",
+        "E-d39aa27f64c1",
+        "E-2e70c3300d94",
+        "E-c5d384821808",
+        "E-4478f82399e4"
+      ],
+      "c14": [
+        "E-0932b4b2c4f1",
+        "E-4bcd01c2e1f6",
+        "E-3bf6da28c176",
+        "E-a26ae8108786",
+        "E-823b2cf2926b"
+      ],
+      "c15": [
+        "E-72dd9a46d25d",
+        "E-349d28a759fc",
+        "E-139a1fe2996d",
+        "E-c7b82df86cff",
+        "E-0f912d039161"
+      ],
+      "c16": [
+        "E-72dd9a46d25d",
+        "E-f956ce4cd729",
+        "E-aaab1efe2aeb",
+        "E-be8fb2a473d0",
+        "E-23c72ee19ac4"
+      ],
+      "c17": [
+        "E-72dd9a46d25d",
+        "E-2d7e8e8eda9e",
+        "E-e58d82296e7f",
+        "E-6a9b7f5a6e46",
+        "E-6f3001d2366b"
+      ],
+      "c18": [
+        "E-72dd9a46d25d",
+        "E-77dda445a457",
+        "E-646dd5eda2e8",
+        "E-deaedf06f82a",
+        "E-23c72ee19ac4"
+      ],
+      "c19": [
+        "E-72dd9a46d25d",
+        "E-f956ce4cd729",
+        "E-f1e4f3b46d38",
+        "E-522f09ce633e",
+        "E-9669427fe11c"
+      ],
+      "c20": [
+        "E-3d426d44c486",
+        "E-4cb3c3599c06",
+        "E-2c721a405e23",
+        "E-397c38d34e47",
+        "E-528561e57e15"
+      ],
+      "c21": [
+        "E-73d0155069c3",
+        "E-6e5581b0d1a2",
+        "E-349d28a759fc",
+        "E-2d12f4fa08e6",
+        "E-9d4020d6bc17"
+      ],
+      "c22": [
+        "E-9669427fe11c",
+        "E-0467345d085d",
+        "E-5ab667edb22a",
+        "E-2d7e8e8eda9e",
+        "E-15a753b78bc7"
+      ],
+      "c23": [
+        "E-f1e4f3b46d38",
+        "E-8d3c807e60a8",
+        "E-8d9ce157e553",
+        "E-e15352b07fbd",
+        "E-5c808076648d"
+      ],
+      "c24": [
+        "E-84c3f25f0913",
+        "E-15690e820af3",
+        "E-d4c91101bd9c",
+        "E-a82a39bc5064",
+        "E-370733e1a429"
+      ],
+      "c25": [
+        "E-36fe6a7809b6",
+        "E-cb6a72bd6817",
+        "E-0467345d085d",
+        "E-5de4d4429b6b",
+        "E-8d3c807e60a8"
+      ]
+    },
+    "citation_entailment_verifications": [
+      {
+        "claim_id": "c1",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-5c808076648d"
+        ],
+        "rationale": "Evidence states correlation expresses degree two variables change with one another, and appear to change in sync, e.g., one decreases as other increases."
+      },
+      {
+        "claim_id": "c2",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-5c808076648d",
+          "E-5de4d4429b6b",
+          "E-f1e4f3b46d38"
+        ],
+        "rationale": "All state correlation implies only association/moving together, not causation."
+      },
+      {
+        "claim_id": "c3",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-5c808076648d",
+          "E-5de4d4429b6b"
+        ],
+        "rationale": "Causation defined as one variable directly influencing/causing change in another."
+      },
+      {
+        "claim_id": "c4",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-5de4d4429b6b"
+        ],
+        "rationale": "Allowed evidence mentions coincidence by chance as a reason (one of three factors), but the others are not shown; the general claim of moving together without direct influence is only partly supported."
+      },
+      {
+        "claim_id": "c5",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-5de4d4429b6b",
+          "E-f1e4f3b46d38"
+        ],
+        "rationale": "Both say relationships can be coincidental/random chance with no true underlying relationship."
+      },
+      {
+        "claim_id": "c6",
+        "status": "supported",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-2c721a405e23"
+        ],
+        "rationale": "Evidence says spurious correlations are often identified as a result of multiple comparisons and that correlations between variables can arise purely by chance."
+      },
+      {
+        "claim_id": "c7",
+        "status": "supported",
+        "confidence": 0.88,
+        "evidence_ids": [
+          "E-9c2be7f8fbf5",
+          "E-f1e4f3b46d38"
+        ],
+        "rationale": "E-9c2be7f8fbf5 says correlations arise because both variables are associated with a different causal variable; E-f1e4f3b46d38 mentions a third lurking variable."
+      },
+      {
+        "claim_id": "c8",
+        "status": "supported",
+        "confidence": 0.75,
+        "evidence_ids": [
+          "E-f1e4f3b46d38"
+        ],
+        "rationale": "A third lurking variable makes the relationship appear stronger or weaker than it is; the 'assume a direct link where none exists' part is only loosely implied."
+      },
+      {
+        "claim_id": "c9",
+        "status": "unsupported",
+        "confidence": 0.7,
+        "evidence_ids": [],
+        "rationale": "The evidence mentions reverse causality and a causation-backwards possibility but does not define it as a problem of mistakenly inverted influence."
+      },
+      {
+        "claim_id": "c10",
+        "status": "partial",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "E-f1e4f3b46d38"
+        ],
+        "rationale": "Evidence says such correlations are common and heads the section with observational data, but 'surprisingly' and 'completely unlinked' are stronger wording."
+      },
+      {
+        "claim_id": "c11",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-9c2be7f8fbf5"
+        ],
+        "rationale": "Evidence describes observing a statistically significant positive correlation between exercise and skin cancer cases."
+      },
+      {
+        "claim_id": "c12",
+        "status": "partial",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "E-9c2be7f8fbf5"
+        ],
+        "rationale": "Evidence says such correlations arise from a shared causal variable and gives the exercise/skin cancer example, but the excerpt does not name outdoor sunlight exposure as the confounder."
+      },
+      {
+        "claim_id": "c13",
+        "status": "partial",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "E-9c2be7f8fbf5"
+        ],
+        "rationale": "Evidence supports a non-causal correlation driven by a third variable, but does not mention outdoor exercise, sun exposure, or its effect on cancer risk."
+      },
+      {
+        "claim_id": "c14",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-36fe6a7809b6"
+        ],
+        "rationale": "Evidence states ice cream and sunburn are correlated, neither causes the other, and both are caused by sunny weather. It does not mention heat or ice cream burning skin, but the claim's core is entailed."
+      },
+      {
+        "claim_id": "c15",
+        "status": "supported",
+        "confidence": 0.92,
+        "evidence_ids": [
+          "E-72dd9a46d25d"
+        ],
+        "rationale": "Evidence lists temporal precedence, covariation, and elimination of alternative explanations as criteria required by scientific methodology."
+      },
+      {
+        "claim_id": "c16",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-72dd9a46d25d"
+        ],
+        "rationale": "Evidence states changes in IV should be accompanied by changes in DV, a consistent pattern of association."
+      },
+      {
+        "claim_id": "c17",
+        "status": "supported",
+        "confidence": 0.97,
+        "evidence_ids": [
+          "E-72dd9a46d25d"
+        ],
+        "rationale": "Directly states the cause must precede the effect in time."
+      },
+      {
+        "claim_id": "c18",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-9669427fe11c",
+          "E-72dd9a46d25d"
+        ],
+        "rationale": "E-9669427fe11c says longitudinal or experimental measurement reduces the likelihood of reverse causation; E-72dd9a46d25d supports the temporal ordering. 'Ruling out' is slightly stronger than 'reduce the likelihood'."
+      },
+      {
+        "claim_id": "c19",
+        "status": "supported",
+        "confidence": 0.92,
+        "evidence_ids": [
+          "E-72dd9a46d25d",
+          "E-0467345d085d"
+        ],
+        "rationale": "Evidence says elimination of alternative explanations involves controlling for confounders to isolate the IV's effects."
+      },
+      {
+        "claim_id": "c20",
+        "status": "supported",
+        "confidence": 0.88,
+        "evidence_ids": [
+          "E-36fe6a7809b6",
+          "E-2c721a405e23"
+        ],
+        "rationale": "A/B testing is cited for confirming relationships; linear regression partial effect is described as causal if theory is good enough, though adjusting for covariates is only implied."
+      },
+      {
+        "claim_id": "c21",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-73d0155069c3"
+        ],
+        "rationale": "Evidence describes sensitivity analysis with E-value as minimum strength of unmeasured confounder to explain the observed relationship."
+      },
+      {
+        "claim_id": "c22",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-2c721a405e23",
+          "E-9669427fe11c"
+        ],
+        "rationale": "Evidence says basing an argument on established theory is one strategy and a good theory is needed; 'essential' is stronger than 'one of numerous strategies'."
+      },
+      {
+        "claim_id": "c23",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-f1e4f3b46d38"
+        ],
+        "rationale": "Evidence says for observational data correlations can't confirm causation, but 'observational data alone can never fully confirm causation' is a broader claim than correlations alone."
+      },
+      {
+        "claim_id": "c24",
+        "status": "partial",
+        "confidence": 0.5,
+        "evidence_ids": [
+          "E-2c721a405e23",
+          "E-73d0155069c3"
+        ],
+        "rationale": "Evidence says a regression's partial effect is causal if the theory is good enough, and E-value addresses unmeasured confounding; the specific claim about impossible experimentation and needing strong theoretical assumptions is only loosely supported."
+      },
+      {
+        "claim_id": "c25",
+        "status": "partial",
+        "confidence": 0.65,
+        "evidence_ids": [
+          "E-36fe6a7809b6"
+        ],
+        "rationale": "Evidence says misinterpreting correlation as causation in product analytics leads to ineffective strategies and wasted resources; bias in conclusions is not directly stated there."
+      }
+    ],
+    "quality": {
+      "aspect_scores": [
+        {
+          "aspect": "What correlation measures: statistical association between two variables, not proof of influence",
+          "score": 0.95,
+          "rationale": "Clearly defined as association/co-occurrence, not causation."
+        },
+        {
+          "aspect": "Confounding: a third variable driving both variables, creating a spurious association",
+          "score": 0.95,
+          "rationale": "Explained with exercise/skin cancer/sunlight and ice cream examples."
+        },
+        {
+          "aspect": "Reverse causation and coincidence: direction ambiguity and chance patterns producing misleading correlations",
+          "score": 0.85,
+          "rationale": "Chance and multiple comparisons explained; reverse causality mentioned but only briefly, no example."
+        },
+        {
+          "aspect": "Randomized controlled experiments: manipulating one variable to isolate its causal effect",
+          "score": 0.75,
+          "rationale": "Controlled A/B experiments mentioned, but no randomization or manipulation explanation."
+        },
+        {
+          "aspect": "Observational causal methods: controlling for confounders, natural experiments, and longitudinal designs",
+          "score": 0.82,
+          "rationale": "Regression adjustment, longitudinal measurement, sensitivity analysis covered; natural experiments absent."
+        },
+        {
+          "aspect": "Criteria and limits for causal claims: temporality, dose-response, plausibility, replication, and remaining uncertainty",
+          "score": 0.8,
+          "rationale": "Covariation, temporality, eliminating alternatives, theory and limits covered; dose-response and replication absent."
+        }
+      ],
+      "covered_aspects": [
+        "What correlation measures: statistical association between two variables, not proof of influence",
+        "Confounding: a third variable driving both variables, creating a spurious association",
+        "Reverse causation and coincidence: direction ambiguity and chance patterns producing misleading correlations",
+        "Observational causal methods: controlling for confounders, natural experiments, and longitudinal designs",
+        "Criteria and limits for causal claims: temporality, dose-response, plausibility, replication, and remaining uncertainty"
+      ],
+      "partially_covered_aspects": [
+        "Randomized controlled experiments: manipulating one variable to isolate its causal effect"
+      ],
+      "missing_aspects": [],
+      "coverage_score": 0.8533333333333334,
+      "coverage_rationale": "Core ideas covered well; RCT and natural experiments/dose-response/replication thin or missing.",
+      "relevance_score": 0.96,
+      "relevance_rationale": "Almost entirely on-topic; minor product analytics aside.",
+      "opening_orientation_score": 4,
+      "introduction_roadmap_score": 4,
+      "definitions_foundations_score": 4,
+      "explanatory_depth_score": 3,
+      "examples_applications_score": 4,
+      "organization_transitions_score": 4,
+      "clarity_accessibility_score": 4,
+      "spoken_naturalness_score": 3,
+      "conclusion_takeaway_score": 4,
+      "reflective_ending_score": 4,
+      "narration_rationale": "Well organized, clear, speakable, with a reflective closing question."
+    },
+    "additional_metric_details": {
+      "grounded_requirement_coverage_percent": 58.5,
+      "context_precision_at_k": 0.8,
+      "context_recall_percent": 75.0,
+      "retrieval_k": 5,
+      "grounded_aspect_scores": [
+        1.0,
+        1.0,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "retrieved_aspect_scores": [
+        1.0,
+        1.0,
+        1.0,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "retrieved_passages_scored": 5,
+      "retrieval_assessment": {
+        "grounded_aspects": [
+          {
+            "aspect": "What correlation measures: statistical association between two variables, not proof of influence",
+            "score": 1.0,
+            "rationale": "E-5c808076648d and E-5de4d4429b6b directly support."
+          },
+          {
+            "aspect": "Confounding: a third variable driving both variables, creating a spurious association",
+            "score": 1.0,
+            "rationale": "Lurking variable in E-f1e4f3b46d38; ice cream/sunny weather in retrieved passage; exercise/skin cancer example starts in the reference; confounder statement present."
+          },
+          {
+            "aspect": "Reverse causation and coincidence: direction ambiguity and chance patterns producing misleading correlations",
+            "score": 0.5,
+            "rationale": "Chance and multiple comparisons are supported (E-f1e4f3b46d38, E-2c721a405e23, E-5de4d4429b6b); reverse causality is only implied in the reference excerpts."
+          },
+          {
+            "aspect": "Randomized controlled experiments: manipulating one variable to isolate its causal effect",
+            "score": 0.5,
+            "rationale": "Reference mentions rigorous experimental designs isolating the independent variable and random assignment (E-522f09ce633e), but no explicit randomized controlled experiment explanation; A/B is not in reference."
+          },
+          {
+            "aspect": "Observational causal methods: controlling for confounders, natural experiments, and longitudinal designs",
+            "score": 0.5,
+            "rationale": "Regression partial effects (E-2c721a405e23) and quasi-experimental methods like PSM/IV (E-522f09ce633e) are supported; natural experiments and longitudinal designs are not in the reference batch, and the script does not discuss PSM/IV."
+          },
+          {
+            "aspect": "Criteria and limits for causal claims: temporality, dose-response, plausibility, replication, and remaining uncertainty",
+            "score": 0.5,
+            "rationale": "Temporal precedence, covariation, elimination of alternatives supported (E-72dd9a46d25d); theory dependence supported. Dose-response and replication absent."
+          }
+        ],
+        "passage_relevance": [
+          {
+            "evidence_id": "E-f1e4f3b46d38",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-72dd9a46d25d",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-5c808076648d",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-2c721a405e23",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-0467345d085d",
+            "relevant": false
+          },
+          {
+            "evidence_id": "E-5de4d4429b6b",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-9c2be7f8fbf5",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-0f912d039161",
+            "relevant": false
+          },
+          {
+            "evidence_id": "E-5ef3a4339327",
+            "relevant": false
+          },
+          {
+            "evidence_id": "E-73d0155069c3",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-9669427fe11c",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-36fe6a7809b6",
+            "relevant": true
+          }
+        ],
+        "retrieved_aspects": [
+          {
+            "aspect": "What correlation measures: statistical association between two variables, not proof of influence",
+            "score": 1.0,
+            "rationale": "Clear in E-5c808076648d, E-5de4d4429b6b, E-f1e4f3b46d38."
+          },
+          {
+            "aspect": "Confounding: a third variable driving both variables, creating a spurious association",
+            "score": 1.0,
+            "rationale": "E-f1e4f3b46d38, E-9c2be7f8fbf5, E-9669427fe11c, E-36fe6a7809b6 cover it."
+          },
+          {
+            "aspect": "Reverse causation and coincidence: direction ambiguity and chance patterns producing misleading correlations",
+            "score": 1.0,
+            "rationale": "Chance in E-f1e4f3b46d38/E-5de4d4429b6b; reverse causality in E-73d0155069c3 and E-9669427fe11c."
+          },
+          {
+            "aspect": "Randomized controlled experiments: manipulating one variable to isolate its causal effect",
+            "score": 0.5,
+            "rationale": "Controlled experiments/A/B testing mentioned (E-36fe6a7809b6, E-72dd9a46d25d) but not randomization detail."
+          },
+          {
+            "aspect": "Observational causal methods: controlling for confounders, natural experiments, and longitudinal designs",
+            "score": 0.5,
+            "rationale": "Statistical tests isolating confounders, longitudinal measurement, E-value sensitivity are covered; natural experiments absent."
+          },
+          {
+            "aspect": "Criteria and limits for causal claims: temporality, dose-response, plausibility, replication, and remaining uncertainty",
+            "score": 0.5,
+            "rationale": "Temporal precedence, covariation, theory and unmeasured confounding covered; dose-response and replication missing."
+          }
+        ]
+      },
+      "revision_comparison": null,
+      "notes": "All scores are Claude judgments, not verified ground truth. Repair effectiveness compares coverage/narration, not factual truth. No revision or no retrieval is N/A rather than zero."
+    },
+    "metric_semantics": {
+      "reference_evidence_support_percent": "Evidence entailment within the frozen reference corpus; not factual accuracy.",
+      "query_coverage_percent": "Coverage of a fixed six-aspect checklist derived once per question from the question text and shared by all systems; missing/duplicate judge outputs are normalized against that fixed denominator.",
+      "query_relevance_percent": "Independent-model relevance judgement.",
+      "narration_input": "Coverage, relevance, narration and grounded-requirement judgements use the complete script with [E-...] evidence markers removed; claim extraction and citation metrics use the marked script. Aspect scores are continuous in [0, 1].",
+      "narration_quality_percent": "Ten-dimension spoken educational narration score; excludes factual truth.",
+      "citation_precision": "Share of emitted citation IDs that are identified as supporting the claim when verification is restricted to cited passages.",
+      "citation_recall": "Share of all citation-required extracted factual claims that have at least one cited passage judged to support the claim.",
+      "evaluation_estimated_llm_cost_usd": "Evaluator telemetry. CLI mode uses Claude Code's reported list-price equivalent; API mode uses the configured Anthropic per-token rates."
+    },
+    "evaluation_telemetry": {
+      "started_at": "2026-11-12T10:36:12.116086+00:00",
+      "ended_at": "2026-11-12T10:37:42.623852+00:00",
+      "wall_seconds": 90.51182489999974,
+      "retrieval_calls": 0,
+      "retrieved_documents": 0,
+      "llm_calls": [
+        {
+          "task": "script_claims",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 12.377729300000283,
+          "prompt_tokens": 3499,
+          "output_tokens": 2180,
+          "thinking_tokens": 0,
+          "total_tokens": 5679,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0326096,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0326096,
+            "cache_creation_input_tokens": 2681,
+            "cache_read_input_tokens": 816,
+            "session_id": "13bd8aec-5b84-4384-a902-45c955a204b3",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 5.222725999999966,
+          "prompt_tokens": 6498,
+          "output_tokens": 538,
+          "thinking_tokens": 0,
+          "total_tokens": 7036,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0272847,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0272847,
+            "cache_creation_input_tokens": 5449,
+            "cache_read_input_tokens": 1047,
+            "session_id": "29aabe19-68ea-40c1-87b7-c7af681c16ec",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 5.722191099999691,
+          "prompt_tokens": 9562,
+          "output_tokens": 628,
+          "thinking_tokens": 0,
+          "total_tokens": 10190,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.040440699999999996,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.040440699999999996,
+            "cache_creation_input_tokens": 8513,
+            "cache_read_input_tokens": 1047,
+            "session_id": "0f27a8f1-2cd7-41ec-9fbf-c99127daba60",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 5.667151999999987,
+          "prompt_tokens": 10515,
+          "output_tokens": 547,
+          "thinking_tokens": 0,
+          "total_tokens": 11062,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0434427,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0434427,
+            "cache_creation_input_tokens": 9466,
+            "cache_read_input_tokens": 1047,
+            "session_id": "4766244b-d70c-495f-b1c6-9554f54719b4",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 6.047444200000427,
+          "prompt_tokens": 9802,
+          "output_tokens": 594,
+          "thinking_tokens": 0,
+          "total_tokens": 10396,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0410607,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0410607,
+            "cache_creation_input_tokens": 8753,
+            "cache_read_input_tokens": 1047,
+            "session_id": "dedadf0e-bfa5-4861-bdbb-9f064051b8a6",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 5.698682799999915,
+          "prompt_tokens": 10922,
+          "output_tokens": 593,
+          "thinking_tokens": 0,
+          "total_tokens": 11515,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0455307,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0455307,
+            "cache_creation_input_tokens": 9873,
+            "cache_read_input_tokens": 1047,
+            "session_id": "160e7f3e-6d43-486a-8232-7354b75bb789",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 5.2571776999993745,
+          "prompt_tokens": 3266,
+          "output_tokens": 529,
+          "thinking_tokens": 0,
+          "total_tokens": 3795,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.014266699999999998,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.014266699999999998,
+            "cache_creation_input_tokens": 2217,
+            "cache_read_input_tokens": 1047,
+            "session_id": "ff54a668-c43b-423f-8043-4db5ce27ed17",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 5.49024879999979,
+          "prompt_tokens": 3975,
+          "output_tokens": 571,
+          "thinking_tokens": 0,
+          "total_tokens": 4546,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.017522700000000002,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.017522700000000002,
+            "cache_creation_input_tokens": 2926,
+            "cache_read_input_tokens": 1047,
+            "session_id": "b8a8fa77-b642-4d9b-a143-1e9485289a0c",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 5.957568199999514,
+          "prompt_tokens": 3235,
+          "output_tokens": 581,
+          "thinking_tokens": 0,
+          "total_tokens": 3816,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0146627,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0146627,
+            "cache_creation_input_tokens": 2186,
+            "cache_read_input_tokens": 1047,
+            "session_id": "7064d492-e9a1-4a87-8e57-b1656c91c740",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 6.172066600000107,
+          "prompt_tokens": 4007,
+          "output_tokens": 574,
+          "thinking_tokens": 0,
+          "total_tokens": 4581,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0176807,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0176807,
+            "cache_creation_input_tokens": 2958,
+            "cache_read_input_tokens": 1047,
+            "session_id": "9736a434-3bd0-46d1-b374-3422d5a71915",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 5.750605899999755,
+          "prompt_tokens": 4744,
+          "output_tokens": 612,
+          "thinking_tokens": 0,
+          "total_tokens": 5356,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.021008699999999998,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.021008699999999998,
+            "cache_creation_input_tokens": 3695,
+            "cache_read_input_tokens": 1047,
+            "session_id": "7c1b13f0-8b12-41e0-a70b-0a47ecbb1fd8",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "answer_fulfilment_and_narration_evaluation",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 7.974048799999764,
+          "prompt_tokens": 5812,
+          "output_tokens": 1211,
+          "thinking_tokens": 0,
+          "total_tokens": 7023,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.022097900000000004,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.022097900000000004,
+            "cache_creation_input_tokens": 2411,
+            "cache_read_input_tokens": 3399,
+            "session_id": "584b6dae-cafb-47bf-85cd-6fda37eb8569",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "grounded_requirements_and_retrieval_quality",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 10.405455600000096,
+          "prompt_tokens": 10217,
+          "output_tokens": 1649,
+          "thinking_tokens": 0,
+          "total_tokens": 11866,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0521007,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0521007,
+            "cache_creation_input_tokens": 8868,
+            "cache_read_input_tokens": 1347,
+            "session_id": "8586b20c-8f65-4c63-863d-4b372c9909a9",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        }
+      ]
+    },
+    "evaluation_provider": "anthropic",
+    "evaluation_access": "claude_code_cli",
+    "claude_access_method": "cli",
+    "claude_cli_version": "2.1.322 (Claude Code)",
+    "evaluation_model_requested": "claude-sonnet-5-5",
+    "evaluation_model": "claude-sonnet-5-5",
+    "evaluation_cli_reported_cost_usd": 0.3897092,
+    "evaluation_estimated_llm_cost_usd": 0.3897092,
+    "generation_provider": "gemini",
+    "generation_access": "google_api",
+    "generation_model_requested": "gemini-3.8-flash",
+    "generation_estimated_llm_cost_usd": 0.013996499999999999,
+    "combined_generation_plus_evaluation_estimated_llm_cost_usd": 0.4037057
+  }
+}

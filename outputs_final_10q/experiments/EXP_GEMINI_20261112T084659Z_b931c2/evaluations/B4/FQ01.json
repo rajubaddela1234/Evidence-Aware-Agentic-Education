@@ -1,0 +1,1608 @@
+{
+  "record": {
+    "experiment_id": "EXP_GEMINI_20261112T084659Z_b931c2",
+    "evaluated_script_sha256": "0329fa9dbc993a77d1285a5ae79e365a2b91ea150f0d016a43a9428179bf8006",
+    "reference_pool_sha256": "0899e5348f59a3ddbc42824411bed3819e6ee68f796c26591ff930d3015f929e",
+    "generation_config_sha256": "130fb20735098b5ae7683be72a40463c48605cdf59d320daa9f9373f43ee4512",
+    "prompt_version": "evidence-aware-10q-shared-checklist-clean-narration-v1.6.0",
+    "system_id": "B4",
+    "prompt_id": "FQ01",
+    "domain": "Computer Science / AI",
+    "reasoning_type": "conceptual",
+    "generation_provider": "gemini",
+    "generation_access": "google_api",
+    "generation_model": "gemini-3.8-flash",
+    "evaluator_provider": "anthropic",
+    "evaluator_model": "claude-sonnet-5-5",
+    "claim_count": 25,
+    "supported_claims": 17,
+    "partial_claims": 8,
+    "unsupported_claims": 0,
+    "contradicted_claims": 0,
+    "supported_claim_rate": 0.68,
+    "reference_evidence_support_percent": 84.0,
+    "query_coverage_percent": 92.5,
+    "query_relevance_percent": 95.0,
+    "narration_quality_percent": 92.5,
+    "citation_precision": 0.5272727272727272,
+    "citation_recall": 0.6,
+    "citation_f1": 0.5612903225806452,
+    "grounded_requirement_coverage_percent": 85.41667,
+    "context_precision_at_k": 1.0,
+    "context_recall_percent": 91.66666666666667,
+    "repair_effectiveness_points": null,
+    "requirement_preservation_rate": null,
+    "source_count": 9,
+    "source_type_count": 2,
+    "llm_calls": 3,
+    "prompt_tokens": 12792,
+    "output_tokens": 1912,
+    "thinking_tokens": 0,
+    "billable_output_tokens": 1912,
+    "retrieval_calls": 2,
+    "latency_seconds": 21.6305069,
+    "word_count": 763,
+    "estimated_llm_cost_usd": 0.016764,
+    "llm_call_latency_p50_seconds": 2.980806199999961,
+    "llm_call_latency_p90_seconds": 11.647109799999953
+  },
+  "details": {
+    "artifact_identity": {
+      "experiment_id": "EXP_GEMINI_20261112T084659Z_b931c2",
+      "evaluated_script_sha256": "0329fa9dbc993a77d1285a5ae79e365a2b91ea150f0d016a43a9428179bf8006",
+      "reference_pool_sha256": "0899e5348f59a3ddbc42824411bed3819e6ee68f796c26591ff930d3015f929e",
+      "generation_config_sha256": "130fb20735098b5ae7683be72a40463c48605cdf59d320daa9f9373f43ee4512",
+      "prompt_version": "evidence-aware-10q-shared-checklist-clean-narration-v1.6.0"
+    },
+    "narration_judged_script_sha256": "14cccdb25c5e3c256013103d4a9124da7e1538528ef312d61a2081094bb31233",
+    "question_checklist": {
+      "aspects": [
+        "The core idea of RAG: retrieving external documents at query time to supplement the LLM prompt",
+        "How the retrieval step works: indexing documents as embeddings and finding relevant passages for a query",
+        "How retrieved passages are inserted into the prompt so the model generates a grounded answer",
+        "Benefits over a plain LLM: fresher, domain-specific knowledge and fewer hallucinations",
+        "Failure modes in retrieval: irrelevant, incomplete, or poorly chunked passages leading to wrong answers",
+        "Failure modes in generation: model ignores, misreads, or contradicts context, or still hallucinates despite retrieval"
+      ],
+      "source": "derived_once_per_question_by_evaluator",
+      "aspects_sha256": "9c0447fe33107f32de0bcb816e5279a29648df3a91957ab18831c8a3c3d6009a",
+      "derived_at": "2026-11-12T08:56:02.620234+00:00",
+      "derived_by_model": "claude-sonnet-5-5",
+      "derivation_cost_usd": 0.013250000000000001,
+      "derived_in_this_call": false,
+      "file": "outputs_final_10q\\experiments\\EXP_GEMINI_20261112T084659Z_b931c2\\checklists\\FQ01.json"
+    },
+    "evaluation_claims": [
+      {
+        "claim_id": "C-85beea6282",
+        "text": "Large language models are fundamentally constrained by static training datasets.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-1efe445892aa",
+          "E-f18c6c0547b1"
+        ]
+      },
+      {
+        "claim_id": "C-8f50b350e3",
+        "text": "RAG bridges the knowledge gap of LLMs by supplying real-time external data.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-1efe445892aa",
+          "E-72eec4d5d70b"
+        ]
+      },
+      {
+        "claim_id": "C-e06a339fdb",
+        "text": "A standard LLM generates responses using only the parametric memory formed during its training phase.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-1efe445892aa",
+          "E-c4e33e10c219"
+        ]
+      },
+      {
+        "claim_id": "C-1235a22e55",
+        "text": "Pretraining a massive model is expensive, time-consuming, and fixed at a specific point in time.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-1efe445892aa",
+          "E-f18c6c0547b1",
+          "E-a5fca3600b75"
+        ]
+      },
+      {
+        "claim_id": "C-8cbeaa9f08",
+        "text": "An LLM's internal knowledge can become stale and it lacks private or domain-specific context.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-1efe445892aa",
+          "E-f18c6c0547b1",
+          "E-a5fca3600b75"
+        ]
+      },
+      {
+        "claim_id": "C-27b8c4ecdf",
+        "text": "Retrieval-augmented generation is an AI architecture first proposed in 2020 that combines an external information retrieval system with a generative language model.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-f18c6c0547b1",
+          "E-a5fca3600b75",
+          "E-8bc1fea94f1d"
+        ]
+      },
+      {
+        "claim_id": "C-29bbf7b131",
+        "text": "RAG retrieves relevant facts from external databases, document corpora, or internal knowledge repositories and feeds them into the model alongside the user's prompt.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-1efe445892aa",
+          "E-f18c6c0547b1",
+          "E-16ecfaec0d6b"
+        ]
+      },
+      {
+        "claim_id": "C-ea2fd2592d",
+        "text": "In the courtroom analogy, the LLM is the presiding judge and the retrieval system is the court clerk who pulls precedents, statutes, and case records from the law library.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-0887f6a03257"
+        ]
+      },
+      {
+        "claim_id": "C-f0e2de4f57",
+        "text": "The RAG workflow unfolds through distinct pipeline stages.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-72eec4d5d70b"
+        ]
+      },
+      {
+        "claim_id": "C-abb4eea647",
+        "text": "In RAG, external documents are ingested, parsed, and broken into chunks.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-f01ca28cd897",
+          "E-738017716a9c"
+        ]
+      },
+      {
+        "claim_id": "C-b649f84b5c",
+        "text": "A user query is pre-processed and sent to a retrieval engine.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-f18c6c0547b1",
+          "E-16ecfaec0d6b"
+        ]
+      },
+      {
+        "claim_id": "C-b7b9b2aaac",
+        "text": "The retrieval engine may use sparse algorithms like BM25 or TF-IDF, dense neural vector embeddings, or a hybrid approach combining full-text search with vector similarity search.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-e2cd98484ae9",
+          "E-16ecfaec0d6b"
+        ]
+      },
+      {
+        "claim_id": "C-2e6b001472",
+        "text": "Retrieved text segments are reranked, combined with the original user query, and formatted into an augmented prompt.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-e2cd98484ae9",
+          "E-1efe445892aa"
+        ]
+      },
+      {
+        "claim_id": "C-cd14494eff",
+        "text": "RAG lets the LLM formulate a grounded response from retrieved evidence without continual fine-tuning or retraining.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-1efe445892aa",
+          "E-a5fca3600b75",
+          "E-c4e33e10c219"
+        ]
+      },
+      {
+        "claim_id": "C-3ab49bb440",
+        "text": "RAG is not an absolute cure for errors, and breakdowns can occur at every stage of the pipeline.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-e2cd98484ae9",
+          "E-72eec4d5d70b"
+        ]
+      },
+      {
+        "claim_id": "C-a205a2db0a",
+        "text": "Researchers have documented dozens of RAG failure modes spanning ingestion, representation, retrieval, and generation.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-72eec4d5d70b"
+        ]
+      },
+      {
+        "claim_id": "C-29d502ebef",
+        "text": "If a necessary document was never ingested into the corpus, the retriever cannot find it, which frequently drives hallucinations.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-f01ca28cd897",
+          "E-738017716a9c"
+        ]
+      },
+      {
+        "claim_id": "C-707d75d26a",
+        "text": "Ingestion pipelines can introduce layout parsing errors, multimodal conversion loss, or stale data.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-738017716a9c"
+        ]
+      },
+      {
+        "claim_id": "C-0437f21eaf",
+        "text": "Retrieval systems frequently suffer from ranking failures and chunking boundary errors.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-47df9e47ed35",
+          "E-738017716a9c"
+        ]
+      },
+      {
+        "claim_id": "C-e14fd29798",
+        "text": "A vector search can experience semantic drift and fail to surface the top-ranked document even when it exists in the database.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-e2cd98484ae9",
+          "E-47df9e47ed35",
+          "E-738017716a9c"
+        ]
+      },
+      {
+        "claim_id": "C-1875a8e6b2",
+        "text": "When an answer depends on facts scattered across multiple chunks, standard retrievers often fail due to multi-hop reasoning gaps.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-738017716a9c",
+          "E-2374a141d5b4"
+        ]
+      },
+      {
+        "claim_id": "C-d42797a0d6",
+        "text": "Even when correct evidence is in the prompt, an LLM may ignore relevant context due to noise, conflicting text, or position-of-gold bias (extraction failure).",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-47df9e47ed35",
+          "E-738017716a9c"
+        ]
+      },
+      {
+        "claim_id": "C-86ca8758bb",
+        "text": "The model may return incorrect specificity, hallucinate despite having source material, or produce the wrong output format such as failing to generate structured JSON.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-e2cd98484ae9",
+          "E-47df9e47ed35",
+          "E-738017716a9c"
+        ]
+      },
+      {
+        "claim_id": "C-3648d08eaa",
+        "text": "Language models often struggle to recognize their capability boundaries and, without tuning to say 'I don't know,' may generate unsupported confident guesses when retrieved text is insufficient.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-f01ca28cd897",
+          "E-e2cd98484ae9",
+          "E-16ecfaec0d6b"
+        ]
+      },
+      {
+        "claim_id": "C-3f00072140",
+        "text": "RAG does not eliminate hallucinations entirely because errors can cascade through every step from missing documents and poor ranking to extraction failures and ungrounded generation.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-e2cd98484ae9",
+          "E-47df9e47ed35",
+          "E-738017716a9c"
+        ]
+      }
+    ],
+    "reference_verifications": [
+      {
+        "claim_id": "C-85beea6282",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-7f7c68cc0143",
+          "E-f18c6c0547b1",
+          "E-c2a41ab02aee"
+        ],
+        "rationale": "Evidence says LLMs rely primarily on training data and static training data, with knowledge boundaries; 'fundamentally constrained' is stronger wording."
+      },
+      {
+        "claim_id": "C-8f50b350e3",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-564b79e7d8fc",
+          "E-16ecfaec0d6b",
+          "E-f18c6c0547b1"
+        ],
+        "rationale": "RAG retrieves real-time/external information to fill the LLM's information gap."
+      },
+      {
+        "claim_id": "C-e06a339fdb",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-1efe445892aa",
+          "E-c2a41ab02aee",
+          "E-a5fca3600b75"
+        ],
+        "rationale": "Evidence says LLMs rely solely/primarily on training information; 'parametric memory' is mentioned elsewhere, but the exact claim is only loosely supported."
+      },
+      {
+        "claim_id": "C-1235a22e55",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-1efe445892aa",
+          "E-564b79e7d8fc",
+          "E-a5fca3600b75"
+        ],
+        "rationale": "Retraining is time-consuming and expensive, and models are trained at a specific time; pretraining a massive model specifically isn't directly stated."
+      },
+      {
+        "claim_id": "C-8cbeaa9f08",
+        "status": "supported",
+        "confidence": 0.88,
+        "evidence_ids": [
+          "E-7f7c68cc0143",
+          "E-1efe445892aa",
+          "E-f18c6c0547b1"
+        ],
+        "rationale": "Evidence states knowledge can become outdated, domain-specific info may be missing, and proprietary knowledge can't easily be injected."
+      },
+      {
+        "claim_id": "C-27b8c4ecdf",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-f18c6c0547b1",
+          "E-a5fca3600b75",
+          "E-236a269a4207"
+        ],
+        "rationale": "RAG is an AI architecture combining retrieval and generation; first proposed in 2020."
+      },
+      {
+        "claim_id": "C-29bbf7b131",
+        "status": "supported",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-f18c6c0547b1",
+          "E-a967ca153213",
+          "E-1efe445892aa"
+        ],
+        "rationale": "Retrieves from databases, corpora, knowledge bases, internal sources and combines with user's query in the prompt."
+      },
+      {
+        "claim_id": "C-ea2fd2592d",
+        "status": "supported",
+        "confidence": 0.88,
+        "evidence_ids": [
+          "E-0887f6a03257",
+          "E-8bc1fea94f1d"
+        ],
+        "rationale": "Courtroom analogy: judges as LLMs, clerks as RAG retrieving precedents from law library."
+      },
+      {
+        "claim_id": "C-f0e2de4f57",
+        "status": "supported",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-2b775a982408",
+          "E-6b988108462b"
+        ],
+        "rationale": "Standard RAG operates across indexing, retrieval, and generation stages."
+      },
+      {
+        "claim_id": "C-abb4eea647",
+        "status": "supported",
+        "confidence": 0.82,
+        "evidence_ids": [
+          "E-2b775a982408",
+          "E-893d96a40ba3"
+        ],
+        "rationale": "Indexing pipeline ingests and chunks documents; large documents are split into chunks. Parsing is not explicit but minor."
+      },
+      {
+        "claim_id": "C-b649f84b5c",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-16ecfaec0d6b"
+        ],
+        "rationale": "Input question is pre-processed and passed as a query to the retriever."
+      },
+      {
+        "claim_id": "C-b7b9b2aaac",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-16ecfaec0d6b",
+          "E-e2cd98484ae9"
+        ],
+        "rationale": "BM25/TF-IDF, neural dense/sparse retrieval, and hybrid full-text plus vector search are all described."
+      },
+      {
+        "claim_id": "C-2e6b001472",
+        "status": "partial",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "E-a967ca153213",
+          "E-b53a41d9f218",
+          "E-1efe445892aa",
+          "E-e2cd98484ae9"
+        ],
+        "rationale": "Evidence shows retrieved text combined with the user query into an enhanced prompt, and reranking as an optional step. It does not show reranking as a standard step before prompt formatting."
+      },
+      {
+        "claim_id": "C-cd14494eff",
+        "status": "partial",
+        "confidence": 0.72,
+        "evidence_ids": [
+          "E-6b988108462b",
+          "E-e467a376ca81",
+          "E-1efe445892aa",
+          "E-e2cd98484ae9"
+        ],
+        "rationale": "Evidence supports grounding responses in retrieved information and avoiding retraining for knowledge updates. It also says RAG reduces but does not remove the need for retraining, which weakens the claim."
+      },
+      {
+        "claim_id": "C-3ab49bb440",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-e2cd98484ae9",
+          "E-2b775a982408",
+          "E-65531683dea0"
+        ],
+        "rationale": "RAG does not prevent hallucinations, and failures occur across the pipeline from chunking through generation."
+      },
+      {
+        "claim_id": "C-a205a2db0a",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-72eec4d5d70b",
+          "E-d77039ee8316"
+        ],
+        "rationale": "Taxonomy of 33 failure modes across stages including ingestion, representation, retrieval, generation."
+      },
+      {
+        "claim_id": "C-29d502ebef",
+        "status": "supported",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-f01ca28cd897",
+          "E-738017716a9c"
+        ],
+        "rationale": "Missing content (doc not in corpus) is a primary failure point and contributes to most hallucinations per the post; retriever not finding it is implied."
+      },
+      {
+        "claim_id": "C-707d75d26a",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-738017716a9c",
+          "E-d77039ee8316"
+        ],
+        "rationale": "Ingestion failure modes listed: stale data, layout parsing errors, multimodality conversion loss."
+      },
+      {
+        "claim_id": "C-0437f21eaf",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-738017716a9c",
+          "E-2667715dd8e1"
+        ],
+        "rationale": "Chunking boundary errors and ranking failures are listed retrieval failure modes with evidence grades, but 'frequently suffer' frequency isn't directly established."
+      },
+      {
+        "claim_id": "C-e14fd29798",
+        "status": "partial",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "E-47df9e47ed35"
+        ],
+        "rationale": "Evidence supports retriever failing to surface the correct document though it existed (bad ranking), but 'semantic drift' as the cause isn't stated."
+      },
+      {
+        "claim_id": "C-1875a8e6b2",
+        "status": "supported",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-9e06873e6032"
+        ],
+        "rationale": "F9 Multi-Hop Reasoning Gaps: queries requiring connections across multiple documents are not served by single-step retrieval."
+      },
+      {
+        "claim_id": "C-d42797a0d6",
+        "status": "supported",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-47df9e47ed35",
+          "E-d77039ee8316",
+          "E-1d1dc928e86b"
+        ],
+        "rationale": "LLM ignored relevant context due to noise or ambiguity; position-of-gold bias and conflicting info listed as failure modes; position bias described."
+      },
+      {
+        "claim_id": "C-86ca8758bb",
+        "status": "supported",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-47df9e47ed35",
+          "E-d77039ee8316",
+          "E-e2cd98484ae9"
+        ],
+        "rationale": "Incorrect specificity, wrong output format (JSON), and hallucination despite context/around source material are all listed."
+      },
+      {
+        "claim_id": "C-3648d08eaa",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-e2cd98484ae9",
+          "E-47df9e47ed35"
+        ],
+        "rationale": "LLMs may struggle to recognize when they lack sufficient information; without specific training they generate answers rather than indicating uncertainty."
+      },
+      {
+        "claim_id": "C-3f00072140",
+        "status": "partial",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "E-e2cd98484ae9",
+          "E-d77039ee8316",
+          "E-73a3e8d98e5d"
+        ],
+        "rationale": "RAG doesn't eliminate hallucinations, and failures cascade downstream across stages; the specific chain of missing documents, ranking, extraction, generation is spread across evidence rather than stated as one cascade."
+      }
+    ],
+    "reference_evidence_ids_by_claim": {
+      "C-85beea6282": [
+        "E-f18c6c0547b1",
+        "E-f657643d50a2",
+        "E-c7e4f450e1ad",
+        "E-7f7c68cc0143",
+        "E-e467a376ca81"
+      ],
+      "C-8f50b350e3": [
+        "E-564b79e7d8fc",
+        "E-16ecfaec0d6b",
+        "E-c4115b8dc3ee",
+        "E-f18c6c0547b1",
+        "E-a5fca3600b75"
+      ],
+      "C-e06a339fdb": [
+        "E-c2a41ab02aee",
+        "E-c4e33e10c219",
+        "E-1dc27b15fc76",
+        "E-7fe3118cfe49",
+        "E-1efe445892aa"
+      ],
+      "C-1235a22e55": [
+        "E-1efe445892aa",
+        "E-3f902e8f53fe",
+        "E-a5fca3600b75",
+        "E-4532670b6bd4",
+        "E-f1119984145f"
+      ],
+      "C-8cbeaa9f08": [
+        "E-1e6f9158e232",
+        "E-53d9415db360",
+        "E-16ecfaec0d6b",
+        "E-f4096032fe72",
+        "E-f18c6c0547b1"
+      ],
+      "C-27b8c4ecdf": [
+        "E-a5fca3600b75",
+        "E-f18c6c0547b1",
+        "E-8bc1fea94f1d",
+        "E-236a269a4207",
+        "E-786ee6c8f214"
+      ],
+      "C-29bbf7b131": [
+        "E-a5fca3600b75",
+        "E-6b988108462b",
+        "E-a967ca153213",
+        "E-1efe445892aa",
+        "E-22f9716869a0"
+      ],
+      "C-ea2fd2592d": [
+        "E-0887f6a03257",
+        "E-f18c6c0547b1",
+        "E-1e6f9158e232",
+        "E-7b25e07e7019",
+        "E-73ed36a1d4a9"
+      ],
+      "C-f0e2de4f57": [
+        "E-2b775a982408",
+        "E-7c4519486d79",
+        "E-c8fae1611592",
+        "E-56878b7d53e7",
+        "E-f01ca28cd897"
+      ],
+      "C-abb4eea647": [
+        "E-6b988108462b",
+        "E-893d96a40ba3",
+        "E-2b775a982408",
+        "E-4a74dba9686e",
+        "E-c4115b8dc3ee"
+      ],
+      "C-b649f84b5c": [
+        "E-16ecfaec0d6b",
+        "E-6b988108462b",
+        "E-c4e33e10c219",
+        "E-1efe445892aa",
+        "E-e467a376ca81"
+      ],
+      "C-b7b9b2aaac": [
+        "E-e2cd98484ae9",
+        "E-16ecfaec0d6b",
+        "E-893d96a40ba3",
+        "E-0746fbe6b66e",
+        "E-8ff2075fa2f2"
+      ],
+      "C-2e6b001472": [
+        "E-6b988108462b",
+        "E-a967ca153213",
+        "E-1efe445892aa",
+        "E-893d96a40ba3",
+        "E-9f214a6265ff"
+      ],
+      "C-cd14494eff": [
+        "E-259e4752cb8d",
+        "E-b53a41d9f218",
+        "E-e467a376ca81",
+        "E-1efe445892aa",
+        "E-3ca559589e98"
+      ],
+      "C-3ab49bb440": [
+        "E-2b775a982408",
+        "E-1b80bdc37967",
+        "E-65531683dea0",
+        "E-1e6f9158e232",
+        "E-f355213050fe"
+      ],
+      "C-a205a2db0a": [
+        "E-72eec4d5d70b",
+        "E-f01ca28cd897",
+        "E-3f3cb131d388",
+        "E-8bc1fea94f1d",
+        "E-786ee6c8f214"
+      ],
+      "C-29d502ebef": [
+        "E-944f31429588",
+        "E-8b5564fcd61e",
+        "E-1ee36a150c65",
+        "E-5f33cee426c2",
+        "E-f01ca28cd897"
+      ],
+      "C-707d75d26a": [
+        "E-738017716a9c",
+        "E-1091f9f85e0b",
+        "E-2143111f0f64",
+        "E-47df9e47ed35",
+        "E-64c1432304c5"
+      ],
+      "C-0437f21eaf": [
+        "E-d77039ee8316",
+        "E-f916b137c85a",
+        "E-8b5564fcd61e",
+        "E-032de957d540",
+        "E-7f7c68cc0143"
+      ],
+      "C-e14fd29798": [
+        "E-e2cd98484ae9",
+        "E-893d96a40ba3",
+        "E-2667715dd8e1",
+        "E-1f3e1647aa26",
+        "E-0746fbe6b66e"
+      ],
+      "C-1875a8e6b2": [
+        "E-2374a141d5b4",
+        "E-9e06873e6032",
+        "E-764fd7baabd6",
+        "E-9f214a6265ff",
+        "E-7fe3118cfe49"
+      ],
+      "C-d42797a0d6": [
+        "E-1d1dc928e86b",
+        "E-d77039ee8316",
+        "E-47df9e47ed35",
+        "E-0e34599e268c",
+        "E-1ee36a150c65"
+      ],
+      "C-86ca8758bb": [
+        "E-47df9e47ed35",
+        "E-d77039ee8316",
+        "E-e2cd98484ae9",
+        "E-21060fffdfe2",
+        "E-f659feb48eea"
+      ],
+      "C-3648d08eaa": [
+        "E-e2cd98484ae9",
+        "E-6665448fc49c",
+        "E-47df9e47ed35",
+        "E-1d1dc928e86b",
+        "E-2b932edf7406"
+      ],
+      "C-3f00072140": [
+        "E-e2cd98484ae9",
+        "E-fd8b411ad4df",
+        "E-7fe3118cfe49",
+        "E-764fd7baabd6",
+        "E-73a3e8d98e5d"
+      ]
+    },
+    "citation_entailment_verifications": [
+      {
+        "claim_id": "C-85beea6282",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-1efe445892aa",
+          "E-f18c6c0547b1"
+        ],
+        "rationale": "Evidence says LLMs rely on stale, static training data and contrast RAG with LLMs relying on static training data."
+      },
+      {
+        "claim_id": "C-8f50b350e3",
+        "status": "supported",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-1efe445892aa"
+        ],
+        "rationale": "RAG retrieves up-to-date information from sources and feeds it to the LLM to fix out-of-date/generic responses. 'Real-time' is slightly stronger than 'up-to-date'."
+      },
+      {
+        "claim_id": "C-e06a339fdb",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-1efe445892aa",
+          "E-c4e33e10c219"
+        ],
+        "rationale": "E-1efe says an LLM relies solely on the information it's trained on; E-c4e discusses parametric memory compressing pre-training data. Neither explicitly states responses use only parametric memory, though it is close."
+      },
+      {
+        "claim_id": "C-1235a22e55",
+        "status": "partial",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "E-1efe445892aa",
+          "E-a5fca3600b75"
+        ],
+        "rationale": "Retraining/fine-tuning is described as time-consuming and expensive, and training data as static; pretraining specifically and fixed point in time are only implied."
+      },
+      {
+        "claim_id": "C-8cbeaa9f08",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-1efe445892aa",
+          "E-f18c6c0547b1"
+        ],
+        "rationale": "Stale training data yields out-of-date responses; RAG lets LLMs use domain-specific and updated information not available in training data, and company-internal data."
+      },
+      {
+        "claim_id": "C-27b8c4ecdf",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-a5fca3600b75",
+          "E-f18c6c0547b1"
+        ],
+        "rationale": "E-a5fca says RAG is an AI architecture combining (list omitted) and retrieves from external data sources; E-f18c says first proposed in 2020 and incorporates information retrieval before LLM generation."
+      },
+      {
+        "claim_id": "C-29bbf7b131",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-16ecfaec0d6b",
+          "E-1efe445892aa",
+          "E-f18c6c0547b1"
+        ],
+        "rationale": "Evidence describes retrieval from databases, document corpora, knowledge bases, internal sources, and combining with the user's query in an enhanced prompt fed to the LLM."
+      },
+      {
+        "claim_id": "C-ea2fd2592d",
+        "status": "partial",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "E-0887f6a03257"
+        ],
+        "rationale": "Analogy has judges and court clerks sent to a law library for precedents and cases, and RAG as the court clerk; the LLM as judge is implied ('Like a good judge, LLMs'). Statutes and case records are not explicitly mentioned."
+      },
+      {
+        "claim_id": "C-f0e2de4f57",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-72eec4d5d70b"
+        ],
+        "rationale": "Evidence mentions 7 pipeline stages for RAG systems (ingestion, representation, retrieval, etc.), supporting distinct stages, though it frames them in the context of failure modes rather than the workflow itself."
+      },
+      {
+        "claim_id": "C-abb4eea647",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-738017716a9c",
+          "E-f01ca28cd897"
+        ],
+        "rationale": "Evidence refers to ingestion, layout parsing errors, and chunking boundary errors, implying documents are ingested, parsed, and chunked, but it does not directly describe this process."
+      },
+      {
+        "claim_id": "C-b649f84b5c",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-16ecfaec0d6b"
+        ],
+        "rationale": "E-16ecfaec0d6b states the input question is pre-processed and passed as a query to the retriever."
+      },
+      {
+        "claim_id": "C-b7b9b2aaac",
+        "status": "partial",
+        "confidence": 0.75,
+        "evidence_ids": [
+          "E-16ecfaec0d6b",
+          "E-e2cd98484ae9"
+        ],
+        "rationale": "E-16ecfaec0d6b supports BM25/TF-IDF and neural dense or sparse retrieval. E-e2cd98484ae9 supports hybrid full-text plus vector search. The sparse-versus-dense mapping is loosely stated, but the content is mostly covered."
+      },
+      {
+        "claim_id": "C-2e6b001472",
+        "status": "supported",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-1efe445892aa",
+          "E-e2cd98484ae9"
+        ],
+        "rationale": "E-e2cd98484ae9 describes reranking scoring of retrieved text chunks fed to the model. E-1efe445892aa describes combining retrieved information with the user query into an enhanced prompt."
+      },
+      {
+        "claim_id": "C-cd14494eff",
+        "status": "supported",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-a5fca3600b75",
+          "E-1efe445892aa",
+          "E-c4e33e10c219"
+        ],
+        "rationale": "E-a5fca3600b75 says fine-tuning every time data changes is expensive and that RAG retrieves information dynamically instead. E-1efe445892aa says retraining is costly and RAG lets the model respond using retrieved data. E-c4e33e10c219 describes using the LLM to process retrieved information."
+      },
+      {
+        "claim_id": "C-3ab49bb440",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-72eec4d5d70b",
+          "E-e2cd98484ae9"
+        ],
+        "rationale": "E-e2cd98484ae9 says RAG does not prevent hallucinations or eliminate all challenges. E-72eec4d5d70b describes failure modes across 7 pipeline stages."
+      },
+      {
+        "claim_id": "C-a205a2db0a",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-72eec4d5d70b"
+        ],
+        "rationale": "Taxonomy of 33 failure modes across stages including ingestion, representation, retrieval, generation."
+      },
+      {
+        "claim_id": "C-29d502ebef",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-f01ca28cd897",
+          "E-738017716a9c"
+        ],
+        "rationale": "Missing content: doc not in corpus, contributes to most hallucinations (author's experience); taxonomy lists missing documents as ingestion failure."
+      },
+      {
+        "claim_id": "C-707d75d26a",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-738017716a9c"
+        ],
+        "rationale": "Table lists Outdated/Stale Data, Layout Parsing Errors, Multimodality Conversion Loss as ingestion failures."
+      },
+      {
+        "claim_id": "C-0437f21eaf",
+        "status": "partial",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "E-738017716a9c"
+        ],
+        "rationale": "Chunking boundary errors and ranking failures are listed as retrieval failure modes, but 'frequently' is not directly supported (evidence graded Strong/Moderate, not frequency)."
+      },
+      {
+        "claim_id": "C-e14fd29798",
+        "status": "partial",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "E-47df9e47ed35"
+        ],
+        "rationale": "Retriever missing top-ranked document even though it existed is supported; semantic drift and vector search specifically are not directly stated (embedding drift is listed in representation, not tied to this)."
+      },
+      {
+        "claim_id": "C-1875a8e6b2",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-738017716a9c",
+          "E-2374a141d5b4"
+        ],
+        "rationale": "Evidence lists Multi-Hop Reasoning Gaps as a retrieval failure mode and says systems fail multi-hop inference, but doesn't say 'standard retrievers often fail' or about scattered chunks specifically."
+      },
+      {
+        "claim_id": "C-d42797a0d6",
+        "status": "supported",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-47df9e47ed35",
+          "E-738017716a9c"
+        ],
+        "rationale": "E-47df9e47ed35 says the LLM ignored relevant context due to noise or ambiguity; E-738017716a9c lists conflicting info and position-of-gold bias."
+      },
+      {
+        "claim_id": "C-86ca8758bb",
+        "status": "supported",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-47df9e47ed35",
+          "E-738017716a9c",
+          "E-e2cd98484ae9"
+        ],
+        "rationale": "Incorrect specificity, wrong output format (JSON), and hallucination despite source material are all listed."
+      },
+      {
+        "claim_id": "C-3648d08eaa",
+        "status": "supported",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-e2cd98484ae9",
+          "E-f01ca28cd897"
+        ],
+        "rationale": "Wikipedia says LLMs may struggle to recognize insufficient information and, without specific training, generate answers instead of indicating uncertainty; the other post supports 'I don't know'. 'Capability boundary' is also named in E-16ecfaec0d6b."
+      },
+      {
+        "claim_id": "C-3f00072140",
+        "status": "partial",
+        "confidence": 0.65,
+        "evidence_ids": [
+          "E-e2cd98484ae9",
+          "E-47df9e47ed35",
+          "E-738017716a9c"
+        ],
+        "rationale": "RAG not eliminating hallucinations is supported, and failure points across stages are listed, but the 'cascade through every step' framing isn't directly stated."
+      }
+    ],
+    "quality": {
+      "aspect_scores": [
+        {
+          "aspect": "The core idea of RAG: retrieving external documents at query time to supplement the LLM prompt",
+          "score": 1.0,
+          "rationale": "Clearly defined with judge/clerk analogy."
+        },
+        {
+          "aspect": "How the retrieval step works: indexing documents as embeddings and finding relevant passages for a query",
+          "score": 0.85,
+          "rationale": "Chunking, dense embeddings, BM25, hybrid explained; embedding indexing only briefly implied."
+        },
+        {
+          "aspect": "How retrieved passages are inserted into the prompt so the model generates a grounded answer",
+          "score": 0.9,
+          "rationale": "Reranked, combined with query into augmented prompt, grounded response."
+        },
+        {
+          "aspect": "Benefits over a plain LLM: fresher, domain-specific knowledge and fewer hallucinations",
+          "score": 0.9,
+          "rationale": "Stale knowledge, private/domain context, up-to-date retrieval covered; hallucination reduction implied."
+        },
+        {
+          "aspect": "Failure modes in retrieval: irrelevant, incomplete, or poorly chunked passages leading to wrong answers",
+          "score": 0.9,
+          "rationale": "Missing content, ranking failures, chunk boundary errors, multi-hop gaps."
+        },
+        {
+          "aspect": "Failure modes in generation: model ignores, misreads, or contradicts context, or still hallucinates despite retrieval",
+          "score": 1.0,
+          "rationale": "Ignoring context, noise, hallucinating despite source, overconfident guesses."
+        }
+      ],
+      "covered_aspects": [
+        "The core idea of RAG: retrieving external documents at query time to supplement the LLM prompt",
+        "How the retrieval step works: indexing documents as embeddings and finding relevant passages for a query",
+        "How retrieved passages are inserted into the prompt so the model generates a grounded answer",
+        "Benefits over a plain LLM: fresher, domain-specific knowledge and fewer hallucinations",
+        "Failure modes in retrieval: irrelevant, incomplete, or poorly chunked passages leading to wrong answers",
+        "Failure modes in generation: model ignores, misreads, or contradicts context, or still hallucinates despite retrieval"
+      ],
+      "partially_covered_aspects": [],
+      "missing_aspects": [],
+      "coverage_score": 0.9249999999999999,
+      "coverage_rationale": "All aspects explained; embedding indexing slightly thin.",
+      "relevance_score": 0.95,
+      "relevance_rationale": "Almost entirely on topic.",
+      "opening_orientation_score": 4,
+      "introduction_roadmap_score": 4,
+      "definitions_foundations_score": 4,
+      "explanatory_depth_score": 3,
+      "examples_applications_score": 4,
+      "organization_transitions_score": 4,
+      "clarity_accessibility_score": 3,
+      "spoken_naturalness_score": 3,
+      "conclusion_takeaway_score": 4,
+      "reflective_ending_score": 4,
+      "narration_rationale": "Well organized, with an analogy and a reflective closing question; a bit jargon-dense in places."
+    },
+    "additional_metric_details": {
+      "grounded_requirement_coverage_percent": 85.41667,
+      "context_precision_at_k": 1.0,
+      "context_recall_percent": 91.66666666666667,
+      "retrieval_k": 5,
+      "grounded_aspect_scores": [
+        1.0,
+        0.5,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "retrieved_aspect_scores": [
+        1.0,
+        0.5,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "retrieved_passages_scored": 5,
+      "retrieval_assessment": {
+        "grounded_aspects": [
+          {
+            "aspect": "The core idea of RAG: retrieving external documents at query time to supplement the LLM prompt",
+            "score": 1.0,
+            "rationale": "Directly supported by E-f01ca28cd897-type, E-1efe445892aa, E-a5fca3600b75 (retrieves dynamically at query time, enhanced prompt)."
+          },
+          {
+            "aspect": "How the retrieval step works: indexing documents as embeddings and finding relevant passages for a query",
+            "score": 0.5,
+            "rationale": "BM25/TF-IDF/dense retrieval and hybrid search supported (E-16ecfaec0d6b, E-e2cd98484ae9); embedding indexing and chunking not explicitly described."
+          },
+          {
+            "aspect": "How retrieved passages are inserted into the prompt so the model generates a grounded answer",
+            "score": 1.0,
+            "rationale": "E-1efe445892aa: combines retrieved info with the user's query into an enhanced prompt fed to the LLM."
+          },
+          {
+            "aspect": "Benefits over a plain LLM: fresher, domain-specific knowledge and fewer hallucinations",
+            "score": 1.0,
+            "rationale": "E-1efe445892aa, E-a5fca3600b75, E-c4e33e10c219 support fresher knowledge, avoiding retraining; E-2cd... notes RAG improves accuracy."
+          },
+          {
+            "aspect": "Failure modes in retrieval: irrelevant, incomplete, or poorly chunked passages leading to wrong answers",
+            "score": 1.0,
+            "rationale": "E-738017716a9c lists chunking boundary errors, ranking failures, multi-hop gaps, missing documents; E-f01ca28cd897 covers missing content."
+          },
+          {
+            "aspect": "Failure modes in generation: model ignores, misreads, or contradicts context, or still hallucinates despite retrieval",
+            "score": 1.0,
+            "rationale": "E-738017716a9c lists hallucination despite context, conflicting info, incorrect specificity, wrong format; E-e2cd98484ae9 notes LLM can still hallucinate and struggles to recognize limits; E-16ecfaec0d6b mentions context noise/conflict/capability boundary."
+          }
+        ],
+        "passage_relevance": [
+          {
+            "evidence_id": "E-f01ca28cd897",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-e2cd98484ae9",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-1efe445892aa",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-0887f6a03257",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-f18c6c0547b1",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-16ecfaec0d6b",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-a5fca3600b75",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-738017716a9c",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-8bc1fea94f1d",
+            "relevant": false
+          },
+          {
+            "evidence_id": "E-47df9e47ed35",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-6665448fc49c",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-7f7c68cc0143",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-2374a141d5b4",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-72eec4d5d70b",
+            "relevant": false
+          },
+          {
+            "evidence_id": "E-1e6f9158e232",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-c4e33e10c219",
+            "relevant": true
+          }
+        ],
+        "retrieved_aspects": [
+          {
+            "aspect": "The core idea of RAG: retrieving external documents at query time to supplement the LLM prompt",
+            "score": 1.0,
+            "rationale": "Covered by E-1efe445892aa, E-a5fca3600b75, E-f18c6c0547b1."
+          },
+          {
+            "aspect": "How the retrieval step works: indexing documents as embeddings and finding relevant passages for a query",
+            "score": 0.5,
+            "rationale": "Retrieval engines (BM25, dense) and hybrid search mentioned; embedding indexing not explained."
+          },
+          {
+            "aspect": "How retrieved passages are inserted into the prompt so the model generates a grounded answer",
+            "score": 1.0,
+            "rationale": "E-1efe445892aa describes enhanced prompt combining retrieved info with query."
+          },
+          {
+            "aspect": "Benefits over a plain LLM: fresher, domain-specific knowledge and fewer hallucinations",
+            "score": 1.0,
+            "rationale": "E-f18c6c0547b1, E-7f7c68cc0143, E-6665448fc49c cover updated/domain-specific knowledge and reduced hallucinations."
+          },
+          {
+            "aspect": "Failure modes in retrieval: irrelevant, incomplete, or poorly chunked passages leading to wrong answers",
+            "score": 1.0,
+            "rationale": "E-47df9e47ed35, E-738017716a9c, E-f01ca28cd897 cover missing content, bad ranking, chunking errors."
+          },
+          {
+            "aspect": "Failure modes in generation: model ignores, misreads, or contradicts context, or still hallucinates despite retrieval",
+            "score": 1.0,
+            "rationale": "E-47df9e47ed35 (ignored context), E-738017716a9c, E-1e6f9158e232, E-e2cd98484ae9 cover generation failures."
+          }
+        ]
+      },
+      "revision_comparison": null,
+      "notes": "All scores are Claude judgments, not verified ground truth. Repair effectiveness compares coverage/narration, not factual truth. No revision or no retrieval is N/A rather than zero."
+    },
+    "metric_semantics": {
+      "reference_evidence_support_percent": "Evidence entailment within the frozen reference corpus; not factual accuracy.",
+      "query_coverage_percent": "Coverage of a fixed six-aspect checklist derived once per question from the question text and shared by all systems; missing/duplicate judge outputs are normalized against that fixed denominator.",
+      "query_relevance_percent": "Independent-model relevance judgement.",
+      "narration_input": "Coverage, relevance, narration and grounded-requirement judgements use the complete script with [E-...] evidence markers removed; claim extraction and citation metrics use the marked script. Aspect scores are continuous in [0, 1].",
+      "narration_quality_percent": "Ten-dimension spoken educational narration score; excludes factual truth.",
+      "citation_precision": "Share of emitted citation IDs that are identified as supporting the claim when verification is restricted to cited passages.",
+      "citation_recall": "Share of all citation-required extracted factual claims that have at least one cited passage judged to support the claim.",
+      "evaluation_estimated_llm_cost_usd": "Evaluator telemetry. CLI mode uses Claude Code's reported list-price equivalent; API mode uses the configured Anthropic per-token rates."
+    },
+    "evaluation_telemetry": {
+      "started_at": "2026-11-12T09:04:18.249530+00:00",
+      "ended_at": "2026-11-12T09:06:33.336968+00:00",
+      "wall_seconds": 135.0864603,
+      "retrieval_calls": 0,
+      "retrieved_documents": 0,
+      "llm_calls": [
+        {
+          "task": "script_claims",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 14.846948299999895,
+          "prompt_tokens": 3654,
+          "output_tokens": 2076,
+          "thinking_tokens": 0,
+          "total_tokens": 5730,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0321896,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0321896,
+            "cache_creation_input_tokens": 2836,
+            "cache_read_input_tokens": 816,
+            "session_id": "63beaf9a-6ec2-4f8a-9619-45f65e9dc937",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 8.673936899999944,
+          "prompt_tokens": 10402,
+          "output_tokens": 688,
+          "thinking_tokens": 0,
+          "total_tokens": 11090,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0444007,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0444007,
+            "cache_creation_input_tokens": 9353,
+            "cache_read_input_tokens": 1047,
+            "session_id": "896e7001-cb5f-47f8-a4fc-950be8e7a95a",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 7.51957450000009,
+          "prompt_tokens": 10579,
+          "output_tokens": 592,
+          "thinking_tokens": 0,
+          "total_tokens": 11171,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0441487,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0441487,
+            "cache_creation_input_tokens": 9530,
+            "cache_read_input_tokens": 1047,
+            "session_id": "398e614d-b87c-4469-9c47-fcf35065a125",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 8.426841599999989,
+          "prompt_tokens": 9966,
+          "output_tokens": 664,
+          "thinking_tokens": 0,
+          "total_tokens": 10630,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0424167,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0424167,
+            "cache_creation_input_tokens": 8917,
+            "cache_read_input_tokens": 1047,
+            "session_id": "08c2cce0-1f0f-44da-9e2c-704e5d998148",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 8.438946600000008,
+          "prompt_tokens": 11986,
+          "output_tokens": 603,
+          "thinking_tokens": 0,
+          "total_tokens": 12589,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.049886700000000006,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.049886700000000006,
+            "cache_creation_input_tokens": 10937,
+            "cache_read_input_tokens": 1047,
+            "session_id": "97b9e2dc-0ee4-4a7f-9cd6-2d3e331ec716",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 8.184266499999922,
+          "prompt_tokens": 9851,
+          "output_tokens": 673,
+          "thinking_tokens": 0,
+          "total_tokens": 10524,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.042046700000000006,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.042046700000000006,
+            "cache_creation_input_tokens": 8802,
+            "cache_read_input_tokens": 1047,
+            "session_id": "cc012cf5-e87c-48e4-9b3f-8c06f34fb91c",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 8.445524199999909,
+          "prompt_tokens": 4189,
+          "output_tokens": 659,
+          "thinking_tokens": 0,
+          "total_tokens": 4848,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0192587,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0192587,
+            "cache_creation_input_tokens": 3140,
+            "cache_read_input_tokens": 1047,
+            "session_id": "4d2e5816-3e20-4505-b665-28e49cfc6edd",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 9.385131999999885,
+          "prompt_tokens": 6074,
+          "output_tokens": 737,
+          "thinking_tokens": 0,
+          "total_tokens": 6811,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.027578699999999998,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.027578699999999998,
+            "cache_creation_input_tokens": 5025,
+            "cache_read_input_tokens": 1047,
+            "session_id": "474e46b4-703a-4cac-a500-d832322618b2",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 9.21924469999999,
+          "prompt_tokens": 5035,
+          "output_tokens": 778,
+          "thinking_tokens": 0,
+          "total_tokens": 5813,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0238327,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0238327,
+            "cache_creation_input_tokens": 3986,
+            "cache_read_input_tokens": 1047,
+            "session_id": "35b5784a-aad8-4dcd-9f9e-38f7eacf36b1",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 8.418465100000049,
+          "prompt_tokens": 4584,
+          "output_tokens": 606,
+          "thinking_tokens": 0,
+          "total_tokens": 5190,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0203087,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0203087,
+            "cache_creation_input_tokens": 3535,
+            "cache_read_input_tokens": 1047,
+            "session_id": "7de88cfc-0da9-453d-a802-adbbfc480f22",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 8.808617200000072,
+          "prompt_tokens": 5033,
+          "output_tokens": 728,
+          "thinking_tokens": 0,
+          "total_tokens": 5761,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.023324699999999997,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.023324699999999997,
+            "cache_creation_input_tokens": 3984,
+            "cache_read_input_tokens": 1047,
+            "session_id": "2fd3ba2f-40b8-435f-aa2b-ff2a0e5f6cf3",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "answer_fulfilment_and_narration_evaluation",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 10.606008699999848,
+          "prompt_tokens": 5891,
+          "output_tokens": 1146,
+          "thinking_tokens": 0,
+          "total_tokens": 7037,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.021763900000000003,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.021763900000000003,
+            "cache_creation_input_tokens": 2490,
+            "cache_read_input_tokens": 3399,
+            "session_id": "827ffb77-c245-4b17-8e61-b3ef1eeb8cdb",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "grounded_requirements_and_retrieval_quality",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 14.133788300000106,
+          "prompt_tokens": 13754,
+          "output_tokens": 1817,
+          "thinking_tokens": 0,
+          "total_tokens": 15571,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0679287,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0679287,
+            "cache_creation_input_tokens": 12405,
+            "cache_read_input_tokens": 1347,
+            "session_id": "112c3b8c-b457-4dc8-97ed-b5c0f8896f10",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        }
+      ]
+    },
+    "evaluation_provider": "anthropic",
+    "evaluation_access": "claude_code_cli",
+    "claude_access_method": "cli",
+    "claude_cli_version": "2.1.322 (Claude Code)",
+    "evaluation_model_requested": "claude-sonnet-5-5",
+    "evaluation_model": "claude-sonnet-5-5",
+    "evaluation_cli_reported_cost_usd": 0.4590852,
+    "evaluation_estimated_llm_cost_usd": 0.4590852,
+    "generation_provider": "gemini",
+    "generation_access": "google_api",
+    "generation_model_requested": "gemini-3.8-flash",
+    "generation_estimated_llm_cost_usd": 0.016764,
+    "combined_generation_plus_evaluation_estimated_llm_cost_usd": 0.4758492
+  }
+}

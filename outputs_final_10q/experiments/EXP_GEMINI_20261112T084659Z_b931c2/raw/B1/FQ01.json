@@ -1,0 +1,53 @@
+{
+  "system_id": "B1",
+  "system_name": "Direct LLM",
+  "prompt_id": "FQ01",
+  "query": "How does retrieval-augmented generation improve LLM answers, and what can go wrong?",
+  "domain": "Computer Science / AI",
+  "reasoning_type": "conceptual",
+  "script": "Welcome. Today, we are exploring Retrieval-Augmented Generation, commonly known as RAG, and examining how it fundamentally alters the way large language models generate information. \n\nLarge language models are impressive, but they suffer from fixed knowledge cutoffs and a tendency to invent plausible-sounding falsehoods. By augmenting these models with an external search mechanism, we can ground their outputs in verified facts. Over the next few minutes, we will unpack how this architecture works, walk through the end-to-end mechanism that improves model answers, and then critically evaluate the specific failure modes that can still lead the system astray.\n\nTo understand RAG, we first have to understand the limitation it addresses. When a standard large language model, or LLM, answers a prompt, it relies entirely on its parametric memory—that is, the statistical weights established during its training phase. Once training ends, that memory is frozen. It cannot reliably report on events from yesterday, nor can it inspect private institutional documents. Retrieval-Augmented Generation bridges this gap by introducing non-parametric memory: an external database of text that the system can search dynamically at runtime. Instead of relying solely on what it remembers, the model acts more like a researcher consulting reference texts before writing a response.\n\nThe standard RAG pipeline operates through three core stages: retrieval, augmentation, and generation. \n\nFirst comes retrieval. When a user submits a query, the system transforms that text into a mathematical vector called an embedding. This embedding captures the semantic meaning of the question, not just its exact keywords. The system then searches an external vector database containing thousands or millions of pre-chunked documents that have undergone the same embedding process. Using algorithms that calculate vector proximity, such as cosine similarity, the system identifies the document chunks that are most conceptually relevant to the user's inquiry.\n\nNext is augmentation. Rather than sending just the user's original query directly to the LLM, the system constructs a combined prompt. It inserts the retrieved text excerpts alongside the original question, often framed with explicit instructions such as, \"Answer the question using only the provided context.\" \n\nFinally, generation takes place. The language model processes this combined prompt. Because the necessary facts are right there in its context window, the model functions primarily as a synthesizer and summarizer rather than an unconstrained recall engine. This design brings three major benefits: it drastically reduces factual hallucinations, allows organizations to ground responses in proprietary or rapidly updating data without expensive retraining, and enables verifiable source attribution, since the system can cite the exact retrieved chunks it used.\n\nTo make this concrete, imagine a hospital system deploying an assistant for internal medical staff. A physician asks, \"What is our updated protocol for treating acute postoperative hypocalcemia?\" A purely parametric LLM might blend general textbook knowledge with out-of-date guidelines from two years ago. In a RAG architecture, however, the system first retrieves the hospital’s specific, signed clinical memo from last month, inserts those exact dosage tables into the prompt, and directs the model to summarize them. The physician receives an answer that is current, locally compliant, and backed by a direct link to the hospital’s internal policy.\n\nDespite these clear advantages, RAG is not an infallible cure for AI errors. Significant vulnerabilities exist across every stage of the pipeline.\n\nThe first major failure mode occurs during retrieval. If the search step suffers from low recall, the system fails to fetch the critical document needed to answer the question. Conversely, if it suffers from low precision, it floods the context window with irrelevant or contradictory noise. When the retriever surfaces outdated or incorrect information, the downstream generator will faithfully reproduce that error, creating what engineers call \"garbage in, garbage out.\"\n\nThe second failure mode lies in synthesis. Large language models exhibit an attention bias often described as \"lost in the middle.\" When given a long prompt containing multiple retrieved passages, models tend to pay close attention to information at the very beginning and very end of the text, while overlooking vital facts buried in the middle. Furthermore, if the retrieved excerpts contradict one another, the model may struggle to reconcile them and arbitrarily hallucinate a compromise that is factually wrong.\n\nFinally, RAG systems face security risks, notably indirect prompt injection. If an adversary plants malicious instructions inside an external document that the retriever fetches, those instructions can hijack the language model's behavior, causing it to ignore system safeguards or leak sensitive data.\n\nIn summary, Retrieval-Augmented Generation transforms language models from closed-book memorizers into open-book synthesizers. It drastically improves factual accuracy, recency, and verifiability by anchoring generated responses to retrieved reference materials. Yet, its success depends entirely on the quality of that retrieval pipeline and the model's ability to interpret noisy, conflicting context without losing focus.\n\nAs you consider deploying or relying on these systems, ask yourself: How can we design retrieval mechanisms that know when a reliable answer simply does not exist in the database? And how should a system communicate that uncertainty to a user who expects an immediate answer?",
+  "sources": [],
+  "evidence": [],
+  "claims": [],
+  "verifications": [],
+  "contradictions": [],
+  "metadata": {
+    "generation_provider": "gemini",
+    "generation_access": "google_api",
+    "generation_model_requested": "gemini-3.8-flash"
+  },
+  "telemetry": {
+    "started_at": "2026-11-12T08:57:19.865940+00:00",
+    "ended_at": "2026-11-12T08:57:36.706655+00:00",
+    "wall_seconds": 16.84232689999999,
+    "retrieval_calls": 0,
+    "retrieved_documents": 0,
+    "llm_calls": [
+      {
+        "task": "b1_direct_generation",
+        "model": "gemini-3.8-flash",
+        "provider": "google",
+        "latency_seconds": 10.748911900000053,
+        "prompt_tokens": 1027,
+        "output_tokens": 1025,
+        "thinking_tokens": 0,
+        "total_tokens": 2052,
+        "input_cost_usd": 0.0007702499999999999,
+        "output_cost_usd": 0.0038437500000000004,
+        "total_cost_usd": 0.004614,
+        "attempts": 1,
+        "metadata": {}
+      }
+    ]
+  },
+  "experiment_id": "EXP_GEMINI_20261112T084659Z_b931c2",
+  "script_sha256": "152800a5825491074f893b80e079853efd34f211c59d3a0dc4b58566ca2238d4",
+  "reference_pool_sha256": "0899e5348f59a3ddbc42824411bed3819e6ee68f796c26591ff930d3015f929e",
+  "generation_config_sha256": "130fb20735098b5ae7683be72a40463c48605cdf59d320daa9f9373f43ee4512",
+  "prompt_version": "evidence-aware-10q-shared-checklist-clean-narration-v1.6.0",
+  "study_id": "",
+  "generation_provider": "gemini",
+  "generation_access": "google_api",
+  "generation_model": "gemini-3.8-flash",
+  "artifact_status": "generation_complete"
+}

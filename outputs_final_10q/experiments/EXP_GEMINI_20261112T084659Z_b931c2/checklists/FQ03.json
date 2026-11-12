@@ -1,0 +1,18 @@
+{
+  "prompt_id": "FQ03",
+  "question_sha256": "6e6c2c509ac390ef81f6567e70f3b882d3bf4a6562f602aaedef022698e45e0b",
+  "aspects": [
+    "Semiconductor structure of a solar cell: silicon layers and the p-n junction",
+    "Photon absorption freeing electrons and creating electron-hole pairs",
+    "Built-in electric field separating charges to drive current through an external circuit",
+    "Cells wired into panels, producing DC power, and inverter converting it to AC",
+    "Environmental factors affecting output: sunlight intensity, panel angle, shading, and temperature",
+    "Inherent limits: cell efficiency ceiling, losses, soiling, and panel degradation over time"
+  ],
+  "aspects_sha256": "b27e3688525369b69f4bd9d1067373b8f03466c0931bee0e26dae451c9b0ff30",
+  "derived_at": "2026-11-12T08:56:15.424761+00:00",
+  "derived_by_model": "claude-sonnet-5-5",
+  "derivation_attempts": 1,
+  "derivation_cost_usd": 0.0049794,
+  "note": "Derived from the question text alone by the evaluator; shared by every system in this experiment. Never shown to generators."
+}

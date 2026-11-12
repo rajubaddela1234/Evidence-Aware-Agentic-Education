@@ -1,0 +1,1110 @@
+{
+  "record": {
+    "experiment_id": "EXP_GEMINI_20261112T084659Z_b931c2",
+    "evaluated_script_sha256": "782f5fdc993d948c367dba181bf847aef030a904d7b3b8dc786ae69cdf1f2704",
+    "reference_pool_sha256": "f285b8f5b3a003c4c58f2e948e78b2605bec1f3cf5e4187e654c36e160863527",
+    "generation_config_sha256": "130fb20735098b5ae7683be72a40463c48605cdf59d320daa9f9373f43ee4512",
+    "prompt_version": "evidence-aware-10q-shared-checklist-clean-narration-v1.6.0",
+    "system_id": "B1",
+    "prompt_id": "FQ03",
+    "domain": "Energy / Engineering",
+    "reasoning_type": "mechanism-and-factors",
+    "generation_provider": "gemini",
+    "generation_access": "google_api",
+    "generation_model": "gemini-3.8-flash",
+    "evaluator_provider": "anthropic",
+    "evaluator_model": "claude-sonnet-5-5",
+    "claim_count": 27,
+    "supported_claims": 2,
+    "partial_claims": 14,
+    "unsupported_claims": 11,
+    "contradicted_claims": 0,
+    "supported_claim_rate": 0.07407407407407407,
+    "reference_evidence_support_percent": 33.333333333333336,
+    "query_coverage_percent": 92.5,
+    "query_relevance_percent": 97.0,
+    "narration_quality_percent": 90.0,
+    "citation_precision": null,
+    "citation_recall": null,
+    "citation_f1": null,
+    "grounded_requirement_coverage_percent": 21.25,
+    "context_precision_at_k": null,
+    "context_recall_percent": null,
+    "repair_effectiveness_points": null,
+    "requirement_preservation_rate": null,
+    "source_count": 0,
+    "source_type_count": 0,
+    "llm_calls": 1,
+    "prompt_tokens": 1026,
+    "output_tokens": 1229,
+    "thinking_tokens": 0,
+    "billable_output_tokens": 1229,
+    "retrieval_calls": 0,
+    "latency_seconds": 16.018505400000322,
+    "word_count": 1014,
+    "estimated_llm_cost_usd": 0.00537825,
+    "llm_call_latency_p50_seconds": 14.87383009999985,
+    "llm_call_latency_p90_seconds": 14.87383009999985
+  },
+  "details": {
+    "artifact_identity": {
+      "experiment_id": "EXP_GEMINI_20261112T084659Z_b931c2",
+      "evaluated_script_sha256": "782f5fdc993d948c367dba181bf847aef030a904d7b3b8dc786ae69cdf1f2704",
+      "reference_pool_sha256": "f285b8f5b3a003c4c58f2e948e78b2605bec1f3cf5e4187e654c36e160863527",
+      "generation_config_sha256": "130fb20735098b5ae7683be72a40463c48605cdf59d320daa9f9373f43ee4512",
+      "prompt_version": "evidence-aware-10q-shared-checklist-clean-narration-v1.6.0"
+    },
+    "narration_judged_script_sha256": "782f5fdc993d948c367dba181bf847aef030a904d7b3b8dc786ae69cdf1f2704",
+    "question_checklist": {
+      "aspects": [
+        "Semiconductor structure of a solar cell: silicon layers and the p-n junction",
+        "Photon absorption freeing electrons and creating electron-hole pairs",
+        "Built-in electric field separating charges to drive current through an external circuit",
+        "Cells wired into panels, producing DC power, and inverter converting it to AC",
+        "Environmental factors affecting output: sunlight intensity, panel angle, shading, and temperature",
+        "Inherent limits: cell efficiency ceiling, losses, soiling, and panel degradation over time"
+      ],
+      "source": "derived_once_per_question_by_evaluator",
+      "aspects_sha256": "b27e3688525369b69f4bd9d1067373b8f03466c0931bee0e26dae451c9b0ff30",
+      "derived_at": "2026-11-12T08:56:15.424761+00:00",
+      "derived_by_model": "claude-sonnet-5-5",
+      "derivation_cost_usd": 0.0049794,
+      "derived_in_this_call": false,
+      "file": "outputs_final_10q\\experiments\\EXP_GEMINI_20261112T084659Z_b931c2\\checklists\\FQ03.json"
+    },
+    "evaluation_claims": [
+      {
+        "claim_id": "c1",
+        "text": "The photovoltaic effect is the generation of a voltage and electric current in a material upon exposure to light.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c2",
+        "text": "The vast majority of modern solar cells are fabricated from silicon, which is a semiconductor.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c3",
+        "text": "A semiconductor has electrical conductivity intermediate between an insulator and a conductor.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c4",
+        "text": "In pure crystalline silicon, atoms share electrons in covalent bonds, so very few electrons are free to move.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c5",
+        "text": "Doping is the intentional introduction of trace impurities into silicon to make it electrically active.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c6",
+        "text": "Phosphorus has five valence electrons, one more than silicon, and doping silicon with it creates an n-type layer with excess mobile electrons.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c7",
+        "text": "Boron has three valence electrons, and doping silicon with it creates vacant electron positions called holes, forming the p-type layer dominated by positive charge carriers.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c8",
+        "text": "Bringing n-type and p-type semiconductors into contact forms a p-n junction.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c9",
+        "text": "At the p-n junction, free electrons from the n-type side diffuse across the boundary to fill holes on the p-type side, creating a depletion zone with fixed, immobile ions.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c10",
+        "text": "The fixed ions in the depletion zone set up a built-in electric field across the junction pointing from the positive charges in the n-layer toward the negative charges in the p-layer.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c11",
+        "text": "Sunlight consists of discrete energy packets called photons.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c12",
+        "text": "A photon with sufficient energy can transfer its energy to a bound valence electron, freeing it from its covalent bond and creating an electron-hole pair.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c13",
+        "text": "Without a built-in field, the electron and hole would typically recombine and release their energy as heat.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c14",
+        "text": "The built-in electric field sweeps the freed electron toward the n-type layer and the hole toward the p-type layer.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c15",
+        "text": "Conductive metal contact grids are placed on the top and bottom surfaces of the cell.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c16",
+        "text": "When an external circuit connects the contacts, electrons flow through the wiring to recombine with holes on the opposing side, constituting direct current.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c17",
+        "text": "Direct current can power a motor directly, charge a battery, or pass through an inverter to be converted into alternating current matching utility grid electricity.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c18",
+        "text": "Solar irradiance is the intensity of sunlight hitting a surface, typically measured in watts per square meter.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c19",
+        "text": "Higher irradiance provides more photons per second, increasing the rate of electron excitation and the electrical current generated.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c20",
+        "text": "Extreme heat degrades the electrical performance of solar panels, so panels do not produce their highest output on the hottest days.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c21",
+        "text": "As a semiconductor heats up, thermal vibrations increase intrinsic carrier concentrations and reduce the bandgap energy, which significantly reduces the open-circuit voltage.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c22",
+        "text": "Most silicon panels have a negative temperature coefficient, with power output dropping by roughly 0.3 to 0.5 percent per degree Celsius above standard testing conditions.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c23",
+        "text": "Standard testing conditions traditionally use a cell temperature of 25 degrees Celsius.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c24",
+        "text": "A crisp, sunny winter day can yield higher conversion efficiency than a scorching summer afternoon.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c25",
+        "text": "Improper tilt relative to site latitude increases the angle of incidence, causing more light to reflect off the protective glass rather than enter the semiconductor.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c26",
+        "text": "Shading even a small corner of a panel causes disproportionate power losses.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      },
+      {
+        "claim_id": "c27",
+        "text": "Because cells within a panel are typically wired in series, a heavily shaded cell acts as a resistor restricting current through the entire string and dissipating power as localized heat.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": []
+      }
+    ],
+    "reference_verifications": [
+      {
+        "claim_id": "c1",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-0c86ad2faf9a"
+        ],
+        "rationale": "Evidence says materials produce electricity when exposed to light, creating voltage and current."
+      },
+      {
+        "claim_id": "c2",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-487a39047236",
+          "E-4181d34c5160"
+        ],
+        "rationale": "Cells are usually crystalline silicon (or gallium arsenide) and silicon is used, and PV cells are semiconductor; but 'vast majority' not stated."
+      },
+      {
+        "claim_id": "c3",
+        "status": "unsupported",
+        "confidence": 0.8,
+        "evidence_ids": [],
+        "rationale": "No definition of semiconductor conductivity relative to insulators and conductors."
+      },
+      {
+        "claim_id": "c4",
+        "status": "unsupported",
+        "confidence": 0.8,
+        "evidence_ids": [],
+        "rationale": "No evidence on covalent bonding in pure silicon."
+      },
+      {
+        "claim_id": "c5",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-487a39047236"
+        ],
+        "rationale": "Evidence says phosphorus or boron 'dope' and modify conductive properties, but does not define doping as intentional trace impurities."
+      },
+      {
+        "claim_id": "c6",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-487a39047236"
+        ],
+        "rationale": "Evidence says cells are doped with phosphorus or boron, creating negative and positive parts, but gives no valence electron counts or specific n-type mechanism."
+      },
+      {
+        "claim_id": "c7",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-487a39047236"
+        ],
+        "rationale": "Only mentions boron doping creating a positively charged part; no valence electrons, holes, or p-type details."
+      },
+      {
+        "claim_id": "c8",
+        "status": "unsupported",
+        "confidence": 0.7,
+        "evidence_ids": [],
+        "rationale": "No evidence describes contact of n-type and p-type forming a p-n junction; only a passing mention of 'p-n region'."
+      },
+      {
+        "claim_id": "c9",
+        "status": "unsupported",
+        "confidence": 0.8,
+        "evidence_ids": [],
+        "rationale": "No evidence describes diffusion or depletion zone."
+      },
+      {
+        "claim_id": "c10",
+        "status": "partial",
+        "confidence": 0.55,
+        "evidence_ids": [
+          "E-0f207025f882",
+          "E-90241d416bf2"
+        ],
+        "rationale": "Evidence says an electric field is built into the cell, but nothing on depletion zone ions or field direction."
+      },
+      {
+        "claim_id": "c11",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-357675ee68a2",
+          "E-0f207025f882"
+        ],
+        "rationale": "Sunlight is described as composed of photons / tiny energy packets."
+      },
+      {
+        "claim_id": "c12",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-0f207025f882",
+          "E-357675ee68a2"
+        ],
+        "rationale": "Evidence says photons give energy to electrons held in place, freeing them, but does not mention covalent bonds, valence electrons, or electron-hole pairs."
+      },
+      {
+        "claim_id": "c13",
+        "status": "unsupported",
+        "confidence": 0.9,
+        "evidence_ids": [],
+        "rationale": "No evidence discusses recombination or heat release without a built-in field."
+      },
+      {
+        "claim_id": "c14",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-90241d416bf2",
+          "E-487a39047236"
+        ],
+        "rationale": "Evidence says a built-in electric field directs free electrons in a specific direction, and that cells have negative and positive parts. It does not mention n-type/p-type layers, or holes being swept."
+      },
+      {
+        "claim_id": "c15",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-90241d416bf2"
+        ],
+        "rationale": "Metal contacts collect electrons, but the evidence does not say they are grids or that they are on the top and bottom surfaces."
+      },
+      {
+        "claim_id": "c16",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-225222cbfa44",
+          "E-0f207025f882"
+        ],
+        "rationale": "Evidence says connecting conductors in an external circuit lets electricity flow and electrons flow out to wire; nothing about recombining with holes on the opposing side, nor explicitly that it is DC in that passage."
+      },
+      {
+        "claim_id": "c17",
+        "status": "partial",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "E-d7d82f3e2855",
+          "E-487a39047236",
+          "E-7b17bdfcfab6"
+        ],
+        "rationale": "Evidence supports DC charging batteries, inverters converting to AC, and directly powering devices like water pumps (not specifically a motor). 'Matching utility grid electricity' is only loosely supported."
+      },
+      {
+        "claim_id": "c18",
+        "status": "partial",
+        "confidence": 0.55,
+        "evidence_ids": [
+          "E-449e8a45e01c"
+        ],
+        "rationale": "Evidence refers to intensity of solar radiation on a surface in W/m2, but doesn't explicitly define irradiance as stated or say 'typically'."
+      },
+      {
+        "claim_id": "c19",
+        "status": "unsupported",
+        "confidence": 0.7,
+        "evidence_ids": [],
+        "rationale": "Evidence says irradiance is the most significant factor, but doesn't state the photon-rate/current mechanism."
+      },
+      {
+        "claim_id": "c20",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-d6aacb0372ae",
+          "E-b509748f91ca"
+        ],
+        "rationale": "Evidence says higher temperatures reduce efficiency by 0.4–0.5% per °C, but doesn't explicitly say panels don't produce peak output on the hottest days or mention 'extreme heat'."
+      },
+      {
+        "claim_id": "c21",
+        "status": "unsupported",
+        "confidence": 0.8,
+        "evidence_ids": [],
+        "rationale": "No evidence discusses thermal vibrations, carrier concentration, bandgap reduction, or open-circuit voltage."
+      },
+      {
+        "claim_id": "c22",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-b509748f91ca",
+          "E-d6aacb0372ae"
+        ],
+        "rationale": "Evidence supports 0.4–0.5% per degree efficiency reduction with temperature, but not silicon-specific, the 0.3 range, or the STC reference."
+      },
+      {
+        "claim_id": "c23",
+        "status": "unsupported",
+        "confidence": 0.8,
+        "evidence_ids": [],
+        "rationale": "No evidence mentions standard testing conditions or 25°C."
+      },
+      {
+        "claim_id": "c24",
+        "status": "unsupported",
+        "confidence": 0.7,
+        "evidence_ids": [],
+        "rationale": "Evidence says high temperatures reduce efficiency but nothing directly about winter vs summer day efficiency."
+      },
+      {
+        "claim_id": "c25",
+        "status": "partial",
+        "confidence": 0.55,
+        "evidence_ids": [
+          "E-f0ee91b9b961"
+        ],
+        "rationale": "Evidence says angle of incidence reduces effective irradiance by cos(γ) and optimal tilt depends on latitude, but not reflection off glass."
+      },
+      {
+        "claim_id": "c26",
+        "status": "unsupported",
+        "confidence": 0.85,
+        "evidence_ids": [],
+        "rationale": "No evidence discusses shading of a panel corner causing disproportionate power loss. E-a08bcbf1d689 only mentions shading in passing for some panel types."
+      },
+      {
+        "claim_id": "c27",
+        "status": "unsupported",
+        "confidence": 0.88,
+        "evidence_ids": [],
+        "rationale": "No evidence describes series wiring of cells, shaded cells acting as resistors, or localized heating. E-8d661bde10da mentions series resistance losses only generically."
+      }
+    ],
+    "reference_evidence_ids_by_claim": {
+      "c1": [
+        "E-0c86ad2faf9a",
+        "E-487a39047236",
+        "E-8d661bde10da",
+        "E-9bfe9e6ecc0b",
+        "E-b509748f91ca"
+      ],
+      "c2": [
+        "E-4181d34c5160",
+        "E-d9c1b1929385",
+        "E-357675ee68a2",
+        "E-208e7f99dc91",
+        "E-b509748f91ca"
+      ],
+      "c3": [
+        "E-225222cbfa44",
+        "E-0f207025f882",
+        "E-487a39047236",
+        "E-208e7f99dc91",
+        "E-b509748f91ca"
+      ],
+      "c4": [
+        "E-357675ee68a2",
+        "E-90241d416bf2",
+        "E-487a39047236",
+        "E-208e7f99dc91",
+        "E-b509748f91ca"
+      ],
+      "c5": [
+        "E-208e7f99dc91",
+        "E-4181d34c5160",
+        "E-3d2abd81f655",
+        "E-47e1228a887a",
+        "E-225222cbfa44"
+      ],
+      "c6": [
+        "E-487a39047236",
+        "E-357675ee68a2",
+        "E-90241d416bf2",
+        "E-8d661bde10da",
+        "E-b509748f91ca"
+      ],
+      "c7": [
+        "E-225222cbfa44",
+        "E-0f207025f882",
+        "E-487a39047236",
+        "E-208e7f99dc91",
+        "E-b509748f91ca"
+      ],
+      "c8": [
+        "E-43173be70b23",
+        "E-487a39047236",
+        "E-7b17bdfcfab6",
+        "E-d2fc284c640d",
+        "E-d9c1b1929385"
+      ],
+      "c9": [
+        "E-49cae170b6df",
+        "E-90241d416bf2",
+        "E-357675ee68a2",
+        "E-487a39047236",
+        "E-b509748f91ca"
+      ],
+      "c10": [
+        "E-90241d416bf2",
+        "E-d2fc284c640d",
+        "E-225222cbfa44",
+        "E-8d661bde10da",
+        "E-2fd0bdfbfd0b"
+      ],
+      "c11": [
+        "E-0f207025f882",
+        "E-357675ee68a2",
+        "E-84b25d3c74c3",
+        "E-487a39047236",
+        "E-b509748f91ca"
+      ],
+      "c12": [
+        "E-4181d34c5160",
+        "E-020529709ee2",
+        "E-3974584a8cff",
+        "E-89c3c369083d",
+        "E-b509748f91ca"
+      ],
+      "c13": [
+        "E-0f207025f882",
+        "E-487a39047236",
+        "E-020529709ee2",
+        "E-cccd1b29595d",
+        "E-b509748f91ca"
+      ],
+      "c14": [
+        "E-90241d416bf2",
+        "E-8d661bde10da",
+        "E-5139b3529cef",
+        "E-487a39047236",
+        "E-b509748f91ca"
+      ],
+      "c15": [
+        "E-357675ee68a2",
+        "E-90241d416bf2",
+        "E-8d661bde10da",
+        "E-487a39047236",
+        "E-b509748f91ca"
+      ],
+      "c16": [
+        "E-90241d416bf2",
+        "E-225222cbfa44",
+        "E-487a39047236",
+        "E-0f5ea5a059fc",
+        "E-b509748f91ca"
+      ],
+      "c17": [
+        "E-487a39047236",
+        "E-d7d82f3e2855",
+        "E-0c86ad2faf9a",
+        "E-8d661bde10da",
+        "E-d6aacb0372ae"
+      ],
+      "c18": [
+        "E-449e8a45e01c",
+        "E-d6aacb0372ae",
+        "E-357675ee68a2",
+        "E-4181d34c5160",
+        "E-0f207025f882"
+      ],
+      "c19": [
+        "E-357675ee68a2",
+        "E-4181d34c5160",
+        "E-d6aacb0372ae",
+        "E-43173be70b23",
+        "E-0c86ad2faf9a"
+      ],
+      "c20": [
+        "E-ad59bc25c01e",
+        "E-225222cbfa44",
+        "E-d6aacb0372ae",
+        "E-d9c1b1929385",
+        "E-84b25d3c74c3"
+      ],
+      "c21": [
+        "E-b509748f91ca",
+        "E-225222cbfa44",
+        "E-90241d416bf2",
+        "E-43173be70b23",
+        "E-ad59bc25c01e"
+      ],
+      "c22": [
+        "E-d6aacb0372ae",
+        "E-4181d34c5160",
+        "E-225222cbfa44",
+        "E-8d661bde10da",
+        "E-3d2abd81f655"
+      ],
+      "c23": [
+        "E-357675ee68a2",
+        "E-d6aacb0372ae",
+        "E-5a28340c5065",
+        "E-0f207025f882",
+        "E-4181d34c5160"
+      ],
+      "c24": [
+        "E-cccd1b29595d",
+        "E-7b17bdfcfab6",
+        "E-d6aacb0372ae",
+        "E-1a6482f44e4d",
+        "E-d9c1b1929385"
+      ],
+      "c25": [
+        "E-f0ee91b9b961",
+        "E-357675ee68a2",
+        "E-47e1228a887a",
+        "E-90241d416bf2",
+        "E-2fd0bdfbfd0b"
+      ],
+      "c26": [
+        "E-8d661bde10da",
+        "E-a08bcbf1d689",
+        "E-9bfe9e6ecc0b",
+        "E-0c86ad2faf9a",
+        "E-d6aacb0372ae"
+      ],
+      "c27": [
+        "E-487a39047236",
+        "E-0c86ad2faf9a",
+        "E-225222cbfa44",
+        "E-8d661bde10da",
+        "E-d6aacb0372ae"
+      ]
+    },
+    "citation_entailment_verifications": [],
+    "quality": {
+      "aspect_scores": [
+        {
+          "aspect": "Semiconductor structure of a solar cell: silicon layers and the p-n junction",
+          "score": 1.0,
+          "rationale": "Doping, n and p layers, depletion zone and p-n junction explained clearly."
+        },
+        {
+          "aspect": "Photon absorption freeing electrons and creating electron-hole pairs",
+          "score": 1.0,
+          "rationale": "Photons knock electrons free, creating electron-hole pairs."
+        },
+        {
+          "aspect": "Built-in electric field separating charges to drive current through an external circuit",
+          "score": 1.0,
+          "rationale": "Field sweeps carriers apart; contacts and external circuit give DC."
+        },
+        {
+          "aspect": "Cells wired into panels, producing DC power, and inverter converting it to AC",
+          "score": 0.85,
+          "rationale": "DC and inverter covered; series wiring mentioned only in the shading context."
+        },
+        {
+          "aspect": "Environmental factors affecting output: sunlight intensity, panel angle, shading, and temperature",
+          "score": 1.0,
+          "rationale": "All four factors explained with mechanisms."
+        },
+        {
+          "aspect": "Inherent limits: cell efficiency ceiling, losses, soiling, and panel degradation over time",
+          "score": 0.7,
+          "rationale": "Only a passing mention of optical cleanliness and reflection losses. No efficiency ceiling or degradation."
+        }
+      ],
+      "covered_aspects": [
+        "Semiconductor structure of a solar cell: silicon layers and the p-n junction",
+        "Photon absorption freeing electrons and creating electron-hole pairs",
+        "Built-in electric field separating charges to drive current through an external circuit",
+        "Cells wired into panels, producing DC power, and inverter converting it to AC",
+        "Environmental factors affecting output: sunlight intensity, panel angle, shading, and temperature"
+      ],
+      "partially_covered_aspects": [
+        "Inherent limits: cell efficiency ceiling, losses, soiling, and panel degradation over time"
+      ],
+      "missing_aspects": [],
+      "coverage_score": 0.9249999999999999,
+      "coverage_rationale": "Core mechanism and environmental factors are well covered. Inherent limits are thin: no efficiency ceiling, soiling or degradation discussion.",
+      "relevance_score": 0.97,
+      "relevance_rationale": "Almost entirely on topic, with only brief orientation.",
+      "opening_orientation_score": 4,
+      "introduction_roadmap_score": 4,
+      "definitions_foundations_score": 4,
+      "explanatory_depth_score": 4,
+      "examples_applications_score": 3,
+      "organization_transitions_score": 4,
+      "clarity_accessibility_score": 3,
+      "spoken_naturalness_score": 3,
+      "conclusion_takeaway_score": 3,
+      "reflective_ending_score": 4,
+      "narration_rationale": "The script has a clear roadmap, a logical flow from microscopic to macroscopic, and good definitions. Its analogies (checkpoint, bottleneck) and the temperature example work well. The tone is formal but speakable. The summary is solid, though it mentions optical cleanliness without having explained it. The closing questions prompt reflection."
+    },
+    "additional_metric_details": {
+      "grounded_requirement_coverage_percent": 21.25,
+      "context_precision_at_k": null,
+      "context_recall_percent": null,
+      "retrieval_k": null,
+      "grounded_aspect_scores": [
+        0.0,
+        0.0,
+        0.0,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "retrieved_aspect_scores": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "retrieved_passages_scored": 0,
+      "retrieval_assessment": {
+        "grounded_aspects": [
+          {
+            "aspect": "Semiconductor structure of a solar cell: silicon layers and the p-n junction",
+            "score": 0.0,
+            "rationale": "Reference extracts do not describe silicon layers or p-n junction."
+          },
+          {
+            "aspect": "Photon absorption freeing electrons and creating electron-hole pairs",
+            "score": 0.0,
+            "rationale": "Not described in the extracts; only a generic mention of the photovoltaic effect."
+          },
+          {
+            "aspect": "Built-in electric field separating charges to drive current through an external circuit",
+            "score": 0.0,
+            "rationale": "Not supported by the extracts."
+          },
+          {
+            "aspect": "Cells wired into panels, producing DC power, and inverter converting it to AC",
+            "score": 0.5,
+            "rationale": "E-7b17bdfcfab6 says cells are grouped in panels and arrays, but nothing on DC or inverters."
+          },
+          {
+            "aspect": "Environmental factors affecting output: sunlight intensity, panel angle, shading, and temperature",
+            "score": 0.5,
+            "rationale": "E-d6aacb0372ae supports irradiance as the key factor and a 0.4–0.5% per °C temperature loss, matching the script's 0.3–0.5%. E-7b17bdfcfab6 mentions orientation at an optimizing angle. Shading is not supported."
+          },
+          {
+            "aspect": "Inherent limits: cell efficiency ceiling, losses, soiling, and panel degradation over time",
+            "score": 0.5,
+            "rationale": "E-7b17bdfcfab6 gives efficiency figures. E-d6aacb0372ae mentions dust reducing output. Degradation is not covered, and the script itself says little on limits."
+          }
+        ],
+        "passage_relevance": [],
+        "retrieved_aspects": [
+          {
+            "aspect": "Semiconductor structure of a solar cell: silicon layers and the p-n junction",
+            "score": 0.0,
+            "rationale": ""
+          },
+          {
+            "aspect": "Photon absorption freeing electrons and creating electron-hole pairs",
+            "score": 0.0,
+            "rationale": ""
+          },
+          {
+            "aspect": "Built-in electric field separating charges to drive current through an external circuit",
+            "score": 0.0,
+            "rationale": ""
+          },
+          {
+            "aspect": "Cells wired into panels, producing DC power, and inverter converting it to AC",
+            "score": 0.0,
+            "rationale": ""
+          },
+          {
+            "aspect": "Environmental factors affecting output: sunlight intensity, panel angle, shading, and temperature",
+            "score": 0.0,
+            "rationale": ""
+          },
+          {
+            "aspect": "Inherent limits: cell efficiency ceiling, losses, soiling, and panel degradation over time",
+            "score": 0.0,
+            "rationale": ""
+          }
+        ]
+      },
+      "revision_comparison": null,
+      "notes": "All scores are Claude judgments, not verified ground truth. Repair effectiveness compares coverage/narration, not factual truth. No revision or no retrieval is N/A rather than zero."
+    },
+    "metric_semantics": {
+      "reference_evidence_support_percent": "Evidence entailment within the frozen reference corpus; not factual accuracy.",
+      "query_coverage_percent": "Coverage of a fixed six-aspect checklist derived once per question from the question text and shared by all systems; missing/duplicate judge outputs are normalized against that fixed denominator.",
+      "query_relevance_percent": "Independent-model relevance judgement.",
+      "narration_input": "Coverage, relevance, narration and grounded-requirement judgements use the complete script with [E-...] evidence markers removed; claim extraction and citation metrics use the marked script. Aspect scores are continuous in [0, 1].",
+      "narration_quality_percent": "Ten-dimension spoken educational narration score; excludes factual truth.",
+      "citation_precision": "Share of emitted citation IDs that are identified as supporting the claim when verification is restricted to cited passages.",
+      "citation_recall": "Share of all citation-required extracted factual claims that have at least one cited passage judged to support the claim.",
+      "evaluation_estimated_llm_cost_usd": "Evaluator telemetry. CLI mode uses Claude Code's reported list-price equivalent; API mode uses the configured Anthropic per-token rates."
+    },
+    "evaluation_telemetry": {
+      "started_at": "2026-11-12T09:36:39.447344+00:00",
+      "ended_at": "2026-11-12T09:37:59.584368+00:00",
+      "wall_seconds": 80.1350580000003,
+      "retrieval_calls": 0,
+      "retrieved_documents": 0,
+      "llm_calls": [
+        {
+          "task": "script_claims",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 14.098898600000211,
+          "prompt_tokens": 3537,
+          "output_tokens": 1735,
+          "thinking_tokens": 0,
+          "total_tokens": 5272,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.028311600000000003,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.028311600000000003,
+            "cache_creation_input_tokens": 2719,
+            "cache_read_input_tokens": 816,
+            "session_id": "61bab87c-6ddd-468d-ba5e-4107015408fa",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 7.258602500000052,
+          "prompt_tokens": 7838,
+          "output_tokens": 473,
+          "thinking_tokens": 0,
+          "total_tokens": 8311,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0319947,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0319947,
+            "cache_creation_input_tokens": 6789,
+            "cache_read_input_tokens": 1047,
+            "session_id": "51910dcc-eb6b-45eb-b7db-efd26e93e15e",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 6.968419599999834,
+          "prompt_tokens": 7720,
+          "output_tokens": 478,
+          "thinking_tokens": 0,
+          "total_tokens": 8198,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0315727,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0315727,
+            "cache_creation_input_tokens": 6671,
+            "cache_read_input_tokens": 1047,
+            "session_id": "cab67d8c-6dcf-47f7-aa74-1ab166900ab8",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 7.068390200000067,
+          "prompt_tokens": 7928,
+          "output_tokens": 526,
+          "thinking_tokens": 0,
+          "total_tokens": 8454,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.032884699999999996,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.032884699999999996,
+            "cache_creation_input_tokens": 6879,
+            "cache_read_input_tokens": 1047,
+            "session_id": "9ae319fc-b726-4aa6-a7e2-3f67a57c0cdf",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 7.962547500000255,
+          "prompt_tokens": 8778,
+          "output_tokens": 640,
+          "thinking_tokens": 0,
+          "total_tokens": 9418,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0374247,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0374247,
+            "cache_creation_input_tokens": 7729,
+            "cache_read_input_tokens": 1047,
+            "session_id": "9ccf7ade-9c57-42ed-bc06-fb090b86a389",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 7.205610699999852,
+          "prompt_tokens": 8956,
+          "output_tokens": 505,
+          "thinking_tokens": 0,
+          "total_tokens": 9461,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.036786700000000006,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.036786700000000006,
+            "cache_creation_input_tokens": 7907,
+            "cache_read_input_tokens": 1047,
+            "session_id": "a615fcd6-2051-4985-bd33-1ce8199e9552",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 5.797120900000209,
+          "prompt_tokens": 5736,
+          "output_tokens": 249,
+          "thinking_tokens": 0,
+          "total_tokens": 5985,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0213467,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0213467,
+            "cache_creation_input_tokens": 4687,
+            "cache_read_input_tokens": 1047,
+            "session_id": "a1bd2826-a3ff-4261-95b0-d8b6985b3227",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "answer_fulfilment_and_narration_evaluation",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 11.450855200000206,
+          "prompt_tokens": 6411,
+          "output_tokens": 1334,
+          "thinking_tokens": 0,
+          "total_tokens": 7745,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0257239,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0257239,
+            "cache_creation_input_tokens": 3010,
+            "cache_read_input_tokens": 3399,
+            "session_id": "8c4c1916-c6ab-4a27-9c80-fff1d4494e9f",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "grounded_requirements_and_retrieval_quality",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 8.673905000000104,
+          "prompt_tokens": 6142,
+          "output_tokens": 880,
+          "thinking_tokens": 0,
+          "total_tokens": 7022,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.028110700000000002,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.028110700000000002,
+            "cache_creation_input_tokens": 4793,
+            "cache_read_input_tokens": 1347,
+            "session_id": "14022526-dfa0-41b0-b87c-e111b4221d8b",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        }
+      ]
+    },
+    "evaluation_provider": "anthropic",
+    "evaluation_access": "claude_code_cli",
+    "claude_access_method": "cli",
+    "claude_cli_version": "2.1.322 (Claude Code)",
+    "evaluation_model_requested": "claude-sonnet-5-5",
+    "evaluation_model": "claude-sonnet-5-5",
+    "evaluation_cli_reported_cost_usd": 0.2741564,
+    "evaluation_estimated_llm_cost_usd": 0.2741564,
+    "generation_provider": "gemini",
+    "generation_access": "google_api",
+    "generation_model_requested": "gemini-3.8-flash",
+    "generation_estimated_llm_cost_usd": 0.00537825,
+    "combined_generation_plus_evaluation_estimated_llm_cost_usd": 0.27953465
+  }
+}

@@ -1,0 +1,361 @@
+system_id,prompt_id,aspect_index,expected_aspect,coverage_score,coverage_percent,status,evaluator_rationale
+B1,FQ01,1,The core idea of RAG: retrieving external documents at query time to supplement the LLM prompt,1.0,100.0,covered,"Clear parametric vs non-parametric memory, open-book analogy."
+B1,FQ01,2,How the retrieval step works: indexing documents as embeddings and finding relevant passages for a query,0.95,95.0,covered,"Embeddings, vector DB, cosine similarity explained."
+B1,FQ01,3,How retrieved passages are inserted into the prompt so the model generates a grounded answer,1.0,100.0,covered,Augmentation stage with instruction example and generation.
+B1,FQ01,4,"Benefits over a plain LLM: fresher, domain-specific knowledge and fewer hallucinations",1.0,100.0,covered,Benefits and hospital example.
+B1,FQ01,5,"Failure modes in retrieval: irrelevant, incomplete, or poorly chunked passages leading to wrong answers",0.9,90.0,covered,Low recall/precision and outdated info explained; chunking not discussed explicitly.
+B1,FQ01,6,"Failure modes in generation: model ignores, misreads, or contradicts context, or still hallucinates despite retrieval",0.95,95.0,covered,"Lost in the middle, contradictions, hallucinated compromise."
+B1,FQ02,1,Vaccines expose the body to an antigen without causing the actual disease,0.95,95.0,covered,Clearly explained as a harmless version or piece of antigen.
+B1,FQ02,2,Innate immune cells detect the antigen and activate T and B cells,0.85,85.0,covered,Dendritic cells engulf and present antigens to T and B cells; innate detection is only implicit.
+B1,FQ02,3,B cells make antibodies while T cells coordinate and kill infected cells,0.95,95.0,covered,"Helper T cells stimulate B cells, plasma cells secrete antibodies, cytotoxic T cells kill infected cells."
+B1,FQ02,4,"Memory B and T cells form, enabling faster stronger response on later exposure",0.95,95.0,covered,"Primary vs secondary response, memory cells, and affinity maturation are explained."
+B1,FQ02,5,"Different vaccine types (live, inactivated, subunit, mRNA) present antigens to trigger this response",0.85,85.0,covered,"All four types are named with brief explanations, but there is little on how each differs in its effect."
+B1,FQ02,6,Boosters are needed because antibodies and memory wane or pathogens mutate to evade immunity,0.95,95.0,covered,"Antibody waning, memory decline and antigenic drift are all covered, with examples."
+B1,FQ03,1,Semiconductor structure of a solar cell: silicon layers and the p-n junction,1.0,100.0,covered,"Doping, n and p layers, depletion zone and p-n junction explained clearly."
+B1,FQ03,2,Photon absorption freeing electrons and creating electron-hole pairs,1.0,100.0,covered,"Photons knock electrons free, creating electron-hole pairs."
+B1,FQ03,3,Built-in electric field separating charges to drive current through an external circuit,1.0,100.0,covered,Field sweeps carriers apart; contacts and external circuit give DC.
+B1,FQ03,4,"Cells wired into panels, producing DC power, and inverter converting it to AC",0.85,85.0,covered,DC and inverter covered; series wiring mentioned only in the shading context.
+B1,FQ03,5,"Environmental factors affecting output: sunlight intensity, panel angle, shading, and temperature",1.0,100.0,covered,All four factors explained with mechanisms.
+B1,FQ03,6,"Inherent limits: cell efficiency ceiling, losses, soiling, and panel degradation over time",0.7,70.0,partial,Only a passing mention of optical cleanliness and reflection losses. No efficiency ceiling or degradation.
+B1,FQ04,1,What inflation is and why persistently high inflation harms an economy,0.85,85.0,covered,Defines inflation and notes eroded purchasing power and destabilized planning; harm is brief.
+B1,FQ04,2,The central bank's policy interest rate as its main tool,0.95,95.0,covered,Clearly defined as overnight benchmark rate and primary lever.
+B1,FQ04,3,How higher policy rates raise borrowing costs for households and firms,0.95,95.0,covered,"Banks pass on costs; mortgages, auto loans, bond yields."
+B1,FQ04,4,How reduced spending and investment cool demand and ease price pressures,0.95,95.0,covered,"Three channels, firms lose pricing power, housing example."
+B1,FQ04,5,Role of inflation expectations and exchange rate in transmission,0.0,0.0,missing,Neither expectations nor exchange rate discussed.
+B1,FQ04,6,"Trade-offs: slower growth, higher unemployment, and risk of recession or financial strain",0.95,95.0,covered,"Recession, unemployment, debt burdens, supply-shock limitation, soft landing."
+B1,FQ05,1,What a tsunami is: a series of long waves from displaced water,0.95,95.0,covered,"Clearly defined as series of waves from displaced water, whole water column, not tidal wave."
+B1,FQ05,2,Underwater earthquakes at subduction zones displacing the seafloor and water column,1.0,100.0,covered,Detailed mechanism of megathrust and water column displacement.
+B1,FQ05,3,"Other triggers: landslides, volcanic eruptions, and meteorite impacts displacing water",0.85,85.0,covered,Landslides and volcanic eruptions covered; meteorites not mentioned.
+B1,FQ05,4,"How tsunami waves travel across deep ocean: high speed, long wavelength, small height",1.0,100.0,covered,"Speed, wavelength, height all explained with formula."
+B1,FQ05,5,Shoaling: wave slowing and growing taller as water becomes shallow near shore,1.0,100.0,covered,Explained with train analogy.
+B1,FQ05,6,"Coastal destruction factors: inundation, repeated surges, backwash, coastline shape, and limits of warning",0.75,75.0,partial,"Inundation, drawdown warning, debris covered; repeated surges and coastline shape only raised in closing questions; backwash not explained."
+B1,FQ06,1,"What correlation measures: statistical association between two variables, not proof of influence",0.95,95.0,covered,"Clear definition of correlation, positive/negative, versus causation."
+B1,FQ06,2,"Confounding: a third variable driving both variables, creating a spurious association",1.0,100.0,covered,Explained with ice cream/temperature example.
+B1,FQ06,3,Reverse causation and coincidence: direction ambiguity and chance patterns producing misleading correlations,1.0,100.0,covered,Both covered with exercise/happiness and spurious trends.
+B1,FQ06,4,Randomized controlled experiments: manipulating one variable to isolate its causal effect,1.0,100.0,covered,RCT and random assignment mechanism explained.
+B1,FQ06,5,"Observational causal methods: controlling for confounders, natural experiments, and longitudinal designs",1.0,100.0,covered,All three covered.
+B1,FQ06,6,"Criteria and limits for causal claims: temporality, dose-response, plausibility, replication, and remaining uncertainty",0.85,85.0,covered,"Temporality, dose-response, mechanism, converging evidence and cumulative nature covered; replication and uncertainty only implicit, no explicit criteria list."
+B1,FQ07,1,"How antibiotics kill or inhibit bacteria, setting the stage for resistance",0.85,85.0,covered,Defined as agents killing or inhibiting by targeting structures or pathways; brief but adequate.
+B1,FQ07,2,How random mutations create resistant bacteria within a population,0.95,95.0,covered,"Spontaneous replication errors altering targets, clearly explained."
+B1,FQ07,3,How natural selection under antibiotic exposure favors resistant survivors,0.95,95.0,covered,"Selective pressure, survivors replicate, plus myth clarification."
+B1,FQ07,4,How bacteria share resistance genes through horizontal transfer such as plasmids,0.97,97.0,covered,"Conjugation, transformation, transduction explained."
+B1,FQ07,5,"How resistant bacteria spread between people, animals, hospitals and the environment",0.92,92.0,covered,"Covers livestock, soil, wastewater, food chain, travel, hospitals."
+B1,FQ07,6,"How stewardship, infection prevention and new drug development slow resistance, and their limits",0.8,80.0,covered,"Covers stewardship, hygiene, and discovery incentives, but limits are barely discussed (only 'dwindling pipeline')."
+B1,FQ08,1,"HTTPS as HTTP carried inside a TLS-encrypted channel, and the problems it addresses",0.95,95.0,covered,"Explains HTTPS as HTTP wrapped in TLS, with confidentiality, integrity, authentication, and the postcard analogy."
+B1,FQ08,2,TLS handshake: negotiating protocol version and cipher suite between client and server,0.95,95.0,covered,ClientHello lists versions and cipher suites; ServerHello selects parameters.
+B1,FQ08,3,"Server authentication through certificates, certificate authorities, and the chain of trust",0.9,90.0,covered,"Certificate signed by CA, checked against root trust store, validity and domain. Intermediate chain is only implicit."
+B1,FQ08,4,"Key exchange establishing shared session keys, with forward secrecy",0.85,85.0,covered,Ephemeral Diffie-Hellman and independently derived keys are explained; forward secrecy is not named or explained as a benefit.
+B1,FQ08,5,Encryption and integrity protection of data in transit against eavesdropping and tampering,0.95,95.0,covered,"Symmetric AES-GCM/ChaCha20, MACs, and guarantees against eavesdropping and alteration."
+B1,FQ08,6,"Threats HTTPS does not stop: malware, phishing sites, compromised servers, endpoint attacks, metadata exposure",0.95,95.0,covered,"Covers phishing, malware, server vulnerabilities, SNI/IP metadata, and XSS."
+B1,FQ09,1,"Gravity compresses a star's core, creating the extreme temperature and pressure needed for fusion",0.75,75.0,partial,"Extreme core temperature and pressure are described, and gravity is mentioned as a balancing force. The script never says that gravity compresses the core and creates those conditions."
+B1,FQ09,2,Quantum tunneling lets positively charged nuclei overcome electrical repulsion and fuse,0.95,95.0,covered,"Explains the Coulomb barrier, why classical physics falls short, and how tunneling lets nuclei fuse."
+B1,FQ09,3,Hydrogen fuses into helium via proton-proton chain or CNO cycle,0.95,95.0,covered,"Both pathways are described, with the mass regimes in which each dominates."
+B1,FQ09,4,"Mass converts to energy via E=mc², released as radiation and heat",0.95,95.0,covered,"Covers the mass defect, E=mc², and the release of kinetic energy and photons."
+B1,FQ09,5,Hydrostatic equilibrium: fusion pressure balances gravity to keep the star stable,0.75,75.0,partial,"The opening describes a balancing act between gravity and outward energy, and the CNO section mentions radiative pressure. The balance is never developed as a self-regulating equilibrium."
+B1,FQ09,6,A star's initial mass sets its fuel burn rate and therefore lifetime,1.0,100.0,covered,"Thorough treatment: the luminosity-mass relation, the fuel-tank analogy, and examples from red dwarfs to O stars."
+B1,FQ10,1,Rusting as electrochemical oxidation of iron to iron oxides,1.0,100.0,covered,Clearly explained as electrochemical process with galvanic cell.
+B1,FQ10,2,"Required reactants: oxygen and water, and the role of electrolytes",1.0,100.0,covered,Oxygen and water stated as required; aqueous layer as electrolyte explained.
+B1,FQ10,3,Anodic and cathodic half-reactions forming Fe(OH)2 then hydrated Fe2O3 rust,0.95,95.0,covered,"Described in words: Fe to Fe2+, O2 to OH-, Fe(OH)2, then hydrated Fe(III) oxide; no equations but clear."
+B1,FQ10,4,"Why rust is flaky and porous, so corrosion continues inward",0.95,95.0,covered,"Explains rust is porous, flakes, expands in volume and exposes fresh iron."
+B1,FQ10,5,"Barrier protection: paint, oil, plastic coating, or plating that blocks oxygen and water",1.0,100.0,covered,"Paint, polymer, grease, plating, with example and limitation."
+B1,FQ10,6,"Sacrificial protection and alloying: galvanizing, cathodic anodes, stainless steel, and their limitations",0.9,90.0,covered,"Galvanizing, sacrificial anodes, impressed current, stainless steel passivation covered; limitations of sacrificial methods only implied via closing question."
+B2,FQ01,1,The core idea of RAG: retrieving external documents at query time to supplement the LLM prompt,0.95,95.0,covered,Clear definition plus courtroom clerk analogy.
+B2,FQ01,2,How the retrieval step works: indexing documents as embeddings and finding relevant passages for a query,0.85,85.0,covered,"Explains sparse vs dense vectors, ANN, hybrid search; indexing of documents as embeddings is only implicit."
+B2,FQ01,3,How retrieved passages are inserted into the prompt so the model generates a grounded answer,0.75,75.0,partial,"Mentions passing reranked chunks to the language model and context in prompt, but insertion is thin."
+B2,FQ01,4,"Benefits over a plain LLM: fresher, domain-specific knowledge and fewer hallucinations",0.85,85.0,covered,"Covers lack of real-time knowledge, specific data sources, accuracy; hallucination reduction mostly implied."
+B2,FQ01,5,"Failure modes in retrieval: irrelevant, incomplete, or poorly chunked passages leading to wrong answers",0.85,85.0,covered,"Missing content, bad ranking, intent mismatch; chunking not explicit."
+B2,FQ01,6,"Failure modes in generation: model ignores, misreads, or contradicts context, or still hallucinates despite retrieval",0.95,95.0,covered,"Extraction failure, wrong specificity, format, hallucination despite RAG, conflicts, guessing."
+B2,FQ02,1,Vaccines expose the body to an antigen without causing the actual disease,0.8,80.0,covered,Mimicking infection or pathogen structure is explained; the 'without causing disease' safety point is only implicit.
+B2,FQ02,2,Innate immune cells detect the antigen and activate T and B cells,0.9,90.0,covered,"Pattern recognition receptors, co-stimulatory molecules and cytokines are explained as directing the adaptive response."
+B2,FQ02,3,B cells make antibodies while T cells coordinate and kill infected cells,0.75,75.0,partial,Antibody production is covered; the specific T cell roles of coordinating and killing are thin.
+B2,FQ02,4,"Memory B and T cells form, enabling faster stronger response on later exposure",0.85,85.0,covered,"Long-term memory and the faster, stronger response on re-exposure are described, though memory cell formation is not detailed."
+B2,FQ02,5,"Different vaccine types (live, inactivated, subunit, mRNA) present antigens to trigger this response",0.7,70.0,partial,"Only live attenuated and non-replicating vaccines are mentioned; inactivated, subunit and mRNA types are not distinguished."
+B2,FQ02,6,Boosters are needed because antibodies and memory wane or pathogens mutate to evade immunity,0.95,95.0,covered,"Waning antibodies, mutation, variants and strain-matched updates are all explained with examples."
+B2,FQ03,1,Semiconductor structure of a solar cell: silicon layers and the p-n junction,0.7,70.0,partial,Mentions semiconductor material only; no layers or p-n junction.
+B2,FQ03,2,Photon absorption freeing electrons and creating electron-hole pairs,0.8,80.0,covered,Photons transfer energy to electrons causing charge movement; no electron-hole pairs but main idea present.
+B2,FQ03,3,Built-in electric field separating charges to drive current through an external circuit,0.7,70.0,partial,Only says movement of charges produces voltage and current; no built-in field.
+B2,FQ03,4,"Cells wired into panels, producing DC power, and inverter converting it to AC",0.95,95.0,covered,"DC, inverter, AC, arrays explained clearly."
+B2,FQ03,5,"Environmental factors affecting output: sunlight intensity, panel angle, shading, and temperature",0.9,90.0,covered,"Irradiance, orientation, temperature well covered; shading only via snow/clouds."
+B2,FQ03,6,"Inherent limits: cell efficiency ceiling, losses, soiling, and panel degradation over time",0.7,70.0,partial,Dust/soiling and damage mentioned; no efficiency ceiling or long-term degradation.
+B2,FQ04,1,What inflation is and why persistently high inflation harms an economy,0.8,80.0,covered,Defines inflation and purchasing power erosion; harm mentioned briefly (poor suffer most).
+B2,FQ04,2,The central bank's policy interest rate as its main tool,0.9,90.0,covered,"Explains open market operations, reserve interest, discount rate, FOMC."
+B2,FQ04,3,How higher policy rates raise borrowing costs for households and firms,0.95,95.0,covered,"Clear transmission chain to mortgages, loans, credit cards."
+B2,FQ04,4,How reduced spending and investment cool demand and ease price pressures,0.9,90.0,covered,"Valve analogy; spending slows, demand softens, prices ease."
+B2,FQ04,5,Role of inflation expectations and exchange rate in transmission,0.0,0.0,missing,Neither expectations nor exchange rate are discussed.
+B2,FQ04,6,"Trade-offs: slower growth, higher unemployment, and risk of recession or financial strain",0.9,90.0,covered,"Covers output, investment, recession fears, employment; financial strain not mentioned but main idea clear."
+B2,FQ05,1,What a tsunami is: a series of long waves from displaced water,0.85,85.0,covered,"Defined as immense waves from displaced water; 'series' only implicit, long wavelength mentioned."
+B2,FQ05,2,Underwater earthquakes at subduction zones displacing the seafloor and water column,0.8,80.0,covered,"Earthquakes at plate collision zones/trenches named as primary trigger, water column displaced; seafloor uplift mechanism thin."
+B2,FQ05,3,"Other triggers: landslides, volcanic eruptions, and meteorite impacts displacing water",0.8,80.0,covered,Landslides and volcanoes explained; meteotsunamis mentioned instead of meteorite impacts.
+B2,FQ05,4,"How tsunami waves travel across deep ocean: high speed, long wavelength, small height",0.95,95.0,covered,"Clearly stated high speed, long wavelength, small amplitude."
+B2,FQ05,5,Shoaling: wave slowing and growing taller as water becomes shallow near shore,1.0,100.0,covered,Well explained with toothpaste analogy and energy conversion.
+B2,FQ05,6,"Coastal destruction factors: inundation, repeated surges, backwash, coastline shape, and limits of warning",0.7,70.0,partial,"Inundation and little warning for landslide tsunamis covered; no repeated surges, backwash, or coastline shape (only in closing question)."
+B2,FQ06,1,"What correlation measures: statistical association between two variables, not proof of influence",0.95,95.0,covered,Clearly defined and distinguished from causation.
+B2,FQ06,2,"Confounding: a third variable driving both variables, creating a spurious association",0.95,95.0,covered,Lurking variable explained with ice cream/sunburn example.
+B2,FQ06,3,Reverse causation and coincidence: direction ambiguity and chance patterns producing misleading correlations,0.75,75.0,partial,"Chance covered; reverse causation only implicitly touched (ice cream/sunburn line), not explained as a concept."
+B2,FQ06,4,Randomized controlled experiments: manipulating one variable to isolate its causal effect,0.8,80.0,covered,"Controlled experiments and randomization mentioned and tied to isolating effect, but briefly."
+B2,FQ06,5,"Observational causal methods: controlling for confounders, natural experiments, and longitudinal designs",0.7,70.0,partial,Only mentions multivariable models to manage confounders; no natural experiments or longitudinal designs.
+B2,FQ06,6,"Criteria and limits for causal claims: temporality, dose-response, plausibility, replication, and remaining uncertainty",0.8,80.0,covered,"Covariation, temporal precedence, eliminating alternatives, and limits explained; dose-response, replication absent."
+B2,FQ07,1,"How antibiotics kill or inhibit bacteria, setting the stage for resistance",0.7,70.0,partial,Only implicit: mentions drug's mechanism of action and that antibiotics eliminate susceptible cells; no explanation of how they kill or inhibit.
+B2,FQ07,2,How random mutations create resistant bacteria within a population,0.9,90.0,covered,Spontaneous mutation in a subset of cells altering genes linked to drug's target is explained.
+B2,FQ07,3,How natural selection under antibiotic exposure favors resistant survivors,0.9,90.0,covered,"Antibiotic eliminates susceptible cells, resistant mutants survive, replicate, predominate."
+B2,FQ07,4,How bacteria share resistance genes through horizontal transfer such as plasmids,1.0,100.0,covered,"Transformation, transduction, conjugation, plasmids, and analogy explained clearly."
+B2,FQ07,5,"How resistant bacteria spread between people, animals, hospitals and the environment",0.7,70.0,partial,"Hospital transfers, travel and environmental DNA mentioned; animals and environment spread barely covered."
+B2,FQ07,6,"How stewardship, infection prevention and new drug development slow resistance, and their limits",0.9,90.0,covered,"Covers hygiene, vaccination, stewardship, declining drug discovery, and limits of the lab models."
+B2,FQ08,1,"HTTPS as HTTP carried inside a TLS-encrypted channel, and the problems it addresses",0.9,90.0,covered,Defines HTTPS over TLS and MITM/eavesdropping problems.
+B2,FQ08,2,TLS handshake: negotiating protocol version and cipher suite between client and server,0.95,95.0,covered,Clearly explains version and cipher suite negotiation.
+B2,FQ08,3,"Server authentication through certificates, certificate authorities, and the chain of trust",0.85,85.0,covered,Certificates and CA signature explained; chain of trust is implicit.
+B2,FQ08,4,"Key exchange establishing shared session keys, with forward secrecy",0.75,75.0,partial,"Session keys generated, but key exchange details and forward secrecy absent."
+B2,FQ08,5,Encryption and integrity protection of data in transit against eavesdropping and tampering,0.95,95.0,covered,"Confidentiality, integrity, record protocol explained."
+B2,FQ08,6,"Threats HTTPS does not stop: malware, phishing sites, compromised servers, endpoint attacks, metadata exposure",0.75,75.0,partial,Malware covered in depth; phishing/compromised servers only implied by 'intent of the server'; metadata and endpoint not covered.
+B2,FQ09,1,"Gravity compresses a star's core, creating the extreme temperature and pressure needed for fusion",0.7,70.0,partial,"Gravity mentioned as opposing force and core contraction heating in later stages, but not as the origin of fusion conditions."
+B2,FQ09,2,Quantum tunneling lets positively charged nuclei overcome electrical repulsion and fuse,0.0,0.0,missing,Absent.
+B2,FQ09,3,Hydrogen fuses into helium via proton-proton chain or CNO cycle,0.75,75.0,partial,Four protons to one helium nucleus explained; no pp chain or CNO named.
+B2,FQ09,4,"Mass converts to energy via E=mc², released as radiation and heat",0.0,0.0,missing,Mass-energy conversion not explained.
+B2,FQ09,5,Hydrostatic equilibrium: fusion pressure balances gravity to keep the star stable,0.85,85.0,covered,Outward gas pressure from fusion heat holds up against gravity; clearly explained though term not used.
+B2,FQ09,6,A star's initial mass sets its fuel burn rate and therefore lifetime,1.0,100.0,covered,"Clearly explained with fuel/rate logic, car analogy, and numbers."
+B2,FQ10,1,Rusting as electrochemical oxidation of iron to iron oxides,0.8,80.0,covered,Describes iron reacting with oxygen to form iron oxides; electrochemical nature only implied via later cathodic discussion.
+B2,FQ10,2,"Required reactants: oxygen and water, and the role of electrolytes",0.75,75.0,partial,Oxygen and water stated as essential; electrolytes' role not explained.
+B2,FQ10,3,Anodic and cathodic half-reactions forming Fe(OH)2 then hydrated Fe2O3 rust,0.0,0.0,missing,No half-reactions or Fe(OH)2 intermediate described.
+B2,FQ10,4,"Why rust is flaky and porous, so corrosion continues inward",0.95,95.0,covered,"Explains flaky, non-protective rust letting oxygen and moisture penetrate deeper, plus expansion."
+B2,FQ10,5,"Barrier protection: paint, oil, plastic coating, or plating that blocks oxygen and water",1.0,100.0,covered,"Thorough coverage of coatings, paints, oils, plastics, multi-coat systems."
+B2,FQ10,6,"Sacrificial protection and alloying: galvanizing, cathodic anodes, stainless steel, and their limitations",0.95,95.0,covered,"Covers galvanizing, sacrificial anodes, stainless steel, and limitations like cost and consumption."
+B3,FQ01,1,The core idea of RAG: retrieving external documents at query time to supplement the LLM prompt,0.95,95.0,covered,Clear definition plus courtroom clerk analogy.
+B3,FQ01,2,How the retrieval step works: indexing documents as embeddings and finding relevant passages for a query,0.8,80.0,covered,"Mentions sparse/dense retrieval, embeddings, corpora; indexing is only implicit, no passage-matching detail."
+B3,FQ01,3,How retrieved passages are inserted into the prompt so the model generates a grounded answer,0.7,70.0,partial,Says model grounds response in retrieved info but never explains insertion into the prompt.
+B3,FQ01,4,"Benefits over a plain LLM: fresher, domain-specific knowledge and fewer hallucinations",0.9,90.0,covered,"Covers fresh, domain-specific data, less retraining, and grounding."
+B3,FQ01,5,"Failure modes in retrieval: irrelevant, incomplete, or poorly chunked passages leading to wrong answers",0.85,85.0,covered,Missing content and ranking failures covered; chunking not mentioned.
+B3,FQ01,6,"Failure modes in generation: model ignores, misreads, or contradicts context, or still hallucinates despite retrieval",0.95,95.0,covered,"Ignoring evidence, noise/conflict, hallucination around context all explained."
+B3,FQ02,1,Vaccines expose the body to an antigen without causing the actual disease,0.85,85.0,covered,"Safely presenting antigens, mild or no symptoms, live attenuated mentioned; reasonably explained."
+B3,FQ02,2,Innate immune cells detect the antigen and activate T and B cells,0.95,95.0,covered,"Pattern recognition, dendritic cells, lymph nodes, bridge to adaptive immunity clearly explained."
+B3,FQ02,3,B cells make antibodies while T cells coordinate and kill infected cells,0.8,80.0,covered,Mentions cytotoxic T cells and antibody-producing cells; helper coordination thin.
+B3,FQ02,4,"Memory B and T cells form, enabling faster stronger response on later exposure",0.92,92.0,covered,Memory cells and rapid secondary response explained.
+B3,FQ02,5,"Different vaccine types (live, inactivated, subunit, mRNA) present antigens to trigger this response",0.7,70.0,partial,"Only live attenuated vs non-replicating; no inactivated, subunit, mRNA explanation."
+B3,FQ02,6,Boosters are needed because antibodies and memory wane or pathogens mutate to evade immunity,0.97,97.0,covered,Both waning and mutation clearly explained with examples.
+B3,FQ03,1,Semiconductor structure of a solar cell: silicon layers and the p-n junction,0.0,0.0,missing,Mentions semiconductor material but no silicon layers or p-n junction.
+B3,FQ03,2,Photon absorption freeing electrons and creating electron-hole pairs,0.75,75.0,partial,Photons excite electrons and make them move; no electron-hole pairs.
+B3,FQ03,3,Built-in electric field separating charges to drive current through an external circuit,0.0,0.0,missing,Only says 'guided movement' of charges; no built-in field or separation explained.
+B3,FQ03,4,"Cells wired into panels, producing DC power, and inverter converting it to AC",0.9,90.0,covered,"Cells in panels, arrays, DC output and inverter to AC explained clearly."
+B3,FQ03,5,"Environmental factors affecting output: sunlight intensity, panel angle, shading, and temperature",0.85,85.0,covered,"Irradiance, orientation, temperature coefficient, clouds, snow covered; shading per se is only implicit."
+B3,FQ03,6,"Inherent limits: cell efficiency ceiling, losses, soiling, and panel degradation over time",0.75,75.0,partial,Efficiency trends and dust mentioned; no ceiling explanation or degradation over time.
+B3,FQ04,1,What inflation is and why persistently high inflation harms an economy,0.85,85.0,covered,Defined; harm to affordability and the poor explained briefly.
+B3,FQ04,2,The central bank's policy interest rate as its main tool,0.95,95.0,covered,"Policy rate as the lever, plus reserves interest and open market operations."
+B3,FQ04,3,How higher policy rates raise borrowing costs for households and firms,0.95,95.0,covered,"Banks pass costs on; mortgages, loans, cards, and business borrowing costs."
+B3,FQ04,4,How reduced spending and investment cool demand and ease price pressures,0.92,92.0,covered,"Saving over spending, delayed investment, demand softens, and the tap analogy."
+B3,FQ04,5,Role of inflation expectations and exchange rate in transmission,0.0,0.0,missing,Neither expectations nor exchange rates are discussed.
+B3,FQ04,6,"Trade-offs: slower growth, higher unemployment, and risk of recession or financial strain",0.88,88.0,covered,"Growth, employment and recession risk covered; financial strain is not mentioned."
+B3,FQ05,1,What a tsunami is: a series of long waves from displaced water,0.85,85.0,covered,"Defined as waves from large-scale displacement of water, contrasted with wind waves; 'series' is only implicit."
+B3,FQ05,2,Underwater earthquakes at subduction zones displacing the seafloor and water column,0.85,85.0,covered,"Ring of Fire, plate collisions, trenches, earthquakes; seafloor displacement mechanism is thin."
+B3,FQ05,3,"Other triggers: landslides, volcanic eruptions, and meteorite impacts displacing water",0.95,95.0,covered,"Landslides, volcanic eruptions, space objects, and meteotsunamis are covered."
+B3,FQ05,4,"How tsunami waves travel across deep ocean: high speed, long wavelength, small height",0.9,90.0,covered,"States high speed, long wavelength, small amplitude, and kinetic energy."
+B3,FQ05,5,Shoaling: wave slowing and growing taller as water becomes shallow near shore,0.95,95.0,covered,Clear explanation with a toothpaste analogy and an energy conversion.
+B3,FQ05,6,"Coastal destruction factors: inundation, repeated surges, backwash, coastline shape, and limits of warning",0.7,70.0,partial,"Covers inundation and the lack of warning for landslide waves; repeated surges, backwash and coastline shape are not explained (the last only appears in the closing question)."
+B3,FQ06,1,"What correlation measures: statistical association between two variables, not proof of influence",0.95,95.0,covered,Clearly defined and contrasted with causation.
+B3,FQ06,2,"Confounding: a third variable driving both variables, creating a spurious association",0.95,95.0,covered,Explained with ice cream/sunburn/sunny weather example.
+B3,FQ06,3,Reverse causation and coincidence: direction ambiguity and chance patterns producing misleading correlations,0.8,80.0,covered,Chance and multiple comparisons covered; reverse causation only implicit via temporal precedence and longitudinal measurement.
+B3,FQ06,4,Randomized controlled experiments: manipulating one variable to isolate its causal effect,0.85,85.0,covered,"Controlled experiments, randomization and A/B testing mentioned to isolate effects; brief."
+B3,FQ06,5,"Observational causal methods: controlling for confounders, natural experiments, and longitudinal designs",0.75,75.0,partial,Longitudinal and statistical controls mentioned; natural experiments absent; thin.
+B3,FQ06,6,"Criteria and limits for causal claims: temporality, dose-response, plausibility, replication, and remaining uncertainty",0.8,80.0,covered,"Temporality, covariation, alternatives ruled out, theory grounding, and uncertainty discussed; dose-response and replication missing."
+B3,FQ07,1,"How antibiotics kill or inhibit bacteria, setting the stage for resistance",0.7,70.0,partial,Only mentions drugs that 'eliminate' bacteria and 'mechanism of action'; no explanation of how antibiotics kill or inhibit.
+B3,FQ07,2,How random mutations create resistant bacteria within a population,0.9,90.0,covered,Spontaneous chromosomal mutations in a diverse population explained.
+B3,FQ07,3,How natural selection under antibiotic exposure favors resistant survivors,0.9,90.0,covered,"Susceptible cells wiped out, resistant mutants proliferate; selective pressure mentioned."
+B3,FQ07,4,How bacteria share resistance genes through horizontal transfer such as plasmids,1.0,100.0,covered,"Transformation, transduction, conjugation, plasmids, analogy."
+B3,FQ07,5,"How resistant bacteria spread between people, animals, hospitals and the environment",0.75,75.0,partial,"Hospital transfers, travel, and community covered; animals and environment barely addressed."
+B3,FQ07,6,"How stewardship, infection prevention and new drug development slow resistance, and their limits",0.9,90.0,covered,"Dosing, hygiene, vaccines, screening, and limits of new drug discovery covered; stewardship in terms of reducing unnecessary use is thin."
+B3,FQ08,1,"HTTPS as HTTP carried inside a TLS-encrypted channel, and the problems it addresses",0.85,85.0,covered,Explains HTTPS relying on TLS and the threats of eavesdropping and tampering; the layering of HTTP inside TLS is only implicit.
+B3,FQ08,2,TLS handshake: negotiating protocol version and cipher suite between client and server,0.95,95.0,covered,Clearly covers version negotiation and cipher suite contents.
+B3,FQ08,3,"Server authentication through certificates, certificate authorities, and the chain of trust",0.85,85.0,covered,Covers certificates and CA signatures; the chain of trust is not detailed.
+B3,FQ08,4,"Key exchange establishing shared session keys, with forward secrecy",0.75,75.0,partial,"Covers session key generation via asymmetric crypto, but forward secrecy is not mentioned."
+B3,FQ08,5,Encryption and integrity protection of data in transit against eavesdropping and tampering,0.95,95.0,covered,"Record protocol, symmetric encryption, confidentiality and integrity, and MITM are all explained."
+B3,FQ08,6,"Threats HTTPS does not stop: malware, phishing sites, compromised servers, endpoint attacks, metadata exposure",0.8,80.0,covered,"Malware is covered well and malicious sites with certificates are mentioned; compromised servers, endpoints and metadata exposure are thin. The script also wrongly says metadata is hidden."
+B3,FQ09,1,"Gravity compresses a star's core, creating the extreme temperature and pressure needed for fusion",0.75,75.0,partial,"Gravity and high temperatures mentioned; contraction heating appears later, but formation compression is only implicit."
+B3,FQ09,2,Quantum tunneling lets positively charged nuclei overcome electrical repulsion and fuse,0.0,0.0,missing,"Coulomb barrier explained, but overcome by thermal energy; tunneling absent."
+B3,FQ09,3,Hydrogen fuses into helium via proton-proton chain or CNO cycle,0.75,75.0,partial,Four protons into helium explained; chain/CNO not named.
+B3,FQ09,4,"Mass converts to energy via E=mc², released as radiation and heat",0.7,70.0,partial,Energy release mentioned but no mass-to-energy conversion.
+B3,FQ09,5,Hydrostatic equilibrium: fusion pressure balances gravity to keep the star stable,0.9,90.0,covered,Balancing act and thermal pressure supporting against gravity explained clearly.
+B3,FQ09,6,A star's initial mass sets its fuel burn rate and therefore lifetime,1.0,100.0,covered,Explained thoroughly with analogy and examples.
+B3,FQ10,1,Rusting as electrochemical oxidation of iron to iron oxides,0.8,80.0,covered,"Explains iron reacting with oxygen and water to form iron oxides, calls it oxidative; the electrochemical nature is only implicit."
+B3,FQ10,2,"Required reactants: oxygen and water, and the role of electrolytes",0.8,80.0,covered,Oxygen and water are clearly required; the role of electrolytes is not explained.
+B3,FQ10,3,Anodic and cathodic half-reactions forming Fe(OH)2 then hydrated Fe2O3 rust,0.0,0.0,missing,No half-reactions or Fe(OH)2 intermediate are given.
+B3,FQ10,4,"Why rust is flaky and porous, so corrosion continues inward",0.95,95.0,covered,"Explains rust is flaky, porous, gives no passivation, so degradation continues; adds volume expansion."
+B3,FQ10,5,"Barrier protection: paint, oil, plastic coating, or plating that blocks oxygen and water",1.0,100.0,covered,"Thoroughly covered with oils, paints, plastics, powders, and layered paint systems."
+B3,FQ10,6,"Sacrificial protection and alloying: galvanizing, cathodic anodes, stainless steel, and their limitations",1.0,100.0,covered,"Covers galvanizing, sacrificial anodes, stainless steel, and limitations such as cost, anode consumption, and weight."
+B4,FQ01,1,The core idea of RAG: retrieving external documents at query time to supplement the LLM prompt,1.0,100.0,covered,Clearly defined with judge/clerk analogy.
+B4,FQ01,2,How the retrieval step works: indexing documents as embeddings and finding relevant passages for a query,0.85,85.0,covered,"Chunking, dense embeddings, BM25, hybrid explained; embedding indexing only briefly implied."
+B4,FQ01,3,How retrieved passages are inserted into the prompt so the model generates a grounded answer,0.9,90.0,covered,"Reranked, combined with query into augmented prompt, grounded response."
+B4,FQ01,4,"Benefits over a plain LLM: fresher, domain-specific knowledge and fewer hallucinations",0.9,90.0,covered,"Stale knowledge, private/domain context, up-to-date retrieval covered; hallucination reduction implied."
+B4,FQ01,5,"Failure modes in retrieval: irrelevant, incomplete, or poorly chunked passages leading to wrong answers",0.9,90.0,covered,"Missing content, ranking failures, chunk boundary errors, multi-hop gaps."
+B4,FQ01,6,"Failure modes in generation: model ignores, misreads, or contradicts context, or still hallucinates despite retrieval",1.0,100.0,covered,"Ignoring context, noise, hallucinating despite source, overconfident guesses."
+B4,FQ02,1,Vaccines expose the body to an antigen without causing the actual disease,0.95,95.0,covered,"Defines antigen, fire drill analogy, active immunization without disease."
+B4,FQ02,2,Innate immune cells detect the antigen and activate T and B cells,0.95,95.0,covered,"Innate recognition, APCs, MHC, cytokines, costimulation trigger adaptive activation."
+B4,FQ02,3,B cells make antibodies while T cells coordinate and kill infected cells,0.8,80.0,covered,B cell antibodies explained; T cell coordinating/killing role only implicit.
+B4,FQ02,4,"Memory B and T cells form, enabling faster stronger response on later exposure",0.95,95.0,covered,Clearly explained.
+B4,FQ02,5,"Different vaccine types (live, inactivated, subunit, mRNA) present antigens to trigger this response",0.0,0.0,missing,Vaccine types not discussed.
+B4,FQ02,6,Boosters are needed because antibodies and memory wane or pathogens mutate to evade immunity,0.95,95.0,covered,Both waning and mutation explained with examples.
+B4,FQ03,1,Semiconductor structure of a solar cell: silicon layers and the p-n junction,0.0,0.0,missing,Mentions semiconductors only generally; no layers or p-n junction.
+B4,FQ03,2,Photon absorption freeing electrons and creating electron-hole pairs,0.75,75.0,partial,"Photons energize electrons and make them move, but no electron-hole pairs."
+B4,FQ03,3,Built-in electric field separating charges to drive current through an external circuit,0.0,0.0,missing,No built-in field or charge separation explained.
+B4,FQ03,4,"Cells wired into panels, producing DC power, and inverter converting it to AC",0.95,95.0,covered,"Cells to panels to arrays, DC, inverter to AC clearly explained."
+B4,FQ03,5,"Environmental factors affecting output: sunlight intensity, panel angle, shading, and temperature",0.9,90.0,covered,"Irradiance, tilt, temperature, clouds, dust, snow covered; shading only implicitly."
+B4,FQ03,6,"Inherent limits: cell efficiency ceiling, losses, soiling, and panel degradation over time",0.8,80.0,covered,"Efficiency levels, dust soiling covered; degradation over time and theoretical ceiling thin."
+B4,FQ04,1,What inflation is and why persistently high inflation harms an economy,0.75,75.0,partial,"Defines inflation and mentions cost of living and 2% target, but harms of persistent high inflation only thinly explained."
+B4,FQ04,2,The central bank's policy interest rate as its main tool,0.95,95.0,covered,"Explains policy rate, open market operations, reserve rate."
+B4,FQ04,3,How higher policy rates raise borrowing costs for households and firms,0.95,95.0,covered,"Clear chain from reserves to loan rates, mortgages, deposit rates."
+B4,FQ04,4,How reduced spending and investment cool demand and ease price pressures,0.92,92.0,covered,"Households scale back purchases, firms defer hiring and capex, lowers aggregate demand."
+B4,FQ04,5,Role of inflation expectations and exchange rate in transmission,0.78,78.0,partial,Expectations and real rates well covered; exchange rate not mentioned.
+B4,FQ04,6,"Trade-offs: slower growth, higher unemployment, and risk of recession or financial strain",0.88,88.0,covered,"Growth, unemployment, recession covered; financial strain only implicitly via asset prices."
+B4,FQ05,1,What a tsunami is: a series of long waves from displaced water,0.95,95.0,covered,"Defines long-period shallow-water wave, displacement, and wave train."
+B4,FQ05,2,Underwater earthquakes at subduction zones displacing the seafloor and water column,0.95,95.0,covered,Clearly explained.
+B4,FQ05,3,"Other triggers: landslides, volcanic eruptions, and meteorite impacts displacing water",0.95,95.0,covered,All covered.
+B4,FQ05,4,"How tsunami waves travel across deep ocean: high speed, long wavelength, small height",0.95,95.0,covered,"Speed, wavelength, amplitude given."
+B4,FQ05,5,Shoaling: wave slowing and growing taller as water becomes shallow near shore,0.95,95.0,covered,Explained with highway analogy.
+B4,FQ05,6,"Coastal destruction factors: inundation, repeated surges, backwash, coastline shape, and limits of warning",0.9,90.0,covered,"All present, warning limits via landslide tsunamis with little warning."
+B4,FQ06,1,"What correlation measures: statistical association between two variables, not proof of influence",0.95,95.0,covered,"Clearly defined as association/co-occurrence, not causation."
+B4,FQ06,2,"Confounding: a third variable driving both variables, creating a spurious association",0.95,95.0,covered,Explained with exercise/skin cancer/sunlight and ice cream examples.
+B4,FQ06,3,Reverse causation and coincidence: direction ambiguity and chance patterns producing misleading correlations,0.85,85.0,covered,"Chance and multiple comparisons explained; reverse causality mentioned but only briefly, no example."
+B4,FQ06,4,Randomized controlled experiments: manipulating one variable to isolate its causal effect,0.75,75.0,partial,"Controlled A/B experiments mentioned, but no randomization or manipulation explanation."
+B4,FQ06,5,"Observational causal methods: controlling for confounders, natural experiments, and longitudinal designs",0.82,82.0,covered,"Regression adjustment, longitudinal measurement, sensitivity analysis covered; natural experiments absent."
+B4,FQ06,6,"Criteria and limits for causal claims: temporality, dose-response, plausibility, replication, and remaining uncertainty",0.8,80.0,covered,"Covariation, temporality, eliminating alternatives, theory and limits covered; dose-response and replication absent."
+B4,FQ07,1,"How antibiotics kill or inhibit bacteria, setting the stage for resistance",0.7,70.0,partial,Only implicit: antibiotics clear susceptible populations and target mechanisms of action; no explanation of how they kill or inhibit.
+B4,FQ07,2,How random mutations create resistant bacteria within a population,0.9,90.0,covered,Spontaneous chromosomal mutations affecting drug target genes explained.
+B4,FQ07,3,How natural selection under antibiotic exposure favors resistant survivors,0.9,90.0,covered,"Antibiotic clears susceptible, resistant mutant survives, multiplies and dominates."
+B4,FQ07,4,How bacteria share resistance genes through horizontal transfer such as plasmids,1.0,100.0,covered,"Transformation, transduction, conjugation, plasmids, transposons explained."
+B4,FQ07,5,"How resistant bacteria spread between people, animals, hospitals and the environment",0.95,95.0,covered,"Patient transfers, travel, One Health, animal excreta, wastewater, wildlife covered."
+B4,FQ07,6,"How stewardship, infection prevention and new drug development slow resistance, and their limits",0.95,95.0,covered,"Infection prevention, stewardship, dosing, ML diagnostics, limits of nonlinear relationship and new drug decline covered."
+B4,FQ08,1,"HTTPS as HTTP carried inside a TLS-encrypted channel, and the problems it addresses",0.9,90.0,covered,Explains HTTPS built on TLS and the threat of interception on public networks.
+B4,FQ08,2,TLS handshake: negotiating protocol version and cipher suite between client and server,0.95,95.0,covered,Clearly covers version and cipher suite negotiation.
+B4,FQ08,3,"Server authentication through certificates, certificate authorities, and the chain of trust",0.8,80.0,covered,Certificate and CA covered; chain of trust not explained.
+B4,FQ08,4,"Key exchange establishing shared session keys, with forward secrecy",0.75,75.0,partial,Session keys from exchanged random data mentioned; forward secrecy absent.
+B4,FQ08,5,Encryption and integrity protection of data in transit against eavesdropping and tampering,0.95,95.0,covered,"Confidentiality, integrity, and MITM clearly explained with analogy."
+B4,FQ08,6,"Threats HTTPS does not stop: malware, phishing sites, compromised servers, endpoint attacks, metadata exposure",0.8,80.0,covered,Malware and malicious sites covered in depth; phishing implicit; metadata and compromised servers not addressed.
+B4,FQ09,1,"Gravity compresses a star's core, creating the extreme temperature and pressure needed for fusion",0.8,80.0,covered,"Gravitational squeeze and core temperature/pressure discussed, though not framed as how fusion is initiated."
+B4,FQ09,2,Quantum tunneling lets positively charged nuclei overcome electrical repulsion and fuse,0.0,0.0,missing,Absent; only says fusion events are infrequent.
+B4,FQ09,3,Hydrogen fuses into helium via proton-proton chain or CNO cycle,0.9,90.0,covered,"Stated clearly with net four protons to helium, neutrino evidence."
+B4,FQ09,4,"Mass converts to energy via E=mc², released as radiation and heat",0.7,70.0,partial,Energy released as photons but no mass-energy conversion explained.
+B4,FQ09,5,Hydrostatic equilibrium: fusion pressure balances gravity to keep the star stable,1.0,100.0,covered,Clearly explained.
+B4,FQ09,6,A star's initial mass sets its fuel burn rate and therefore lifetime,1.0,100.0,covered,"Well explained with L~M^3.5, analogy, numbers."
+B4,FQ10,1,Rusting as electrochemical oxidation of iron to iron oxides,0.95,95.0,covered,Defines rust as iron oxides formed through a redox process and describes the electrochemical mechanism.
+B4,FQ10,2,"Required reactants: oxygen and water, and the role of electrolytes",0.8,80.0,covered,Oxygen and water are clearly required. The role of electrolytes is not explicitly explained.
+B4,FQ10,3,Anodic and cathodic half-reactions forming Fe(OH)2 then hydrated Fe2O3 rust,0.95,95.0,covered,"Describes the anodic oxidation, the cathodic reduction, Fe(OH)2 formation, and then oxidation to hydrated Fe2O3."
+B4,FQ10,4,"Why rust is flaky and porous, so corrosion continues inward",0.9,90.0,covered,"Explains that rust is flaky and friable, exposes fresh metal, and lets the whole mass eventually convert. Porosity is only implied."
+B4,FQ10,5,"Barrier protection: paint, oil, plastic coating, or plating that blocks oxygen and water",0.95,95.0,covered,"Covers paint, oil, plastics, and layered coatings that keep oxygen and water from the surface."
+B4,FQ10,6,"Sacrificial protection and alloying: galvanizing, cathodic anodes, stainless steel, and their limitations",0.95,95.0,covered,"Covers zinc and magnesium sacrificial protection, galvanizing, sacrificial anodes, and stainless steel. Limitations include anode consumption and the expense of alloys."
+B5,FQ01,1,The core idea of RAG: retrieving external documents at query time to supplement the LLM prompt,1.0,100.0,covered,"Clear, with courtroom clerk analogy and summary."
+B5,FQ01,2,How the retrieval step works: indexing documents as embeddings and finding relevant passages for a query,0.8,80.0,covered,"Covers sparse/dense/hybrid retrieval and corpora, but embedding indexing is only implicit."
+B5,FQ01,3,How retrieved passages are inserted into the prompt so the model generates a grounded answer,0.9,90.0,covered,States retrieved info is combined with the query into an augmented prompt.
+B5,FQ01,4,"Benefits over a plain LLM: fresher, domain-specific knowledge and fewer hallucinations",1.0,100.0,covered,"Clearly explained: outdated static knowledge, private data, reduced hallucinations."
+B5,FQ01,5,"Failure modes in retrieval: irrelevant, incomplete, or poorly chunked passages leading to wrong answers",0.95,95.0,covered,"Covers missing documents, chunk boundary issues, poor ranking, low recall."
+B5,FQ01,6,"Failure modes in generation: model ignores, misreads, or contradicts context, or still hallucinates despite retrieval",0.95,95.0,covered,"Covers ignoring text, noise, conflicts, multi-hop failure, hallucinating around sources."
+B5,FQ02,1,Vaccines expose the body to an antigen without causing the actual disease,0.95,95.0,covered,"Explained as mimicking infection without disease, with antigen examples."
+B5,FQ02,2,Innate immune cells detect the antigen and activate T and B cells,0.92,92.0,covered,"APCs, MHC presentation, and innate signaling explained."
+B5,FQ02,3,B cells make antibodies while T cells coordinate and kill infected cells,0.75,75.0,partial,"Antibodies and memory mentioned, but T cell coordinating/killing roles are not explicit."
+B5,FQ02,4,"Memory B and T cells form, enabling faster stronger response on later exposure",0.95,95.0,covered,Clearly explained.
+B5,FQ02,5,"Different vaccine types (live, inactivated, subunit, mRNA) present antigens to trigger this response",0.7,70.0,partial,Only a passing mention of viral protein or attenuated particle; no real vaccine types.
+B5,FQ02,6,Boosters are needed because antibodies and memory wane or pathogens mutate to evade immunity,0.97,97.0,covered,Both waning and mutation explained with examples.
+B5,FQ03,1,Semiconductor structure of a solar cell: silicon layers and the p-n junction,0.0,0.0,missing,Mentions semiconductor material but no layers or p-n junction.
+B5,FQ03,2,Photon absorption freeing electrons and creating electron-hole pairs,0.75,75.0,partial,"Photons excite electrons, but no electron-hole pairs."
+B5,FQ03,3,Built-in electric field separating charges to drive current through an external circuit,0.0,0.0,missing,No built-in field or charge separation explained.
+B5,FQ03,4,"Cells wired into panels, producing DC power, and inverter converting it to AC",0.95,95.0,covered,"Cells to panels to arrays, DC, and inverter to AC explained clearly."
+B5,FQ03,5,"Environmental factors affecting output: sunlight intensity, panel angle, shading, and temperature",0.85,85.0,covered,"Irradiance, angle, temperature, and dust/snow covered; shading only implicit."
+B5,FQ03,6,"Inherent limits: cell efficiency ceiling, losses, soiling, and panel degradation over time",0.75,75.0,partial,Efficiency figures and soiling are covered; no degradation over time and no efficiency ceiling explanation.
+B5,FQ04,1,What inflation is and why persistently high inflation harms an economy,0.75,75.0,partial,Defines inflation and mentions eroding purchasing power; harms thinly explained.
+B5,FQ04,2,The central bank's policy interest rate as its main tool,0.9,90.0,covered,"Policy rate, open market operations, reserves explained."
+B5,FQ04,3,How higher policy rates raise borrowing costs for households and firms,0.9,90.0,covered,Banks raise lending rates; borrowing becomes more expensive for consumers and businesses.
+B5,FQ04,4,How reduced spending and investment cool demand and ease price pressures,0.9,90.0,covered,"Less borrowing, more saving, lower aggregate demand tempers prices."
+B5,FQ04,5,Role of inflation expectations and exchange rate in transmission,0.7,70.0,partial,Expectations mentioned briefly; exchange rate absent.
+B5,FQ04,6,"Trade-offs: slower growth, higher unemployment, and risk of recession or financial strain",0.8,80.0,covered,Growth vs. price stability and employment covered; recession and financial strain not much.
+B5,FQ05,1,What a tsunami is: a series of long waves from displaced water,0.9,90.0,covered,Explains displaced water and very long wavelength/period vs wind waves; series of waves noted later.
+B5,FQ05,2,Underwater earthquakes at subduction zones displacing the seafloor and water column,0.85,85.0,covered,"Ring of Fire, colliding plates, trenches, earthquakes; seafloor displacement mechanism is thin."
+B5,FQ05,3,"Other triggers: landslides, volcanic eruptions, and meteorite impacts displacing water",0.95,95.0,covered,"Landslides, volcanoes, space objects all covered."
+B5,FQ05,4,"How tsunami waves travel across deep ocean: high speed, long wavelength, small height",1.0,100.0,covered,"Speed, wavelength and height clearly explained with ship imperceptibility."
+B5,FQ05,5,Shoaling: wave slowing and growing taller as water becomes shallow near shore,1.0,100.0,covered,Clear explanation with toothpaste analogy and energy conversion.
+B5,FQ05,6,"Coastal destruction factors: inundation, repeated surges, backwash, coastline shape, and limits of warning",0.95,95.0,covered,"Covers inundation, first wave not largest, retreating currents, bays/shoreline, warning challenges."
+B5,FQ06,1,"What correlation measures: statistical association between two variables, not proof of influence",0.95,95.0,covered,"Clearly defined, contrasted with causation."
+B5,FQ06,2,"Confounding: a third variable driving both variables, creating a spurious association",0.95,95.0,covered,Explained with sun/ice cream example.
+B5,FQ06,3,Reverse causation and coincidence: direction ambiguity and chance patterns producing misleading correlations,0.8,80.0,covered,"Coincidence explained with multiple comparisons; reverse causality only named, though longitudinal part hints at it."
+B5,FQ06,4,Randomized controlled experiments: manipulating one variable to isolate its causal effect,0.8,80.0,covered,Controlled experiments/A/B testing isolate independent variable; randomization not explicit.
+B5,FQ06,5,"Observational causal methods: controlling for confounders, natural experiments, and longitudinal designs",0.75,75.0,partial,Longitudinal and statistical control mentioned; natural experiments absent; sensitivity analysis added.
+B5,FQ06,6,"Criteria and limits for causal claims: temporality, dose-response, plausibility, replication, and remaining uncertainty",0.75,75.0,partial,"Temporality, covariation, elimination of alternatives, theory, unmeasured confounding limits; no dose-response or replication."
+B5,FQ07,1,"How antibiotics kill or inhibit bacteria, setting the stage for resistance",0.7,70.0,partial,Only says drugs clear susceptible pathogens; no mechanism of killing or inhibiting.
+B5,FQ07,2,How random mutations create resistant bacteria within a population,0.85,85.0,covered,Spontaneous DNA errors alter drug target genes; brief but clear.
+B5,FQ07,3,How natural selection under antibiotic exposure favors resistant survivors,0.9,90.0,covered,Field/weeds analogy and selection of resistant variants explained.
+B5,FQ07,4,How bacteria share resistance genes through horizontal transfer such as plasmids,0.95,95.0,covered,"Conjugation, transformation, transduction, plasmids explained."
+B5,FQ07,5,"How resistant bacteria spread between people, animals, hospitals and the environment",0.85,85.0,covered,"Covers animals, environment, hospital transfers; person-to-person is thinner."
+B5,FQ07,6,"How stewardship, infection prevention and new drug development slow resistance, and their limits",0.9,90.0,covered,"Stewardship, hygiene, One Health, and limits of drug discovery and fitness cost compensation covered."
+B5,FQ08,1,"HTTPS as HTTP carried inside a TLS-encrypted channel, and the problems it addresses",0.9,90.0,covered,"Defines HTTPS, TLS, SSL, untrusted network, MITM problem."
+B5,FQ08,2,TLS handshake: negotiating protocol version and cipher suite between client and server,0.95,95.0,covered,Version and cipher suite negotiation clearly explained.
+B5,FQ08,3,"Server authentication through certificates, certificate authorities, and the chain of trust",0.85,85.0,covered,"Certificate, CA, signature verification explained; chain of trust not explicit."
+B5,FQ08,4,"Key exchange establishing shared session keys, with forward secrecy",0.75,75.0,partial,Session keys from exchanged random data covered; forward secrecy absent and key exchange thin.
+B5,FQ08,5,Encryption and integrity protection of data in transit against eavesdropping and tampering,0.9,90.0,covered,"Confidentiality and integrity explained, record protocol mentioned."
+B5,FQ08,6,"Threats HTTPS does not stop: malware, phishing sites, compromised servers, endpoint attacks, metadata exposure",0.75,75.0,partial,"Malware well covered; phishing, compromised servers, endpoints, metadata exposure largely missing (and metadata claimed protected)."
+B5,FQ09,1,"Gravity compresses a star's core, creating the extreme temperature and pressure needed for fusion",0.8,80.0,covered,"Gravity's weight demanding high core pressure and temperature is explained, and 'extreme conditions' are mentioned; the compression-to-ignition link is somewhat implicit."
+B5,FQ09,2,Quantum tunneling lets positively charged nuclei overcome electrical repulsion and fuse,0.0,0.0,missing,Not mentioned at all.
+B5,FQ09,3,Hydrogen fuses into helium via proton-proton chain or CNO cycle,0.8,80.0,covered,Four protons to helium and the proton-proton chain are mentioned with neutrinos; the chain's steps are not detailed.
+B5,FQ09,4,"Mass converts to energy via E=mc², released as radiation and heat",0.7,70.0,partial,"Energy is released as light and heat, but the mass-energy conversion is never explained."
+B5,FQ09,5,Hydrostatic equilibrium: fusion pressure balances gravity to keep the star stable,1.0,100.0,covered,Clearly explained.
+B5,FQ09,6,A star's initial mass sets its fuel burn rate and therefore lifetime,1.0,100.0,covered,"Thoroughly explained, with the luminosity scaling and examples."
+B5,FQ10,1,Rusting as electrochemical oxidation of iron to iron oxides,0.95,95.0,covered,"Clearly explained as an electrochemical redox reaction, with iron as the reducing agent and oxygen as the oxidizer."
+B5,FQ10,2,"Required reactants: oxygen and water, and the role of electrolytes",0.8,80.0,covered,Oxygen and water are clearly required. The role of electrolytes such as salt is not explained.
+B5,FQ10,3,Anodic and cathodic half-reactions forming Fe(OH)2 then hydrated Fe2O3 rust,0.9,90.0,covered,"Describes the anode and cathode zones, Fe2+ and hydroxide formation, Fe(OH)2, then oxidation to hydrated iron(III) oxide. No explicit equations are given."
+B5,FQ10,4,"Why rust is flaky and porous, so corrosion continues inward",0.85,85.0,covered,"Says rust is flaky and friable, gives no passivation, and that all the iron can convert over time. The inward-penetration mechanism is only implicit."
+B5,FQ10,5,"Barrier protection: paint, oil, plastic coating, or plating that blocks oxygen and water",0.95,95.0,covered,"Covers paint, oil, plastic, and metal coatings blocking air and water, with layered paint systems as detail."
+B5,FQ10,6,"Sacrificial protection and alloying: galvanizing, cathodic anodes, stainless steel, and their limitations",0.95,95.0,covered,"Covers galvanizing, sacrificial anodes, and stainless steel. Limitations are given: cost, anode consumption, weight, and high-resistivity environments."
+P1,FQ01,1,The core idea of RAG: retrieving external documents at query time to supplement the LLM prompt,1.0,100.0,covered,Clearly explained.
+P1,FQ01,2,How the retrieval step works: indexing documents as embeddings and finding relevant passages for a query,1.0,100.0,covered,"Embeddings, vector DB, map analogy, query comparison, hybrid search."
+P1,FQ01,3,How retrieved passages are inserted into the prompt so the model generates a grounded answer,0.9,90.0,covered,"Appended to prompt, prioritize context; fairly brief."
+P1,FQ01,4,"Benefits over a plain LLM: fresher, domain-specific knowledge and fewer hallucinations",1.0,100.0,covered,"Covers hallucination, freshness, domain knowledge, citations."
+P1,FQ01,5,"Failure modes in retrieval: irrelevant, incomplete, or poorly chunked passages leading to wrong answers",0.9,90.0,covered,"Missing content, ranking failures, irrelevant noise; chunking not explicit."
+P1,FQ01,6,"Failure modes in generation: model ignores, misreads, or contradicts context, or still hallucinates despite retrieval",1.0,100.0,covered,"Hallucinating around context, failing to extract, conflicts, not acknowledging insufficiency."
+P1,FQ02,1,Vaccines expose the body to an antigen without causing the actual disease,0.95,95.0,covered,Clearly explained.
+P1,FQ02,2,Innate immune cells detect the antigen and activate T and B cells,0.9,90.0,covered,"APCs (dendritic cells, macrophages) ingest antigen, migrate to lymph nodes and activate T cells."
+P1,FQ02,3,B cells make antibodies while T cells coordinate and kill infected cells,0.85,85.0,covered,B cell/plasma cell antibodies and helper T coordination are explained; killing by cytotoxic T cells is only implicit.
+P1,FQ02,4,"Memory B and T cells form, enabling faster stronger response on later exposure",0.95,95.0,covered,Memory cell types and rapid re-response explained.
+P1,FQ02,5,"Different vaccine types (live, inactivated, subunit, mRNA) present antigens to trigger this response",0.7,70.0,partial,Only inactivated and weaker-form vaccines are mentioned; no mRNA or subunit.
+P1,FQ02,6,Boosters are needed because antibodies and memory wane or pathogens mutate to evade immunity,0.97,97.0,covered,Both waning and variant evasion explained with Omicron and measles examples.
+P1,FQ03,1,Semiconductor structure of a solar cell: silicon layers and the p-n junction,0.8,80.0,covered,Doped silicon with two regions and built-in field explained; p-n junction mechanics explicitly deferred.
+P1,FQ03,2,Photon absorption freeing electrons and creating electron-hole pairs,0.8,80.0,covered,Photon absorption freeing electrons clearly explained; holes/pairs not mentioned.
+P1,FQ03,3,Built-in electric field separating charges to drive current through an external circuit,0.9,90.0,covered,Field directs charges; contacts collect electrons into external circuit.
+P1,FQ03,4,"Cells wired into panels, producing DC power, and inverter converting it to AC",0.8,80.0,covered,DC and inverter explained; cells wired into panels not explained.
+P1,FQ03,5,"Environmental factors affecting output: sunlight intensity, panel angle, shading, and temperature",1.0,100.0,covered,All four covered with detail.
+P1,FQ03,6,"Inherent limits: cell efficiency ceiling, losses, soiling, and panel degradation over time",0.8,80.0,covered,"Bandgap limits, resistance losses, soiling covered; degradation over time only via weather damage."
+P1,FQ04,1,What inflation is and why persistently high inflation harms an economy,0.7,70.0,partial,"Inflation is described as rapid price increases and price stability as an objective, but the script never explains why high inflation harms the economy."
+P1,FQ04,2,The central bank's policy interest rate as its main tool,0.95,95.0,covered,Policy rate is defined and its role as the primary instrument is clear.
+P1,FQ04,3,How higher policy rates raise borrowing costs for households and firms,0.9,90.0,covered,"Borrowing costs rise, mortgages become more expensive, and businesses cut investment."
+P1,FQ04,4,How reduced spending and investment cool demand and ease price pressures,0.95,95.0,covered,Clear chain from lower spending to lower aggregate demand relative to capacity to easing prices.
+P1,FQ04,5,Role of inflation expectations and exchange rate in transmission,0.7,70.0,partial,"Exchange rate channel is explained through capital flows, but inflation expectations are not covered."
+P1,FQ04,6,"Trade-offs: slower growth, higher unemployment, and risk of recession or financial strain",0.85,85.0,covered,"Slower growth, unemployment, underemployment and asset value declines are covered. Recession is not named and financial strain is only partly covered."
+P1,FQ05,1,What a tsunami is: a series of long waves from displaced water,0.85,85.0,covered,"Defined as ocean waves from displaced water, with long wavelengths; 'series' only implicit."
+P1,FQ05,2,Underwater earthquakes at subduction zones displacing the seafloor and water column,0.95,95.0,covered,Clear mechanical explanation of subduction zone seafloor uplift displacing water.
+P1,FQ05,3,"Other triggers: landslides, volcanic eruptions, and meteorite impacts displacing water",0.8,80.0,covered,Landslides and volcanoes explained; meteorite impacts absent.
+P1,FQ05,4,"How tsunami waves travel across deep ocean: high speed, long wavelength, small height",0.95,95.0,covered,"Speed, wavelength, height and low energy loss all explained."
+P1,FQ05,5,Shoaling: wave slowing and growing taller as water becomes shallow near shore,0.95,95.0,covered,"Clearly explained slowing, wavelength compression and height growth."
+P1,FQ05,6,"Coastal destruction factors: inundation, repeated surges, backwash, coastline shape, and limits of warning",0.7,70.0,partial,"Inundation, wall of water, run-up covered; repeated surges, backwash, coastline shape, and warning limits missing."
+P1,FQ06,1,"What correlation measures: statistical association between two variables, not proof of influence",0.95,95.0,covered,"Clearly defined strength and direction of association, not causation."
+P1,FQ06,2,"Confounding: a third variable driving both variables, creating a spurious association",0.95,95.0,covered,Defined with shared trend and health condition examples.
+P1,FQ06,3,Reverse causation and coincidence: direction ambiguity and chance patterns producing misleading correlations,0.95,95.0,covered,Reverse causality with BMI example; chance and multiple comparisons mentioned.
+P1,FQ06,4,Randomized controlled experiments: manipulating one variable to isolate its causal effect,0.9,90.0,covered,Random assignment balancing confounders explained; manipulation is implicit.
+P1,FQ06,5,"Observational causal methods: controlling for confounders, natural experiments, and longitudinal designs",0.85,85.0,covered,"Propensity matching, IV, longitudinal mentioned; natural experiments not explicit."
+P1,FQ06,6,"Criteria and limits for causal claims: temporality, dose-response, plausibility, replication, and remaining uncertainty",0.8,80.0,covered,"Temporal precedence, Bradford Hill named, E-value and triangulation; dose-response and plausibility not detailed."
+P1,FQ07,1,"How antibiotics kill or inhibit bacteria, setting the stage for resistance",0.7,70.0,partial,Only implicitly addressed via targets such as DNA gyrase and the MIC concept; no explicit explanation of how antibiotics kill or inhibit bacteria.
+P1,FQ07,2,How random mutations create resistant bacteria within a population,0.85,85.0,covered,"Spontaneous chromosomal mutations are described, along with target-site mutations; the random origin is only briefly explained."
+P1,FQ07,3,How natural selection under antibiotic exposure favors resistant survivors,0.95,95.0,covered,The MIC/MPC selective window and the sieve analogy explain selection clearly.
+P1,FQ07,4,How bacteria share resistance genes through horizontal transfer such as plasmids,0.95,95.0,covered,"Conjugation, transformation and transduction are explained, including plasmids."
+P1,FQ07,5,"How resistant bacteria spread between people, animals, hospitals and the environment",0.9,90.0,covered,"Covers human, agricultural, environmental and healthcare transfer pathways."
+P1,FQ07,6,"How stewardship, infection prevention and new drug development slow resistance, and their limits",0.85,85.0,covered,"Stewardship, hygiene, vaccination, surveillance and drug development are covered. Limits are only partly addressed, mostly as evidence gaps."
+P1,FQ08,1,"HTTPS as HTTP carried inside a TLS-encrypted channel, and the problems it addresses",0.9,90.0,covered,Layering HTTP over TLS with postcard/envelope analogy; eavesdropping and tampering addressed.
+P1,FQ08,2,TLS handshake: negotiating protocol version and cipher suite between client and server,0.95,95.0,covered,Clearly explains version and cipher suite negotiation.
+P1,FQ08,3,"Server authentication through certificates, certificate authorities, and the chain of trust",0.85,85.0,covered,Certificates and CA signatures explained; chain of trust only implicit.
+P1,FQ08,4,"Key exchange establishing shared session keys, with forward secrecy",0.75,75.0,partial,Key exchange and session keys explained; forward secrecy not mentioned.
+P1,FQ08,5,Encryption and integrity protection of data in transit against eavesdropping and tampering,0.95,95.0,covered,"Record protocol, symmetric encryption, MACs explained with example."
+P1,FQ08,6,"Threats HTTPS does not stop: malware, phishing sites, compromised servers, endpoint attacks, metadata exposure",0.95,95.0,covered,Covers all listed threats with explanation.
+P1,FQ09,1,"Gravity compresses a star's core, creating the extreme temperature and pressure needed for fusion",0.7,70.0,partial,"Gravity's role in requiring high core pressure/temperature is mentioned, but compression as the cause of fusion conditions is only implicit."
+P1,FQ09,2,Quantum tunneling lets positively charged nuclei overcome electrical repulsion and fuse,0.0,0.0,missing,Not mentioned.
+P1,FQ09,3,Hydrogen fuses into helium via proton-proton chain or CNO cycle,0.95,95.0,covered,Clearly explained with temperature regimes and mass dependence.
+P1,FQ09,4,"Mass converts to energy via E=mc², released as radiation and heat",0.7,70.0,partial,Mentions mass deficit and mass-energy equivalence but explicitly declines to explain it.
+P1,FQ09,5,Hydrostatic equilibrium: fusion pressure balances gravity to keep the star stable,0.95,95.0,covered,Defined and explained well.
+P1,FQ09,6,A star's initial mass sets its fuel burn rate and therefore lifetime,1.0,100.0,covered,"Thoroughly explained with the lifetime ratio, scaling, vehicle analogy, and examples."
+P1,FQ10,1,Rusting as electrochemical oxidation of iron to iron oxides,0.95,95.0,covered,Clearly explained as an electrochemical redox process producing iron oxide.
+P1,FQ10,2,"Required reactants: oxygen and water, and the role of electrolytes",0.8,80.0,covered,Oxygen and water are well explained; the role of electrolytes is not mentioned.
+P1,FQ10,3,Anodic and cathodic half-reactions forming Fe(OH)2 then hydrated Fe2O3 rust,0.95,95.0,covered,"Anode, cathode, Fe(OH)2 and hydrated iron(III) oxide are all covered."
+P1,FQ10,4,"Why rust is flaky and porous, so corrosion continues inward",0.95,95.0,covered,"Explains that porous, flaky, non-adhering rust lets air and water through."
+P1,FQ10,5,"Barrier protection: paint, oil, plastic coating, or plating that blocks oxygen and water",0.95,95.0,covered,"Paint, grease, oil and polymers are covered, with the blocking mechanism explained."
+P1,FQ10,6,"Sacrificial protection and alloying: galvanizing, cathodic anodes, stainless steel, and their limitations",0.8,80.0,covered,"Galvanizing, sacrificial anodes, ICCP and stainless steel are covered. Limitations are only briefly implied."

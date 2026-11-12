@@ -1,0 +1,1495 @@
+{
+  "record": {
+    "experiment_id": "EXP_GEMINI_20261112T084659Z_b931c2",
+    "evaluated_script_sha256": "97203046e1f1ba5bd303b0717097c8c136b74db8a047fa6c3a8e07d57a518da2",
+    "reference_pool_sha256": "2728a0901e6ad9216d7b46d6ddbe10a6df23f204efe19747c249aed03c2a1c22",
+    "generation_config_sha256": "130fb20735098b5ae7683be72a40463c48605cdf59d320daa9f9373f43ee4512",
+    "prompt_version": "evidence-aware-10q-shared-checklist-clean-narration-v1.6.0",
+    "system_id": "P1",
+    "prompt_id": "FQ10",
+    "domain": "Materials Science / Chemistry",
+    "reasoning_type": "chemical-mechanism-and-prevention",
+    "generation_provider": "gemini",
+    "generation_access": "google_api",
+    "generation_model": "gemini-3.8-flash",
+    "evaluator_provider": "anthropic",
+    "evaluator_model": "claude-sonnet-5-5",
+    "claim_count": 21,
+    "supported_claims": 15,
+    "partial_claims": 6,
+    "unsupported_claims": 0,
+    "contradicted_claims": 0,
+    "supported_claim_rate": 0.7142857142857143,
+    "reference_evidence_support_percent": 85.71428571428571,
+    "query_coverage_percent": 90.0,
+    "query_relevance_percent": 95.0,
+    "narration_quality_percent": 87.5,
+    "citation_precision": 0.6444444444444445,
+    "citation_recall": 0.7142857142857143,
+    "citation_f1": 0.677570093457944,
+    "grounded_requirement_coverage_percent": 76.66667,
+    "context_precision_at_k": 1.0,
+    "context_recall_percent": 91.66666666666667,
+    "repair_effectiveness_points": -1.66667,
+    "requirement_preservation_rate": 0.8333333333333334,
+    "source_count": 7,
+    "source_type_count": 1,
+    "llm_calls": 24,
+    "prompt_tokens": 80502,
+    "output_tokens": 28532,
+    "thinking_tokens": 78,
+    "billable_output_tokens": 28610,
+    "retrieval_calls": 5,
+    "latency_seconds": 225.6458702000018,
+    "word_count": 816,
+    "estimated_llm_cost_usd": 0.167664,
+    "llm_call_latency_p50_seconds": 10.214218799999799,
+    "llm_call_latency_p90_seconds": 13.297814679999647
+  },
+  "details": {
+    "artifact_identity": {
+      "experiment_id": "EXP_GEMINI_20261112T084659Z_b931c2",
+      "evaluated_script_sha256": "97203046e1f1ba5bd303b0717097c8c136b74db8a047fa6c3a8e07d57a518da2",
+      "reference_pool_sha256": "2728a0901e6ad9216d7b46d6ddbe10a6df23f204efe19747c249aed03c2a1c22",
+      "generation_config_sha256": "130fb20735098b5ae7683be72a40463c48605cdf59d320daa9f9373f43ee4512",
+      "prompt_version": "evidence-aware-10q-shared-checklist-clean-narration-v1.6.0"
+    },
+    "narration_judged_script_sha256": "34fc4ca612757bb0e51c24f1949847d53b8704e5b5879321f0df69035af91556",
+    "question_checklist": {
+      "aspects": [
+        "Rusting as electrochemical oxidation of iron to iron oxides",
+        "Required reactants: oxygen and water, and the role of electrolytes",
+        "Anodic and cathodic half-reactions forming Fe(OH)2 then hydrated Fe2O3 rust",
+        "Why rust is flaky and porous, so corrosion continues inward",
+        "Barrier protection: paint, oil, plastic coating, or plating that blocks oxygen and water",
+        "Sacrificial protection and alloying: galvanizing, cathodic anodes, stainless steel, and their limitations"
+      ],
+      "source": "derived_once_per_question_by_evaluator",
+      "aspects_sha256": "55c9b4df898dccaebfe45fd7228e2375e61d20a84585d266ed03d27b35b319c0",
+      "derived_at": "2026-11-12T08:57:19.819082+00:00",
+      "derived_by_model": "claude-sonnet-5-5",
+      "derivation_cost_usd": 0.0050854,
+      "derived_in_this_call": false,
+      "file": "outputs_final_10q\\experiments\\EXP_GEMINI_20261112T084659Z_b931c2\\checklists\\FQ10.json"
+    },
+    "evaluation_claims": [
+      {
+        "claim_id": "c1",
+        "text": "Rusting is an electrochemical redox process occurring at microscopic sites on the iron surface, not a simple dry chemical decomposition.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-ca233587d839",
+          "E-5e6df5069d21"
+        ]
+      },
+      {
+        "claim_id": "c2",
+        "text": "Both oxygen and water or moisture must be present simultaneously for rust to develop.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-c77bf1d466a2",
+          "E-0fb54c5af5e9",
+          "E-4dc3ae0dd355"
+        ]
+      },
+      {
+        "claim_id": "c3",
+        "text": "Iron remains relatively unaffected when exposed to pure water alone or to dry oxygen alone.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-a93a6c768837"
+        ]
+      },
+      {
+        "claim_id": "c4",
+        "text": "At the anodic region, metallic iron is oxidized, releasing two electrons per atom to form iron(II) ions in solution.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-ca233587d839",
+          "E-0e62c67d7c33"
+        ]
+      },
+      {
+        "claim_id": "c5",
+        "text": "Electrons released at the anode flow to the cathodic region where reduction occurs.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-0e62c67d7c33"
+        ]
+      },
+      {
+        "claim_id": "c6",
+        "text": "At the cathodic region, dissolved oxygen accepts electrons and reacts with water to produce hydroxide ions.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-ca233587d839",
+          "E-0e62c67d7c33"
+        ]
+      },
+      {
+        "claim_id": "c7",
+        "text": "Iron(II) ions combine with hydroxide ions to form a precipitate of iron(II) hydroxide.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-ca233587d839",
+          "E-5e6df5069d21"
+        ]
+      },
+      {
+        "claim_id": "c8",
+        "text": "In the presence of dissolved oxygen, iron(II) hydroxide is further oxidized to hydrated iron(III) oxide, which is rust.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-5e6df5069d21",
+          "E-4c30da5431a0"
+        ]
+      },
+      {
+        "claim_id": "c9",
+        "text": "Iron, like aluminium, can initially form an adherent oxide layer that halts oxidation until it is degraded by oxygen and water.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-0fb54c5af5e9",
+          "E-a93a6c768837",
+          "E-6589d2f77276"
+        ]
+      },
+      {
+        "claim_id": "c10",
+        "text": "Rust formed under moist corrosive conditions is porous, flaky and non-adhering.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-0fb54c5af5e9",
+          "E-a93a6c768837",
+          "E-6589d2f77276"
+        ]
+      },
+      {
+        "claim_id": "c11",
+        "text": "Flaky rust does not passivate the surface, allowing air and water to penetrate and continue corroding the underlying iron.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-0fb54c5af5e9",
+          "E-6589d2f77276"
+        ]
+      },
+      {
+        "claim_id": "c12",
+        "text": "Coatings such as paint, grease, oil, varnish or polymers form a barrier separating iron from moisture and oxygen.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-c15e22daaa4a",
+          "E-c77bf1d466a2",
+          "E-b3df17a3c0a7"
+        ]
+      },
+      {
+        "claim_id": "c13",
+        "text": "As long as a barrier coating remains continuous and intact, it prevents rust formation by keeping reactants from the iron surface.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-c77bf1d466a2",
+          "E-4dc3ae0dd355",
+          "E-02133cca8554"
+        ]
+      },
+      {
+        "claim_id": "c14",
+        "text": "In sacrificial protection, iron is electrically connected to a more reactive metal with a more negative electrode potential, such as zinc, aluminium or magnesium.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-c15e22daaa4a",
+          "E-02133cca8554"
+        ]
+      },
+      {
+        "claim_id": "c15",
+        "text": "The sacrificial anode oxidizes and corrodes in preference to iron, supplying electrons that make the iron's active sites into cathode sites.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-c15e22daaa4a",
+          "E-dd51a68f6185",
+          "E-02133cca8554"
+        ]
+      },
+      {
+        "claim_id": "c16",
+        "text": "Galvanization coats iron or steel with a layer of zinc, commonly done by hot-dip galvanizing.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-c15e22daaa4a",
+          "E-b3df17a3c0a7"
+        ]
+      },
+      {
+        "claim_id": "c17",
+        "text": "Impressed current cathodic protection (ICCP) uses an external power source to supply cathodic protection to large installations such as pipelines and marine structures.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-452086b24314",
+          "E-02133cca8554",
+          "E-398346e4fc77"
+        ]
+      },
+      {
+        "claim_id": "c18",
+        "text": "ICCP systems use anodes such as mixed metal oxide coated titanium connected to an external power source to supply protective current.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-452086b24314",
+          "E-398346e4fc77"
+        ]
+      },
+      {
+        "claim_id": "c19",
+        "text": "Alloying iron with chromium, as in stainless steel, forms a protective adherent chromium(III) oxide passivation layer.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-c15e22daaa4a",
+          "E-6589d2f77276"
+        ]
+      },
+      {
+        "claim_id": "c20",
+        "text": "The chromium oxide passivating film protects the underlying metal from further oxidation, unlike permeable rust.",
+        "needs_citation": true,
+        "importance": "core",
+        "citation_ids": [
+          "E-6589d2f77276"
+        ]
+      },
+      {
+        "claim_id": "c21",
+        "text": "Adding alloying elements such as nickel and molybdenum to steel can further enhance corrosion resistance.",
+        "needs_citation": true,
+        "importance": "supporting",
+        "citation_ids": [
+          "E-398346e4fc77"
+        ]
+      }
+    ],
+    "reference_verifications": [
+      {
+        "claim_id": "c1",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-4a9516a839d8",
+          "E-ca233587d839",
+          "E-b64e2a74b225"
+        ],
+        "rationale": "Evidence supports rusting being electrochemical redox with anode/cathode regions; 'microscopic sites' is not clearly stated (droplet regions), and the contrast with dry chemical decomposition is not directly addressed."
+      },
+      {
+        "claim_id": "c2",
+        "status": "supported",
+        "confidence": 0.88,
+        "evidence_ids": [
+          "E-1736eef0308e",
+          "E-0e62c67d7c33",
+          "E-4fb46c143d9d"
+        ],
+        "rationale": "Evidence states rusting needs both air/oxygen and water/moisture."
+      },
+      {
+        "claim_id": "c3",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-1736eef0308e"
+        ],
+        "rationale": "Directly states iron is relatively unaffected by pure water or dry oxygen."
+      },
+      {
+        "claim_id": "c4",
+        "status": "supported",
+        "confidence": 0.92,
+        "evidence_ids": [
+          "E-ca233587d839",
+          "E-0e62c67d7c33",
+          "E-b64e2a74b225"
+        ],
+        "rationale": "Anode: Fe → Fe2+ + 2e-, iron atoms give up two electrons to form iron(II) ions."
+      },
+      {
+        "claim_id": "c5",
+        "status": "supported",
+        "confidence": 0.92,
+        "evidence_ids": [
+          "E-b64e2a74b225",
+          "E-0e62c67d7c33"
+        ],
+        "rationale": "Electrons freed at the anode flow to the cathode area where oxygen is reduced."
+      },
+      {
+        "claim_id": "c6",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-ca233587d839",
+          "E-4a9516a839d8"
+        ],
+        "rationale": "Oxygen gains electrons and reacts with water to form OH-."
+      },
+      {
+        "claim_id": "c7",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-ca233587d839",
+          "E-5e6df5069d21"
+        ],
+        "rationale": "Iron(II) ions react with hydroxide to form a precipitate of Fe(OH)2."
+      },
+      {
+        "claim_id": "c8",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-5e6df5069d21"
+        ],
+        "rationale": "Fe(OH)2 oxidizes in presence of dissolved oxygen to hydrated iron(III) oxide, rust."
+      },
+      {
+        "claim_id": "c9",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-a93a6c768837",
+          "E-0fb54c5af5e9"
+        ],
+        "rationale": "One source says iron, like aluminium, has an adherent passivation layer degraded by oxygen and water. Another says rust provides no passivation, unlike aluminum. The claim is only partly supported."
+      },
+      {
+        "claim_id": "c10",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-a93a6c768837",
+          "E-0fb54c5af5e9"
+        ],
+        "rationale": "Evidence says iron hydroxides do not adhere and flake off, and that surface rust is flaky and friable with a porous texture. It does not directly say rust formed under corrosive conditions is porous, flaky and non-adhering."
+      },
+      {
+        "claim_id": "c11",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-0fb54c5af5e9",
+          "E-6589d2f77276"
+        ],
+        "rationale": "Surface rust is flaky, gives no passivation; rust is permeable to air and water so interior iron continues to corrode."
+      },
+      {
+        "claim_id": "c12",
+        "status": "supported",
+        "confidence": 0.88,
+        "evidence_ids": [
+          "E-708dec72e13d",
+          "E-4fb46c143d9d",
+          "E-b3df17a3c0a7",
+          "E-02133cca8554"
+        ],
+        "rationale": "Paint, varnish, oil, polymers act as barriers isolating iron from oxygen and moisture; grease not explicit but minor."
+      },
+      {
+        "claim_id": "c13",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-6589d2f77276",
+          "E-4fb46c143d9d",
+          "E-02133cca8554"
+        ],
+        "rationale": "Coatings isolate iron and preclude rust formation, but the explicit condition 'continuous and intact' is not stated."
+      },
+      {
+        "claim_id": "c14",
+        "status": "supported",
+        "confidence": 0.88,
+        "evidence_ids": [
+          "E-fe41887423fe"
+        ],
+        "rationale": "Sacrificial anode attached with more negative electrode potential, commonly zinc, aluminium, or magnesium."
+      },
+      {
+        "claim_id": "c15",
+        "status": "supported",
+        "confidence": 0.82,
+        "evidence_ids": [
+          "E-dd51a68f6185",
+          "E-fe41887423fe",
+          "E-e022307d7293"
+        ],
+        "rationale": "Anode oxidizes faster than the protected metal; electrons provided convert active sites to passive/cathode sites."
+      },
+      {
+        "claim_id": "c16",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-c15e22daaa4a",
+          "E-987295178587",
+          "E-b3df17a3c0a7"
+        ],
+        "rationale": "Galvanization is a zinc coating on iron/steel, by hot-dip or electroplating."
+      },
+      {
+        "claim_id": "c17",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-398346e4fc77",
+          "E-b3df17a3c0a7"
+        ],
+        "rationale": "ICCP uses an external power source and is commonly used in pipelines and marine structures."
+      },
+      {
+        "claim_id": "c18",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-452086b24314"
+        ],
+        "rationale": "ICCP consists of mixed metal oxide coated titanium anodes connected to an external power source."
+      },
+      {
+        "claim_id": "c19",
+        "status": "partial",
+        "confidence": 0.72,
+        "evidence_ids": [
+          "E-6589d2f77276",
+          "E-c15e22daaa4a"
+        ],
+        "rationale": "Stainless steel forms a chromium(III) oxide passivation layer; chromium alloying is mentioned. 'Adherent' is not stated for chromium oxide."
+      },
+      {
+        "claim_id": "c20",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-6589d2f77276",
+          "E-a93a6c768837"
+        ],
+        "rationale": "Rust is permeable and passivation layers protect from further oxidation, but the evidence does not explicitly say the chromium oxide film protects the metal."
+      },
+      {
+        "claim_id": "c21",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-398346e4fc77",
+          "E-c15e22daaa4a",
+          "E-8f0579484424"
+        ],
+        "rationale": "Evidence states adding chromium, nickel, and molybdenum enhances corrosion resistance; alloying iron/steel with nickel increases rust resistance. Molybdenum is explicitly mentioned in E-398346e4fc77, which refers to materials generally including stainless steel."
+      }
+    ],
+    "reference_evidence_ids_by_claim": {
+      "c1": [
+        "E-548f98c341a2",
+        "E-0e62c67d7c33",
+        "E-1736eef0308e",
+        "E-ca233587d839",
+        "E-4fb46c143d9d"
+      ],
+      "c2": [
+        "E-1736eef0308e",
+        "E-ca233587d839",
+        "E-4fb46c143d9d",
+        "E-4dc3ae0dd355",
+        "E-b64e2a74b225"
+      ],
+      "c3": [
+        "E-1736eef0308e",
+        "E-4fb46c143d9d",
+        "E-0e62c67d7c33",
+        "E-c15e22daaa4a",
+        "E-ca233587d839"
+      ],
+      "c4": [
+        "E-ca233587d839",
+        "E-4c30da5431a0",
+        "E-b64e2a74b225",
+        "E-1736eef0308e",
+        "E-c15e22daaa4a"
+      ],
+      "c5": [
+        "E-0e62c67d7c33",
+        "E-b64e2a74b225",
+        "E-d31ac2a355a8",
+        "E-4a9516a839d8",
+        "E-dd51a68f6185"
+      ],
+      "c6": [
+        "E-b64e2a74b225",
+        "E-4c30da5431a0",
+        "E-ca233587d839",
+        "E-4a9516a839d8",
+        "E-ac9005256285"
+      ],
+      "c7": [
+        "E-ca233587d839",
+        "E-4c30da5431a0",
+        "E-e3b639a21a67",
+        "E-1f3baa81d928",
+        "E-c15e22daaa4a"
+      ],
+      "c8": [
+        "E-5e6df5069d21",
+        "E-e3b639a21a67",
+        "E-0fb54c5af5e9",
+        "E-4c30da5431a0",
+        "E-4fb46c143d9d"
+      ],
+      "c9": [
+        "E-a93a6c768837",
+        "E-e3b639a21a67",
+        "E-4c30da5431a0",
+        "E-c15e22daaa4a",
+        "E-ca233587d839"
+      ],
+      "c10": [
+        "E-a93a6c768837",
+        "E-b64e2a74b225",
+        "E-ca233587d839",
+        "E-708dec72e13d",
+        "E-f94a66651372"
+      ],
+      "c11": [
+        "E-0fb54c5af5e9",
+        "E-0e62c67d7c33",
+        "E-68b97b94eaeb",
+        "E-c15e22daaa4a",
+        "E-ca233587d839"
+      ],
+      "c12": [
+        "E-708dec72e13d",
+        "E-7c49fa9425ea",
+        "E-f94a66651372",
+        "E-02133cca8554",
+        "E-c15e22daaa4a"
+      ],
+      "c13": [
+        "E-4fb46c143d9d",
+        "E-c15e22daaa4a",
+        "E-6589d2f77276",
+        "E-f94a66651372",
+        "E-b3df17a3c0a7"
+      ],
+      "c14": [
+        "E-fe41887423fe",
+        "E-d075b0a7c4b7",
+        "E-c15e22daaa4a",
+        "E-e022307d7293",
+        "E-0e62c67d7c33"
+      ],
+      "c15": [
+        "E-9f954831fed1",
+        "E-dd51a68f6185",
+        "E-4a0117f60bf6",
+        "E-fe41887423fe",
+        "E-b64e2a74b225"
+      ],
+      "c16": [
+        "E-c15e22daaa4a",
+        "E-987295178587",
+        "E-dd49e015c1cf",
+        "E-d075b0a7c4b7",
+        "E-b3df17a3c0a7"
+      ],
+      "c17": [
+        "E-452086b24314",
+        "E-02133cca8554",
+        "E-dd51a68f6185",
+        "E-c77bf1d466a2",
+        "E-c15e22daaa4a"
+      ],
+      "c18": [
+        "E-452086b24314",
+        "E-2043872535db",
+        "E-d075b0a7c4b7",
+        "E-dd51a68f6185",
+        "E-bd54334a0a10"
+      ],
+      "c19": [
+        "E-6589d2f77276",
+        "E-c15e22daaa4a",
+        "E-398346e4fc77",
+        "E-8f0579484424",
+        "E-ca233587d839"
+      ],
+      "c20": [
+        "E-a93a6c768837",
+        "E-e3b639a21a67",
+        "E-8f0579484424",
+        "E-4fb46c143d9d",
+        "E-0e62c67d7c33"
+      ],
+      "c21": [
+        "E-398346e4fc77",
+        "E-8f0579484424",
+        "E-c15e22daaa4a",
+        "E-2043872535db",
+        "E-548f98c341a2"
+      ]
+    },
+    "citation_entailment_verifications": [
+      {
+        "claim_id": "c1",
+        "status": "partial",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "E-5e6df5069d21",
+          "E-ca233587d839"
+        ],
+        "rationale": "Evidence supports electrochemical redox process with anode/cathode sites on the iron surface. 'Microscopic' and contrast with dry chemical decomposition are not stated."
+      },
+      {
+        "claim_id": "c2",
+        "status": "supported",
+        "confidence": 0.88,
+        "evidence_ids": [
+          "E-4dc3ae0dd355",
+          "E-0fb54c5af5e9",
+          "E-c77bf1d466a2"
+        ],
+        "rationale": "Evidence states water and oxygen are essential for rusting and that iron in the presence of both forms rust."
+      },
+      {
+        "claim_id": "c3",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-a93a6c768837"
+        ],
+        "rationale": "Directly states iron is relatively unaffected by pure water or dry oxygen."
+      },
+      {
+        "claim_id": "c4",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-ca233587d839",
+          "E-0e62c67d7c33"
+        ],
+        "rationale": "At anode iron oxidized to Fe2+ losing 2 electrons; 'in solution' is a minor inference."
+      },
+      {
+        "claim_id": "c5",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-0e62c67d7c33"
+        ],
+        "rationale": "Electrons released at negative terminal flow to positive terminal where reduction of oxygen occurs."
+      },
+      {
+        "claim_id": "c6",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-0e62c67d7c33",
+          "E-ca233587d839"
+        ],
+        "rationale": "Both state dissolved/atmospheric oxygen gains electrons and reacts with water to form hydroxide ions."
+      },
+      {
+        "claim_id": "c7",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-5e6df5069d21",
+          "E-ca233587d839"
+        ],
+        "rationale": "Fe2+ + 2OH- gives Fe(OH)2 precipitate."
+      },
+      {
+        "claim_id": "c8",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-4c30da5431a0",
+          "E-5e6df5069d21"
+        ],
+        "rationale": "Fe(OH)2 oxidized by oxygen to hydrated iron(III) oxide (rust)."
+      },
+      {
+        "claim_id": "c9",
+        "status": "supported",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "E-a93a6c768837"
+        ],
+        "rationale": "States that, as with aluminium, a tightly adhering oxide passivation layer protects iron until converted by oxygen and water. Other passages say rust itself isn't passivating, but this is about the initial layer."
+      },
+      {
+        "claim_id": "c10",
+        "status": "partial",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "E-0fb54c5af5e9",
+          "E-6589d2f77276",
+          "E-a93a6c768837"
+        ],
+        "rationale": "Evidence supports flaky, non-adhering (hydroxides under corrosive conditions), and rust is permeable and has a porous surface texture; 'porous' is only loosely supported, and Cor-Ten rust adheres, so the generalization is not fully supported."
+      },
+      {
+        "claim_id": "c11",
+        "status": "supported",
+        "confidence": 0.93,
+        "evidence_ids": [
+          "E-0fb54c5af5e9",
+          "E-6589d2f77276"
+        ],
+        "rationale": "Surface rust gives no passivation; rust is permeable to air and water so the iron beneath continues to corrode."
+      },
+      {
+        "claim_id": "c12",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-b3df17a3c0a7",
+          "E-c15e22daaa4a",
+          "E-c77bf1d466a2"
+        ],
+        "rationale": "Paint, oil, varnish, polymers act as barriers isolating iron from water/oxygen; grease is not explicitly named but the claim says 'such as'."
+      },
+      {
+        "claim_id": "c13",
+        "status": "partial",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "E-02133cca8554",
+          "E-4dc3ae0dd355",
+          "E-c77bf1d466a2"
+        ],
+        "rationale": "Evidence supports coatings isolating iron from the environment and preventing contact with water and oxygen. It does not explicitly state the condition that the coating must remain continuous and intact."
+      },
+      {
+        "claim_id": "c14",
+        "status": "supported",
+        "confidence": 0.88,
+        "evidence_ids": [
+          "E-02133cca8554",
+          "E-c15e22daaa4a"
+        ],
+        "rationale": "The sacrificial anode must have a more negative electrode potential than iron, commonly zinc, aluminium or magnesium; sacrificial protection attaches a more reactive metal. Electrical connection is implied by the cell formed."
+      },
+      {
+        "claim_id": "c15",
+        "status": "supported",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-02133cca8554",
+          "E-c15e22daaa4a",
+          "E-dd51a68f6185"
+        ],
+        "rationale": "The more reactive metal corrodes before iron; electrons from galvanic anodes convert active sites to passive sites. The claim's 'cathode sites' wording is consistent with the cathode in the cell."
+      },
+      {
+        "claim_id": "c16",
+        "status": "supported",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "E-c15e22daaa4a",
+          "E-b3df17a3c0a7"
+        ],
+        "rationale": "Galvanization is coating iron or steel with zinc; hot-dip is mentioned as a method. 'Commonly' is mild."
+      },
+      {
+        "claim_id": "c17",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-398346e4fc77",
+          "E-02133cca8554"
+        ],
+        "rationale": "ICCP uses an external power source/applied current and is commonly used in pipelines and marine structures. 'Large installations' is a mild generalization."
+      },
+      {
+        "claim_id": "c18",
+        "status": "supported",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "E-452086b24314"
+        ],
+        "rationale": "Describes ICCP as mixed metal oxide coated titanium anodes connected to an external power source providing current."
+      },
+      {
+        "claim_id": "c19",
+        "status": "partial",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "E-6589d2f77276",
+          "E-c15e22daaa4a"
+        ],
+        "rationale": "Stainless steel forms a chromium(III) oxide passivation layer, and alloying with chromium is mentioned. 'Adherent' is not stated for chromium oxide (only for Cor-Ten rust)."
+      },
+      {
+        "claim_id": "c20",
+        "status": "partial",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "E-6589d2f77276"
+        ],
+        "rationale": "Rust is permeable so underlying iron keeps corroding, and stainless steel forms a passivation layer. The evidence does not explicitly say the chromium oxide film protects against further oxidation, though this is implied."
+      },
+      {
+        "claim_id": "c21",
+        "status": "partial",
+        "confidence": 0.75,
+        "evidence_ids": [
+          "E-398346e4fc77"
+        ],
+        "rationale": "Evidence says adding chromium, nickel, and molybdenum enhances corrosion resistance under material selection/alloying, but doesn't specifically mention steel, nor 'further' enhancement; it lists stainless steel and CRAs generally."
+      }
+    ],
+    "quality": {
+      "aspect_scores": [
+        {
+          "aspect": "Rusting as electrochemical oxidation of iron to iron oxides",
+          "score": 0.95,
+          "rationale": "Clearly explained as an electrochemical redox process producing iron oxide."
+        },
+        {
+          "aspect": "Required reactants: oxygen and water, and the role of electrolytes",
+          "score": 0.8,
+          "rationale": "Oxygen and water are well explained; the role of electrolytes is not mentioned."
+        },
+        {
+          "aspect": "Anodic and cathodic half-reactions forming Fe(OH)2 then hydrated Fe2O3 rust",
+          "score": 0.95,
+          "rationale": "Anode, cathode, Fe(OH)2 and hydrated iron(III) oxide are all covered."
+        },
+        {
+          "aspect": "Why rust is flaky and porous, so corrosion continues inward",
+          "score": 0.95,
+          "rationale": "Explains that porous, flaky, non-adhering rust lets air and water through."
+        },
+        {
+          "aspect": "Barrier protection: paint, oil, plastic coating, or plating that blocks oxygen and water",
+          "score": 0.95,
+          "rationale": "Paint, grease, oil and polymers are covered, with the blocking mechanism explained."
+        },
+        {
+          "aspect": "Sacrificial protection and alloying: galvanizing, cathodic anodes, stainless steel, and their limitations",
+          "score": 0.8,
+          "rationale": "Galvanizing, sacrificial anodes, ICCP and stainless steel are covered. Limitations are only briefly implied."
+        }
+      ],
+      "covered_aspects": [
+        "Rusting as electrochemical oxidation of iron to iron oxides",
+        "Required reactants: oxygen and water, and the role of electrolytes",
+        "Anodic and cathodic half-reactions forming Fe(OH)2 then hydrated Fe2O3 rust",
+        "Why rust is flaky and porous, so corrosion continues inward",
+        "Barrier protection: paint, oil, plastic coating, or plating that blocks oxygen and water",
+        "Sacrificial protection and alloying: galvanizing, cathodic anodes, stainless steel, and their limitations"
+      ],
+      "partially_covered_aspects": [],
+      "missing_aspects": [],
+      "coverage_score": 0.9,
+      "coverage_rationale": "Most aspects are well explained. Electrolytes and limitations of the protection methods are thin.",
+      "relevance_score": 0.95,
+      "relevance_rationale": "Nearly all content answers the question directly.",
+      "opening_orientation_score": 4,
+      "introduction_roadmap_score": 4,
+      "definitions_foundations_score": 3,
+      "explanatory_depth_score": 3,
+      "examples_applications_score": 3,
+      "organization_transitions_score": 4,
+      "clarity_accessibility_score": 3,
+      "spoken_naturalness_score": 3,
+      "conclusion_takeaway_score": 4,
+      "reflective_ending_score": 4,
+      "narration_rationale": ""
+    },
+    "additional_metric_details": {
+      "grounded_requirement_coverage_percent": 76.66667,
+      "context_precision_at_k": 1.0,
+      "context_recall_percent": 91.66666666666667,
+      "retrieval_k": 5,
+      "grounded_aspect_scores": [
+        1.0,
+        0.5,
+        1.0,
+        1.0,
+        1.0,
+        0.5
+      ],
+      "retrieved_aspect_scores": [
+        1.0,
+        0.5,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "retrieved_passages_scored": 5,
+      "retrieval_assessment": {
+        "grounded_aspects": [
+          {
+            "aspect": "Rusting as electrochemical oxidation of iron to iron oxides",
+            "score": 1.0,
+            "rationale": "E-ca233587d839 and E-0e62c67d7c33 describe rusting as an electrochemical redox process forming iron oxide."
+          },
+          {
+            "aspect": "Required reactants: oxygen and water, and the role of electrolytes",
+            "score": 0.5,
+            "rationale": "Oxygen and water are required and iron is unaffected by pure water or dry oxygen (E-a93a6c768837). Electrolytes are not explicitly discussed, apart from a mention of seawater and salt spray; the script omits them."
+          },
+          {
+            "aspect": "Anodic and cathodic half-reactions forming Fe(OH)2 then hydrated Fe2O3 rust",
+            "score": 1.0,
+            "rationale": "The anode and cathode reactions, Fe(OH)2 formation and its oxidation to hydrated Fe2O3 are all in the reference extracts."
+          },
+          {
+            "aspect": "Why rust is flaky and porous, so corrosion continues inward",
+            "score": 1.0,
+            "rationale": "The reference says rust is flaky and friable with no passivation, and that it is permeable to air and water so corrosion continues."
+          },
+          {
+            "aspect": "Barrier protection: paint, oil, plastic coating, or plating that blocks oxygen and water",
+            "score": 1.0,
+            "rationale": "Paint, oil, plastic and other coatings that block oxygen and water are directly supported."
+          },
+          {
+            "aspect": "Sacrificial protection and alloying: galvanizing, cathodic anodes, stainless steel, and their limitations",
+            "score": 0.5,
+            "rationale": "Galvanizing, sacrificial anodes, ICCP and the chromium(III) oxide layer of stainless steel are supported. The script does not state the limitations the reference gives: anodes are consumed, cost, weight, and expensive alloyed steel."
+          }
+        ],
+        "passage_relevance": [
+          {
+            "evidence_id": "E-c15e22daaa4a",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-ca233587d839",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-c77bf1d466a2",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-4c30da5431a0",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-5e6df5069d21",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-4ab0c9c33fa0",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-0e62c67d7c33",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-0fb54c5af5e9",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-a93a6c768837",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-dd51a68f6185",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-4dc3ae0dd355",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-f94a66651372",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-452086b24314",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-02133cca8554",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-6589d2f77276",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-398346e4fc77",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-708dec72e13d",
+            "relevant": true
+          },
+          {
+            "evidence_id": "E-b3df17a3c0a7",
+            "relevant": true
+          }
+        ],
+        "retrieved_aspects": [
+          {
+            "aspect": "Rusting as electrochemical oxidation of iron to iron oxides",
+            "score": 1.0,
+            "rationale": "The retrieved passages cover the electrochemical redox process and iron oxide formation."
+          },
+          {
+            "aspect": "Required reactants: oxygen and water, and the role of electrolytes",
+            "score": 0.5,
+            "rationale": "Oxygen and water are covered, and seawater and salt spray are mentioned. The role of electrolytes is not explained."
+          },
+          {
+            "aspect": "Anodic and cathodic half-reactions forming Fe(OH)2 then hydrated Fe2O3 rust",
+            "score": 1.0,
+            "rationale": "E-ca233587d839, E-5e6df5069d21 and E-4c30da5431a0 give the complete half-reactions and the Fe(OH)2 to hydrated Fe2O3 steps."
+          },
+          {
+            "aspect": "Why rust is flaky and porous, so corrosion continues inward",
+            "score": 1.0,
+            "rationale": "E-0fb54c5af5e9, E-a93a6c768837 and E-6589d2f77276 cover flaky, friable, permeable rust and continued corrosion."
+          },
+          {
+            "aspect": "Barrier protection: paint, oil, plastic coating, or plating that blocks oxygen and water",
+            "score": 1.0,
+            "rationale": "E-c15e22daaa4a, E-f94a66651372 and E-02133cca8554 cover barrier coatings and how they block oxygen and water."
+          },
+          {
+            "aspect": "Sacrificial protection and alloying: galvanizing, cathodic anodes, stainless steel, and their limitations",
+            "score": 1.0,
+            "rationale": "Galvanizing, sacrificial anodes, ICCP, stainless steel and chromium(III) oxide are all covered. Limitations are covered too: anodes are consumed, weight, cost and expensive alloyed steel."
+          }
+        ]
+      },
+      "revision_comparison": {
+        "repair_effectiveness_points": -1.66667,
+        "requirement_preservation_rate": 0.8333333333333334,
+        "requirements_previously_addressed": 6,
+        "requirements_preserved_without_regression": 5,
+        "repair_coverage_delta_points": -0.8333333333333286,
+        "repair_narration_delta_points": -2.5
+      },
+      "notes": "All scores are Claude judgments, not verified ground truth. Repair effectiveness compares coverage/narration, not factual truth. No revision or no retrieval is N/A rather than zero."
+    },
+    "metric_semantics": {
+      "reference_evidence_support_percent": "Evidence entailment within the frozen reference corpus; not factual accuracy.",
+      "query_coverage_percent": "Coverage of a fixed six-aspect checklist derived once per question from the question text and shared by all systems; missing/duplicate judge outputs are normalized against that fixed denominator.",
+      "query_relevance_percent": "Independent-model relevance judgement.",
+      "narration_input": "Coverage, relevance, narration and grounded-requirement judgements use the complete script with [E-...] evidence markers removed; claim extraction and citation metrics use the marked script. Aspect scores are continuous in [0, 1].",
+      "narration_quality_percent": "Ten-dimension spoken educational narration score; excludes factual truth.",
+      "citation_precision": "Share of emitted citation IDs that are identified as supporting the claim when verification is restricted to cited passages.",
+      "citation_recall": "Share of all citation-required extracted factual claims that have at least one cited passage judged to support the claim.",
+      "evaluation_estimated_llm_cost_usd": "Evaluator telemetry. CLI mode uses Claude Code's reported list-price equivalent; API mode uses the configured Anthropic per-token rates."
+    },
+    "evaluation_telemetry": {
+      "started_at": "2026-11-12T14:01:22.222510+00:00",
+      "ended_at": "2026-11-12T14:03:00.214867+00:00",
+      "wall_seconds": 97.99177589999817,
+      "retrieval_calls": 0,
+      "retrieved_documents": 0,
+      "llm_calls": [
+        {
+          "task": "script_claims",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 13.500801800000772,
+          "prompt_tokens": 3777,
+          "output_tokens": 2052,
+          "thinking_tokens": 0,
+          "total_tokens": 5829,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0324416,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0324416,
+            "cache_creation_input_tokens": 2959,
+            "cache_read_input_tokens": 816,
+            "session_id": "05a00eaa-24f7-4fdc-814c-c99e71c40cbf",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 5.551360099998419,
+          "prompt_tokens": 7219,
+          "output_tokens": 586,
+          "thinking_tokens": 0,
+          "total_tokens": 7805,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0306487,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0306487,
+            "cache_creation_input_tokens": 6170,
+            "cache_read_input_tokens": 1047,
+            "session_id": "2c16be89-1ea5-48b6-ba27-6f9ac6a47a03",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 5.877184299999499,
+          "prompt_tokens": 7826,
+          "output_tokens": 595,
+          "thinking_tokens": 0,
+          "total_tokens": 8421,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0331667,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0331667,
+            "cache_creation_input_tokens": 6777,
+            "cache_read_input_tokens": 1047,
+            "session_id": "f877607a-6b73-422b-a320-3e783da6e740",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 5.903936700000486,
+          "prompt_tokens": 9701,
+          "output_tokens": 599,
+          "thinking_tokens": 0,
+          "total_tokens": 10300,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0407067,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0407067,
+            "cache_creation_input_tokens": 8652,
+            "cache_read_input_tokens": 1047,
+            "session_id": "cf78f4ce-d494-472c-b313-d2d90e688673",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 5.395206599998346,
+          "prompt_tokens": 10300,
+          "output_tokens": 561,
+          "thinking_tokens": 0,
+          "total_tokens": 10861,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0427227,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0427227,
+            "cache_creation_input_tokens": 9251,
+            "cache_read_input_tokens": 1047,
+            "session_id": "4572e75f-650d-44f5-a928-10d436df6c52",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "reference_evidence_support",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 3.8019653000010294,
+          "prompt_tokens": 4713,
+          "output_tokens": 220,
+          "thinking_tokens": 0,
+          "total_tokens": 4933,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0169647,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0169647,
+            "cache_creation_input_tokens": 3664,
+            "cache_read_input_tokens": 1047,
+            "session_id": "2cd2c8c8-9216-4e9f-92c8-0e7a25d02957",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 5.146986199997627,
+          "prompt_tokens": 4993,
+          "output_tokens": 551,
+          "thinking_tokens": 0,
+          "total_tokens": 5544,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.021394699999999996,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.021394699999999996,
+            "cache_creation_input_tokens": 3944,
+            "cache_read_input_tokens": 1047,
+            "session_id": "b4c33a4a-4854-4644-8cde-c5bdaa086c56",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 6.038156800001161,
+          "prompt_tokens": 4968,
+          "output_tokens": 624,
+          "thinking_tokens": 0,
+          "total_tokens": 5592,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.022024699999999998,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.022024699999999998,
+            "cache_creation_input_tokens": 3919,
+            "cache_read_input_tokens": 1047,
+            "session_id": "efe92109-3266-460a-b4d6-dd62a69641bf",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 6.631248799996683,
+          "prompt_tokens": 5428,
+          "output_tokens": 695,
+          "thinking_tokens": 0,
+          "total_tokens": 6123,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.024574699999999998,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.024574699999999998,
+            "cache_creation_input_tokens": 4379,
+            "cache_read_input_tokens": 1047,
+            "session_id": "a88da6dc-eeab-45fb-a3f2-2b12e313b583",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 5.772209599999769,
+          "prompt_tokens": 4727,
+          "output_tokens": 611,
+          "thinking_tokens": 0,
+          "total_tokens": 5338,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0209307,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0209307,
+            "cache_creation_input_tokens": 3678,
+            "cache_read_input_tokens": 1047,
+            "session_id": "89282808-227b-46d8-b3a9-b71665f0fc55",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "citation_entailment",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 3.277973500000371,
+          "prompt_tokens": 2319,
+          "output_tokens": 186,
+          "thinking_tokens": 0,
+          "total_tokens": 2505,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0070487,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0070487,
+            "cache_creation_input_tokens": 1270,
+            "cache_read_input_tokens": 1047,
+            "session_id": "ff0b8b1c-a287-4bcb-94e5-c463fa663b3d",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "answer_fulfilment_and_narration_evaluation",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 8.84801829999924,
+          "prompt_tokens": 6088,
+          "output_tokens": 1244,
+          "thinking_tokens": 0,
+          "total_tokens": 7332,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0235319,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0235319,
+            "cache_creation_input_tokens": 2687,
+            "cache_read_input_tokens": 3399,
+            "session_id": "0aca4451-6ddd-4283-979a-5644532ea93d",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "grounded_requirements_and_retrieval_quality",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 12.659102100002201,
+          "prompt_tokens": 14185,
+          "output_tokens": 1800,
+          "thinking_tokens": 0,
+          "total_tokens": 15985,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.06948270000000001,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.06948270000000001,
+            "cache_creation_input_tokens": 12836,
+            "cache_read_input_tokens": 1347,
+            "session_id": "5ef9ab38-9b8d-4007-92d3-b06088da33ee",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        },
+        {
+          "task": "answer_fulfilment_and_narration_evaluation",
+          "model": "claude-sonnet-5-5",
+          "provider": "anthropic",
+          "latency_seconds": 8.080338000003394,
+          "prompt_tokens": 6256,
+          "output_tokens": 1101,
+          "thinking_tokens": 0,
+          "total_tokens": 7357,
+          "input_cost_usd": 0.0,
+          "output_cost_usd": 0.0,
+          "total_cost_usd": 0.0227739,
+          "attempts": 1,
+          "metadata": {
+            "access_method": "cli",
+            "access_mode": "claude_code_cli",
+            "requested_model": "claude-sonnet-5-5",
+            "resolved_model": "claude-sonnet-5-5",
+            "cli_reported_cost_usd": 0.0227739,
+            "cache_creation_input_tokens": 2855,
+            "cache_read_input_tokens": 3399,
+            "session_id": "10c4e23a-8702-421e-ad98-25b8d02afa51",
+            "claude_cli_version": "2.1.322 (Claude Code)",
+            "cost_semantics": "Claude Code reported list-price equivalent; subscription billing may differ"
+          }
+        }
+      ]
+    },
+    "evaluation_provider": "anthropic",
+    "evaluation_access": "claude_code_cli",
+    "claude_access_method": "cli",
+    "claude_cli_version": "2.1.322 (Claude Code)",
+    "evaluation_model_requested": "claude-sonnet-5-5",
+    "evaluation_model": "claude-sonnet-5-5",
+    "evaluation_cli_reported_cost_usd": 0.40841310000000003,
+    "evaluation_estimated_llm_cost_usd": 0.40841310000000003,
+    "generation_provider": "gemini",
+    "generation_access": "google_api",
+    "generation_model_requested": "gemini-3.8-flash",
+    "generation_estimated_llm_cost_usd": 0.167664,
+    "combined_generation_plus_evaluation_estimated_llm_cost_usd": 0.5760771
+  }
+}

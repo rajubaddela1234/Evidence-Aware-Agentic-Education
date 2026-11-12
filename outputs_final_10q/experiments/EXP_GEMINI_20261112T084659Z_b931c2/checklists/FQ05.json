@@ -1,0 +1,18 @@
+{
+  "prompt_id": "FQ05",
+  "question_sha256": "7ac9fcfab04490a916210f999a0f56f804b6295501a7bca2ed1c285b264914ea",
+  "aspects": [
+    "What a tsunami is: a series of long waves from displaced water",
+    "Underwater earthquakes at subduction zones displacing the seafloor and water column",
+    "Other triggers: landslides, volcanic eruptions, and meteorite impacts displacing water",
+    "How tsunami waves travel across deep ocean: high speed, long wavelength, small height",
+    "Shoaling: wave slowing and growing taller as water becomes shallow near shore",
+    "Coastal destruction factors: inundation, repeated surges, backwash, coastline shape, and limits of warning"
+  ],
+  "aspects_sha256": "fcbfc1d9c5d3a34b4a1abce15f07e0c7939b7638155a173caa3e737648c2a908",
+  "derived_at": "2026-11-12T08:56:34.674436+00:00",
+  "derived_by_model": "claude-sonnet-5-5",
+  "derivation_attempts": 2,
+  "derivation_cost_usd": 0.0052214,
+  "note": "Derived from the question text alone by the evaluator; shared by every system in this experiment. Never shown to generators."
+}
